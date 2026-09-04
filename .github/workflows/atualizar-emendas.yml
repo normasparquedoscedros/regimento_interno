@@ -1,0 +1,42 @@
+name: Atualizar emendas
+
+on:
+  schedule:
+    # A cada 15 minutos. Ajuste a expressão cron se quiser outra frequência
+    # (ex.: "*/30 * * * *" para 30 em 30 minutos). Veja crontab.guru.
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}   # permite rodar manualmente pelo botão "Run workflow" na aba Actions
+  push:
+    branches: [main]
+    paths:
+      - "scripts/atualizar_emendas.py"
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Buscar as planilhas e gerar data/emendas.json
+        run: python3 scripts/atualizar_emendas.py
+
+      - name: Publicar alteração (se houver dado novo)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/emendas.json
+          if git diff --cached --quiet; then
+            echo "Nada mudou desde a última checagem."
+          else
+            git commit -m "Atualizar emendas ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi
