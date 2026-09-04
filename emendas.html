@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tramitação do Regimento Interno — Parque dos Cedros</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+  :root{
+    --ink: #16281d;
+    --green-deep: #1e4d19;  /* Independência — verde 115°, formula título */
+    --green-mid: #298321;   /* Independência — verde 115°, tom intermediário */
+    --green-pale: #dbe7da;  /* Independência — verde 115°, fundo do cabeçalho */
+    --green-mint: #ddc23c;  /* Independência — amarelo 50°, cor de destaque */
+    --paper: #fbfbf8;
+    --line: #c4d6c2;
+    --muted: #556f52;
+    --flag-green: #117a37;
+    --flag-yellow: #ffd500;
+    --flag-blue: #002776;
+  }
+
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.5;
+  }
+
+  a{ color: inherit; }
+
+  .flag-stripe{ display:flex; height:6px; }
+  .flag-stripe div{ flex:1; }
+  .flag-stripe .fg{ background: var(--flag-green); }
+  .flag-stripe .fy{ background: var(--flag-yellow); }
+  .flag-stripe .fb{ background: var(--flag-blue); }
+
+  /* ---------- Header ---------- */
+  header.site{
+    background: var(--green-pale);
+  }
+  .header-inner{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 28px 32px 22px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .mark{
+    width: 54px; height: 54px; flex: none;
+  }
+  .header-text h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 27px;
+    margin: 0 0 2px;
+    color: var(--green-deep);
+    letter-spacing: -0.01em;
+  }
+  .header-text p{
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--muted);
+  }
+
+  .subbar{
+    background: var(--green-deep);
+  }
+  .subbar-inner{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 10px 32px;
+    display: flex;
+    gap: 26px;
+    font-size: 14px;
+    color: #eaf3ec;
+  }
+  .subbar a{ text-decoration:none; opacity:.88; }
+  .subbar a:hover{ opacity:1; text-decoration: underline; }
+  .subbar a.current{ opacity:1; font-weight:500; border-bottom: 2px solid var(--green-mint); padding-bottom: 2px; }
+  .subbar-form{
+    margin-left: auto;
+    background: var(--green-mint);
+    color: var(--green-deep) !important;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+  }
+  .subbar-form:hover{ text-decoration: none !important; filter: brightness(0.95); }
+
+  /* ---------- Layout ---------- */
+  .layout{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 30px 32px 80px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 40px;
+  }
+
+  /* ---------- Sidebar ---------- */
+  aside.filters{ position: sticky; top: 18px; align-self: start; }
+
+  .filter-toggle{
+    display: flex;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 3px;
+    margin-bottom: 22px;
+  }
+  .filter-toggle button{
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 8px 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--muted);
+  }
+  .filter-toggle button.active{
+    background: var(--green-deep);
+    color: #fff;
+  }
+
+  .filter-group h2{
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+    margin: 0 0 10px;
+    font-weight: 600;
+  }
+  .filter-list{ list-style:none; margin:0 0 26px; padding:0; }
+  .filter-list li{ margin-bottom: 3px; }
+  .filter-list button{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 14.5px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .filter-list button:hover{ background: var(--green-pale); }
+  .filter-list button.active{
+    background: var(--green-deep);
+    color: #fff;
+  }
+  .filter-list button.active .count{ color: #cfe9d7; }
+  .count{ font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  .filter-single{ margin: 0 0 26px; }
+  .filter-single button{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 6px;
+    color: var(--muted);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 600;
+  }
+  .filter-single button span:first-child{ color: var(--ink); font-size: 14.5px; text-transform: none; letter-spacing: 0; font-weight: 500; }
+  .filter-single button:hover{ background: var(--green-pale); }
+  .filter-single button.active{ background: var(--green-deep); }
+  .filter-single button.active span:first-child{ color: #fff; }
+  .filter-single button.active .count{ color: #cfe9d7; }
+
+  .search-unidade{
+    width: 100%;
+    padding: 9px 11px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .search-unidade:focus{ outline: 2px solid var(--green-mint); outline-offset: 1px; }
+
+  .texto-base-link{
+    display: block;
+    margin-top: 8px;
+    padding: 14px 15px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--green-mid);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13.5px;
+  }
+  .texto-base-link strong{
+    display:block;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--green-deep);
+    margin-bottom: 3px;
+  }
+  .texto-base-link span{ color: var(--muted); }
+
+  /* ---------- Main content ---------- */
+  main{ min-width: 0; }
+
+  .results-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .results-head h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0;
+    color: var(--green-deep);
+  }
+  .results-head .sub{ font-size: 13.5px; color: var(--muted); }
+
+  .card-list{ margin-top: 20px; display: flex; flex-direction: column; gap: 14px; }
+
+  .card{
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .card-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .card-id{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .badge{
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-aditiva{ background:#e4f2e9; color:#146332; }
+  .badge-modificativa{ background:#e6f0f9; color:#1c5389; }
+  .badge-supressiva{ background:#fbe9e9; color:#a13a3a; }
+  .badge-substitutiva{ background:#f3e9fb; color:#6a3aa1; }
+  .badge-redacao{ background:#f2f0e6; color:#71641d; }
+  .badge-parecer{ background:#fdeee0; color:#a05a12; }
+
+  .card h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 17px;
+    margin: 0 0 6px;
+  }
+  .card .meta{
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .card .meta button.unidade-link{
+    background:none; border:none; padding:0; font: inherit; color: var(--green-mid);
+    text-decoration: underline; cursor: pointer;
+  }
+  .card p.excerpt{
+    margin: 0;
+    font-size: 14.5px;
+    color: #333;
+  }
+  .card .pdf-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 13.5px;
+    color: var(--green-mid);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .card .pdf-link:hover{ text-decoration: underline; }
+
+  .empty{
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14.5px;
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+  }
+
+  .draft-note{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 12px 32px;
+    font-size: 12.5px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .draft-note .dot{
+    width: 7px; height:7px; border-radius:50%;
+    background: var(--green-mint);
+    flex: none;
+  }
+
+  @media (max-width: 760px){
+    .layout{ grid-template-columns: 1fr; }
+    aside.filters{ position: static; }
+  }
+</style>
+</head>
+<body>
+
+<div class="draft-note"><span class="dot"></span> Rascunho visual — dados fictícios, apenas para validar layout e identidade.</div>
+
+<header class="site">
+  <div class="header-inner">
+    <svg class="mark" viewBox="0 0 100 100" fill="none">
+      <ellipse cx="50" cy="52" rx="44" ry="36" fill="var(--green-pale)" stroke="var(--green-deep)" stroke-width="2"/>
+      <path d="M50 26 L62 46 L54 46 L64 62 L54 62 L50 76 L46 62 L36 62 L46 46 L38 46 Z" fill="var(--green-mid)"/>
+      <rect x="47" y="74" width="6" height="10" fill="var(--green-deep)"/>
+    </svg>
+    <div class="header-text">
+      <h1>Tramitação do Regimento Interno</h1>
+      <p>Comissão do Regimento Interno — Parque dos Cedros</p>
+    </div>
+  </div>
+  <div class="subbar">
+    <div class="subbar-inner">
+      <a href="index.html">Apresentação</a>
+      <a href="texto-base.html">Texto-base</a>
+      <a href="#" class="current">Emendas e pareceres</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdC9S3uUwWroZbwfEsjWQLZByayKFY1KGEAsaUHb_HryViZOw/viewform" target="_blank" rel="noopener" class="subbar-form">Enviar manifestação ↗</a>
+    </div>
+  </div>
+</header>
+<div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div>
+
+<div class="layout">
+
+  <aside class="filters">
+    <div class="filter-toggle">
+      <button id="tab-tipo" class="active">Por tipo</button>
+      <button id="tab-unidade">Por unidade</button>
+    </div>
+
+    <div id="painel-tipo" class="filter-group">
+      <h2>Emendas de mérito</h2>
+      <ul class="filter-list" id="lista-tipo-merito"></ul>
+      <div class="filter-single" id="link-tipo-redacao"></div>
+      <div class="filter-single" id="link-tipo-parecer"></div>
+    </div>
+
+    <div id="painel-unidade" class="filter-group" style="display:none;">
+      <h2>Buscar unidade</h2>
+      <input class="search-unidade" id="busca-unidade" type="text" placeholder="Ex.: 605">
+      <ul class="filter-list" id="lista-unidades"></ul>
+    </div>
+
+    <a class="texto-base-link" href="texto-base.html">
+      <strong>Texto-base do Regimento</strong>
+      <span>Versão apresentada pela Comissão — leia antes de consultar as emendas</span>
+    </a>
+  </aside>
+
+  <main>
+    <div class="results-head">
+      <h2 id="titulo-resultado">Todas as manifestações</h2>
+      <span class="sub" id="contagem-resultado"></span>
+      <span class="sub" id="atualizado-em" style="display:block; margin-top:2px;"></span>
+    </div>
+
+    <div class="card-list" id="lista-resultados"></div>
+  </main>
+
+</div>
+
+<script>
+  const TIPOS = {
+    aditiva:      { nome: "Aditiva",       classe: "badge-aditiva",      grupo: "merito" },
+    modificativa: { nome: "Modificativa",  classe: "badge-modificativa", grupo: "merito" },
+    supressiva:   { nome: "Supressiva",    classe: "badge-supressiva",   grupo: "merito" },
+    substitutiva: { nome: "Substitutiva",  classe: "badge-substitutiva", grupo: "merito" },
+    redacao:      { nome: "Redação",       classe: "badge-redacao",      grupo: "redacao" },
+    parecer:      { nome: "Parecer técnico", classe: "badge-parecer",    grupo: "parecer" },
+  };
+
+  // ---------- Dados: lidos de data/emendas.json (gerado por um GitHub Action  ----------
+  // que roda por trás dos panos, buscando as duas planilhas do lado do servidor
+  // e evitando o bloqueio de CORS que ocorre ao buscar direto do navegador.)
+  const ARQUIVO_DADOS = "data/emendas.json";
+
+  let DADOS = [];
+
+  async function carregarDados(){
+    const lista = document.getElementById("lista-resultados");
+    lista.innerHTML = `<div class="empty">Carregando emendas e pareceres…</div>`;
+    try {
+      const bust = (ARQUIVO_DADOS.includes("?") ? "&" : "?") + "cb=" + Date.now();
+      const resp = await fetch(ARQUIVO_DADOS + bust, { cache: "no-store" });
+      if (!resp.ok) throw new Error("Não foi possível ler " + ARQUIVO_DADOS);
+      const json = await resp.json();
+
+      DADOS = json.registros || [];
+      const dataGeracao = json.gerado_em ? new Date(json.gerado_em) : null;
+      document.getElementById("atualizado-em").textContent = dataGeracao
+        ? "Atualizado em " + dataGeracao.toLocaleString("pt-BR", { day:"2-digit", month:"2-digit", year:"numeric", hour:"2-digit", minute:"2-digit" })
+        : "";
+      render();
+    } catch (err){
+      console.error(err);
+      lista.innerHTML = `<div class="empty">Não foi possível carregar as emendas agora. Recarregue a página em instantes.</div>`;
+    }
+  }
+
+  let modo = "tipo";        // "tipo" | "unidade"
+  let filtroTipo = null;    // ex.: "aditiva" ou null (todas)
+  let filtroUnidade = null; // ex.: "605" ou null
+
+  function contarPorTipo(tipo){
+    return DADOS.filter(d => d.tipo === tipo).length;
+  }
+
+  function unidadesUnicas(){
+    const mapa = new Map();
+    DADOS.forEach(d => {
+      if (!mapa.has(d.unidade)) mapa.set(d.unidade, { nome: d.nome, count: 0 });
+      mapa.get(d.unidade).count++;
+    });
+    return [...mapa.entries()].sort((a,b) => a[0].localeCompare(b[0], undefined, {numeric:true}));
+  }
+
+  function montarListaTipo(){
+    // Grupo "mérito" tem 4 subtipos -> continua como título + lista
+    const listaMerito = document.getElementById("lista-tipo-merito");
+    listaMerito.innerHTML = "";
+    Object.entries(TIPOS)
+      .filter(([, info]) => info.grupo === "merito")
+      .forEach(([chave, info]) => {
+        const li = document.createElement("li");
+        const btn = document.createElement("button");
+        btn.className = (filtroTipo === chave) ? "active" : "";
+        btn.innerHTML = `<span>${info.nome}</span><span class="count">${contarPorTipo(chave)}</span>`;
+        btn.onclick = () => { filtroTipo = (filtroTipo === chave) ? null : chave; render(); };
+        li.appendChild(btn);
+        listaMerito.appendChild(li);
+      });
+
+    // Grupos "redação" e "parecer" têm um único subtipo -> link direto, sem título repetido
+    ["redacao", "parecer"].forEach(grupo => {
+      const [chave, info] = Object.entries(TIPOS).find(([, i]) => i.grupo === grupo);
+      const container = document.getElementById("link-tipo-" + grupo);
+      container.innerHTML = "";
+      const btn = document.createElement("button");
+      btn.className = (filtroTipo === chave) ? "active" : "";
+      const label = grupo === "redacao" ? "Emendas de Redação" : "Pareceres Técnicos";
+      btn.innerHTML = `<span>${label}</span><span class="count">${contarPorTipo(chave)}</span>`;
+      btn.onclick = () => { filtroTipo = (filtroTipo === chave) ? null : chave; render(); };
+      container.appendChild(btn);
+    });
+  }
+
+  function montarListaUnidade(filtroBusca){
+    const ul = document.getElementById("lista-unidades");
+    ul.innerHTML = "";
+    const termo = (filtroBusca || "").trim().toLowerCase();
+    unidadesUnicas()
+      .filter(([unidade, dados]) => unidade.toLowerCase().includes(termo) || dados.nome.toLowerCase().includes(termo))
+      .forEach(([unidade, dados]) => {
+        const li = document.createElement("li");
+        const btn = document.createElement("button");
+        btn.className = (filtroUnidade === unidade) ? "active" : "";
+        btn.innerHTML = `<span>Unidade ${unidade}</span><span class="count">${dados.count}</span>`;
+        btn.onclick = () => { filtroUnidade = (filtroUnidade === unidade) ? null : unidade; render(); };
+        li.appendChild(btn);
+        ul.appendChild(li);
+      });
+  }
+
+  function irParaUnidade(unidade){
+    modo = "unidade";
+    filtroUnidade = unidade;
+    filtroTipo = null;
+    document.getElementById("tab-tipo").classList.remove("active");
+    document.getElementById("tab-unidade").classList.add("active");
+    document.getElementById("painel-tipo").style.display = "none";
+    document.getElementById("painel-unidade").style.display = "block";
+    render();
+  }
+
+  function render(){
+    montarListaTipo();
+    montarListaUnidade(document.getElementById("busca-unidade").value);
+
+    let resultado = DADOS;
+    let titulo = "Todas as manifestações";
+
+    if (modo === "tipo" && filtroTipo){
+      resultado = DADOS.filter(d => d.tipo === filtroTipo);
+      titulo = "Emendas — " + TIPOS[filtroTipo].nome;
+    } else if (modo === "unidade" && filtroUnidade){
+      resultado = DADOS.filter(d => d.unidade === filtroUnidade);
+      const nomeMorador = DADOS.find(d => d.unidade === filtroUnidade)?.nome || "";
+      titulo = `Unidade ${filtroUnidade} — ${nomeMorador}`;
+    }
+
+    document.getElementById("titulo-resultado").textContent = titulo;
+    document.getElementById("contagem-resultado").textContent =
+      resultado.length + (resultado.length === 1 ? " manifestação" : " manifestações");
+
+    const lista = document.getElementById("lista-resultados");
+    lista.innerHTML = "";
+
+    if (resultado.length === 0){
+      lista.innerHTML = `<div class="empty">Nenhuma manifestação encontrada para este filtro.</div>`;
+      return;
+    }
+
+    resultado.forEach(d => {
+      const info = TIPOS[d.tipo];
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="card-top">
+          <span class="card-id">${d.id}</span>
+          <span class="badge ${info.classe}">${info.nome}</span>
+        </div>
+        <h3>${d.art}</h3>
+        <div class="meta">
+          Unidade <button class="unidade-link" onclick="irParaUnidade('${d.unidade}')">${d.unidade}</button> — ${d.nome}
+        </div>
+        <p class="excerpt">${d.excerto}</p>
+        ${d.pdf ? `<a class="pdf-link" href="${d.pdf}" target="_blank" rel="noopener">↓ Abrir arquivo anexado</a>` : ""}
+      `;
+      lista.appendChild(card);
+    });
+  }
+
+  document.getElementById("tab-tipo").onclick = () => {
+    modo = "tipo"; filtroUnidade = null;
+    document.getElementById("tab-tipo").classList.add("active");
+    document.getElementById("tab-unidade").classList.remove("active");
+    document.getElementById("painel-tipo").style.display = "block";
+    document.getElementById("painel-unidade").style.display = "none";
+    render();
+  };
+  document.getElementById("tab-unidade").onclick = () => {
+    modo = "unidade"; filtroTipo = null;
+    document.getElementById("tab-unidade").classList.add("active");
+    document.getElementById("tab-tipo").classList.remove("active");
+    document.getElementById("painel-unidade").style.display = "block";
+    document.getElementById("painel-tipo").style.display = "none";
+    render();
+  };
+  document.getElementById("busca-unidade").addEventListener("input", render);
+
+  carregarDados();
+</script>
+
+<div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div>
+</body>
+</html>
