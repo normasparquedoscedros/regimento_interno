@@ -1,9 +1,7 @@
 {
-  "gerado_em": "2026-09-04T23:02:45.075617+00:00",
-  "total": 14,
-  "erros": [
-    "The read operation timed out"
-  ],
+  "gerado_em": "2026-09-04T23:19:22.181497+00:00",
+  "total": 23,
+  "erros": [],
   "registros": [
     {
       "tipo": "modificativa",
@@ -107,13 +105,103 @@
     },
     {
       "tipo": "aditiva",
+      "unidade": "605",
+      "nome": "LEIDIANA ALVES DE LIMA",
+      "art": "Após o Art. 306",
+      "excerto": "É proibida a colocação  ou permanência , no halls de entrada das unidades autônomas e nas respectivas portas de entrada, de qualquer objeto, adorno, enfeite, elemento decorativo ou utilitário, tais como sapatos, calçados, chinelos, vasos, plantas, floreiras, o…",
+      "pdf": null,
+      "timestamp": "26/08/2026 21:11:57",
+      "id": "EM-009"
+    },
+    {
+      "tipo": "aditiva",
+      "unidade": "605",
+      "nome": "LEIDIANA ALVES DE LIMA",
+      "art": "Após o artifo 199, colocaria como  §1º.",
+      "excerto": "Art. 199 §1º. A utilização do sistema de reservas das áreas comuns ficará condicionada à inexistência de débitos condominiais vencidos e exigíveis vinculados à unidade. Somente poderão realizar reservas os condôminos que estiverem adimplentes com todas as desp…",
+      "pdf": null,
+      "timestamp": "27/08/2026 10:55:12",
+      "id": "EM-010"
+    },
+    {
+      "tipo": "aditiva",
+      "unidade": "605",
+      "nome": "LEIDIANA ALVES DE LIMA",
+      "art": "após o art. 325",
+      "excerto": "É proibido descartar fezes, dejetos ou resíduos provenientes de animas domésticos nas lixeiras internas das unidades autônomas, ainda que estejam devidamente acondicionadas em sacos plásticos.\nOs dejetos de animais deverão ser devidamente recolhidos pelo respo…",
+      "pdf": null,
+      "timestamp": "27/08/2026 11:50:25",
+      "id": "EM-011"
+    },
+    {
+      "tipo": "modificativa",
+      "unidade": "111",
+      "nome": "Ricardo da Fonseca Martins",
+      "art": "349 e outros",
+      "excerto": "Convergir para previsão legal",
+      "pdf": null,
+      "timestamp": "27/08/2026 17:59:39",
+      "id": "EM-012"
+    },
+    {
+      "tipo": "substitutiva",
+      "unidade": "111",
+      "nome": "Ricardo da Fonseca Martins",
+      "art": "art 64 estabelece 1 ano. Convenção e Lei 2 anos",
+      "excerto": "Harmonizar lei, convenção e RI",
+      "pdf": "https://drive.google.com/open?id=1fg2EkuVJI8YmPLYLa5dKtk8wV3Yz3RuL",
+      "timestamp": "27/08/2026 18:29:00",
+      "id": "EM-013"
+    },
+    {
+      "tipo": "parecer",
+      "unidade": "111",
+      "nome": "Ricardo Martins",
+      "art": "ESTRUTURA DO RI",
+      "excerto": "Direito",
+      "pdf": "https://drive.google.com/open?id=1CDOWmfjwDC74fcvNJQ7WNaTf_uGqJrZE",
+      "timestamp": "27/08/2026 18:36:12",
+      "id": "PT-003"
+    },
+    {
+      "tipo": "aditiva",
+      "unidade": "513",
+      "nome": "Martin Francisco e Adriana Marins",
+      "art": "após art. 175",
+      "excerto": "Fica autorizada a utilização de varal para secagem de roupas na laje técnica",
+      "pdf": null,
+      "timestamp": "28/08/2026 11:41:12",
+      "id": "EM-014"
+    },
+    {
+      "tipo": "aditiva",
+      "unidade": "513",
+      "nome": "Martin Francisco e Adriana Marins",
+      "art": "após art. 175",
+      "excerto": "Fica autorizada a utilização de varal de parede ou de chão na laje técnica desde que a instalação seja abaixo do nível do parapeito",
+      "pdf": null,
+      "timestamp": "28/08/2026 11:53:12",
+      "id": "EM-015"
+    },
+    {
+      "tipo": "aditiva",
+      "unidade": "513",
+      "nome": "Martin e Adriana",
+      "art": "após art. 175",
+      "excerto": "É permitida a instalação de floreira na fachada",
+      "pdf": null,
+      "timestamp": "28/08/2026 11:57:37",
+      "id": "EM-016"
+    },
+    {
+      "tipo": "aditiva",
       "unidade": "114",
       "nome": "Aline Sterf",
       "art": "Art. 6o. Parágrafo segundo",
       "excerto": "O trabalho remoto e a atividade intelectual exercida no interior da unidade não caracterizam alteração da destinação residencial quando não houver atendimento habitual ao público, publicidade externa, estoque relevante, circulação anormal ou perturbação à segu…",
       "pdf": null,
       "timestamp": "31/08/2026 12:05:18",
-      "id": "EM-009"
+      "id": "EM-017"
     },
     {
       "tipo": "redacao",
@@ -123,7 +211,7 @@
       "excerto": "Sempre que for indispensável a realização de obras, reparos, inspeções, vistorias ou\nintervenções necessárias à preservação da segurança, da integridade das instalações comuns\nou à prevenção de danos, o condômino deverá permitir o acesso à sua unidade, mediant…",
       "pdf": null,
       "timestamp": "01/09/2026 07:59:51",
-      "id": "EM-010"
+      "id": "EM-018"
     },
     {
       "tipo": "modificativa",
@@ -133,7 +221,7 @@
       "excerto": "O cancelamento de reserva de área comum, com menos de 24h do início da reserva, poderá sujeitar o responsável ao pagamento de multa de até 50% (cinquenta por cento) do valor da taxa prevista no art. 207, conforme os prazos e a graduação estabelecidos no Calend…",
       "pdf": null,
       "timestamp": "03/09/2026 18:01:59",
-      "id": "EM-011"
+      "id": "EM-019"
     },
     {
       "tipo": "modificativa",
@@ -143,7 +231,7 @@
       "excerto": "Os recursos do Fundo poderão ser utilizados para despesas de\nlimpeza, manutenção, pequenos reparos e reposição de utensílios e equipamentos das áreas comuns sujeitas a reserva, podendo ser utilizado para outras finalidades se votado em assembleia geral.",
       "pdf": null,
       "timestamp": "03/09/2026 18:07:42",
-      "id": "EM-012"
+      "id": "EM-020"
     }
   ]
 }
