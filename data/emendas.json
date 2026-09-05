@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-05T00:03:20.256118+00:00",
+  "gerado_em": "2026-09-05T00:31:21.258608+00:00",
   "total": 23,
   "erros": [],
   "registros": [
@@ -7,8 +7,21 @@
       "tipo": "modificativa",
       "unidade": "503",
       "nome": "João Carvalho Leal",
-      "art": "74",
-      "excerto": "Art. 74. A academia funcionará 24 horas diariamente, ressalvados os períodos de limpeza, manutenção, reparo ou interdição tecnicamente necessária.",
+      "titulo": "74",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "74"
+        },
+        {
+          "rotulo": "Novo texto proposto",
+          "valor": "Art. 74. A academia funcionará 24 horas diariamente, ressalvados os períodos de limpeza, manutenção, reparo ou interdição tecnicamente necessária."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "No jardins bela vista, na SQNW 108, bloco I, eu ia à academia por volta de 4 horas da manhã. Quando eu terminar o doutorado e o Pedro crescer mais, eu gostaria de voltar a ir à academia por volta de 4 horas da manhã. Considerando que a academia aqui fica no térreo, me parece ser adequado permitir utilização da academia a qualquer horário, desde que respeitados os limites de ruídos!"
+        }
+      ],
       "pdf": null,
       "timestamp": "21/08/2026 13:45:16",
       "id": "EM-001"
@@ -17,8 +30,21 @@
       "tipo": "aditiva",
       "unidade": "508",
       "nome": "Rosany Tereza Longo Hollanda de Mello",
-      "art": "após o Art. 23",
-      "excerto": "Adultos que utilizarem a piscina para o seu treino de natação , diário ou semanal, poderão  fazê-lo respeitando o período de tempo que deverá ser de , no máximo 1 hora , podendo se estender caso não haja outro morador também desejando  utilizá-la, seja para la…",
+      "titulo": "após o Art. 23",
+      "campos": [
+        {
+          "rotulo": "Onde inserir (dispositivo de referência)",
+          "valor": "após o Art. 23"
+        },
+        {
+          "rotulo": "Texto a ser incluído",
+          "valor": "Adultos que utilizarem a piscina para o seu treino de natação , diário ou semanal, poderão  fazê-lo respeitando o período de tempo que deverá ser de , no máximo 1 hora , podendo se estender caso não haja outro morador também desejando  utilizá-la, seja para lazer ou natação. \nOs treinos poderão ocorrer durante a semana, de segunda a sexta-feira, com agendamento de horário no aplicativo do condomínio, o que  poderá ser consultado por outro morador que tenha intenção de utilizá-la, evitando assim uma espera indesejada no local."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "Como algumas pessoas tem utilizado a piscina para a prática de natação , o agendamento e o tempo de natação, com visualização no app, evita que dois ou mais moradores estejam nessa área, com o mesmo objetivo e tenham que esperar um tempo não definido para fazê-lo, assim como , o condômino que está praticando a sua atividade física não precise interrompê-la , estando ambos conscientes do tempo para iniciá-la ou finalizá-la."
+        }
+      ],
       "pdf": null,
       "timestamp": "21/08/2026 18:17:41",
       "id": "EM-002"
@@ -27,8 +53,21 @@
       "tipo": "parecer",
       "unidade": "506",
       "nome": "Franz Thiele",
-      "art": "Estrutura normativa e nível de detalhamento do Regimento Interno",
-      "excerto": "Governança e estrutura normativa condominial",
+      "titulo": "Estrutura normativa e nível de detalhamento do Regimento Interno",
+      "campos": [
+        {
+          "rotulo": "Item/tema do parecer",
+          "valor": "Estrutura normativa e nível de detalhamento do Regimento Interno"
+        },
+        {
+          "rotulo": "Especialidade",
+          "valor": "Governança e estrutura normativa condominial"
+        },
+        {
+          "rotulo": "Observações",
+          "valor": ""
+        }
+      ],
       "pdf": "https://drive.google.com/open?id=1ul7X6XkA_Wd22DwqNZf2mV6O1YSRZL0_",
       "timestamp": "21/08/2026 22:07:08",
       "id": "PT-001"
@@ -37,8 +76,21 @@
       "tipo": "parecer",
       "unidade": "506",
       "nome": "Franz Thiele",
-      "art": "Encaminho, em anexo, a análise exclusivamente estrutural da Convenção e da Versão 2 do Regimento Interno, cons…",
-      "excerto": "Análise Estrutural da Convenção e do Regimento Interno – V2",
+      "titulo": "Encaminho, em anexo, a análise exclusivamente estrutural da Convenção e da Versão 2 do Regimento Interno, considerando a hierarquia normativ…",
+      "campos": [
+        {
+          "rotulo": "Item/tema do parecer",
+          "valor": "Encaminho, em anexo, a análise exclusivamente estrutural da Convenção e da Versão 2 do Regimento Interno, considerando a hierarquia normativa, o nível mais adequado para cada regra e possíveis duplicidades entre os dois documentos.  Neste momento, a análise não entra no mérito ou no conteúdo das regras."
+        },
+        {
+          "rotulo": "Especialidade",
+          "valor": "Análise Estrutural da Convenção e do Regimento Interno – V2"
+        },
+        {
+          "rotulo": "Observações",
+          "valor": ""
+        }
+      ],
       "pdf": "https://drive.google.com/open?id=1_0mywoigJtCIak2mrVxal-akOTqSzDM8",
       "timestamp": "22/08/2026 07:48:54",
       "id": "PT-002"
@@ -47,8 +99,21 @@
       "tipo": "modificativa",
       "unidade": "512",
       "nome": "Thiago Matias",
-      "art": "Art. 73",
-      "excerto": "Art. 73. O Síndico que deixar o cargo entregará ao seu sucessor, nos prazos e na forma previstos neste artigo, mediante termo de entrega, a documentação, os bens e os acessos necessários à continuidade da administração.\n§ 1º No prazo máximo de 48 (quarenta e o…",
+      "titulo": "Art. 73",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "Art. 73"
+        },
+        {
+          "rotulo": "Novo texto proposto",
+          "valor": "Art. 73. O Síndico que deixar o cargo entregará ao seu sucessor, nos prazos e na forma previstos neste artigo, mediante termo de entrega, a documentação, os bens e os acessos necessários à continuidade da administração.\n§ 1º No prazo máximo de 48 (quarenta e oito) horas, contado da posse do sucessor, serão entregues:\nI — chaves, controles, dispositivos de acesso e demais bens sob sua guarda necessários ao funcionamento imediato da portaria e das instalações comuns; e\nII — senhas, certificados digitais, credenciais e acessos aos sistemas, plataformas eletrônicas, contas bancárias, institucionais e demais ferramentas utilizadas na administração do condomínio.\n§ 2º No prazo máximo de 10 (dez) dias úteis, contado da posse do sucessor, serão entregues:\nI — livros obrigatórios e registros administrativos;\nII — documentos contábeis, financeiros e fiscais;\nIII — contratos vigentes e respectivos aditivos;\nIV — demonstrativos bancários, aplicações financeiras e saldos dos fundos condominiais;\nV — relação das obrigações financeiras pendentes;\nVI — relação das ações judiciais e procedimentos administrativos em andamento;\nVII — inventário atualizado dos bens patrimoniais; e\nVIII — demais documentos, informações e elementos necessários à continuidade regular da administração.\n§ 3º A entrega, em cada uma das etapas previstas nos §§ 1º e 2º, será formalizada por termo circunstanciado, assinado pelo Síndico que deixa o cargo e pelo seu sucessor, contendo a relação dos documentos, bens e informações entregues, bem como eventuais ressalvas.\n§ 4º Havendo recusa de qualquer das partes em assinar o termo, tal circunstância será registrada, sem prejuízo da validade da entrega efetivamente realizada."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "O Art. 73 hoje trata igualmente dez itens muito diferentes entre si — de senhas de sistema a inventário patrimonial —, todos com o mesmo prazo de 10 (dez) dias úteis para entrega. Na prática, isso significa que o síndico sucessor pode ficar até dez dias sem acesso a senhas bancárias, sistemas de portaria ou credenciais digitais — paralisando decisões urgentes logo no início do mandato, mesmo que os documentos históricos e contábeis, por sua natureza, realmente comportem um prazo mais longo para organização e entrega.\n \nA proposta separa os itens em dois grupos: o que é acesso (chaves, senhas, credenciais) — necessário para o funcionamento imediato da administração — passa a ter prazo de 48 (quarenta e oito) horas; o que é documentação (livros, contratos, inventário) mantém o prazo de 10 dias úteis já previsto."
+        }
+      ],
       "pdf": null,
       "timestamp": "23/08/2026 16:05:05",
       "id": "EM-003"
@@ -57,8 +122,21 @@
       "tipo": "modificativa",
       "unidade": "512",
       "nome": "Thiago Matias",
-      "art": "Art. 92, VIII",
-      "excerto": "Art. 92. A Proposta Orçamentária referida no art. 88 conterá, no mínimo:\nI - estimativa das receitas ordinárias e extraordinárias;\nII - estimativa das despesas ordinárias e extraordinárias;\nIII - previsão de investimentos, obras e aquisições de bens permanente…",
+      "titulo": "Art. 92, VIII",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "Art. 92, VIII"
+        },
+        {
+          "rotulo": "Novo texto proposto",
+          "valor": "Art. 92. A Proposta Orçamentária referida no art. 88 conterá, no mínimo:\nI - estimativa das receitas ordinárias e extraordinárias;\nII - estimativa das despesas ordinárias e extraordinárias;\nIII - previsão de investimentos, obras e aquisições de bens permanentes;\nIV - previsão de constituição, utilização e recomposição dos fundos condominiais;\nV - estimativa das despesas administrativas, operacionais, tributárias, trabalhistas e contratuais;\nVI - previsão dos contratos continuados e dos serviços essenciais;\nVII - reserva destinada às despesas contingenciais, quando cabível;\nVIII - eventual remuneração, pró-labore ou isenção, total ou parcial, da cota condominial em favor do Síndico, do Subsíndico ou dos membros do Conselho, com indicação expressa do valor, da forma de pagamento e da fonte de recursos; e\nIX - demais informações exigidas pela legislação vigente, pela Convenção Condominial ou por este Regimento."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "O Regimento hoje não prevê nenhuma forma de remuneração para Síndico, Subsíndico ou membros do Conselho, nem disciplina como isso poderia vir a ser instituído. Esta emenda não cria remuneração nenhuma — apenas define, para o caso de algum dia a Assembleia decidir remunerar esses cargos, que essa decisão deve nascer dentro da própria Proposta de Orçamento Anual, apresentada pela chapa candidata.\n \nEssa amarração tem um efeito prático importante: obriga quem se candidata a propor, com transparência e desde a candidatura, o valor exato que pretende receber, a forma de pagamento e de onde sairia o recurso — submetendo essa decisão ao mesmo escrutínio público e ao mesmo voto que aprova todo o restante do orçamento. Evita que uma remuneração seja criada por fora do processo orçamentário, sem debate equivalente."
+        }
+      ],
       "pdf": null,
       "timestamp": "23/08/2026 16:16:54",
       "id": "EM-004"
@@ -67,8 +145,21 @@
       "tipo": "aditiva",
       "unidade": "512",
       "nome": "Thiago Matias",
-      "art": "Após o art. 21",
-      "excerto": "Art. 21-A. O condômino poderá se fazer representar em Assembleia Geral por procurador, mediante instrumento de mandato que indique especificamente a Assembleia a que se refere, admitida a procuração em meio físico ou digital.\n \n§ 1º A procuração digital deverá…",
+      "titulo": "Após o art. 21",
+      "campos": [
+        {
+          "rotulo": "Onde inserir (dispositivo de referência)",
+          "valor": "Após o art. 21"
+        },
+        {
+          "rotulo": "Texto a ser incluído",
+          "valor": "Art. 21-A. O condômino poderá se fazer representar em Assembleia Geral por procurador, mediante instrumento de mandato que indique especificamente a Assembleia a que se refere, admitida a procuração em meio físico ou digital.\n \n§ 1º A procuração digital deverá ser enviada à Administração em seu formato nativo (PDF ou equivalente), vedada a aceitação de mera cópia impressa desprovida dos elementos de verificação da assinatura eletrônica.\n \n§ 2º São admitidas, para fins de assinatura da procuração digital, certificado digital no padrão ICP-Brasil, assinatura realizada por meio da plataforma gov.br em nível prata ou ouro, ou outra plataforma de assinatura eletrônica que assegure a autenticidade, a integridade e a rastreabilidade do documento.\n \n§ 3º A procuração, física ou digital, deverá ser enviada à Administração com antecedência mínima de 24 (vinte e quatro) horas da abertura da Assembleia, para conferência de sua autenticidade pela Mesa.\n \n§ 4º Nenhum procurador poderá representar mais de 2 (dois) condôminos, além de si mesmo, caso também seja condômino, observado o limite máximo de 2 (duas) procurações por outorgado fixado na Cláusula Quadragésima Segunda da Convenção Condominial."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "O Regimento hoje não menciona, em nenhum lugar, a possibilidade de representação por procurador em Assembleia — nem física, nem digital. É uma lacuna real: condôminos que residem fora de Brasília, ou que simplesmente não podem comparecer, ficam sem previsão clara de como se fazer representar, o que hoje só se resolve por prática informal, sem respaldo no texto do Regimento. A Convenção Condominial (Cláusula Quadragésima Segunda) já trata do tema de forma genérica — exige firma reconhecida, prazo de validade determinado e entrega ao Síndico antes da reunião, limitando a 2 (duas) o número de procurações que um mesmo outorgado pode acumular — mas não regula a modalidade digital, nem repete esse limite no Regimento Interno.\r\n \r\nEsta emenda supre a lacuna quanto à modalidade digital — a mais provável de gerar dúvida sobre autenticidade — e reproduz no Regimento, sem alterá-lo, o limite de representação por procurador já fixado pela Convenção. Reproduzir esse limite no Regimento evita que a ausência de menção no texto seja lida, por engano, como ausência de limite, ou como abertura para a Assembleia fixar um número diferente do que a Convenção já estabelece."
+        }
+      ],
       "pdf": null,
       "timestamp": "23/08/2026 16:40:36",
       "id": "EM-005"
@@ -77,8 +168,21 @@
       "tipo": "modificativa",
       "unidade": "512",
       "nome": "Thiago Matias",
-      "art": "Art. 23, § 2º e Art. 24",
-      "excerto": "Art. 23, § 2º. O edital será divulgado com antecedência mínima de dez dias.\n \nArt. 24. Qualquer condômino poderá requerer a inclusão de matéria na ordem do dia de Assembleia já convocada, no prazo de até 2 (dois) dias contado da divulgação do edital.\n§ 1º Comp…",
+      "titulo": "Art. 23, § 2º e Art. 24",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "Art. 23, § 2º e Art. 24"
+        },
+        {
+          "rotulo": "Novo texto proposto",
+          "valor": "Art. 23, § 2º. O edital será divulgado com antecedência mínima de dez dias.\n \nArt. 24. Qualquer condômino poderá requerer a inclusão de matéria na ordem do dia de Assembleia já convocada, no prazo de até 2 (dois) dias contado da divulgação do edital.\n§ 1º Compete a quem convocou a Assembleia decidir motivadamente sobre o requerimento; em caso de recusa, a própria Assembleia poderá, por maioria simples dos presentes, deliberar pela inclusão da matéria no início dos trabalhos.\n§ 2º A apreciação de mérito da matéria incluída, com efeito vinculante, somente ocorrerá nessa mesma Assembleia se estiverem presentes todos os condôminos, nos termos do art. 1.354 do Código Civil.\n§ 3º Não estando presente a totalidade dos condôminos, a matéria será obrigatoriamente incluída na ordem do dia da próxima Assembleia, ordinária ou extraordinária, que comporte pauta não exclusiva.\n§ 4º Quando a própria matéria incluída depender, por sua natureza, de Assembleia especialmente convocada para fim específico que não admita deliberação diversa daquela que lhe é obrigatória, a inclusão aguardará a primeira Assembleia dessa natureza que vier a ser convocada.\n§ 5º Quando a matéria requerida envolver a aprovação, alteração ou revogação de norma interna ou política condominial, o condômino apresentará, em conjunto com o requerimento, o texto integral da proposta, observado o disposto no art. 25."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "O Art. 24 permite que qualquer condômino peça a inclusão de matéria na ordem do dia até 3 (três) dias após a divulgação do edital de convocação. Como o próprio edital só precisa de 8 (oito) dias de antecedência mínima (art. 23, § 2º), uma inclusão feita no terceiro dia deixa a matéria nova com apenas 5 dias de aviso — menos do que o mínimo exigido pela Convenção Condominial para qualquer assunto da pauta.\n \nA solução proposta é simples: o Regimento passa a exigir 10 (dez) dias de antecedência para o edital — dois dias a mais do que o piso convencional — e reduz de 3 para 2 dias o prazo para pedido de inclusão de matéria. Com isso, mesmo a inclusão feita no último dia possível ainda garante 8 dias de antecedência à matéria incluída (10 menos 2), satisfazendo sempre o mínimo convencional, sem precisar de mecanismo adicional, edital aditivo ou adiamento de matérias."
+        }
+      ],
       "pdf": null,
       "timestamp": "23/08/2026 16:51:00",
       "id": "EM-006"
@@ -87,8 +191,21 @@
       "tipo": "aditiva",
       "unidade": "605",
       "nome": "LEIDIANA ALVES DE LIMA",
-      "art": "Após o Art.306",
-      "excerto": "É vedado aos condôminos, moradores, ocupantes, visitantes e demais ususários das unidades autônomas:\n I. fumar cigarros, charutos, cigarrilhas, cachimbos, cigarros eletrônicos, dispositivos de vaporização ou quaisquer outros produtos fumígenos nas janelas, sac…",
+      "titulo": "Após o Art.306",
+      "campos": [
+        {
+          "rotulo": "Onde inserir (dispositivo de referência)",
+          "valor": "Após o Art.306"
+        },
+        {
+          "rotulo": "Texto a ser incluído",
+          "valor": "É vedado aos condôminos, moradores, ocupantes, visitantes e demais ususários das unidades autônomas:\n I. fumar cigarros, charutos, cigarrilhas, cachimbos, cigarros eletrônicos, dispositivos de vaporização ou quaisquer outros produtos fumígenos nas janelas, sacadas, varandas ou demais locais da unidade autônoma que possibilitem a dispersão de fumaça, vapor ou odores para outras unidades, áreas comuns ou para o interior das edificações; \nII.realizar no interior da unidade autônoma, atividades que produzam fumaça, vapores ou odores fortes, intensos ou persistentes capazes de ultrapassar os limites da própria unidade e atingir corredores, halls, elevadores, áreas comuns ou outras unidades, devendo o morador adotar as medidas necessárias para impedir a propagação desses odores, inclusive mantendo portas e acessos devidamente fechados e, quando necessário, utilizando meios adequados de ventilação e exaustão. \nIII. permitir que fumaça, vapores ou odores provenientes da unidade autônoma causem incômodo, prejuízo ao sossego, à salubridade, à higiene ou à qualidade de vida dos demais moradores.\nA vedação prevista neste artigo aplica-se independentemente de a fumaça, o vapor ou o odor se proveniente de cigarro, produtos de tabaco, dispositivos eletrônicos, preparo de alimentos, frituras, produtos químicos, substâncias aromáticas ou quaisquer outras fontes que, de forma excessiva ou persistente, ultrapassem os limites da unidade autônoma e afetem terceiros, sem prejuízo das medidas administrativas e das penalidades previstas  neste Regimento."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "A medida tem como objetivo preservar o sossego, a salubridade, a higiene e a qualidade de vida dos moradores, evitando que fumaça, vapores e odores fortes ou persistentes provenientes das unidades autônomas se espalhem para corredores, áreas comuns ou outras unidades. A restrição também busca proteger moradores que possam apresentar maior sensibilidade a fumaças e odores, incluindo pessoas com rinite alérgica, alergias, asma ou outras sensibilidades respiratórias."
+        }
+      ],
       "pdf": null,
       "timestamp": "25/08/2026 00:25:10",
       "id": "EM-007"
@@ -97,8 +214,21 @@
       "tipo": "modificativa",
       "unidade": "410",
       "nome": "Gisele Leite L'Abbate",
-      "art": "Art. 271",
-      "excerto": "É vedada a instalação ou manutenção de armários que prejudiquem a circulação de\npessoas ou veículos, obstruam equipamentos de combate a incêndio, interfiram na ventilação, iluminação, sinalização, rotas de fuga, acesso às instalações prediais ou dificultem a r…",
+      "titulo": "Art. 271",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "Art. 271"
+        },
+        {
+          "rotulo": "Novo texto proposto",
+          "valor": "É vedada a instalação ou manutenção de armários que prejudiquem a circulação de\npessoas ou veículos, obstruam equipamentos de combate a incêndio, interfiram na ventilação, iluminação, sinalização, rotas de fuga, acesso às instalações prediais ou dificultem a realização de inspeções, manutenções e reparos ou que ainda comprometam a garantia oferecida pela EMPLAVI enquanto estiver vigente."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "Se instalar um armário compromete a garantia da edificação oferecida pela construtora, acho que isso não deve ser permitido."
+        }
+      ],
       "pdf": null,
       "timestamp": "25/08/2026 18:07:33",
       "id": "EM-008"
@@ -107,8 +237,21 @@
       "tipo": "aditiva",
       "unidade": "605",
       "nome": "LEIDIANA ALVES DE LIMA",
-      "art": "Após o Art. 306",
-      "excerto": "É proibida a colocação  ou permanência , no halls de entrada das unidades autônomas e nas respectivas portas de entrada, de qualquer objeto, adorno, enfeite, elemento decorativo ou utilitário, tais como sapatos, calçados, chinelos, vasos, plantas, floreiras, o…",
+      "titulo": "Após o Art. 306",
+      "campos": [
+        {
+          "rotulo": "Onde inserir (dispositivo de referência)",
+          "valor": "Após o Art. 306"
+        },
+        {
+          "rotulo": "Texto a ser incluído",
+          "valor": "É proibida a colocação  ou permanência , no halls de entrada das unidades autônomas e nas respectivas portas de entrada, de qualquer objeto, adorno, enfeite, elemento decorativo ou utilitário, tais como sapatos, calçados, chinelos, vasos, plantas, floreiras, objetos ornamentais, móveis, bancos, cadeiras, sapateiras, caixas, enfeites, placas, velas, incensos, avisos, guirlandas, coroas, quadros, fitas ou quaisquer outros itens, sendo permitida exclusivamente  a colocação de tapete no piso, destinada à entrada da unidade. \n§1º. É expressamente proibida a fixação , colagem, instalação de penduração  de quaisquer objetos ou elementos decorativos nas portas de entrada das unidades autônomas, incluindo guirlandas, enfeites, placas, avisos, quadros, adornos, fitas ou similares.\n§2º. O tapete permitido deverá possuir tamanho proporcional  á porta de entrada da respcetiva unidade autônoma, devendo permanecer integralmente dentro do espaço correspondente à unidade, sem ultrapassar os limites laterais ou avançar sobre o espaço destinado à unidade vizinha, à circulação ou às demais áreas comuns.\n§ 3º. O tapete deverá ser mantido em boas condições de conservação, higiene e segurança, não podendo obstruir a circulação, dificultar a abertura ou o fechamento da porta ou causar qualquer risco ou incômodo aos demais moradores.\n§4º. É vedada a utilização do hall de entrada da unidade autônoma como local para armazenamento , guarda, depósito ou exposição  de quaisquer objetos, materiais ou pertences, ainda que temporariamente. \n§5º. O descumprimento deste artigo sujeitará o responsável às medidas administrativas e às penalidades  previstas neste Regimento Interno."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "A proposta tem por objetivo preservar a organização, a segurança, a higiene, a circulação e a uniformidade das áreas comuns, evitando a colocação de objetos, adornos ou materiais nos halls e nas portas das unidades autônomas que possam obstruir a passagem, dificultar a abertura das portas, causar acidentes ou interferir no espaço destinado às unidades vizinhas. Busca-se, ainda, estabelecer critérios claros para a utilização de tapetes, garantindo que permaneçam exclusivamente dentro dos limites das respectiva unidade."
+        }
+      ],
       "pdf": null,
       "timestamp": "26/08/2026 21:11:57",
       "id": "EM-009"
@@ -117,8 +260,21 @@
       "tipo": "aditiva",
       "unidade": "605",
       "nome": "LEIDIANA ALVES DE LIMA",
-      "art": "Após o artifo 199, colocaria como  §1º.",
-      "excerto": "Art. 199 §1º. A utilização do sistema de reservas das áreas comuns ficará condicionada à inexistência de débitos condominiais vencidos e exigíveis vinculados à unidade. Somente poderão realizar reservas os condôminos que estiverem adimplentes com todas as desp…",
+      "titulo": "Após o artifo 199, colocaria como  §1º.",
+      "campos": [
+        {
+          "rotulo": "Onde inserir (dispositivo de referência)",
+          "valor": "Após o artifo 199, colocaria como  §1º."
+        },
+        {
+          "rotulo": "Texto a ser incluído",
+          "valor": "Art. 199 §1º. A utilização do sistema de reservas das áreas comuns ficará condicionada à inexistência de débitos condominiais vencidos e exigíveis vinculados à unidade. Somente poderão realizar reservas os condôminos que estiverem adimplentes com todas as despesas condominiais, ordinárias e extraordinárias, ressalvadas as hipóteses de acordo formalmente celebrado e regularmente adimplido."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "A proposta tem por objetivo estabelecer um critério objetivo e isonômico para a utilização do sistema de reservas das áreas comuns, incentivando o cumprimento das obrigações condominiais e contribuindo para a manutenção do equilíbrio financeiro do condomínio. A medida busca assegurar que o benefício de reserva e utilização exclusiva temporária dos espaços comuns seja disponibilizado aos condôminos que estejam regularmente adimplentes com suas obrigações."
+        }
+      ],
       "pdf": null,
       "timestamp": "27/08/2026 10:55:12",
       "id": "EM-010"
@@ -127,8 +283,21 @@
       "tipo": "aditiva",
       "unidade": "605",
       "nome": "LEIDIANA ALVES DE LIMA",
-      "art": "após o art. 325",
-      "excerto": "É proibido descartar fezes, dejetos ou resíduos provenientes de animas domésticos nas lixeiras internas das unidades autônomas, ainda que estejam devidamente acondicionadas em sacos plásticos.\nOs dejetos de animais deverão ser devidamente recolhidos pelo respo…",
+      "titulo": "após o art. 325",
+      "campos": [
+        {
+          "rotulo": "Onde inserir (dispositivo de referência)",
+          "valor": "após o art. 325"
+        },
+        {
+          "rotulo": "Texto a ser incluído",
+          "valor": "É proibido descartar fezes, dejetos ou resíduos provenientes de animas domésticos nas lixeiras internas das unidades autônomas, ainda que estejam devidamente acondicionadas em sacos plásticos.\nOs dejetos de animais deverão ser devidamente recolhidos pelo responsável e  destinados exclusivamente aos locais apropriados disponibilizados pelo condomínio para essa finalidade ou, quando não houver local específico, ao vaso sanitário da própria unidade, observadas as condições adequadas de descarte e as orientações sanitárias aplicáveis."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "A medida tem que como objetivo preservar as condições de higiene e salubridade do condomínio, evitar odores desagradáveis, proliferação de insetos e contaminações, bem como impedir que as lixeiras internas das unidades autônomas sejam utilizadas para o descarte de resíduos orgânicos provenientes de animais."
+        }
+      ],
       "pdf": null,
       "timestamp": "27/08/2026 11:50:25",
       "id": "EM-011"
@@ -137,8 +306,21 @@
       "tipo": "modificativa",
       "unidade": "111",
       "nome": "Ricardo da Fonseca Martins",
-      "art": "349 e outros",
-      "excerto": "Convergir para previsão legal",
+      "titulo": "349 e outros",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "349 e outros"
+        },
+        {
+          "rotulo": "Novo texto proposto",
+          "valor": "Convergir para previsão legal"
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "Adequar o texto"
+        }
+      ],
       "pdf": null,
       "timestamp": "27/08/2026 17:59:39",
       "id": "EM-012"
@@ -147,8 +329,17 @@
       "tipo": "substitutiva",
       "unidade": "111",
       "nome": "Ricardo da Fonseca Martins",
-      "art": "art 64 estabelece 1 ano. Convenção e Lei 2 anos",
-      "excerto": "Harmonizar lei, convenção e RI",
+      "titulo": "art 64 estabelece 1 ano. Convenção e Lei 2 anos",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "art 64 estabelece 1 ano. Convenção e Lei 2 anos"
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "Harmonizar lei, convenção e RI"
+        }
+      ],
       "pdf": "https://drive.google.com/open?id=1fg2EkuVJI8YmPLYLa5dKtk8wV3Yz3RuL",
       "timestamp": "27/08/2026 18:29:00",
       "id": "EM-013"
@@ -157,8 +348,21 @@
       "tipo": "parecer",
       "unidade": "111",
       "nome": "Ricardo Martins",
-      "art": "ESTRUTURA DO RI",
-      "excerto": "Direito",
+      "titulo": "ESTRUTURA DO RI",
+      "campos": [
+        {
+          "rotulo": "Item/tema do parecer",
+          "valor": "ESTRUTURA DO RI"
+        },
+        {
+          "rotulo": "Especialidade",
+          "valor": "Direito"
+        },
+        {
+          "rotulo": "Observações",
+          "valor": "RI bastante complexo, revelando trabalho meticuloso. Sugestão de separar temas em normas complementares: exemplo funcionamento da assembleia, confecção de ata, etc. Enxugar o RI para facilitar consulta. 384 artigos é bastante dispositivos.  Deixar no RI a previsão que alcança a todos. Nas normas complementares processo eleitoral, funcionamento de assembleia, etc. Somente separar os dispositivos. Facilita alterações e atualizações."
+        }
+      ],
       "pdf": "https://drive.google.com/open?id=1CDOWmfjwDC74fcvNJQ7WNaTf_uGqJrZE",
       "timestamp": "27/08/2026 18:36:12",
       "id": "PT-003"
@@ -167,8 +371,21 @@
       "tipo": "aditiva",
       "unidade": "513",
       "nome": "Martin Francisco e Adriana Marins",
-      "art": "após art. 175",
-      "excerto": "Fica autorizada a utilização de varal para secagem de roupas na laje técnica",
+      "titulo": "após art. 175",
+      "campos": [
+        {
+          "rotulo": "Onde inserir (dispositivo de referência)",
+          "valor": "após art. 175"
+        },
+        {
+          "rotulo": "Texto a ser incluído",
+          "valor": "Fica autorizada a utilização de varal para secagem de roupas na laje técnica"
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "A ideia é facilitar a secagem das roupas por meio do aproveitamento dos ventos que incidem na laje técnica"
+        }
+      ],
       "pdf": null,
       "timestamp": "28/08/2026 11:41:12",
       "id": "EM-014"
@@ -177,8 +394,21 @@
       "tipo": "aditiva",
       "unidade": "513",
       "nome": "Martin Francisco e Adriana Marins",
-      "art": "após art. 175",
-      "excerto": "Fica autorizada a utilização de varal de parede ou de chão na laje técnica desde que a instalação seja abaixo do nível do parapeito",
+      "titulo": "após art. 175",
+      "campos": [
+        {
+          "rotulo": "Onde inserir (dispositivo de referência)",
+          "valor": "após art. 175"
+        },
+        {
+          "rotulo": "Texto a ser incluído",
+          "valor": "Fica autorizada a utilização de varal de parede ou de chão na laje técnica desde que a instalação seja abaixo do nível do parapeito"
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "1) Permitiria aproveitamento dos ventos para secagem de roupas; 2) Ampliaria espaço disponível para demandas domésticas; 3) Não teria impacto visual, pois não ultrapassaria a altura do parapeito"
+        }
+      ],
       "pdf": null,
       "timestamp": "28/08/2026 11:53:12",
       "id": "EM-015"
@@ -187,8 +417,21 @@
       "tipo": "aditiva",
       "unidade": "513",
       "nome": "Martin e Adriana",
-      "art": "após art. 175",
-      "excerto": "É permitida a instalação de floreira na fachada",
+      "titulo": "após art. 175",
+      "campos": [
+        {
+          "rotulo": "Onde inserir (dispositivo de referência)",
+          "valor": "após art. 175"
+        },
+        {
+          "rotulo": "Texto a ser incluído",
+          "valor": "É permitida a instalação de floreira na fachada"
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "A colocação da floreira: a)  permitiria o cultivo de plantas ornamentais ou ervas; b) embelezaria a fachada; c) ampliaria o frescor e arejamento das respectivas áreas internas; d) promoveria embelezamento estético."
+        }
+      ],
       "pdf": null,
       "timestamp": "28/08/2026 11:57:37",
       "id": "EM-016"
@@ -197,8 +440,21 @@
       "tipo": "aditiva",
       "unidade": "114",
       "nome": "Aline Sterf",
-      "art": "Art. 6o. Parágrafo segundo",
-      "excerto": "O trabalho remoto e a atividade intelectual exercida no interior da unidade não caracterizam alteração da destinação residencial quando não houver atendimento habitual ao público, publicidade externa, estoque relevante, circulação anormal ou perturbação à segu…",
+      "titulo": "Art. 6o. Parágrafo segundo",
+      "campos": [
+        {
+          "rotulo": "Onde inserir (dispositivo de referência)",
+          "valor": "Art. 6o. Parágrafo segundo"
+        },
+        {
+          "rotulo": "Texto a ser incluído",
+          "valor": "O trabalho remoto e a atividade intelectual exercida no interior da unidade não caracterizam alteração da destinação residencial quando não houver atendimento habitual ao público, publicidade externa, estoque relevante, circulação anormal ou perturbação à segurança, ao sossego ou à salubridade."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "Evitar alcance indevido da norma e regulamentar limites para quem exerce atividades na própria residência."
+        }
+      ],
       "pdf": null,
       "timestamp": "31/08/2026 12:05:18",
       "id": "EM-017"
@@ -207,8 +463,21 @@
       "tipo": "redacao",
       "unidade": "410",
       "nome": "Gisele Leite L'Abbate",
-      "art": "Art. 152",
-      "excerto": "Sempre que for indispensável a realização de obras, reparos, inspeções, vistorias ou\nintervenções necessárias à preservação da segurança, da integridade das instalações comuns\nou à prevenção de danos, o condômino deverá permitir o acesso à sua unidade, mediant…",
+      "titulo": "Art. 152",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "Art. 152"
+        },
+        {
+          "rotulo": "Nova redação proposta",
+          "valor": "Sempre que for indispensável a realização de obras, reparos, inspeções, vistorias ou\nintervenções necessárias à preservação da segurança, da integridade das instalações comuns\nou à prevenção de danos, o condômino deverá permitir o acesso à sua unidade, mediante\nprévia comunicação da Administração, ressalvadas as situações de urgência ou emergência."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "Este primeiro \"a\" é um artigo e não uma preposição, portanto não tem crase. A crase foi colocada provavelmente devido à falta do verbo (for), que eu também sugiro colocar para que a frase, que já é bem longa, fique mais clara."
+        }
+      ],
       "pdf": null,
       "timestamp": "01/09/2026 07:59:51",
       "id": "EM-018"
@@ -217,8 +486,21 @@
       "tipo": "modificativa",
       "unidade": "410",
       "nome": "Gisele Leite L'Abbate",
-      "art": "Art. 208",
-      "excerto": "O cancelamento de reserva de área comum, com menos de 24h do início da reserva, poderá sujeitar o responsável ao pagamento de multa de até 50% (cinquenta por cento) do valor da taxa prevista no art. 207, conforme os prazos e a graduação estabelecidos no Calend…",
+      "titulo": "Art. 208",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "Art. 208"
+        },
+        {
+          "rotulo": "Novo texto proposto",
+          "valor": "O cancelamento de reserva de área comum, com menos de 24h do início da reserva, poderá sujeitar o responsável ao pagamento de multa de até 50% (cinquenta por cento) do valor da taxa prevista no art. 207, conforme os prazos e a graduação estabelecidos no Calendário Anual das Áreas Comuns."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "Acho abusivo cobrar muita por deixar de usar algo que é de nossa propriedade, pois imprevistos acontecem. Poderia haver o cancelamento isento se for com até 24h e com multa de 50% se for com menos de 24h."
+        }
+      ],
       "pdf": null,
       "timestamp": "03/09/2026 18:01:59",
       "id": "EM-019"
@@ -227,8 +509,21 @@
       "tipo": "modificativa",
       "unidade": "410",
       "nome": "Gisele Leite L'Abbate",
-      "art": "Parágrafo único do artigo 209",
-      "excerto": "Os recursos do Fundo poderão ser utilizados para despesas de\nlimpeza, manutenção, pequenos reparos e reposição de utensílios e equipamentos das áreas comuns sujeitas a reserva, podendo ser utilizado para outras finalidades se votado em assembleia geral.",
+      "titulo": "Parágrafo único do artigo 209",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "Parágrafo único do artigo 209"
+        },
+        {
+          "rotulo": "Novo texto proposto",
+          "valor": "Os recursos do Fundo poderão ser utilizados para despesas de\nlimpeza, manutenção, pequenos reparos e reposição de utensílios e equipamentos das áreas comuns sujeitas a reserva, podendo ser utilizado para outras finalidades se votado em assembleia geral."
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "Acho que não deveríamos limitar o emprego de qualquer dinheiro que seja fundo do condomínio pois já temos um condomínio bem alto e não ter fundos implica em taxas extras. Acho que todo o dinheiro extra deveria ir para um fundo comum e ser utilizado de acordo com as prioridades dos serviços e/ou por meio de votação em assembleia geral."
+        }
+      ],
       "pdf": null,
       "timestamp": "03/09/2026 18:07:42",
       "id": "EM-020"
