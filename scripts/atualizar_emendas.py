@@ -3,6 +3,10 @@
 Busca as duas planilhas do Google Forms (publicadas como CSV), mescla os
 registros e grava data/emendas.json — arquivo que o site (emendas.html) lê.
 
+Cada registro traz TODOS os campos preenchidos no formulário (obrigatórios
+ou não) para aquele tipo de manifestação, em texto integral (sem corte),
+organizados em uma lista "campos" na ordem em que devem ser exibidos.
+
 Roda dentro do GitHub Actions (lado do servidor), onde não existe restrição
 de CORS, evitando o problema que ocorre ao buscar direto do navegador.
 """
@@ -23,6 +27,59 @@ FONTES = [
 
 SAIDA = Path(__file__).resolve().parent.parent / "data" / "emendas.json"
 
+# Para cada tipo, os campos que existem no formulário, na ordem em que
+# devem aparecer no "inteiro teor", com (rótulo exibido, coluna).
+# O rótulo é o que a pessoa vê; a coluna é o índice na planilha (0-based).
+CAMPOS_POR_TIPO = {
+    "redacao": [
+        ("Item do texto-base", 6),
+        ("Nova redação proposta", 8, 7),   # usa a 8 se preenchida, senão a 7
+        ("Justificativa", 9),
+    ],
+    "aditiva": [
+        ("Onde inserir (dispositivo de referência)", 12),
+        ("Texto a ser incluído", 13),
+        ("Justificativa", 14),
+    ],
+    "modificativa": [
+        ("Item do texto-base", 20),
+        ("Novo texto proposto", 22),
+        ("Justificativa", 23),
+    ],
+    "supressiva": [
+        ("Item do texto-base", 16),
+        ("Texto a suprimir", 17),
+        ("Justificativa", 18),
+    ],
+    "substitutiva": [
+        ("Item do texto-base", 25),
+        ("Justificativa", 27),
+        # o texto da emenda em si vem só pelo PDF anexado (ver campo "pdf")
+    ],
+    "parecer": [
+        ("Item/tema do parecer", 29),
+        ("Especialidade", 30),
+        ("Observações", 32),
+        # o parecer em si vem só pelo PDF anexado (ver campo "pdf")
+    ],
+}
+
+# Coluna do PDF anexado, por tipo (quando existir)
+PDF_POR_TIPO = {
+    "substitutiva": 26,
+    "parecer": 31,
+}
+
+# Qual campo (rótulo) usar como "título" resumido na listagem
+TITULO_POR_TIPO = {
+    "redacao": "Item do texto-base",
+    "aditiva": "Onde inserir (dispositivo de referência)",
+    "modificativa": "Item do texto-base",
+    "supressiva": "Item do texto-base",
+    "substitutiva": "Item do texto-base",
+    "parecer": "Item/tema do parecer",
+}
+
 
 def buscar_csv(url: str) -> list[list[str]]:
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -37,7 +94,7 @@ def txt(v) -> str:
 
 def truncar(s: str, n: int) -> str:
     s = txt(s)
-    return s[:n].strip() + "…" if len(s) > n else s
+    return s[: n].strip() + "…" if len(s) > n else s
 
 
 def parse_timestamp(ts: str):
@@ -69,42 +126,50 @@ def mapear_linha(cols: list[str]):
     else:
         return None
 
-    pdf = None
     if grupo == "redacao":
         tipo = "redacao"
-        item = txt(c(6))
-        texto_principal = txt(c(8)) or txt(c(7))
-        justificativa = txt(c(9))
     elif grupo == "parecer":
         tipo = "parecer"
-        item = txt(c(29))
-        texto_principal = txt(c(30))
-        justificativa = txt(c(32))
-        pdf = txt(c(31)) or None
     else:
         nat = txt(c(11)).lower()
         if nat.startswith("emenda aditiva"):
             tipo = "aditiva"
-            item, texto_principal, justificativa = txt(c(12)), txt(c(13)), txt(c(14))
         elif nat.startswith("emenda modificativa"):
             tipo = "modificativa"
-            item, texto_principal, justificativa = txt(c(20)), txt(c(22)), txt(c(23))
         elif nat.startswith("emenda supressiva"):
             tipo = "supressiva"
-            item, texto_principal, justificativa = txt(c(16)), txt(c(17)), txt(c(18))
         elif nat.startswith("emenda substitutiva"):
             tipo = "substitutiva"
-            item, texto_principal, justificativa = txt(c(25)), txt(c(27)), txt(c(27))
-            pdf = txt(c(26)) or None
         else:
             return None
+
+    # Monta TODOS os campos deste tipo, em texto integral (sem truncar)
+    campos = []
+    for definicao in CAMPOS_POR_TIPO[tipo]:
+        if len(definicao) == 2:
+            rotulo, col = definicao
+            valor = txt(c(col))
+        else:
+            rotulo, col_principal, col_alt = definicao
+            valor = txt(c(col_principal)) or txt(c(col_alt))
+        campos.append({"rotulo": rotulo, "valor": valor})
+
+    pdf = None
+    if tipo in PDF_POR_TIPO:
+        pdf = txt(c(PDF_POR_TIPO[tipo])) or None
+
+    # Título resumido (para a listagem), truncado só para não estourar o layout;
+    # o conteúdo completo continua disponível em "campos" (sem corte).
+    rotulo_titulo = TITULO_POR_TIPO[tipo]
+    valor_titulo = next((cp["valor"] for cp in campos if cp["rotulo"] == rotulo_titulo), "")
+    titulo = truncar(valor_titulo, 140) or "(item não informado)"
 
     return {
         "tipo": tipo,
         "unidade": unidade,
         "nome": nome,
-        "art": truncar(item, 110) or "—",
-        "excerto": truncar(texto_principal or justificativa, 260) or "(sem descrição preenchida)",
+        "titulo": titulo,
+        "campos": campos,
         "pdf": pdf,
         "timestamp": txt(c(0)),
     }
