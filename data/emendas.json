@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-05T00:31:39.421450+00:00",
+  "gerado_em": "2026-09-05T00:42:46.925597+00:00",
   "total": 23,
   "erros": [],
   "registros": [
@@ -12,6 +12,10 @@
         {
           "rotulo": "Item do texto-base",
           "valor": "74"
+        },
+        {
+          "rotulo": "Texto atual",
+          "valor": "Art. 74. A academia funcionará diariamente das 6h às 22h, ressalvados os períodos de limpeza, manutenção, reparo ou interdição tecnicamente necessária."
         },
         {
           "rotulo": "Novo texto proposto",
@@ -106,6 +110,10 @@
           "valor": "Art. 73"
         },
         {
+          "rotulo": "Texto atual",
+          "valor": "Art. 73. O Síndico que deixar o cargo deverá entregar ao seu sucessor, no prazo máximo de 10 (dez) dias úteis, mediante termo de entrega, no mínimo:\nI — livros obrigatórios e registros administrativos;\nII — documentos contábeis, financeiros e fiscais;\nIII — contratos vigentes e respectivos aditivos;\nIV — demonstrativos bancários, aplicações financeiras e saldos dos fundos condominiais;\nV — relação das obrigações financeiras pendentes;\nVI — relação das ações judiciais e procedimentos administrativos em andamento;\nVII — inventário atualizado dos bens patrimoniais;\nVIII — chaves, controles, dispositivos de acesso e demais bens sob sua guarda;\nIX — senhas, certificados digitais, credenciais e acessos aos sistemas, plataformas eletrônicas, contas institucionais e demais ferramentas utilizadas na administração do condomínio;\nX — demais documentos, informações e elementos necessários à continuidade regular da administração.\n§ 1º A entrega será formalizada por termo circunstanciado, assinado pelo Síndico que deixa o cargo e pelo seu sucessor, contendo a relação dos documentos, bens e informações entregues, bem como eventuais ressalvas.\n§ 2º Havendo recusa de qualquer das partes em assinar o termo, tal circunstância será registrada, sem prejuízo da validade da entrega efetivamente realizada."
+        },
+        {
           "rotulo": "Novo texto proposto",
           "valor": "Art. 73. O Síndico que deixar o cargo entregará ao seu sucessor, nos prazos e na forma previstos neste artigo, mediante termo de entrega, a documentação, os bens e os acessos necessários à continuidade da administração.\n§ 1º No prazo máximo de 48 (quarenta e oito) horas, contado da posse do sucessor, serão entregues:\nI — chaves, controles, dispositivos de acesso e demais bens sob sua guarda necessários ao funcionamento imediato da portaria e das instalações comuns; e\nII — senhas, certificados digitais, credenciais e acessos aos sistemas, plataformas eletrônicas, contas bancárias, institucionais e demais ferramentas utilizadas na administração do condomínio.\n§ 2º No prazo máximo de 10 (dez) dias úteis, contado da posse do sucessor, serão entregues:\nI — livros obrigatórios e registros administrativos;\nII — documentos contábeis, financeiros e fiscais;\nIII — contratos vigentes e respectivos aditivos;\nIV — demonstrativos bancários, aplicações financeiras e saldos dos fundos condominiais;\nV — relação das obrigações financeiras pendentes;\nVI — relação das ações judiciais e procedimentos administrativos em andamento;\nVII — inventário atualizado dos bens patrimoniais; e\nVIII — demais documentos, informações e elementos necessários à continuidade regular da administração.\n§ 3º A entrega, em cada uma das etapas previstas nos §§ 1º e 2º, será formalizada por termo circunstanciado, assinado pelo Síndico que deixa o cargo e pelo seu sucessor, contendo a relação dos documentos, bens e informações entregues, bem como eventuais ressalvas.\n§ 4º Havendo recusa de qualquer das partes em assinar o termo, tal circunstância será registrada, sem prejuízo da validade da entrega efetivamente realizada."
         },
@@ -127,6 +135,10 @@
         {
           "rotulo": "Item do texto-base",
           "valor": "Art. 92, VIII"
+        },
+        {
+          "rotulo": "Texto atual",
+          "valor": "Art. 92. A Proposta Orçamentária referida no art. 88 conterá, no mínimo:\nI - estimativa das receitas ordinárias e extraordinárias;\nII - estimativa das despesas ordinárias e extraordinárias;\nIII - previsão de investimentos, obras e aquisições de bens permanentes;\nIV - previsão de constituição, utilização e recomposição dos fundos condominiais;\nV - estimativa das despesas administrativas, operacionais, tributárias, trabalhistas e contratuais;\nVI - previsão dos contratos continuados e dos serviços essenciais;\nVII - reserva destinada às despesas contingenciais, quando cabível;\nVIII - demais informações exigidas pela legislação vigente, pela Convenção Condominial ou por este Regimento."
         },
         {
           "rotulo": "Novo texto proposto",
@@ -175,6 +187,10 @@
           "valor": "Art. 23, § 2º e Art. 24"
         },
         {
+          "rotulo": "Texto atual",
+          "valor": "Art. 23, § 2º. O edital será divulgado com antecedência mínima de oito dias, na forma prevista na Convenção Condominial.\n \nArt. 24. Qualquer condômino poderá requerer a inclusão de matéria na ordem do dia de Assembleia já convocada, no prazo de até 3 (três) dias contado da divulgação do edital.\n§ 1º Compete a quem convocou a Assembleia decidir motivadamente sobre o requerimento, cabendo à própria Assembleia, por maioria simples dos presentes, deliberar sobre a inclusão da matéria no início dos trabalhos, em caso de recusa.\n§ 2º Quando a matéria requerida envolver a aprovação, alteração ou revogação de norma interna ou política condominial, o condômino apresentará, em conjunto com o requerimento, o texto integral da proposta, observado o disposto no art. 25."
+        },
+        {
           "rotulo": "Novo texto proposto",
           "valor": "Art. 23, § 2º. O edital será divulgado com antecedência mínima de dez dias.\n \nArt. 24. Qualquer condômino poderá requerer a inclusão de matéria na ordem do dia de Assembleia já convocada, no prazo de até 2 (dois) dias contado da divulgação do edital.\n§ 1º Compete a quem convocou a Assembleia decidir motivadamente sobre o requerimento; em caso de recusa, a própria Assembleia poderá, por maioria simples dos presentes, deliberar pela inclusão da matéria no início dos trabalhos.\n§ 2º A apreciação de mérito da matéria incluída, com efeito vinculante, somente ocorrerá nessa mesma Assembleia se estiverem presentes todos os condôminos, nos termos do art. 1.354 do Código Civil.\n§ 3º Não estando presente a totalidade dos condôminos, a matéria será obrigatoriamente incluída na ordem do dia da próxima Assembleia, ordinária ou extraordinária, que comporte pauta não exclusiva.\n§ 4º Quando a própria matéria incluída depender, por sua natureza, de Assembleia especialmente convocada para fim específico que não admita deliberação diversa daquela que lhe é obrigatória, a inclusão aguardará a primeira Assembleia dessa natureza que vier a ser convocada.\n§ 5º Quando a matéria requerida envolver a aprovação, alteração ou revogação de norma interna ou política condominial, o condômino apresentará, em conjunto com o requerimento, o texto integral da proposta, observado o disposto no art. 25."
         },
@@ -219,6 +235,10 @@
         {
           "rotulo": "Item do texto-base",
           "valor": "Art. 271"
+        },
+        {
+          "rotulo": "Texto atual",
+          "valor": "É vedada a instalação ou manutenção de armários que prejudiquem a circulação de\npessoas ou veículos, obstruam equipamentos de combate a incêndio, interfiram na ventilação, iluminação, sinalização, rotas de fuga, acesso às instalações prediais ou dificultem a realização de inspeções, manutenções e reparos."
         },
         {
           "rotulo": "Novo texto proposto",
@@ -310,6 +330,10 @@
       "campos": [
         {
           "rotulo": "Item do texto-base",
+          "valor": "349 e outros"
+        },
+        {
+          "rotulo": "Texto atual",
           "valor": "349 e outros"
         },
         {
@@ -470,6 +494,10 @@
           "valor": "Art. 152"
         },
         {
+          "rotulo": "Texto atual",
+          "valor": "Sempre que indispensável à realização de obras, reparos, inspeções, vistorias ou\nintervenções necessárias à preservação da segurança, da integridade das instalações comuns\nou à prevenção de danos, o condômino deverá permitir o acesso à sua unidade, mediante\nprévia comunicação da Administração, ressalvadas as situações de urgência ou emergência."
+        },
+        {
           "rotulo": "Nova redação proposta",
           "valor": "Sempre que for indispensável a realização de obras, reparos, inspeções, vistorias ou\nintervenções necessárias à preservação da segurança, da integridade das instalações comuns\nou à prevenção de danos, o condômino deverá permitir o acesso à sua unidade, mediante\nprévia comunicação da Administração, ressalvadas as situações de urgência ou emergência."
         },
@@ -493,6 +521,10 @@
           "valor": "Art. 208"
         },
         {
+          "rotulo": "Texto atual",
+          "valor": "O cancelamento de reserva de área comum poderá sujeitar o responsável ao\npagamento de multa de até 100% (cem por cento) do valor da taxa prevista no art. 207,\nconforme os prazos e a graduação estabelecidos no Calendário Anual das Áreas Comuns."
+        },
+        {
           "rotulo": "Novo texto proposto",
           "valor": "O cancelamento de reserva de área comum, com menos de 24h do início da reserva, poderá sujeitar o responsável ao pagamento de multa de até 50% (cinquenta por cento) do valor da taxa prevista no art. 207, conforme os prazos e a graduação estabelecidos no Calendário Anual das Áreas Comuns."
         },
@@ -514,6 +546,10 @@
         {
           "rotulo": "Item do texto-base",
           "valor": "Parágrafo único do artigo 209"
+        },
+        {
+          "rotulo": "Texto atual",
+          "valor": "Os recursos do Fundo somente poderão ser utilizados para despesas de\nlimpeza, manutenção, pequenos reparos e reposição de utensílios e equipamentos das áreas comuns sujeitas a reserva, vedada sua utilização para outra finalidade."
         },
         {
           "rotulo": "Novo texto proposto",
