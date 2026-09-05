@@ -1,7 +1,9 @@
 {
-  "gerado_em": "2026-09-05T15:02:12.324565+00:00",
-  "total": 23,
-  "erros": [],
+  "gerado_em": "2026-09-05T15:21:20.312931+00:00",
+  "total": 14,
+  "erros": [
+    "The read operation timed out"
+  ],
   "registros": [
     {
       "tipo": "modificativa",
@@ -255,213 +257,6 @@
     },
     {
       "tipo": "aditiva",
-      "unidade": "605",
-      "nome": "LEIDIANA ALVES DE LIMA",
-      "titulo": "Após o Art. 306",
-      "campos": [
-        {
-          "rotulo": "Onde inserir (dispositivo de referência)",
-          "valor": "Após o Art. 306"
-        },
-        {
-          "rotulo": "Texto a ser incluído",
-          "valor": "É proibida a colocação  ou permanência , no halls de entrada das unidades autônomas e nas respectivas portas de entrada, de qualquer objeto, adorno, enfeite, elemento decorativo ou utilitário, tais como sapatos, calçados, chinelos, vasos, plantas, floreiras, objetos ornamentais, móveis, bancos, cadeiras, sapateiras, caixas, enfeites, placas, velas, incensos, avisos, guirlandas, coroas, quadros, fitas ou quaisquer outros itens, sendo permitida exclusivamente  a colocação de tapete no piso, destinada à entrada da unidade. \n§1º. É expressamente proibida a fixação , colagem, instalação de penduração  de quaisquer objetos ou elementos decorativos nas portas de entrada das unidades autônomas, incluindo guirlandas, enfeites, placas, avisos, quadros, adornos, fitas ou similares.\n§2º. O tapete permitido deverá possuir tamanho proporcional  á porta de entrada da respcetiva unidade autônoma, devendo permanecer integralmente dentro do espaço correspondente à unidade, sem ultrapassar os limites laterais ou avançar sobre o espaço destinado à unidade vizinha, à circulação ou às demais áreas comuns.\n§ 3º. O tapete deverá ser mantido em boas condições de conservação, higiene e segurança, não podendo obstruir a circulação, dificultar a abertura ou o fechamento da porta ou causar qualquer risco ou incômodo aos demais moradores.\n§4º. É vedada a utilização do hall de entrada da unidade autônoma como local para armazenamento , guarda, depósito ou exposição  de quaisquer objetos, materiais ou pertences, ainda que temporariamente. \n§5º. O descumprimento deste artigo sujeitará o responsável às medidas administrativas e às penalidades  previstas neste Regimento Interno."
-        },
-        {
-          "rotulo": "Justificativa",
-          "valor": "A proposta tem por objetivo preservar a organização, a segurança, a higiene, a circulação e a uniformidade das áreas comuns, evitando a colocação de objetos, adornos ou materiais nos halls e nas portas das unidades autônomas que possam obstruir a passagem, dificultar a abertura das portas, causar acidentes ou interferir no espaço destinado às unidades vizinhas. Busca-se, ainda, estabelecer critérios claros para a utilização de tapetes, garantindo que permaneçam exclusivamente dentro dos limites das respectiva unidade."
-        }
-      ],
-      "pdf": null,
-      "timestamp": "26/08/2026 21:11:57",
-      "id": "EM-009"
-    },
-    {
-      "tipo": "aditiva",
-      "unidade": "605",
-      "nome": "LEIDIANA ALVES DE LIMA",
-      "titulo": "Após o artifo 199, colocaria como  §1º.",
-      "campos": [
-        {
-          "rotulo": "Onde inserir (dispositivo de referência)",
-          "valor": "Após o artifo 199, colocaria como  §1º."
-        },
-        {
-          "rotulo": "Texto a ser incluído",
-          "valor": "Art. 199 §1º. A utilização do sistema de reservas das áreas comuns ficará condicionada à inexistência de débitos condominiais vencidos e exigíveis vinculados à unidade. Somente poderão realizar reservas os condôminos que estiverem adimplentes com todas as despesas condominiais, ordinárias e extraordinárias, ressalvadas as hipóteses de acordo formalmente celebrado e regularmente adimplido."
-        },
-        {
-          "rotulo": "Justificativa",
-          "valor": "A proposta tem por objetivo estabelecer um critério objetivo e isonômico para a utilização do sistema de reservas das áreas comuns, incentivando o cumprimento das obrigações condominiais e contribuindo para a manutenção do equilíbrio financeiro do condomínio. A medida busca assegurar que o benefício de reserva e utilização exclusiva temporária dos espaços comuns seja disponibilizado aos condôminos que estejam regularmente adimplentes com suas obrigações."
-        }
-      ],
-      "pdf": null,
-      "timestamp": "27/08/2026 10:55:12",
-      "id": "EM-010"
-    },
-    {
-      "tipo": "aditiva",
-      "unidade": "605",
-      "nome": "LEIDIANA ALVES DE LIMA",
-      "titulo": "após o art. 325",
-      "campos": [
-        {
-          "rotulo": "Onde inserir (dispositivo de referência)",
-          "valor": "após o art. 325"
-        },
-        {
-          "rotulo": "Texto a ser incluído",
-          "valor": "É proibido descartar fezes, dejetos ou resíduos provenientes de animas domésticos nas lixeiras internas das unidades autônomas, ainda que estejam devidamente acondicionadas em sacos plásticos.\nOs dejetos de animais deverão ser devidamente recolhidos pelo responsável e  destinados exclusivamente aos locais apropriados disponibilizados pelo condomínio para essa finalidade ou, quando não houver local específico, ao vaso sanitário da própria unidade, observadas as condições adequadas de descarte e as orientações sanitárias aplicáveis."
-        },
-        {
-          "rotulo": "Justificativa",
-          "valor": "A medida tem que como objetivo preservar as condições de higiene e salubridade do condomínio, evitar odores desagradáveis, proliferação de insetos e contaminações, bem como impedir que as lixeiras internas das unidades autônomas sejam utilizadas para o descarte de resíduos orgânicos provenientes de animais."
-        }
-      ],
-      "pdf": null,
-      "timestamp": "27/08/2026 11:50:25",
-      "id": "EM-011"
-    },
-    {
-      "tipo": "modificativa",
-      "unidade": "111",
-      "nome": "Ricardo da Fonseca Martins",
-      "titulo": "349 e outros",
-      "campos": [
-        {
-          "rotulo": "Item do texto-base",
-          "valor": "349 e outros"
-        },
-        {
-          "rotulo": "Texto atual",
-          "valor": "349 e outros"
-        },
-        {
-          "rotulo": "Novo texto proposto",
-          "valor": "Convergir para previsão legal"
-        },
-        {
-          "rotulo": "Justificativa",
-          "valor": "Adequar o texto"
-        }
-      ],
-      "pdf": null,
-      "timestamp": "27/08/2026 17:59:39",
-      "id": "EM-012"
-    },
-    {
-      "tipo": "substitutiva",
-      "unidade": "111",
-      "nome": "Ricardo da Fonseca Martins",
-      "titulo": "art 64 estabelece 1 ano. Convenção e Lei 2 anos",
-      "campos": [
-        {
-          "rotulo": "Item do texto-base",
-          "valor": "art 64 estabelece 1 ano. Convenção e Lei 2 anos"
-        },
-        {
-          "rotulo": "Justificativa",
-          "valor": "Harmonizar lei, convenção e RI"
-        }
-      ],
-      "pdf": "https://drive.google.com/open?id=1fg2EkuVJI8YmPLYLa5dKtk8wV3Yz3RuL",
-      "timestamp": "27/08/2026 18:29:00",
-      "id": "EM-013"
-    },
-    {
-      "tipo": "parecer",
-      "unidade": "111",
-      "nome": "Ricardo Martins",
-      "titulo": "ESTRUTURA DO RI",
-      "campos": [
-        {
-          "rotulo": "Item/tema do parecer",
-          "valor": "ESTRUTURA DO RI"
-        },
-        {
-          "rotulo": "Especialidade",
-          "valor": "Direito"
-        },
-        {
-          "rotulo": "Observações",
-          "valor": "RI bastante complexo, revelando trabalho meticuloso. Sugestão de separar temas em normas complementares: exemplo funcionamento da assembleia, confecção de ata, etc. Enxugar o RI para facilitar consulta. 384 artigos é bastante dispositivos.  Deixar no RI a previsão que alcança a todos. Nas normas complementares processo eleitoral, funcionamento de assembleia, etc. Somente separar os dispositivos. Facilita alterações e atualizações."
-        }
-      ],
-      "pdf": "https://drive.google.com/open?id=1CDOWmfjwDC74fcvNJQ7WNaTf_uGqJrZE",
-      "timestamp": "27/08/2026 18:36:12",
-      "id": "PT-003"
-    },
-    {
-      "tipo": "aditiva",
-      "unidade": "513",
-      "nome": "Martin Francisco e Adriana Marins",
-      "titulo": "após art. 175",
-      "campos": [
-        {
-          "rotulo": "Onde inserir (dispositivo de referência)",
-          "valor": "após art. 175"
-        },
-        {
-          "rotulo": "Texto a ser incluído",
-          "valor": "Fica autorizada a utilização de varal para secagem de roupas na laje técnica"
-        },
-        {
-          "rotulo": "Justificativa",
-          "valor": "A ideia é facilitar a secagem das roupas por meio do aproveitamento dos ventos que incidem na laje técnica"
-        }
-      ],
-      "pdf": null,
-      "timestamp": "28/08/2026 11:41:12",
-      "id": "EM-014"
-    },
-    {
-      "tipo": "aditiva",
-      "unidade": "513",
-      "nome": "Martin Francisco e Adriana Marins",
-      "titulo": "após art. 175",
-      "campos": [
-        {
-          "rotulo": "Onde inserir (dispositivo de referência)",
-          "valor": "após art. 175"
-        },
-        {
-          "rotulo": "Texto a ser incluído",
-          "valor": "Fica autorizada a utilização de varal de parede ou de chão na laje técnica desde que a instalação seja abaixo do nível do parapeito"
-        },
-        {
-          "rotulo": "Justificativa",
-          "valor": "1) Permitiria aproveitamento dos ventos para secagem de roupas; 2) Ampliaria espaço disponível para demandas domésticas; 3) Não teria impacto visual, pois não ultrapassaria a altura do parapeito"
-        }
-      ],
-      "pdf": null,
-      "timestamp": "28/08/2026 11:53:12",
-      "id": "EM-015"
-    },
-    {
-      "tipo": "aditiva",
-      "unidade": "513",
-      "nome": "Martin e Adriana",
-      "titulo": "após art. 175",
-      "campos": [
-        {
-          "rotulo": "Onde inserir (dispositivo de referência)",
-          "valor": "após art. 175"
-        },
-        {
-          "rotulo": "Texto a ser incluído",
-          "valor": "É permitida a instalação de floreira na fachada"
-        },
-        {
-          "rotulo": "Justificativa",
-          "valor": "A colocação da floreira: a)  permitiria o cultivo de plantas ornamentais ou ervas; b) embelezaria a fachada; c) ampliaria o frescor e arejamento das respectivas áreas internas; d) promoveria embelezamento estético."
-        }
-      ],
-      "pdf": null,
-      "timestamp": "28/08/2026 11:57:37",
-      "id": "EM-016"
-    },
-    {
-      "tipo": "aditiva",
       "unidade": "114",
       "nome": "Aline Sterf",
       "titulo": "Art. 6o. Parágrafo segundo",
@@ -481,7 +276,7 @@
       ],
       "pdf": null,
       "timestamp": "31/08/2026 12:05:18",
-      "id": "EM-017"
+      "id": "EM-009"
     },
     {
       "tipo": "redacao",
@@ -508,7 +303,7 @@
       ],
       "pdf": null,
       "timestamp": "01/09/2026 07:59:51",
-      "id": "EM-018"
+      "id": "EM-010"
     },
     {
       "tipo": "modificativa",
@@ -535,7 +330,7 @@
       ],
       "pdf": null,
       "timestamp": "03/09/2026 18:01:59",
-      "id": "EM-019"
+      "id": "EM-011"
     },
     {
       "tipo": "modificativa",
@@ -562,7 +357,7 @@
       ],
       "pdf": null,
       "timestamp": "03/09/2026 18:07:42",
-      "id": "EM-020"
+      "id": "EM-012"
     }
   ]
 }
