@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-09-05T22:20:21.135283+00:00",
-  "total": 23,
+  "gerado_em": "2026-09-05T22:31:53.624359+00:00",
+  "total": 24,
   "erros": [],
   "registros": [
     {
@@ -563,6 +563,33 @@
       "pdf": null,
       "timestamp": "03/09/2026 18:07:42",
       "id": "EM-020"
+    },
+    {
+      "tipo": "modificativa",
+      "unidade": "505",
+      "nome": "Gyorgy Varga",
+      "titulo": "359",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "359"
+        },
+        {
+          "rotulo": "Texto atual",
+          "valor": "Encerrada a fase de defesa, o Sindico decidira, podendo:"
+        },
+        {
+          "rotulo": "Novo texto proposto",
+          "valor": "Encerrada a fase de defesa, o sindico decidira, com a anuencia por escrito do subsindico, podendo:"
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "Evitar exageros"
+        }
+      ],
+      "pdf": null,
+      "timestamp": "05/09/2026 19:29:01",
+      "id": "EM-021"
     }
   ]
 }
