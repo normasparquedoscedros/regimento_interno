@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-09-06T00:34:30.355070+00:00",
-  "total": 25,
+  "gerado_em": "2026-09-06T00:53:36.590441+00:00",
+  "total": 26,
   "erros": [],
   "registros": [
     {
@@ -613,6 +613,29 @@
       "pdf": "https://drive.google.com/open?id=1dWO1bTSsDHLJ9JvNDo9KQe1mTWxnhfMj",
       "timestamp": "05/09/2026 20:55:03",
       "id": "PT-004"
+    },
+    {
+      "tipo": "supressiva",
+      "unidade": "401",
+      "nome": "Greyce Christine Lisboa Bueno",
+      "titulo": "Art. 197",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "Art. 197"
+        },
+        {
+          "rotulo": "Texto a suprimir",
+          "valor": "O texto em sua integra"
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "As áreas comuns já encontram-se em uso e seu horário de funcionamento é essencial para administração do condomínio de forma correta"
+        }
+      ],
+      "pdf": null,
+      "timestamp": "05/09/2026 21:36:33",
+      "id": "EM-022"
     }
   ]
 }
