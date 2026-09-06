@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-09-06T01:20:11.889708+00:00",
-  "total": 26,
+  "gerado_em": "2026-09-06T01:33:11.364741+00:00",
+  "total": 27,
   "erros": [],
   "registros": [
     {
@@ -636,6 +636,25 @@
       "pdf": null,
       "timestamp": "05/09/2026 21:36:33",
       "id": "EM-022"
+    },
+    {
+      "tipo": "substitutiva",
+      "unidade": "401",
+      "nome": "Greyce Christine Lisboa Bueno",
+      "titulo": "Art.197",
+      "campos": [
+        {
+          "rotulo": "Item do texto-base",
+          "valor": "Art.197"
+        },
+        {
+          "rotulo": "Justificativa",
+          "valor": "As áreas comuns já encontram em uso, saber seus horários de funcionamento é de suma importância para administração e moradores"
+        }
+      ],
+      "pdf": "https://drive.google.com/open?id=1oO0oxkeHHnqUTQ3SNSfC9NiPQU6zlO0C",
+      "timestamp": "05/09/2026 22:26:29",
+      "id": "EM-023"
     }
   ]
 }
