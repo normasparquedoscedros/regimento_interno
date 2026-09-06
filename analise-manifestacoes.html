@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise das Manifestações — Regimento Interno — Parque dos Cedros</title>
+<style>
+  :root {
+    --verde-escuro: #1e4d19;
+    --verde-pastel: #dbe7da;
+    --verde-medio: #117a37;
+    --dourado: #ffd500;
+    --azul: #2b6ea8;
+    --vermelho: #a83232;
+    --ambar: #b5730a;
+    --texto: #2b2b2b;
+    --fundo: #fbfbf8;
+    /* ---- variáveis do cabeçalho compartilhado (iguais às demais páginas) ---- */
+    --green-deep: #1e4d19;
+    --green-mid: #298321;
+    --green-pale: #dbe7da;
+    --green-mint: #ddc23c;
+    --muted: #556f52;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--texto);
+    background: var(--fundo);
+    margin: 0;
+    line-height: 1.55;
+  }
+  /* ---------- Header e barra de navegação (idênticos às demais páginas) ---------- */
+  header.site{ background: var(--green-pale); }
+  .header-inner{
+    max-width: 1120px; margin: 0 auto; padding: 28px 32px 22px;
+    display: flex; align-items: center; gap: 20px;
+  }
+  .mark{ width: 54px; height: 54px; object-fit: contain; flex: none; }
+  .header-text h1{
+    font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 27px;
+    margin: 0 0 2px; color: var(--green-deep); letter-spacing: -0.01em;
+  }
+  .header-text p{ margin: 0; font-size: 14.5px; color: var(--muted); }
+
+  .subbar{ background: var(--green-deep); }
+  .subbar-inner{
+    max-width: 1120px; margin: 0 auto; padding: 10px 32px;
+    display: flex; align-items: center; gap: 26px; font-size: 14px; color: #eaf3ec;
+  }
+  .subbar a{ text-decoration:none; opacity:.88; }
+  .subbar a:hover{ opacity:1; text-decoration: underline; }
+  .subbar a.current{ opacity:1; font-weight:500; border-bottom: 2px solid var(--green-mint); padding-bottom: 2px; }
+
+  @media (max-width: 640px){
+    .header-inner{ padding: 18px 16px 14px; gap: 12px; }
+    .mark{ width: 42px; height: 42px; }
+    .header-text h1{ font-size: 18px; }
+    .header-text p{ font-size: 12.5px; }
+    .subbar-inner{
+      flex-wrap: wrap;
+      padding: 10px 16px;
+      gap: 8px 14px;
+      font-size: 13px;
+    }
+  }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+  }
+  /* Justifica o texto corrido (parágrafos de análise), sem afetar tabelas,
+     badges, itens de índice ou outros elementos curtos de uma linha só. */
+  main p, .final-note{ text-align: justify; }
+  h2 {
+    color: var(--verde-escuro);
+    padding-bottom: 8px; border-bottom: none;
+    margin-top: 46px;
+    font-size: 21px;
+  }
+  h2:first-of-type { margin-top: 10px; }
+  h3.group-title {
+    color: var(--verde-medio);
+    font-size: 17px;
+    margin-top: 30px;
+    border-bottom: 2px dotted #cfd9d3;
+    padding-bottom: 4px;
+  }
+  h3 { color: var(--verde-escuro); margin-bottom: 4px; font-size: 17px; }
+  h4 { color: var(--ambar); margin: 18px 0 6px; font-size: 14.5px; }
+  #indice {
+    background: #fff;
+    border: 1px solid #e2ded4;
+    border-radius: 10px;
+    padding: 18px 22px;
+  }
+  #indice ol { margin: 6px 0 14px 20px; padding: 0; }
+  #indice > ol > li { margin-bottom: 10px; font-weight: bold; }
+  #indice .toc-sub-list {
+    font-weight: normal;
+    margin-top: 6px;
+    columns: 2;
+    -webkit-columns: 2;
+    column-gap: 24px;
+  }
+  #indice .toc-sub-list li { margin-bottom: 5px; break-inside: avoid; }
+  #indice .toc-group { font-weight: bold; font-size: 13px; color: var(--verde-medio); margin: 10px 0 4px; }
+  #indice a, main a { color: var(--azul); text-decoration: none; }
+  #indice a:hover, main a:hover { text-decoration: underline; }
+  .toc-sub { color: #888; font-size: 12.5px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 13.5px;
+    margin-top: 10px;
+  }
+  th, td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #ece7db;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f1efe6;
+    color: var(--verde-escuro);
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  .dest-text { font-size: 12px; color: #555; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin: 14px 0 6px;
+    font-size: 13px;
+  }
+  .legend span.dot {
+    display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:6px; vertical-align:middle;
+  }
+  .card {
+    background: #fff;
+    border-left: 6px solid #ccc;
+    border-radius: 8px;
+    padding: 16px 20px 14px;
+    margin: 18px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+  }
+  .card-parecer {
+    background-image: repeating-linear-gradient(135deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 10px, transparent 10px, transparent 20px);
+  }
+  .eyebrow {
+    font-size: 10.5px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  .eyebrow-emenda { color: var(--verde-medio); }
+  .eyebrow-parecer { color: var(--ambar); }
+  .subcard {
+    border-left: 5px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 16px 8px;
+    margin: 12px 0 12px 6px;
+  }
+  .subcard h4 { color: inherit; margin: 0 0 4px; font-size: 14px; }
+  .meta {
+    font-size: 12.5px;
+    color: #777;
+    margin-bottom: 8px;
+  }
+  .destino-line { margin: 6px 0 10px; font-size: 14px; }
+  .back {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 12.5px;
+    color: var(--azul);
+  }
+  .final-note {
+    background: #fff8e8;
+    border: 1px solid #f0dfae;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 30px;
+    font-size: 14.5px;
+  }
+
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="header-inner">
+    <img class="mark" src="data:image/png;base64,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" alt="Logo Parque dos Cedros">
+    <div class="header-text">
+      <h1>Análise das Manifestações</h1>
+      <p>Comissão do Regimento Interno — Parque dos Cedros</p>
+    </div>
+  </div>
+  <div class="subbar">
+    <div class="subbar-inner">
+      <a href="index.html">Apresentação</a>
+      <a href="texto-base.html">Texto-base</a>
+      <a href="emendas.html">Emendas e pareceres</a>
+      <a href="#" class="current">Análise das manifestações</a>
+    </div>
+  </div>
+</header>
+<div style="display:flex;width:100%;height:3px;line-height:0;font-size:0;"><div style="flex:1;background:#117a37;height:3px;"></div><div style="flex:1;background:#ffd500;height:3px;"></div><div style="flex:1;background:#002776;height:3px;"></div></div>
+
+<main>
+
+<nav id="indice">
+  <h2 style="margin-top:0;">Índice</h2><div style="margin:2px 0 14px 0;"><div style="display:flex;width:100%;height:3px;line-height:0;font-size:0;"><div style="flex:1;background:#117a37;height:3px;"></div><div style="flex:1;background:#ffd500;height:3px;"></div><div style="flex:1;background:#002776;height:3px;"></div></div></div>
+  <ol>
+    <li><a href="#parte-1">Pré-processamento</a></li>
+    <li><a href="#parte-2">Classificação e destinação</a>
+      <div class="toc-group">Emendas</div>
+      <div class="toc-group">Pareceres técnicos</div>
+    </li>
+    <li><a href="#parte-3">Explicação individual de cada manifestação</a>
+      <div class="toc-group">Emendas</div>
+      <ul class="toc-sub-list">
+        <li><a href="#em-001">EM-001 — João Carvalho Leal (503)</a></li><li><a href="#em-002">EM-002 — Rosany Tereza Longo Hollanda de Mello (508)</a></li><li><a href="#em-003">EM-003 — Thiago Matias (512)</a></li><li><a href="#em-004">EM-004 — Thiago Matias (512)</a></li><li><a href="#em-005">EM-005 — Thiago Matias (512)</a></li><li><a href="#em-006">EM-006 — Thiago Matias (512)</a></li><li><a href="#em-007">EM-007 — Leidiana Alves de Lima (605)</a></li><li><a href="#em-008">EM-008 — Gisele Leite L&#x27;Abbate (410)</a></li><li><a href="#em-009">EM-009 — Leidiana Alves de Lima (605)</a></li><li><a href="#em-010">EM-010 — Leidiana Alves de Lima (605)</a></li><li><a href="#em-011">EM-011 — Leidiana Alves de Lima (605)</a></li><li><a href="#em-012">EM-012 — Ricardo da Fonseca Martins (111)</a></li><li><a href="#em-013">EM-013 — Ricardo da Fonseca Martins <span class="toc-sub">(6 pontos: a-f)</span></a></li><li><a href="#em-014-016">EM-014, EM-015 e EM-016 — Martin Francisco e Adriana Marins (513)</a></li><li><a href="#em-017">EM-017 — Aline Sterf (114)</a></li><li><a href="#em-018">EM-018 — Gisele Leite L&#x27;Abbate (410)</a></li><li><a href="#em-019">EM-019 — Gisele Leite L&#x27;Abbate (410)</a></li><li><a href="#em-020">EM-020 — Gisele Leite L&#x27;Abbate (410)</a></li><li><a href="#em-021">EM-021 — Gyorgy Varga (505)</a></li><li><a href="#em-022-023">EM-022 e EM-023 — Greyce Christine Lisboa Bueno (401)</a></li><li><a href="#em-024">EM-024 — Thiago Matias (512)</a></li>
+      </ul>
+      <div class="toc-group">Pareceres técnicos</div>
+      <ul class="toc-sub-list">
+        <li><a href="#pt-001">PT-001 — Franz Thiele (506)</a></li><li><a href="#pt-002">PT-002 — Franz Thiele (506)</a></li><li><a href="#pt-003">PT-003 — Ricardo Martins (111)</a></li><li><a href="#pt-004">PT-004 — Greyce Christine Lisboa Bueno (401)</a></li>
+      </ul>
+    </li>
+    <li><a href="#parte-4">Itens a desenvolver em normas inferiores</a></li>
+  </ol>
+</nav>
+
+<h2 id="parte-1">1. Pré-processamento</h2><div style="margin:2px 0 14px 0;"><div style="display:flex;width:100%;height:3px;line-height:0;font-size:0;"><div style="flex:1;background:#117a37;height:3px;"></div><div style="flex:1;background:#ffd500;height:3px;"></div><div style="flex:1;background:#002776;height:3px;"></div></div></div>
+<p>Antes da classificação individual, cada manifestação foi conferida contra o texto-base vigente (384 artigos): localização exata do dispositivo citado, correção de eventuais erros de numeração ou de local de inserção indicado pelo autor, e verificação de eventual sobreposição com conteúdo já existente em outro artigo. Essa conferência aparece na coluna &ldquo;Dispositivo (mapeado)&rdquo; da tabela da Parte 2 e é detalhada, quando relevante, nas explicações individuais da Parte 3.</p>
+
+<h2 id="parte-2">2. Classificação e destinação</h2><div style="margin:2px 0 14px 0;"><div style="display:flex;width:100%;height:3px;line-height:0;font-size:0;"><div style="flex:1;background:#117a37;height:3px;"></div><div style="flex:1;background:#ffd500;height:3px;"></div><div style="flex:1;background:#002776;height:3px;"></div></div></div>
+<div class="legend">
+  <span><span class="dot" style="background:#1a7f5a;"></span>Acatada</span>
+  <span><span class="dot" style="background:#2b6ea8;"></span>Redirecionada para norma inferior</span>
+  <span><span class="dot" style="background:#b5730a;"></span>Aproveitamento diverso</span>
+  <span><span class="dot" style="background:#a83232;"></span>Avulsa (não acatada)</span>
+</div>
+
+<h3 class="group-title">2.1 Emendas</h3>
+<table>
+<thead><tr><th>ID</th><th>Autor (Unidade)</th><th>Tipo</th><th>Dispositivo</th><th>Síntese</th><th>Destinação</th></tr></thead>
+<tbody>
+<tr style="border-left:4px solid #2b6ea8;">
+      <td><a href="#em-001">EM-001</a></td>
+      <td>João Carvalho Leal (503)</td>
+      <td>Modificativa</td>
+      <td>Art. 74 (Academia)</td>
+      <td>Academia 24h em vez de 6h–22h</td>
+      <td><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span><br><span class="dest-text">Norma Interna (Calendário Anual)</span></td>
+    </tr>
+<tr style="border-left:4px solid #2b6ea8;">
+      <td><a href="#em-002">EM-002</a></td>
+      <td>Rosany T. L. H. de Mello (508)</td>
+      <td>Aditiva</td>
+      <td>Art. 197 (Seção de Piscinas)</td>
+      <td>Reserva/agendamento de horário de natação na piscina</td>
+      <td><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span><br><span class="dest-text">Norma Interna (Calendário Anual)</span></td>
+    </tr>
+<tr style="border-left:4px solid #1a7f5a;">
+      <td><a href="#em-003">EM-003</a></td>
+      <td>Thiago Matias (512)</td>
+      <td>Modificativa</td>
+      <td>Art. 73 (Transição)</td>
+      <td>Separar em 48h (acessos/senhas) e 10 dias úteis (documentação)</td>
+      <td><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span><br><span class="dest-text">Acatada</span></td>
+    </tr>
+<tr style="border-left:4px solid #a83232;">
+      <td><a href="#em-004">EM-004</a></td>
+      <td>Thiago Matias (512)</td>
+      <td>Modificativa</td>
+      <td>Art. 92, VIII</td>
+      <td>Remuneração de cargos deve constar da Proposta Orçamentária</td>
+      <td><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span><br><span class="dest-text">Avulsa (não acatada)</span></td>
+    </tr>
+<tr style="border-left:4px solid #1a7f5a;">
+      <td><a href="#em-005">EM-005</a></td>
+      <td>Thiago Matias (512)</td>
+      <td>Aditiva</td>
+      <td>Novo Art. 21-A</td>
+      <td>Procuração digital em Assembleia</td>
+      <td><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span><br><span class="dest-text">Acatada</span></td>
+    </tr>
+<tr style="border-left:4px solid #1a7f5a;">
+      <td><a href="#em-006">EM-006</a></td>
+      <td>Thiago Matias (512)</td>
+      <td>Modificativa</td>
+      <td>Art. 23, § 2º e Art. 24</td>
+      <td>Prazos de edital e de inclusão em pauta</td>
+      <td><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span><br><span class="dest-text">Acatada</span></td>
+    </tr>
+<tr style="border-left:4px solid #2b6ea8;">
+      <td><a href="#em-007">EM-007</a></td>
+      <td>Leidiana Alves de Lima (605)</td>
+      <td>Aditiva</td>
+      <td>Após Art. 306</td>
+      <td>Vedar fumo/odores entre unidades</td>
+      <td><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span><br><span class="dest-text">Norma Interna</span></td>
+    </tr>
+<tr style="border-left:4px solid #2b6ea8;">
+      <td><a href="#em-008">EM-008</a></td>
+      <td>Gisele Leite L&#x27;Abbate (410)</td>
+      <td>Modificativa</td>
+      <td>Art. 271 (Armários de garagem)</td>
+      <td>Vedar armário que comprometa a garantia da construtora</td>
+      <td><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span><br><span class="dest-text">Norma Complementar (armários de garagem)</span></td>
+    </tr>
+<tr style="border-left:4px solid #2b6ea8;">
+      <td><a href="#em-009">EM-009</a></td>
+      <td>Leidiana Alves de Lima (605)</td>
+      <td>Aditiva</td>
+      <td>Após Art. 306</td>
+      <td>Proibir objetos/adornos em halls e portas</td>
+      <td><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span><br><span class="dest-text">Norma Interna</span></td>
+    </tr>
+<tr style="border-left:4px solid #a83232;">
+      <td><a href="#em-010">EM-010</a></td>
+      <td>Leidiana Alves de Lima (605)</td>
+      <td>Aditiva</td>
+      <td>Art. 199, novo § 1º</td>
+      <td>Vedar reserva a condômino inadimplente</td>
+      <td><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span><br><span class="dest-text">Avulsa (não acatada)</span></td>
+    </tr>
+<tr style="border-left:4px solid #2b6ea8;">
+      <td><a href="#em-011">EM-011</a></td>
+      <td>Leidiana Alves de Lima (605)</td>
+      <td>Aditiva</td>
+      <td>Após Art. 325 (Animais)</td>
+      <td>Vedar dejetos de animais nas lixeiras internas</td>
+      <td><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span><br><span class="dest-text">Norma Interna</span></td>
+    </tr>
+<tr style="border-left:4px solid #a83232;">
+      <td><a href="#em-012">EM-012</a></td>
+      <td>Ricardo da Fonseca Martins (111)</td>
+      <td>Modificativa</td>
+      <td>&quot;Art. 349 e outros&quot;</td>
+      <td>Sem texto proposto</td>
+      <td><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span><br><span class="dest-text">Avulsa (não acatada)</span></td>
+    </tr>
+<tr style="border-left:4px solid #1a7f5a;">
+      <td><a href="#em-013a">EM-013a</a></td>
+      <td>Ricardo da Fonseca Martins (111)</td>
+      <td>Substitutiva (análise comparativa)</td>
+      <td>Art. 53, § 2º</td>
+      <td>Quórum de destituição mais difícil que Convenção/CC</td>
+      <td><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span><br><span class="dest-text">Acatada</span></td>
+    </tr>
+<tr style="border-left:4px solid #1a7f5a;">
+      <td><a href="#em-013b">EM-013b</a></td>
+      <td>Ricardo da Fonseca Martins (111)</td>
+      <td>Substitutiva (análise comparativa)</td>
+      <td>Art. 349, § único</td>
+      <td>Quórum de multa agravada abaixo do piso do CC</td>
+      <td><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span><br><span class="dest-text">Acatada (remissão direta à lei)</span></td>
+    </tr>
+<tr style="border-left:4px solid #1a7f5a;">
+      <td><a href="#em-013c">EM-013c</a></td>
+      <td>Ricardo da Fonseca Martins (111)</td>
+      <td>Substitutiva (análise comparativa)</td>
+      <td>Art. 64, § 2º</td>
+      <td>Mandato/reeleição do Síndico</td>
+      <td><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span><br><span class="dest-text">Acatada parcialmente</span></td>
+    </tr>
+<tr style="border-left:4px solid #1a7f5a;">
+      <td><a href="#em-013d">EM-013d</a></td>
+      <td>Ricardo da Fonseca Martins (111)</td>
+      <td>Substitutiva (análise comparativa)</td>
+      <td>Art. 59, IV e Art. 63, §§ 1º-2º</td>
+      <td>Poder do Conselho de anular multa</td>
+      <td><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span><br><span class="dest-text">Acatada</span></td>
+    </tr>
+<tr style="border-left:4px solid #b5730a;">
+      <td><a href="#em-013e">EM-013e</a></td>
+      <td>Ricardo da Fonseca Martins (111)</td>
+      <td>Substitutiva (análise comparativa)</td>
+      <td>Cláusula 8ª da Convenção</td>
+      <td>Quórum de obras voluptuárias/varandas</td>
+      <td><span class="badge" style="background:#fbf1e3;color:#b5730a;border:1px solid #b5730a55;">Aproveitamento diverso</span><br><span class="dest-text">Aproveitamento diverso</span></td>
+    </tr>
+<tr style="border-left:4px solid #1a7f5a;">
+      <td><a href="#em-013f">EM-013f</a></td>
+      <td>Ricardo da Fonseca Martins (111)</td>
+      <td>Substitutiva (análise comparativa)</td>
+      <td>Art. 349, § único</td>
+      <td>Remissão cruzada errada</td>
+      <td><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span><br><span class="dest-text">Acatada</span></td>
+    </tr>
+<tr style="border-left:4px solid #2b6ea8;">
+      <td><a href="#em-014-016">EM-014</a></td>
+      <td>Martin Francisco e Adriana Marins (513)</td>
+      <td>Aditiva</td>
+      <td>Após Art. 175</td>
+      <td>Varal na laje técnica</td>
+      <td><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span><br><span class="dest-text">Norma Complementar (lajes técnicas)</span></td>
+    </tr>
+<tr style="border-left:4px solid #2b6ea8;">
+      <td><a href="#em-014-016">EM-015</a></td>
+      <td>Martin Francisco e Adriana Marins (513)</td>
+      <td>Aditiva</td>
+      <td>Após Art. 175</td>
+      <td>Varal de parede/chão na laje técnica</td>
+      <td><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span><br><span class="dest-text">Norma Complementar (lajes técnicas)</span></td>
+    </tr>
+<tr style="border-left:4px solid #2b6ea8;">
+      <td><a href="#em-014-016">EM-016</a></td>
+      <td>Martin e Adriana (513)</td>
+      <td>Aditiva</td>
+      <td>Após Art. 175</td>
+      <td>Floreira na fachada</td>
+      <td><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span><br><span class="dest-text">Norma Complementar (fachadas)</span></td>
+    </tr>
+<tr style="border-left:4px solid #1a7f5a;">
+      <td><a href="#em-017">EM-017</a></td>
+      <td>Aline Sterf (114)</td>
+      <td>Aditiva</td>
+      <td>Art. 6º, novo § 2º</td>
+      <td>Home office não é atividade vedada</td>
+      <td><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span><br><span class="dest-text">Acatada</span></td>
+    </tr>
+<tr style="border-left:4px solid #1a7f5a;">
+      <td><a href="#em-018">EM-018</a></td>
+      <td>Gisele Leite L&#x27;Abbate (410)</td>
+      <td>Redação</td>
+      <td>Art. 153</td>
+      <td>Reescrita em ordem direta (crase mantida)</td>
+      <td><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span><br><span class="dest-text">Acatada, com ressalva</span></td>
+    </tr>
+<tr style="border-left:4px solid #a83232;">
+      <td><a href="#em-019">EM-019</a></td>
+      <td>Gisele Leite L&#x27;Abbate (410)</td>
+      <td>Modificativa</td>
+      <td>Art. 208</td>
+      <td>Multa de cancelamento: 100%→50%, 24h de graça</td>
+      <td><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span><br><span class="dest-text">Avulsa (não acatada)</span></td>
+    </tr>
+<tr style="border-left:4px solid #a83232;">
+      <td><a href="#em-020">EM-020</a></td>
+      <td>Gisele Leite L&#x27;Abbate (410)</td>
+      <td>Modificativa</td>
+      <td>Art. 209, parágrafo único</td>
+      <td>Fundo para &quot;outras finalidades&quot;</td>
+      <td><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span><br><span class="dest-text">Avulsa (não acatada)</span></td>
+    </tr>
+<tr style="border-left:4px solid #a83232;">
+      <td><a href="#em-021">EM-021</a></td>
+      <td>Gyorgy Varga (505)</td>
+      <td>Modificativa</td>
+      <td>Art. 359</td>
+      <td>Anuência do Subsíndico para decisão do Síndico</td>
+      <td><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span><br><span class="dest-text">Avulsa (não acatada)</span></td>
+    </tr>
+<tr style="border-left:4px solid #a83232;">
+      <td><a href="#em-022-023">EM-022</a></td>
+      <td>Greyce C. L. Bueno (401)</td>
+      <td>Supressiva</td>
+      <td>Art. 197</td>
+      <td>Suprimir o artigo (par com EM-023)</td>
+      <td><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span><br><span class="dest-text">Avulsa (não acatada)</span></td>
+    </tr>
+<tr style="border-left:4px solid #a83232;">
+      <td><a href="#em-022-023">EM-023</a></td>
+      <td>Greyce C. L. Bueno (401)</td>
+      <td>Substitutiva</td>
+      <td>Art. 197</td>
+      <td>Horários fixos no Regimento</td>
+      <td><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span><br><span class="dest-text">Avulsa (não acatada)</span></td>
+    </tr>
+<tr style="border-left:4px solid #a83232;">
+      <td><a href="#em-024">EM-024</a></td>
+      <td>Thiago Matias (512)</td>
+      <td>Substitutiva integral</td>
+      <td>Todo o Regimento (384→102 artigos)</td>
+      <td>Reescrita completa do RI</td>
+      <td><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span><br><span class="dest-text">Avulsa integral; 3 blocos acatados isoladamente</span></td>
+    </tr>
+
+</tbody>
+</table>
+
+<h3 class="group-title">2.2 Pareceres técnicos</h3>
+<table>
+<thead><tr><th>ID</th><th>Autor (Unidade)</th><th>Tipo</th><th>Dispositivo</th><th>Síntese</th><th>Destinação</th></tr></thead>
+<tbody>
+<tr style="border-left:4px solid #b5730a;">
+      <td><a href="#pt-001">PT-001</a></td>
+      <td>Franz Thiele (506)</td>
+      <td>Parecer técnico</td>
+      <td>Estrutura normativa geral do RI</td>
+      <td>Aplicar de forma mais consequente a hierarquia normativa</td>
+      <td><span class="badge" style="background:#fbf1e3;color:#b5730a;border:1px solid #b5730a55;">Aproveitamento diverso</span><br><span class="dest-text">Aproveitamento diverso</span></td>
+    </tr>
+<tr style="border-left:4px solid #b5730a;">
+      <td><a href="#pt-002">PT-002</a></td>
+      <td>Franz Thiele (506)</td>
+      <td>Parecer técnico</td>
+      <td>Classificação de toda a Convenção e do texto-base</td>
+      <td>Tabela M/D/T/E artigo-a-artigo</td>
+      <td><span class="badge" style="background:#fbf1e3;color:#b5730a;border:1px solid #b5730a55;">Aproveitamento diverso</span><br><span class="dest-text">Aproveitamento diverso</span></td>
+    </tr>
+<tr style="border-left:4px solid #b5730a;">
+      <td><a href="#pt-003">PT-003</a></td>
+      <td>Ricardo Martins (111)</td>
+      <td>Parecer técnico</td>
+      <td>Estrutura geral do RI</td>
+      <td>Separar temas em Normas Complementares</td>
+      <td><span class="badge" style="background:#fbf1e3;color:#b5730a;border:1px solid #b5730a55;">Aproveitamento diverso</span><br><span class="dest-text">Aproveitamento diverso</span></td>
+    </tr>
+<tr style="border-left:4px solid #b5730a;">
+      <td><a href="#pt-004">PT-004</a></td>
+      <td>Greyce C. L. Bueno (401)</td>
+      <td>Parecer técnico</td>
+      <td>Múltiplos</td>
+      <td>Regras mais proporcionais em vários pontos</td>
+      <td><span class="badge" style="background:#fbf1e3;color:#b5730a;border:1px solid #b5730a55;">Aproveitamento diverso</span><br><span class="dest-text">Aproveitamento diverso</span></td>
+    </tr>
+
+</tbody>
+</table>
+
+<h2 id="parte-3">3. Explicação individual de cada manifestação</h2><div style="margin:2px 0 14px 0;"><div style="display:flex;width:100%;height:3px;line-height:0;font-size:0;"><div style="flex:1;background:#117a37;height:3px;"></div><div style="flex:1;background:#ffd500;height:3px;"></div><div style="flex:1;background:#002776;height:3px;"></div></div></div>
+
+<h3 class="group-title">3.1 Emendas</h3>
+
+<section id="em-001" class="card card-emenda" style="border-left-color:#2b6ea8;border-left-style:solid;background:#eaf2f822;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-001 — João Carvalho Leal (503)</h3>
+  <div class="meta"><span>Modificativa</span><span>&middot;</span><span>Art. 74 (Academia)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span> <strong>Redirecionada para Norma Interna</strong></div>
+  <p>Propõe que a academia funcione 24 horas por dia, em vez de das 6h às 22h. Assim como a EM-002, é conteúdo típico do que o Art. 197 já reserva ao Calendário Anual das Áreas Comuns (Norma Interna): horário de funcionamento de área de lazer, ajustável a cada ano conforme a demanda e a experiência de uso. Em vez de travar o horário permanentemente no Regimento, a proposta segue como sugestão concreta para a próxima Norma Interna do Calendário Anual.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-002" class="card card-emenda" style="border-left-color:#2b6ea8;border-left-style:solid;background:#eaf2f822;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-002 — Rosany Tereza Longo Hollanda de Mello (508)</h3>
+  <div class="meta"><span>Aditiva</span><span>&middot;</span><span>Art. 197 (Calendário Anual — Seção de Piscinas)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span> <strong>Redirecionada para Norma Interna</strong></div>
+  <p>Propõe regras de agendamento para uso da piscina por nadadores (tempo máximo, reserva pelo aplicativo, uso concorrente com lazer). O local de inserção indicado pela autora ("após o Art. 23") está incorreto — o Art. 23 trata da convocação de Assembleia, não de piscinas. O conteúdo corresponde exatamente ao que o Art. 197 já reserva ao Calendário Anual das Áreas Comuns. Segue como insumo concreto para a próxima Norma Interna do Calendário Anual.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-003" class="card card-emenda" style="border-left-color:#1a7f5a;border-left-style:solid;background:#eaf5ef22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-003 — Thiago Matias (512)</h3>
+  <div class="meta"><span>Modificativa</span><span>&middot;</span><span>Art. 73 (Transição)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span> <strong>Acatada</strong></div>
+  <p>Reformula o Art. 73 (transição de administração), separando dois grupos de itens com prazos diferentes: acessos e credenciais (chaves, senhas, sistemas) em 48 horas, e documentação (contábil, contratos, inventário) em 10 dias úteis. Hoje o artigo trata os dois grupos com o mesmo prazo de 10 dias, o que pode deixar um síndico recém-empossado sem acesso a sistemas básicos por até dez dias. É correção técnica, sem carga política, que reduz um risco operacional real na troca de administração — motivo pelo qual entra diretamente no texto consolidado.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-004" class="card card-emenda" style="border-left-color:#a83232;border-left-style:solid;background:#fbeaea22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-004 — Thiago Matias (512)</h3>
+  <div class="meta"><span>Modificativa</span><span>&middot;</span><span>Art. 92, VIII (Proposta Orçamentária)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span> <strong>Avulsa (não acatada)</strong></div>
+  <p>Acrescenta ao Art. 92 (conteúdo mínimo da Proposta Orçamentária) a exigência de que qualquer remuneração futura de Síndico, Subsíndico ou membros do Conselho seja definida dentro da própria Proposta Orçamentária Anual, com valor, forma de pagamento e fonte de recursos explícitos. A proposta não cria remuneração nenhuma — é salvaguarda de transparência para o caso de a Assembleia decidir, no futuro, remunerar esses cargos. Ainda assim, por tratar de tema sensível (remuneração de cargos eletivos), deve ser aprovada pela Assembleia em votação própria e visível, não incorporada silenciosamente ao texto consolidado.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-005" class="card card-emenda" style="border-left-color:#1a7f5a;border-left-style:solid;background:#eaf5ef22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-005 — Thiago Matias (512)</h3>
+  <div class="meta"><span>Aditiva</span><span>&middot;</span><span>Novo Art. 21-A (após Art. 21)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span> <strong>Acatada</strong></div>
+  <p>Cria o Art. 21-A, prevendo procuração digital para representação em Assembleia (certificado ICP-Brasil, gov.br nível prata/ouro ou plataforma equivalente, antecedência mínima de 24h e limite de procurações por outorgado igual ao já fixado na Convenção). Hoje o Regimento não trata do tema, o que gera insegurança para condôminos que residem fora de Brasília ou não podem comparecer presencialmente. Lacuna real, sem carga política, que passa a integrar o texto consolidado.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-006" class="card card-emenda" style="border-left-color:#1a7f5a;border-left-style:solid;background:#eaf5ef22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-006 — Thiago Matias (512)</h3>
+  <div class="meta"><span>Modificativa</span><span>&middot;</span><span>Art. 23, § 2º e Art. 24</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span> <strong>Acatada</strong></div>
+  <p>Altera o prazo do edital de convocação (de 8 para 10 dias) e o prazo para pedido de inclusão de matéria na pauta (de 3 para 2 dias), reorganizando o procedimento em parágrafos mais claros. Corrige uma situação em que a inclusão de matéria no último dia possível deixava menos antecedência do que o mínimo exigido pela Convenção, e adequa o texto ao Art. 1.354 do Código Civil. Correção técnica, sem carga política.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-007" class="card card-emenda" style="border-left-color:#2b6ea8;border-left-style:solid;background:#eaf2f822;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-007 — Leidiana Alves de Lima (605)</h3>
+  <div class="meta"><span>Aditiva</span><span>&middot;</span><span>Após Art. 306 (Convivência)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span> <strong>Redirecionada para Norma Interna</strong></div>
+  <p>Propõe vedar, em todo o condomínio, que fumaça, vapor ou odor de qualquer origem se propague de uma unidade para áreas comuns ou outras unidades. O objetivo — preservar sossego e saúde de moradores sensíveis — é legítimo e de baixa controvérsia quanto ao princípio; o nível de detalhe (tipos de dispositivo, exceções, formas de propagação) é mais adequado a uma Norma Interna de convivência do que a um artigo fixo do Regimento.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-008" class="card card-emenda" style="border-left-color:#2b6ea8;border-left-style:solid;background:#eaf2f822;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-008 — Gisele Leite L&#x27;Abbate (410)</h3>
+  <div class="meta"><span>Modificativa</span><span>&middot;</span><span>Art. 271 (Armários de garagem)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span> <strong>Redirecionada para Norma Complementar</strong></div>
+  <p>Acrescenta a vedação de instalação de armário de garagem que comprometa a garantia da edificação oferecida pela construtora. O tema "armários de garagem" já está mapeado como matéria de Norma Complementar (junto com os demais padrões de instalação de armários), de modo que esta vedação se soma às demais regras técnicas de armários a serem tratadas nesse mesmo instrumento. Mantém-se a ressalva de redação: usar formulação genérica ("garantia da edificação oferecida pela construtora"), sem citar o nome da construtora, já que a garantia é temporária e a norma deve ser duradoura.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-009" class="card card-emenda" style="border-left-color:#2b6ea8;border-left-style:solid;background:#eaf2f822;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-009 — Leidiana Alves de Lima (605)</h3>
+  <div class="meta"><span>Aditiva</span><span>&middot;</span><span>Após Art. 306</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span> <strong>Redirecionada para Norma Interna</strong></div>
+  <p>Proíbe qualquer objeto, adorno ou elemento decorativo nos halls de entrada e portas das unidades, permitindo apenas um tapete padronizado. É regra de convivência sobre uso de área comum de circulação, sujeita a ajuste e detalhamento — perfil mais compatível com Norma Interna do que com texto permanente do Regimento.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-010" class="card card-emenda" style="border-left-color:#a83232;border-left-style:solid;background:#fbeaea22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-010 — Leidiana Alves de Lima (605)</h3>
+  <div class="meta"><span>Aditiva</span><span>&middot;</span><span>Art. 199, novo § 1º</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span> <strong>Avulsa (não acatada)</strong></div>
+  <p>Condiciona o uso do sistema de reservas de áreas comuns à inexistência de débitos condominiais vencidos. Restringe o uso de um benefício comum por inadimplência — tema com nuance jurídica (a jurisprudência tende a tolerar restrição a benefícios não essenciais, mas o tema é recorrentemente contestado). Deve ir a voto próprio da Assembleia.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-011" class="card card-emenda" style="border-left-color:#2b6ea8;border-left-style:solid;background:#eaf2f822;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-011 — Leidiana Alves de Lima (605)</h3>
+  <div class="meta"><span>Aditiva</span><span>&middot;</span><span>Após Art. 325 (Animais)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span> <strong>Redirecionada para Norma Interna</strong></div>
+  <p>Proíbe o descarte de dejetos de animais domésticos nas lixeiras internas das unidades, direcionando-os a local apropriado ou ao vaso sanitário. Matéria de gestão operacional de resíduos, já capitulada na Seção de Coleta Seletiva e Descarte de Resíduos do Regimento — mais adequada como regra de Norma Interna do que como artigo permanente.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-012" class="card card-emenda" style="border-left-color:#a83232;border-left-style:solid;background:#fbeaea22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-012 — Ricardo da Fonseca Martins (111)</h3>
+  <div class="meta"><span>Modificativa</span><span>&middot;</span><span>&quot;Art. 349 e outros&quot;</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span> <strong>Avulsa (não acatada)</strong></div>
+  <p>Manifestação sem texto de dispositivo proposto: cita "Art. 349 e outros" e pede "convergir para previsão legal" / "adequar o texto", sem especificar a nova redação. Não há como incorporar aquilo que não foi redigido. Segue à Assembleia como está, cabendo ao autor detalhar e defender oralmente sua proposta.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-013" class="card card-emenda" style="border-left-color:#555;background:#f5f5f5;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-013 — Ricardo da Fonseca Martins (111)</h3>
+  <div class="meta"><span>Substitutiva (análise comparativa Código Civil × Convenção × Regimento)</span></div>
+  <p>A manifestação é uma análise jurídica comparativa completa, não um texto único de emenda, e por isso foi desdobrada em seis pontos:</p>
+  
+        <div class="subcard" id="em-013a" style="border-left-color:#1a7f5a;background:#eaf5ef22;">
+          <h4>EM-013a</h4>
+          <div class="destino-line"><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span> <strong>Acatada</strong></div>
+          <p>O Art. 53, § 2º, do texto-base equipara o quórum de destituição do Síndico, Subsíndico ou membro do Conselho ao quórum de alteração do próprio Regimento (instalação com 2/3 de todos os condôminos + maioria dos presentes). Tanto a Convenção (Cláusula 29ª) quanto o Art. 1.349 do Código Civil exigem apenas maioria absoluta dos membros presentes, sem quórum de instalação especial — o Regimento está dificultando a destituição além do que a norma superior autoriza. Não é escolha de valor, é ajuste de conformidade com norma hierarquicamente superior. Recomenda-se validação por advogado antes da redação final.</p>
+        </div>
+        <div class="subcard" id="em-013b" style="border-left-color:#1a7f5a;background:#eaf5ef22;">
+          <h4>EM-013b</h4>
+          <div class="destino-line"><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span> <strong>Acatada, com a remissão feita diretamente à lei</strong></div>
+          <p>O quórum de 2/3 fixado pela Convenção para multa agravada (descumprimento reiterado ou comportamento antissocial) é inferior ao piso de 3/4 exigido pelo Art. 1.337 do Código Civil. Em vez de manter o Art. 349, parágrafo único, remetendo aos parágrafos da Convenção que fixam 2/3, o texto passa a remeter diretamente ao quórum de 3/4 do art. 1.337 do CC — eliminando o risco de nulidade das multas agravadas por adoção de quórum inferior ao piso legal, sem depender de uma futura alteração da Convenção para produzir esse efeito.</p>
+        </div>
+        <div class="subcard" id="em-013c" style="border-left-color:#1a7f5a;background:#eaf5ef22;">
+          <h4>EM-013c</h4>
+          <div class="destino-line"><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span> <strong>Acatada parcialmente</strong></div>
+          <p>Sugere alinhar o mandato do Síndico (hoje 1 ano, com limite de uma única reeleição consecutiva) aos 2 anos previstos na Convenção e no Código Civil. Como a Convenção (Cláusula 25ª) e o Art. 1.347 do CC fixam apenas um teto de até 2 anos "podendo renovar-se" — sem impor piso nem proibir limite de reconduções —, o mandato de 1 ano é mantido (está dentro do teto legal e não foi objeto de decisão em contrário). O que é acatado é apenas a remoção do limite a uma única reeleição consecutiva do Art. 64, § 2º, já que esse limite específico não tem respaldo nem vedação na Convenção ou na lei, e sua manutenção ou remoção é a parte que, de fato, era discricionária.</p>
+        </div>
+        <div class="subcard" id="em-013d" style="border-left-color:#1a7f5a;background:#eaf5ef22;">
+          <h4>EM-013d</h4>
+          <div class="destino-line"><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span> <strong>Acatada</strong></div>
+          <p>Os Arts. 59, IV, e 63, §§ 1º e 2º, dão ao Conselho o poder de considerar "indevida" uma multa aplicada pelo Síndico, com efeito de ressarcimento automático — competência sem correspondência no rol fechado de atribuições do Conselho na Cláusula 32ª da Convenção. Mesmo tipo de ajuste de conformidade normativa do EM-013a: o Regimento não deveria atribuir a um órgão poder que a Convenção não lhe conferiu. A competência passa a ter caráter opinativo/recomendatório, preservando a função de revisão sem o efeito automático e vinculante.</p>
+        </div>
+        <div class="subcard" id="em-013e" style="border-left-color:#b5730a;background:#fbf1e322;">
+          <h4>EM-013e</h4>
+          <div class="destino-line"><span class="badge" style="background:#fbf1e3;color:#b5730a;border:1px solid #b5730a55;">Aproveitamento diverso</span> <strong>Aproveitamento diverso</strong></div>
+          <p>Aponta possível fragilidade na Cláusula 8ª da Convenção quanto ao quórum de obras voluptuárias e à exceção para fechamento de varandas, sem correspondência de conflito adicional criado pelo próprio Regimento. O defeito está na Convenção, não no RI — registrado como alerta para uma futura revisão convencional, fora do escopo desta reforma do Regimento.</p>
+        </div>
+        <div class="subcard" id="em-013f" style="border-left-color:#1a7f5a;background:#eaf5ef22;">
+          <h4>EM-013f</h4>
+          <div class="destino-line"><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span> <strong>Acatada</strong></div>
+          <p>Erro de remissão cruzada no Art. 349, parágrafo único, que cita cláusula/parágrafo da Convenção que não corresponde ao texto efetivamente registrado. Erro formal de citação, sem carga política — correção de redação pura, do mesmo tipo do EM-018.</p>
+        </div>
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-014-016" class="card card-emenda" style="border-left-color:#2b6ea8;border-left-style:solid;background:#eaf2f822;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-014, EM-015 e EM-016 — Martin Francisco e Adriana Marins (513)</h3>
+  <div class="meta"><span>Aditivas</span><span>&middot;</span><span>Após Art. 175 (Fachada/Laje Técnica)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf2f8;color:#2b6ea8;border:1px solid #2b6ea855;">Redirecionada para norma inferior</span> <strong>Redirecionadas para Norma Complementar</strong></div>
+  <p>As três manifestações tratam do mesmo tema em variações crescentes de detalhe: autorizar varal na laje técnica (EM-014), depois restringir essa autorização a varal de parede/chão abaixo do parapeito (EM-015), e permitir floreira na fachada (EM-016). O próprio Regimento já reserva esse assunto a nível normativo inferior: o Art. 171 veda o uso da laje técnica como varal "salvo hipóteses autorizadas em Norma Complementar", e o Art. 17, parágrafo único, inciso II, lista "padrões de instalação de equipamentos nas lajes técnicas" e "alterações que afetem a fachada" como matéria obrigatória de Norma Complementar. As três seguem como subsídio técnico para a Norma Complementar de fachadas/lajes técnicas.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-017" class="card card-emenda" style="border-left-color:#1a7f5a;border-left-style:solid;background:#eaf5ef22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-017 — Aline Sterf (114)</h3>
+  <div class="meta"><span>Aditiva</span><span>&middot;</span><span>Art. 6º, novo § 2º</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span> <strong>Acatada</strong></div>
+  <p>Propõe deixar claro que trabalho remoto e atividade intelectual exercida dentro da unidade (sem atendimento ao público, publicidade externa, estoque relevante, circulação anormal de pessoas ou perturbação ao sossego/segurança) não configuram a atividade comercial vedada pelo Art. 6º. Correção de blindagem, sem carga política, que fecha uma lacuna de interpretação hoje capaz de gerar autuação indevida de quem trabalha de casa. Entra como novo § 2º do Art. 6º, preservando o parágrafo único já existente.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-018" class="card card-emenda" style="border-left-color:#1a7f5a;border-left-style:solid;background:#eaf5ef22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-018 — Gisele Leite L&#x27;Abbate (410)</h3>
+  <div class="meta"><span>Redação</span><span>&middot;</span><span>Art. 153</span></div>
+  <div class="destino-line"><span class="badge" style="background:#eaf5ef;color:#1a7f5a;border:1px solid #1a7f5a55;">Acatada</span> <strong>Acatada, com ressalva</strong></div>
+  <p>A autora aponta o dispositivo como Art. 152, mas o trecho citado corresponde, no texto-base da Comissão, ao <strong>Art. 153</strong>. Quanto ao mérito da correção: a autora entendeu que "à realização" estaria com crase indevida, por tratar "a" como artigo isolado, e propôs retirá-la, acrescentando o verbo "for". Na verdade a crase está correta — "indispensável à realização" funde a preposição exigida por "indispensável a" com o artigo feminino que acompanha "realização", regência normal da língua portuguesa. Não há erro gramatical a corrigir, e o texto proposto pela autora, se adotado literalmente, introduziria um erro onde hoje não existe nenhum.</p>
+<p>Ainda assim, a frase é longa (mais de 40 palavras entre o início da oração condicional e o verbo principal), o que prejudica um pouco a leitura. Em vez da correção literalmente proposta, o artigo é reescrito em ordem direta, mantendo a crase (correta) em suas duas ocorrências: "O condômino deverá permitir o acesso à sua unidade sempre que indispensável à realização de obras, reparos, inspeções, vistorias ou intervenções necessárias à preservação da segurança, da integridade das instalações comuns ou à prevenção de danos, mediante prévia comunicação da Administração, ressalvadas as situações de urgência ou emergência." Isso atende à preocupação de clareza da autora sem repetir o erro que ela apontou.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-019" class="card card-emenda" style="border-left-color:#a83232;border-left-style:solid;background:#fbeaea22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-019 — Gisele Leite L&#x27;Abbate (410)</h3>
+  <div class="meta"><span>Modificativa</span><span>&middot;</span><span>Art. 208 (Cancelamento de reserva)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span> <strong>Avulsa (não acatada)</strong></div>
+  <p>Reduz de 100% para 50% a multa por cancelamento de reserva de área comum (Art. 208), isentando cancelamentos feitos com mais de 24 horas de antecedência. Mérito financeiro concreto — o valor exato da multa e o prazo de isenção são escolhas de política interna, com impacto direto sobre a arrecadação do fundo de manutenção das áreas reserváveis. Deve ser decidido pela Assembleia.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-020" class="card card-emenda" style="border-left-color:#a83232;border-left-style:solid;background:#fbeaea22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-020 — Gisele Leite L&#x27;Abbate (410)</h3>
+  <div class="meta"><span>Modificativa</span><span>&middot;</span><span>Art. 209, parágrafo único</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span> <strong>Avulsa (não acatada)</strong></div>
+  <p>Permite que o Fundo de Manutenção das Áreas Comuns Reserváveis seja usado para "outras finalidades", mediante voto em assembleia. Relaxa o princípio de segregação patrimonial dos fundos condominiais (Art. 133 do texto-base). Mérito financeiro relevante e contestável, que deve ir a voto próprio.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-021" class="card card-emenda" style="border-left-color:#a83232;border-left-style:solid;background:#fbeaea22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-021 — Gyorgy Varga (505)</h3>
+  <div class="meta"><span>Modificativa</span><span>&middot;</span><span>Art. 359 (Decisão em processo disciplinar)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span> <strong>Avulsa (não acatada)</strong></div>
+  <p>Exige a anuência por escrito do Subsíndico para que o Síndico decida um processo disciplinar (Art. 359). Cria, na prática, poder de veto do Subsíndico sobre competência que a Convenção atribui ao Síndico como administrador executivo — regra que altera a forma de administração do condomínio, matéria reservada à Convenção. Mérito com risco jurídico relevante; segue à Assembleia com parecer desfavorável fundamentado.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-022-023" class="card card-emenda" style="border-left-color:#a83232;border-left-style:solid;background:#fbeaea22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-022 e EM-023 — Greyce Christine Lisboa Bueno (401)</h3>
+  <div class="meta"><span>Supressiva + Substitutiva</span><span>&middot;</span><span>Art. 197</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span> <strong>Avulsas (não acatadas)</strong></div>
+  <p>Tratam do mesmo Art. 197 (horários de funcionamento das áreas comuns) e devem ser lidas em conjunto: EM-022 suprime o artigo atual e EM-023 propõe o texto substitutivo — técnica normal de quem quer substituir por completo um dispositivo. O texto proposto fixa direto no Regimento horários mais amplos (academia, brinquedoteca e piscina 24h, salvo manutenção; salão de festas e áreas de eventos até 23h/2h), em vez de deixar a definição para o Calendário Anual (Norma Interna, ajustável a cada ano). Mérito genuíno, mas na direção oposta à arquitetura de flexibilidade anual adotada pelo texto-base, e sobreposto à EM-001. Recomenda-se apreciação conjunta de EM-001, EM-022 e EM-023.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="em-024" class="card card-emenda" style="border-left-color:#a83232;border-left-style:solid;background:#fbeaea22;">
+  <div class="eyebrow eyebrow-emenda">EMENDA</div>
+  <h3>EM-024 — Thiago Matias (512)</h3>
+  <div class="meta"><span>Substitutiva integral</span><span>&middot;</span><span>Todo o Regimento (384 → 102 artigos)</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbeaea;color:#a83232;border:1px solid #a8323255;">Avulsa (não acatada)</span> <strong>Avulsa integral; 3 blocos de correção acatados isoladamente</strong></div>
+  <p>Substitutiva integral do Regimento, reduzindo o texto de 384 para 102 artigos, com Exposição de Motivos própria e tabela de correspondência artigo-a-artigo. O critério aplicado é o mesmo defendido, de forma independente, por PT-001, PT-002 e PT-003. Por ser texto substitutivo integral, não há como "incorporar por partes" ao texto consolidado como um todo: nos termos do Art. 38, I, do próprio Regimento, a emenda substitutiva é votada em primeiro lugar, antes das demais emendas e do texto-base, cabendo à Assembleia decidir entre manter o texto-base (com os ajustes já incorporados) ou substituí-lo integralmente por essa proposta.</p>
+<p>Dentro do texto da EM-024, porém, há três blocos de correção que já eram necessários independentemente da adoção da substitutiva como um todo, e que nenhuma outra manifestação havia trazido isoladamente ao texto-base: a renomeação do instituto de "Emenda" para "Emenda de Tramitação" (para não ser confundido com a alteração definitiva do Regimento); o ajuste do Conselho para caráter exclusivamente opinativo e não vinculante em todos os pontos em que hoje tem efeito decisório sem previsão na Convenção; e a distinção entre multa, ressarcimento e taxa/retenção de natureza contratual (Arts. 208 e 216). São correções de blindagem e de redação, sem carga política, e por isso passam a integrar diretamente o texto-base consolidado — independentemente do resultado da votação da EM-024 como substitutiva integral.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+
+<h3 class="group-title">3.2 Pareceres técnicos</h3>
+
+<section id="pt-001" class="card card-parecer" style="border-left-color:#b5730a;border-left-style:dashed;background:#fbf1e322;">
+  <div class="eyebrow eyebrow-parecer">PARECER TÉCNICO</div>
+  <h3>PT-001 — Franz Thiele (506)</h3>
+  <div class="meta"><span>Parecer técnico</span><span>&middot;</span><span>Estrutura normativa geral do RI</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbf1e3;color:#b5730a;border:1px solid #b5730a55;">Aproveitamento diverso</span> <strong>Aproveitamento diverso</strong></div>
+  <p>Parecer defendendo aplicar de forma mais consequente a própria hierarquia de níveis normativos já prevista: o Regimento deveria conter só regra geral, fundamental e estável a longo prazo, deixando o técnico, organizacional e mutável para os níveis inferiores. Não traz texto de dispositivo específico — é recomendação de método, a ser usada como insumo para o trabalho de consolidação, convergente com PT-002 e PT-003.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="pt-002" class="card card-parecer" style="border-left-color:#b5730a;border-left-style:dashed;background:#fbf1e322;">
+  <div class="eyebrow eyebrow-parecer">PARECER TÉCNICO</div>
+  <h3>PT-002 — Franz Thiele (506)</h3>
+  <div class="meta"><span>Parecer técnico</span><span>&middot;</span><span>Classificação estrutural de toda a Convenção e do texto-base</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbf1e3;color:#b5730a;border:1px solid #b5730a55;">Aproveitamento diverso</span> <strong>Aproveitamento diverso</strong></div>
+  <p>Planilha que classifica cada um dos 384 artigos do texto-base e das 67 cláusulas da Convenção em Manter, Dividir/simplificar, Transferir ou Excluir. É uma ferramenta de trabalho pronta, não uma emenda: pelo critério do autor, menos de 40% dos artigos do texto-base permaneceriam intactos em nível de Regimento. Guardar como material de apoio para o trabalho de elaboração das Normas Complementares e Internas (ver Parte 4).</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="pt-003" class="card card-parecer" style="border-left-color:#b5730a;border-left-style:dashed;background:#fbf1e322;">
+  <div class="eyebrow eyebrow-parecer">PARECER TÉCNICO</div>
+  <h3>PT-003 — Ricardo Martins (111)</h3>
+  <div class="meta"><span>Parecer técnico</span><span>&middot;</span><span>Estrutura geral do RI</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbf1e3;color:#b5730a;border:1px solid #b5730a55;">Aproveitamento diverso</span> <strong>Aproveitamento diverso</strong></div>
+  <p>Parecer técnico defendendo separar temas do Regimento em Normas Complementares, para "enxugar" o texto e facilitar a consulta pelos condôminos. Convergente com PT-001 e PT-002. Não traz texto de dispositivo específico — insumo relevante para o trabalho de elaboração das Normas Complementares e Internas (ver Parte 4).</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+<section id="pt-004" class="card card-parecer" style="border-left-color:#b5730a;border-left-style:dashed;background:#fbf1e322;">
+  <div class="eyebrow eyebrow-parecer">PARECER TÉCNICO</div>
+  <h3>PT-004 — Greyce Christine Lisboa Bueno (401)</h3>
+  <div class="meta"><span>Parecer técnico</span><span>&middot;</span><span>Múltiplos temas</span></div>
+  <div class="destino-line"><span class="badge" style="background:#fbf1e3;color:#b5730a;border:1px solid #b5730a55;">Aproveitamento diverso</span> <strong>Aproveitamento diverso</strong></div>
+  <p>Parecer abrangente defendendo regras mais proporcionais em diversos pontos: advertência antes de multa em infração leve/primeira ocorrência; valores fixos de multa em vez de percentual sobre a taxa condominial; permitir home office silencioso (convergindo, por via independente, com o mérito da EM-017); horários mínimos garantidos para academia e piscina; notificação prévia antes de multar cessão irregular de vaga de garagem; permitir limpeza ecológica a seco de veículos; flexibilizar idade mínima de uso de áreas com termo de responsabilidade; critério objetivo para transporte de animais em elevador; critério mais claro para a taxa de limpeza extraordinária (Art. 216); e prazos de cadastro maiores. Base de fundamentação de EM-019, EM-020, EM-022 e EM-023, mas contém ainda várias ideias que nunca viraram emenda formal — guardar como insumo para uma eventual rodada futura.</p>
+
+  <a class="back" href="#indice">&uarr; Voltar ao índice</a>
+</section>
+
+
+<h2 id="parte-4">4. Itens a desenvolver em normas inferiores</h2><div style="margin:2px 0 14px 0;"><div style="display:flex;width:100%;height:3px;line-height:0;font-size:0;"><div style="flex:1;background:#117a37;height:3px;"></div><div style="flex:1;background:#ffd500;height:3px;"></div><div style="flex:1;background:#002776;height:3px;"></div></div></div>
+<p>Para viabilizar a apresentação, junto com o texto-base, das propostas de Norma Complementar e Norma Interna que decorrem das manifestações redirecionadas &mdash; permitindo que a Assembleia já delibere sobre elas em sequência à aprovação do texto-base (ou da EM-024) &mdash;, seguem agrupados os itens por instrumento de destino:</p>
+
+<h4>Norma Complementar &mdash; Armários de Garagem</h4>
+<ul><li><a href="#em-008">EM-008</a> &mdash; vedar armário que comprometa a garantia da edificação, com redação genérica</li></ul>
+
+<h4>Norma Complementar &mdash; Fachadas e Lajes Técnicas</h4>
+<ul>
+<li><a href="#em-014-016">EM-014</a> &mdash; varal na laje técnica</li>
+<li><a href="#em-014-016">EM-015</a> &mdash; varal de parede/chão na laje técnica, abaixo do parapeito</li>
+<li><a href="#em-014-016">EM-016</a> &mdash; floreira na fachada</li>
+</ul>
+
+<h4>Norma Interna &mdash; Calendário Anual das Áreas Comuns</h4>
+<ul>
+<li><a href="#em-001">EM-001</a> &mdash; academia 24h</li>
+<li><a href="#em-002">EM-002</a> &mdash; agendamento de natação na piscina</li>
+</ul>
+
+<h4>Norma Interna &mdash; Convivência e Uso das Unidades/Áreas Comuns</h4>
+<ul>
+<li><a href="#em-007">EM-007</a> &mdash; fumo/odores entre unidades</li>
+<li><a href="#em-009">EM-009</a> &mdash; objetos/adornos em halls e portas de entrada</li>
+</ul>
+
+<h4>Norma Interna &mdash; Resíduos</h4>
+<ul><li><a href="#em-011">EM-011</a> &mdash; descarte de dejetos de animais</li></ul>
+
+<p style="margin-top:18px;">PT-001, PT-002 e PT-003 (pareceres estruturais) e PT-004 (parecer com pontos ainda não convertidos em emenda) permanecem como material de apoio geral para a elaboração dessas normas, não vinculados a um único instrumento.</p>
+
+
+<div class="final-note">
+  <strong>Nota final:</strong> os pareceres acima refletem a análise técnica de cada manifestação à luz do texto-base, da Convenção e da legislação aplicável. A recusa ou não incorporação de qualquer ponto pela Comissão não impede, em nenhum caso, que a manifestação original chegue à Assembleia para apreciação e voto &mdash; o autor mantém sempre o direito de defender sua proposta perante a Assembleia soberana.
+</div>
+
+</main>
+<div style="display:flex;width:100%;height:3px;line-height:0;font-size:0;"><div style="flex:1;background:#117a37;height:3px;"></div><div style="flex:1;background:#ffd500;height:3px;"></div><div style="flex:1;background:#002776;height:3px;"></div></div>
+</body>
+</html>
