@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EM-024 — Emenda Substitutiva — Parque dos Cedros</title>
+<style>
+
+  :root{
+    --ink: #16281d;
+    --green-deep: #1e4d19;  /* Independência — verde 115°, formula título */
+    --green-mid: #298321;   /* Independência — verde 115°, tom intermediário */
+    --green-pale: #dbe7da;  /* Independência — verde 115°, fundo do cabeçalho */
+    --green-mint: #ddc23c;  /* Independência — amarelo 50°, cor de destaque */
+    --paper: #fbfbf8;
+    --line: #c4d6c2;
+    --muted: #556f52;
+    --flag-green: #117a37;
+    --flag-yellow: #ffd500;
+    --flag-blue: #002776;
+  }
+
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+  }
+  a{ color: inherit; }
+
+  /* ---------- Faixa tricolor (Independência) ---------- */
+  .flag-stripe{ display:flex; height:6px; }
+  .flag-stripe div{ flex:1; }
+  .flag-stripe .fg{ background: var(--flag-green); }
+  .flag-stripe .fy{ background: var(--flag-yellow); }
+  .flag-stripe .fb{ background: var(--flag-blue); }
+
+  /* ---------- Header do site (igual às demais páginas) ---------- */
+  header.site{ background: var(--green-pale); }
+  .header-inner{
+    max-width: 1120px; margin: 0 auto; padding: 28px 32px 22px;
+    display: flex; align-items: center; gap: 20px;
+  }
+  .mark{ width: 54px; height: 54px; object-fit: contain; flex: none; }
+  .header-text h1{
+    font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 27px;
+    margin: 0 0 2px; color: var(--green-deep); letter-spacing: -0.01em;
+  }
+  .header-text p{ margin: 0; font-size: 14.5px; color: var(--muted); }
+
+  .subbar{ background: var(--green-deep); position: sticky; top: 0; z-index: 100; }
+  .subbar-inner{
+    max-width: 1120px; margin: 0 auto; padding: 10px 32px;
+    display: flex; align-items: center; gap: 26px; font-size: 14px; color: #eaf3ec;
+  }
+  .subbar a{ text-decoration:none; opacity:.88; }
+  .subbar a:hover{ opacity:1; text-decoration: underline; }
+  .subbar a.current{ opacity:1; font-weight:500; border-bottom: 2px solid var(--green-mint); padding-bottom: 2px; }
+  .subbar-form{
+    margin-left: auto; background: var(--green-mint); color: var(--green-deep) !important;
+    padding: 5px 12px; border-radius: 20px; font-weight: 600 !important; opacity: 1 !important;
+  }
+  .subbar-form:hover{ text-decoration: none !important; filter: brightness(0.95); }
+
+  /* ---------- Documento (classes originais do texto-base, reestilizadas) ---------- */
+  .container{ max-width: 860px; margin: 0 auto; padding: 44px 32px 90px; }
+
+  header.capa{
+    text-align: center; padding: 0 0 28px; border-bottom: 3px solid var(--green-deep); margin-bottom: 36px;
+  }
+  header.capa .eyebrow{
+    font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; letter-spacing: .12em;
+    font-size: 12.5px; font-weight: 600; color: var(--muted); margin-bottom: 10px;
+  }
+  header.capa h1{
+    font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 30px; margin: 0 0 8px;
+    color: var(--green-deep); letter-spacing: -0.01em;
+  }
+  header.capa .subtitulo{ font-family: Arial, Helvetica, sans-serif; color: var(--muted); font-size: 14px; }
+
+  nav#indice{
+    background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--green-mid);
+    border-radius: 8px; padding: 26px 30px; margin-bottom: 40px; font-family: Arial, Helvetica, sans-serif;
+    scroll-margin-top: 110px;
+  }
+  nav#indice h2{
+    font-family: Arial, Helvetica, sans-serif; font-weight: 500; font-size: 19px; margin-top: 0;
+    color: var(--green-deep); border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 16px;
+  }
+  nav#indice > p{ margin: 0 0 10px; font-size: 14.5px; }
+  nav#indice > p a{ font-weight: 600; }
+  ul.toc-list{ list-style: none; margin: 0; padding-left: 0; }
+  ul.toc-depth-1{ padding-left: 18px; margin-top: 3px; }
+  ul.toc-depth-2{ padding-left: 18px; margin-top: 2px; }
+  ul.toc-list li{ margin: 3px 0; }
+  .toc-depth-0 > li > a, .toc-depth-0 > li > .toc-row > a{ font-weight: 600; color: var(--green-deep); font-size: 14.5px; }
+  .toc-depth-1 > li > a, .toc-depth-1 > li > .toc-row > a{ font-weight: 500; font-size: 13.5px; }
+  .toc-depth-2 > li > a, .toc-depth-2 > li > .toc-row > a{ font-weight: 400; font-style: italic; font-size: 12.5px; color: var(--muted); }
+  nav#indice a{ color: var(--ink); text-decoration: none; }
+  nav#indice a:hover{ color: var(--green-mid); text-decoration: underline; }
+
+  /* ---------- Índice retrátil ---------- */
+  #indice ul.toc-list ul.toc-list{ display: none; }
+  #indice li.has-children.toc-open > ul.toc-list{ display: block; }
+  #indice .toc-row{ display: flex; align-items: baseline; gap: 5px; }
+  #indice .toc-toggle{
+    flex: none; width: 16px; height: 16px; margin-top: 1px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: none; background: none; padding: 0; cursor: pointer;
+    color: var(--green-mid); font-size: 10px; line-height: 1;
+    transform: rotate(0deg); transition: transform .15s ease;
+  }
+  #indice li.has-children.toc-open > .toc-row > .toc-toggle{ transform: rotate(90deg); }
+  #indice .toc-toggle:focus-visible{ outline: 2px solid var(--green-mid); outline-offset: 1px; border-radius: 3px; }
+  #indice .toc-toggle-vazio{ cursor: default; }
+
+  h2.titulo-preambulo, h2.titulo-capitulo{
+    font-family: Arial, Helvetica, sans-serif; font-weight: 600; color: var(--green-deep); font-size: 21px;
+    border-bottom: 2px solid var(--line); padding-bottom: 10px; margin-top: 50px; scroll-margin-top: 110px;
+  }
+  #preambulo p{ text-align: justify; font-size: 15px; margin: 0 0 12px; }
+
+  /* ---------- Anexo I (quadro de remissões) ---------- */
+  .callout{
+    background: var(--green-pale); border-left: 4px solid var(--green-mid);
+    padding: 12px 16px; margin: 0 0 20px; font-size: 13px; color: var(--green-deep);
+  }
+  .callout p{ margin: 0; text-align: justify; }
+  .table-wrap{ overflow-x: auto; margin-bottom: 20px; }
+  table.datatable{ border-collapse: collapse; width: 100%; font-size: 12.5px; }
+  table.datatable th, table.datatable td{
+    border: 1px solid var(--line); padding: 7px 9px; text-align: left; vertical-align: top;
+  }
+  table.datatable th{ background: var(--green-pale); color: var(--green-deep); font-weight: bold; }
+  h3.titulo-secao{
+    font-family: Arial, Helvetica, sans-serif; font-weight: 500; color: var(--green-mid); font-size: 17px;
+    margin-top: 34px; border-bottom: 1px solid var(--line); padding-bottom: 6px; scroll-margin-top: 110px;
+  }
+  h4.titulo-subsecao{
+    font-family: Arial, Helvetica, sans-serif; font-size: 14.5px; font-style: italic; font-weight: 600;
+    color: var(--muted); margin-top: 24px; scroll-margin-top: 110px;
+  }
+
+  .artigo{ margin: 0 0 18px; scroll-margin-top: 110px; }
+  p.art-caput{ margin: 0 0 6px; text-align: justify; font-size: 15px; }
+  .art-num{ font-family: Arial, Helvetica, sans-serif; font-weight: 600; color: var(--green-mid); }
+  p.paragrafo{ margin: 0 0 6px 26px; text-align: justify; font-size: 14.5px; }
+  .par-num{ font-weight: 600; color: var(--ink); }
+  ol.incisos{ margin: 5px 0 10px 42px; padding: 0; list-style: none; }
+  ol.incisos li{ margin-bottom: 4px; text-align: justify; font-size: 14.5px; }
+  .inc-num{ font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 13px; color: var(--green-mid); margin-right: 3px; }
+
+  p.voltar-indice{
+    font-family: Arial, Helvetica, sans-serif; font-size: 13px; margin-top: 22px; padding-top: 12px;
+    border-top: 1px dashed var(--line);
+  }
+  p.voltar-indice a{ color: var(--green-mid); text-decoration: none; font-weight: 500; }
+  p.voltar-indice a:hover{ text-decoration: underline; }
+
+  section.nivel-secao, section.nivel-subsecao{ margin-top: 8px; }
+
+  @media (max-width: 600px){
+    header.capa h1{ font-size: 22px; }
+    .container{ padding: 30px 20px 70px; }
+    nav#indice{ padding: 18px 18px; }
+  }
+
+  /* ---------- Cabeçalho e barra de navegação no celular ---------- */
+  @media (max-width: 640px){
+    .header-inner{ padding: 18px 16px 14px; gap: 12px; }
+    .mark{ width: 42px; height: 42px; }
+    .header-text h1{ font-size: 18px; }
+    .header-text p{ font-size: 12.5px; }
+    .subbar-inner{
+      flex-wrap: wrap;
+      padding: 10px 16px;
+      gap: 8px 14px;
+      font-size: 13px;
+    }
+    .subbar-form{
+      margin-left: 0;
+      order: 10;
+      flex: 1 1 100%;
+      text-align: center;
+    }
+  }
+
+  .subbar2{ background: var(--green-mid); position: sticky; top: 40px; z-index: 99; }
+  .subbar2 .subbar-inner{ font-size: 13.5px; padding-top: 8px; padding-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-inner">
+    <img class="mark" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXwAAAFeCAMAAACxXVTFAAAA/1BMVEUAAAAqiDdcmy6ftCLezhkNcCn68A712xlWlA+8wB712iDXqRMtiBAOfTzhFBWmph/l6usvWCpfXWGksSB8fQIA/wAMcxIKK3lmnyhimyYZOYOhsSGgo5v9/P6pGxFUa6EuTY9RZxciYVUphzStnGH/fwCalpn/AABOXC5PU02jrc11lKbWYhUxbkfntiAejk0qiTbt5pyiz6/OsFWlXBkXOBax0xz47mRSMmLfoZtUnXEtNy8fc0ygoalwV5aVXW4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABuMK0pAAAAQHRSTlMA/v7++4wNmo/9X4yQ/YyWi2UgHAMBDIwdYYxdiwKMjIyMFV+OAhsBX1CMjIxjCowki4yLjI0XjB2MjGCLXhaNlqlGXwAAXDNJREFUeNrtXYli08iylaplyXJsHNuxsXESshBIgMmEYRkYBub//+r13lXd1ZLCOm8uvncgcRbso1J1LadOFcX/0KM+OqqT5+ri1+N74147lGv3WNXmyV/wf7fHWpr70VGAfdI0lXkIUVXNREF/9Qum7+BkHOxFIc18InF3wKOHxL/4ZfvfGHYL6Eo/JgR1EcFfF0e/QPsGfl0+vLGrx34/F0IEtPXH8j8hKPq/HP+3OE8D7Bp1/8Dokyf045frubeN18TWjYNZbWPYY+yjZ8zJ+wv9+9u4f/K2Xs0ZzDvBl/+19rlWNL/Q7z1HzUfvjJHX9u/Vboxh7UBfUPD13639e1L8gr8bdwX1u/18Pm/m4QEAlcOwE/zu75BBzy/0qUMJ0bo0dBu8COkuWvmwsEnwRY/lt73YC9Gs/kdsv3a+2xyZz/Lf4Ax+685RSFBT4IsBbid8VnI/ALD/X3D8dVLVsnGL/OgZgV279FuFO0EYCHrDwEc3B5To5+0Pg3r894/d2oNdFLfqr1sugLEp0lw6c/V/jzC0Bj1/YmrYApTko/AV4nMU+PIrAOGnodToF/9t9HUdUaX7TTOZTEydS9W3TKXRXZZJ4yBTyFcYfIsetnsIRuw+1k+CuUP00/gClaWB2nyP+xPUt8/r/26drb6y0KcFLvXwl8McqO5IrbB/ME47+A0KvrtIyKq1nVu4zZfKgL5G3Nm9+q7/rOdZK7NnoU8fnR7c2K69EQj6gO4Qb9yle9grQsHX+Dvs4b+abg2CXgxB3+JkcHeOQ3gs/WVIwDffFYHvPzHfMP8vol8Xq7rpN/ge8MFbvg9bkNfGqGN0Efr2iQh77ZrstflP2v5qPsTZhFuAxorErdsTF7wnEQBZ+GPoI/RL/4y+feRv/q+hL6PJei6+EHzn0ttg5Bp8C1kP+CUDPvst6mf12Ssm/ymjl0HORAeNA45Z91GLU6rKYe/hQu6HOPghhp/5Dn/oVpP/jukrs59UQ8GPi2Dat7SCnKLyelQUfANd8EsZbPvOBHsqVwMdj+lY1v9q6At90oqB4IsE/BII9uo545Wg9DGPQS0cCiBKGsrb6DRBHl0d85fyPs2gItsRqo78y/rApiLJBpiiD3zt4tuoFOMMVyVZFnyUpBLwqZNR9wkBP/qyvzOs71duf5A9WwIQLVn97GQKV8dq5XL6bZ46m6gWA/oIQHWA0qW9QgADvsOQWn5pv6/kvZIAf4LrTLfXllerxrBP5BGxqv8N6AfUTUmSj+3b6AaIek241U2KmMHFiKi64/MuIUIWFYIgQBmu9OkV4++Fu1DarfWbfr0T/44uvO9ma9RvVaVyMm8dyB5mgT91TQ5CJyCOJ8DbVnENmAXf5rc+tEnBVx/qfyvE9yn4ADPoO3Pr4t1YxASgn4A+ab9JJziOktUQvyOrrmhgkwQ8NK0lJ7AKOv0t0uIqQwQ5cjsigG/+rRh8+2M+fJLB/lH3YbuPI4gfb/u6yad62bUnQ9rX1CIrbkMMg3FsSYRDQv3u5ghEtq9dFDoAsuCj9nl02IbcV+hAqVL1kI6DrdglYcOPRV+7mVr3tIlJ89iRLncr6JXIH7794KuriGtrIokmEfjqmTYUQSn4PtYUur5ZbBz1UIVua/OW1wb8o3Eas0n0i2c/KJRUr+qd6Wpb2JiOXosxryL7t54/4ZD11jWTkEgE5NNg3lYizIFbAk4NiOmHQF/XN7c1d5urv45WxQqYgLmpf4Txm7N1tdr7iFy3nNRrbpPedUyfadGB67wMcLafrW1CVHQz/3Tk+0nVAQef9vLlwA8/ON9v1WNTvFttV6utfMdb+bcG4GLMgW9Yz8++c2ij3Y2y+bbqZhIwJD10BwTw7XfeE/zWdccr5O/DPVCG6NFVznyTy3iikpT33TP02o13+91Y/sx8v9/txuP5Tl6P1VxkMvbJd4z4AzVyLg2+bft4HDh6FySob8MxQeqZOPgf6vMR+LiEUPqc2JQrhb84wkafJakvl+G8je6cOFToShjr7wO/I9tIm/fJf+RnOPCrmDFJo31RkcCzJeBXfeAHwAUT6ojQ2vL9AJVDCfCNdAo+iLj64HkTPeALHPF/c/R1nUaFNg4wMAyktsMfi7RS35LaDjl9o1vAe5aWAd9eGJiVCHyuqokzMRD4EpRxnad0CXLU4NU/496wTRYcy1/4N9X61F15/qNvDf271WSO/Li2euJ/28TvJA3CtrWvWLDgh8QXVxuylg/lrIx8DTDHrc/EXL0CGTiqApUQeD34OTCZHrrhWvuWRHxQyUchP55/S/RNVDknRohYGr2WX9GrEF4zjTtNLCSiYJMLO1sUX3Zib+zWFhZ86IMsHJfgALmjFHyEfgy+iHOUb1hsOCq2OqpsTWbf2ipjxXgElh/cMrW1tOKg30pbpaTiFH36ZSFEvn9unYzH0JEfwNeRcW0/qTj7gnZVIfS1i9GMXdQkkh+rS9Q69K++kdlL6FvfT3LF9AgP7xJFmlZhvNnmlZ1XqMJlQlFsJTrBF0yoI3yd2V+WEOwE8MsIa3WCxOeAvWQR+G2FPKU/zSBEEd/E9vUxO69CeGMrKcAFIW2GGV8x8aSgcVAbxRCiy/qjzwQ9XHUVGkRE5QmXKPB3Sh/ulC7rFUmgb34UYx/sAQdz3gfZeYuvbjBq6Iu2rWKXC4xZ5sEXGfD5OEekNYYY+4orLHvXApYIkh66IBxFlmIfM6hY8JHBaQ8jaB1cYF/6Ddy+PLJrec7GyVTL22AH+ILJpMhdy4ZGlWBPFfMVTH9tRXLuCuA4bCEoTXMswJWGJNQUAXwI46StD/9bcourJ5r6q2z/qLDTfXyZklLfK8GMiLDgtxXvYBIGSdU164Cj2jZEM4z5iuD/Q5jKwC3j1oTk4CvR7vZxoa45WEnmFaf0X0lBeTfPHXnuyXBTMOA7bHnLR+DnMrIohPUXqZk4N4zK8yIT8eD2rw847U+gwo6j7US/ovSIh2PF1QFF6hlJK+NrHE9dzPlY0hy/zDlQ5YoLSXcrx9hhwLftKjzBPKn3YdTKh5pdkSamVTnOFTB82fQL4W7Bjs69nzZ2wC7W/KqIR/qrPePDW8FzDPSdX3WDj2JNkYLfdvFl8dib6ZdO6LfgiJKt7fgGLZSB6hmDL5JI0xKC0imYXP6HwG+/2PQ19m3W5yTPVwT80DsktYPQYcxZfss3syC0CrTh16a0PQkdnHwTlxKuBK4yl1yckwVfELfDh12CuNHJ6ovQr4sV9jktA7zxPVUUcOCbpI0KN+mJGoMf9d25soUC372lumlxfB+hb8n82PDtU6ieHyFexpMrJSoLoeELb0FMAyNY/pe1dY/UWdtywWXVaf/JkzoaY8AXmURXiH7wjSutr2qZ/TlATCBI2yiCTqmE26BUtdjYxF27MaJcJfeP/Z158MOT7Rc5ffkz+7bNjVWKLmcUfxFnWYlPr5IaWpUx/eB4C3+O1dJCKjuhpYlQMX0h6fAilnNSxOnmNPtj2xeVK9btYMvX0eb9KzxH7+hhW2WP2SrnlZizV7BWH3V5BT8cZM075idNdMSPLB+FNmWKvBC4jIxn5QxlFphBCpQ8B68W6lGdll9NvvCw7fAtqJzZ9lc2yWHa4ng+rtunqS4p4afY1yeTpvLgpwNZIoophRs/EaSOGVBO3E45i8dGbejVktpfRmPjC4JNmdiKttOMo3sBmAifu2Y04IzAb9mIP/rxJlJ9WRf1HADNTpDhOJHE8yKUz9I2VsRgKBnwKw9+Jv+Onr53sKmwrzrD2Ur0aU2gtnnSWQHBh/M59mB4xhYKaxqV2d9KajeQa7MI2y6kFRxI6zvCgV+S8MnlDhWtcmZkHu7t9OXbKaiGSttJYapi1kKLUefAB8FnsrEHQv9saxvTqd7RbTFxjC0INQYfFrYpwoGZCWkhLnD0mTpnuI/UK2yBBZ/4IlVdu7oP9u/m7SA3TsvpxObbLs0hxTpmnHsbn7xtVEauC1ZoqijmOqmInIuAErr7i2xBgge/dGlCZdNkYS93t8bGfatr62IVB5nVYPB9M6F1aQhpuznwRZpqkYoUG2JKw7+qM3fqmHEvwkQ7wAwCce4GzYQCA37Ic8GD3wKwLDEKvrxfnw0v6ezFkDTKeXXc7AM+4UblTUTNYeixLDkN+gIH+XSDi2cI/BaD7yZtcyOJ2CUJHPlDGAxz3WBv+antR++jvYfp176KnMG/dYUF6ytQScxIsVS5axUx1uK+VtsHfu5NqCIbf65Sy/fgiyjAQfElIjTY77QktkBydlU+5+h6vfPwngpbyhR994I/8Xx9JifwF1PVKKMkx8vUXixvQYpZkWONJOTBMjMNGpjLvqFLLN+D75KsYdiL6h6mvxly2lZRS7H1sR5v+RH9uE1CylbkOldgi8lVtiFtLD/lCbKFBeDnoUvKoMKfoDFFXcqIvU7vBRgMfl1sx/e2eoucD8GYcrMrFYccVzDnbQZ8e5BPMrK7GHyB3Y4AFvwkryI1TYHHc+MgyM8PBWY0z+OIj9xB6K/rXe/v4sy6dZYgmOkfkyhUrvPKJ1Pd4KvETIX565pFf+Jns5KAU+Sxjxq1EI5aWuURUMbDW+61wgCNN3nkruuhjcMvAN9gh7PuhOrhigdaSqFKu7bZYaBQR5zvefrvMx3uiCRyF1xTsMzJHAk8PorlMkpXgYvAB6zS1on+MNOv1zVDfu+X7qO8HNbthAwLBG6rtyLNbxPwnR/JyN3XrqmSRDyVqKBL8gLzQ0paZgvgR39DOG9Fz6Frk+xqIG12XvVVipJMqI1JZ5lqE7Xx1p4Vogd8ok2Xk+GSjkew4LcGfJHJafF9kHS2EvAhzLF70h4PfmDnGvSHmP662EKWeMNVTFO6Ch9qkhQrEEocI7ztBt8eJCYS5N/HtthlLL+L1wCYIiVILVnEph+BL7jaNREsQNW9YY307ZhNl8nAZpsMWkXgM80VroGI+4YZDiA2/crmsHzgdqTB58LNrtIOEf6ilu+k2cgd4AeHMI+HM/ygNGC+OoC8VmvwgR8swZPMLb0ebQq+oOZfsV0TegnYvhCQBqL+iQlXKqmLVSO4mSAhsiU0FnwimOHohNFlEIh0xfp7D75/8UNi/X0ctkbTO4xjp0TY1g+cd4EvCEWT/hVHOYiTLjokDp4VE19VRtYLootQRRXvog6iTWtRoBPkwIiEJ3QEaB7NplfLoW7I8EuifiaY+Xxq8i0SSEumn6OKMaYQthz4QP8WWoe2zr561VCsiCdO+ykiDfRL2zAh0DsqLZQx+MimIVh5FnznofoqPOra4GmTVHQxBj9iGNM2bBQQJb2RFvsSwdKk8FtR4VHT7Tg1h6r1Q+h0YsKnATEVtgQ8ix4plUTg0+nSIC/ZAb5Xh+h2PPJrUVbKTTtGZ2N0eMZnaTZq8l4pEAGqKnL1NmAD5/CU1V/VnaMEkyClw7FkUWvW5rUAJed0ytLxGTD4QJSZIXRshoDfafq1Vr5knQ4Gv43IKWSsraVBJKHQ8iGqy7nIl6F0vqLyhGBdXbjqtvxV8S5JtqjaLJIxzTzQQcyBLyIN7I4J+UjevG06TP9ovccDdxy7SQSipWD16Jy2QlScbwXT7q9EJ/guRLakhcmQuW5NcQRaUeDA51HHwY1nlUSJVhxPdeS1BH3o7qUfyQRLEfsgCUiy6pc58NmxnaStLzD49MYgluUczqB6+MS30oUnxCJHE/PScP0mBPaA5uRotO85WZapwk3CElIoHtZTTegM+rUp5HsysJt1ZMFvOb5HNJ0XpVrQ3SfETAz6tnRoXwzpBtWFVXQLDVhUWSvxDERq9PRj0rwlsY6pwOGiU4K9qR3G6vKdjdCdYwB4DqjolH1lD1ICfku9fstyebxZePCj8R3dRelD/uhovdaF/cmknjQJ2UO9+5JKDWIn7+GHxPKjiwUi1vBksFffgIhEYWQ+Qx7U3tL+eBvzWnn0BVcJrmirisjyilz1AMK+MDpV7jnJV/3z8VY+VVN75kHtVHh+WhnCGGrM4FEn83Goo05laQGrrDLvxih5kjajv4t5019NAgPBkTtEn950rvAWqjYCzdSIoMqLrN/WZ5PXH9ouA+ZZL7Z3d3d2H8uVKnGWmLiDpUQs+48Nc/yFoKgn9f1ZCRUhjDN+Jwbfmf5JWhypiz2eixWpipLgVO5bdvca7pAb8FuriFHRSlmYq6ySdqvPAIbMF6zGanGZlhk6UoJAOzo+TlHEZTPW8xPwkxMaiVaZfJo7cEug/XXoqDIY5kuFwRddCrwJz5gr3ftSpCEyo6EqYHiESa9b2IZRbylcjRIInwno2iyWmhLebUMP+CUFnw9O0YA6O7WDwBfMOFE1eZaCX1SkHQm478oOsMVzzCQxFnRSLYT6CHssXuOqDdH0lAa/W2HRvPxJ0NiqV9u9QDYfGT7w2EeVhEioCuKqmvmOCr0LOt0roi8Gt5MWGdRp2xIxCxTm5VSPs0qA8ZMI/Oh14ga5++ejMQYhVN+2b2uhUfTUtjYekzq+SMEXfKyJisfOsjPgl2FIjig7REcWzoH9E8yNrEaAPI0SA5QDv83PTkXEYz9G6ELYNpwFoSpo2LOCDj5ZqObKlx/190DryVxErAWtdw0ldTtscSEuGxuHVYqko0vAB/QuKPiCB79MekHS8NVOKiNq1tJRR8FrUBtbHgC+u4waWDqsji3fkH8ji/HTn4a1cNUreBg4DL6iXAmI6jW6fAyd4IPx+4Jpp4sgkhTWiDDg47sb+XMoY/BXMtRpo5kGCDzYFP3WnTNEtzfXOEmnCTl3GGlUCEIFkfCvhgxtqwRXJFMoZUkHT/qinRJFOmUZgx+uY+XYg8RfxyNJuPYv0i7okQbfc5PI8AmnT9R2ddNxGIrTK2wLgLWo43s0Iln6b9rXvVTrK4V+y+2i4XrmeeMHjHli+c6PQUVedaalTgugCfj6uG2dqEnopCC91/zoIJl75JtWLdH9tpC2Ig6BSYeCnJihytCvDTShpCmiEE4mdCHHy4kkZqMCdLB8B765iWOVPZJDUvDrFHynCwgZjisDa45djGZNkggnpVUH0yGGjsRafOe8N9uqd2McI4pknJzdYxPlT3i3RAlRK0vESoRpfyXxOoBvkMTy68ZavuBYn7kZwVguivsJSGUz7MupIikJUiKkw1UW/H7i0XYc6ylz28lEusHJuZo00i+j6IjMCRHeFKrhIdvH4Ov3Hr0NG+UHdkyWssZtVMq5fSoBE6bWPY1IACS9f+yCKoHYSaLqKIb7s2uXse6UCS4Y8CHVVo47WUFpOUT6cWQvkgNXhCnSpJdrWeFxAio6WPaoaZWLNnOCGdYqsFweD76/HdyqjZ6pvrUz/GS0MCaIJMctlHhlEzqSw5VIjoPSe0RBVQdEdOZit6O1+5tndUKVsuBXIr/O3fqZNvCOudgGgw+QAT9DxcRxTlWhOLmf5I7BL8Nqm7gpzoc6EPDnQiUBCXENaTRnBxyTrEv9HtrKDeDbiauqzbQnkbK3jfj7wc9OmqDPaKjvPvA9KZMC3wf8aKg2nfDkK8pU1DqaRi8ZsrKgIxiCBV/E4OM3oiYpo2Xh2eaw6U/ZbBgr71bdreRe8HGc7F5+GG0e4vIp+MCDr3/7jI3v2VEUe8mQ23fiDfhfMXUZZnNCnPE6p0+inbnDozWmne/MVy1dOCP4LDduEuaf4sB3vqlB+80GVJYTyxc8+CWw4Jcl53QwPxn9CjKWXuGNLd3g63zlhNjMxCtievA7hlxian6bX3BSCerhUyEcRvzS+/y6uDX7h6pmMoDevhnbGMrfjaE+gDwKU0Qrkxgzdk2Cnh8R+MKkWQwjNwLflPTXpLYzabEcafTNPQ/oim2YcMYTKQTQKjJm45s+nJ44v7DLz3pb6GTbsdpnrweD08UEGfBLfyyUDK1KEAXOSMhED4ThBIwKmHsVW/seyU28KvZBPKcSeNGCGPIg+0/Y4CZxMRXJsuJA2XKyVEZb0x55d2HHod5MFN+hbgSjB66buHniSJlQdejSSrfiADPJlS+GkgNfGyMqa1jXQU/cvc+BWg9+xDTsGI9r0TRKy6OPtYJcXJU4nvC58/JHRbHZ7VbF1YCJJsUbUSTmsBRzmwoF2tV9bDmzh0IY9jiVkW9RWQuUJUND94qf+B3SblZtpI0gFDUhrgFkhXdEFREYksPXv4yovdMK6ABf8W/Ucpy9gOGC0JjeUx/V22mZlApYkJnSGkTQCywREE+cassHPEnKy/1wYgwq3JE/LkSLOOVYJJpq6QADfhtp8yTKcq6D3mLwuTIs2NEf+2iq6j7j82YvcL3R68XqMQ4feS+TeSZj9sH7e002R2IosWIGr6DtHxPqd2qnSI62XNAFL9GoTnTkcjxdtFhD76/1XAuwQwBZ8L2yjmmP3N/yF/OJ/VmRGD7PSs58iflhyin3rCPIyEFy4JOcRSlluXVfpqTl1wGk4CN35DRQePCrUEIu3UqhFmkpJN2f0E6f3KJdxveXQa+t+KNCn24+jGP8kqud0bY6f+0EhNHEMIbVJaaEfUOU49qnWwhdJoxIXogEMgkU4DKmVb6MA1kOfF1LiPzMfdfdPZsYApUKoaMmVsbdcOCTmmg8nOg0md0hKgKTKg7yk5Q1VuBZTWymhDsq2Xg/nAZt+PaWR1aE8fqossZMjXjLr7/G8hXTR+a7MvCvxyXeFFombRNMj009C+ZuRsmYwIsNBBbFFqSDzIEvPLvLJii1i9aj7NNhmrV2iGtCZHzTyEwHWXra+4nBF166dG+d4vroC5zOWgamd1v98ZiOogADPjChJ1L7CtvRfXEuWi+BsBcd89aR068TYntceeEPXLu1QuCopkIEWMBCZPpEKK03c9pwggnLXDzqksAjVTEIOwHvtUFwtZtOd9vtascypMiZmT1vIVreZ39ulhIigssXMMjrS6dPavqmhBWXAzIjvmjEEbETSCPfxUqVAK/CFyY2Mise8KiEtIe12oBqON/1IM0Uu610u92hVQRQdoGPwn+m2hNRBonsFFo62qI3HHUXgYt2Eqa4Nn0bg7SCZf4TTwPcSQuulOaVH1TLWNcsKp9gt0LkZsK93wEVERTb3RjaZrKqB9UXHG+tGaPxZiHKspMkwg3bxiuEcGPLCu/7ayfsGgoRi/5G9tUlf3SllUEFTkR1JyMf5QBhh9oEuWoRjStcJFfyd1SsLo+om1/qTe0sFUHpvKy2Ay1/Mvcy4Xnw8QAKIobH4xKpKE+JwA9Jgo/vUsAzs3Mqb7xF0Zl1PBUeY4RhhbVQ3aQ/GuZ6BJZ87TmNAMgUuRYsbObjIUzxZt5UDi8ZiIkMNY0evkwhLRpEAVpXEwLoD0EUMPOaqbHs2i03TCbwqvBUmh0PKuNSgx65Aog6g2SjUKQulwSZ4S5q6YvWneMJiffr+lnNTMMJN30SrnU2g4Koz0Iz23hllqF4+r2W5Feq4g4b6MNA8HWNIUyl5RlUPAlQBOErzE6sqhYXRXOpN0SEu8hi2oEFnkkj/O5aW1nI124SuYuMV4J4Lpq5lpY+S+ilrMokSrNuE5m4sP6lW0Y2BV9fGFubaCuyWinwInJhWNCP4M2linu4J0cyFF2mjmfuJfYnTcBolh35dDAzVJKS3yLBX0rzPAE/jaMBTT3ETtTv3oFu3k5LmoQCCyiYUB3JijsefmVoUjmv73KAcGDY0Y7wD2Off1J8Op4/2RdPUzXciZtPKVYMWCkds0zRRHtrII17smX//IaiAH6HzKn3mt2cKbwBMYQ7QbvOarqjHq4eymo7dJ8Q+CVY7n4EPuaX1sX+1fGTT/siHbHRrZSVj511Q7IUFfRwYWmYCTjSj1x/yXa6QtkfLZ2O3yMAzmJYRegu8HNKXAb8VkQeC4K+eFWJVP8jnM1h2VXpGYuUGk0bEMUT9VD3QNxFN4Fzrcn6Cv621Jvjs66CiUG5CbqE6Qbs/SLQorT4+Ao1Hr5ILh2P6PI6bTRzUoUanFM4Ii3btvJ1NAg6LsCsjXSm7ic8Qh+84cCX8BdzJvOqr2rfczSTWvoYEB1jt2lNoaREQcJ+KLudTlRNowvSPDGNVSpTYlmZU9avuUdDswI3fNM1FnhrcSiBpCJbAmmVOe+jz0zbkG04fvjNk760t/ZXoN7zjZLSjQkxBR3cNMRzEj3gMwF0VLIVkNMarNfFpM3yY93cMwr08XKBCs+bBz0RX/kRkYooWg/sdOnRJF5w8hOONPXkuEi9TvRmjq7sGONlplifhKIQUaRKnvnGnB+Cz7Hi2dasy/dk/Zy7oZMoOBPAMi8QKzLq2z6RjiYsKRHUL6yez+RWWe2VfCiVamr58oPm4Lg5GFLwkb9iW1/GiAVl6hnnezDGaGF3mcnZUDGfSkekIYbj/F5l55qy4Au/KN57FQhCjhU6CkyY0/q4P9pKJbjXhc/XRm3Nsc2GeUUDY+nTDyT4B01xMrC3uytjMS8BaU8F3Q9YxTrSx4jp+ulGG0A7JuKldc6w6rxKXFaRtEJxIEmwYvDdDtUQzIQwGZBgJsG+MT5+0hAno2P3CaFVfzo2j6dZx1PHzQo0DO15aRkCDw01IUdn5mP8cMYRQl7Y4tV2ryjWuRaPPpHwQfIVlXf57jk20Qg9ZySaGcBHrUPsY+TVIA2V5UlxoB95r7+aTHT6fmsoEBO7VAQy0288dbaT05DPr8hJFrhqngvVx8ZQyRanMmh8DrC8NVqDowd9ya1BMhwgRCGsivrdym4EqjNmXJwsNd46BlWOabnM1JZv/U8aDaRGoH1ARFIN4pHErpIQPYQh2epaUuk7UiMehP2VMjZGZNCrKDPlHxCCk4DghmKplJcPjIXzLc+ilUyIJauBf/qpOJ5Lw3/y6dNTBf0yH2iSy4H6UGS4Kqkvx5L5cSGaof9jRRP3fiLmkwe/tzbu431Oa4TjSgHVE6lEqmcJeLwg7OSBcELsdmzD1j2p8teny0/HT+ZP3syP5/P5k+NPn9SdsBx07o4Nv5ij5ZfcqcqA7wWXucXFRJE28bxe4qN3sO+qdjFPrLpAeJldEyg0oxV0PM2zYcDVf+1V6JKVUmZ/UxxL1F+9OpDRzuvD1xL+4ubpyZAm160qmZdCRFNYHMLAaygnsiT0RsAkn9DYCjtibfmx6Y+P1cYm5ritIrneNsugSpwPpxrqFbEq4eeAsh5RQvyp+Eea/avDw9cK/IPDw8MDCf950ZdvafJPvW0q4nYs/lkCYReTikZOUQOYZlzIONthe5tqvwi6xeCj4g5d6JTSewjhGfIF2NLlwZ0i4drXP3nzRJm9wlyDrz5Sxv/myacB+nfFRTyBS0TxYVC4A+nsdFR9wOW0ePq/Gro0a++MO7X8zqZ6ENmpQnyfiRlEGHzzUlHZF/RJunqLuAX/tfrwyYG6Ip96ucu3WnMwvJRZ6aUVkr6tgHz/KxqTAPocOnNFXM4cNlumz7bU7eAlwp3g+8OmEvlbGK3WCHlth7zCpycHcwn4BwX4KwV+o/3O4eH84MmT+YFMuHLHbn03HY+byUQkBJFUzNS1anMzFMTMRRDhjDdYQpLdirQ03iVKnBWbakNqxUsIh4nPvLgTKSjrGuZkkh29OlF2Pz9+Yoxdgt8E8OVtIE3/IJfu6uaivH+bJtYnjeIdCKUegGQ+gkahDnxy+pbMLBYerhRDDX+171Byb7mGbgS+YwtGRI2M53fKgFdZ7I8P5vNjB/drC752QYW8JCru/PS0S/6umcxLsocGZ1whEJvFthLVGQQuPQi2gQjRcDquuQ/BHhk+Y/siKKURj0N1omxHN4M8ZpGIUNfJvaCnMrA8eCJjnOKBery04D8o5Oenp+oAkK6/ODnJpOvqbe9Gs8jRzErfMvTPz0qaijHUZRb89BKIqKgsBs/YkJ24rJovO+4MsYpLBV1TN4DA73pdEtQnr1+rI/aBeRw48NVDgf/kycGHjNtX+rKi8mOhZa+2XViAW5ZM8gsp+B03AAo71Xu8rYcafhvpZBLJEUEHdxnw/ax2vkSFAoKOxQonyvB1WnVwSsE/PVXYyxtBfu3DaxlwsuDXRu0xVbaDhKsfWAvpkqA03BGd/IW4Z1FVg7Zl2QyriiRi09UPFdqvQcvWlRCZGJMeeb4IYdRL2de2lBH+68OD10948PXn0i29OuC9viFCcnhByRX1y8yGJjbWLPnpdVriLG083RRDPP527sGPljZTJQDh0aOCjP4ilAPAd7t9zZG7rhldnU+qoCBd/hvO7VjwDw4PnmT8jqnnC6w3AoGTVmYohRk2m/1kxkhR5fyOA3/ICoZ6uxc58Ks0sscL00QsQdM3ZIlHv+b7ut4wRWTldQ4/KPBfRuCf+s/lXXH4+kkosa2PNpuwSmXS+IW9jPiUvB1mSXBZQqKxgwIhxNuPtWFSaoYe3DXH7ZCRJkaszpXWUlmLVHpd9IKfxMXmz/l8t9/rcL84OqoJ+E8w+CraeWLdjgf/w6s4z/XFUFVQnmhCWFQ/C7T71L8Q11TSb6SL0PILpmkWPxmwG3S1p+C3/I63GHyBwBc92Asim4JoRoZTNLFNEO/yD/556cA/1eAfpG7n+BUK9bd3m82FdzuqsXKiCWGcRwEos1ok1PFD3IWHpL6QAd/STfvAP8KGL4ikWpBat51DRrwl4mnl/Q2li6tRDHQp5QHgtcOXqrLwwIF/+iAC/9RZ/j/+xLW6R2NziBQXjTlOLgH4rmGmgMmP7JJaEEQUq6z9A1KYvw/4ZJ9eSGGVSAYjJcboyyWPWUnA96sSvLKalrBy2SAF/4ED/0ls+W9ezW2JoVY7His37roaqd/1rt5e9s774+JBPKcY0068/mY85JXDfkglv3i3Z9bKkLTK768SXwY+JUHaw0g7ZXK1zUiiOkM1+DLNcmifHmhbt0mWBf/0QwC/9poNa9U+lP/Y5eU0JsO6oKcExNL0X4f8IBeWJCR+B+giXEqLGVBaoJUFzN3xdXs/hdTG3Ew6g1d2WT7gjdZm6aHmrKAD3r5a7fNlGhuBL+F+abHXSdbBg9fI59emTlfr7TUzrKo2C+ZtXsGMGYhL62rZ+ZYh4DtB3Gf3qyzEhl858FtmWlTTpMo+s4+8o+pkTcyenyCp1qJFNUsV7egaAnby6oG80LH85GD+6SRp/G4uSTlnNoOqjVvouXVxlDvLEk5iVkxmxnXg3p2i2HHgkwomZDqHnjorOsGnhm8lMy3BptHMZFOGRKHm/I0B39i6uhIHzTxEmvP5EwU+ivN1oqZEwna+Rqbs32+OD0qmXFG/RCR9ICoMiQ0h5WAouTWY3uPXg5TKWPBFJQY0UKK1LdlGHPL4rfLNq6NnliPiSGvhJlXgS7/zUrFFbIpr0Q851sFc3hQHpLgjL6cM8C/B08Ntt1j+5gZQ4Z5SdSABH00QMeiXqVBwMn9T2gzrqj/DymHPSUxFMgwgBoAfs18sKbaoCdlmhT95Wkgrf6DAN3hL7OdPnszn1u28MeC/nMeEfV1Tk0HUzIwMqo6Kvvfvoh4uvyiUn78CSuKJSTusz7enWr/hb0H0TcJhIcEvAj9JSXYrRxCsnUYaealPlc2/kYAbx3Mqrf748PigeWnTW3kh1MXJ7Eo0QFVhl/GuJHsPuyR3yK5EdrwCDwyBGUfnPH6/01kbTWvW1VQ8SZBnjvTXdehdq9lqRznCmfyCRFeeqofmzH3ZHMwLCb6uL7xs5s8PnzQPHsznT6NuigN/ZgZzbZKz2Y0T4RGS0qatN8jom0arXDti/AHYr2VmOHTivK2S+4GafndFM5rnQAT8E6amLNOsN28Onjz/R94BL18+eNO8/Of4jcJ+roP84yfq2mSkGJq5bUqMF7tJvV1MmbIZFtCnm1nTNdzQPZaVXoehbfPd8IH/tuJa6KilWA6yfV9dqCZLbfAfb7h+yicJ9JuXb3RhRzubl3MVdJ6qQ+D0zekbGQ0x83Hysqk3LfM3+ZiPzWJDN/85oxtBoUPli2GPl5TkGRNoKfgDHH4dOZ2OGCfz5VSkYxD2Voh7r1Oq0ZLvZkmApduXVj+fH7yUkf2T+cs3L+Wfp/IZeeg+KDLshRsb+6wmDRSzMvHzkJHFiBa2oiOWthVnZVxom2FC8BABdO11NrtUtTE9b7FybNsF/lC7D4Su/btixIKvYH0zl0fuXMc5Krp5Iv+T8f1c8WXnb/55w/bAlhsDvv5jMueUvEpGeg0D7CNSYNLgAL7fN2p7LTNAbKT+UnIS6VC98GrQzQBYY6jvAqDlLtZfFbej0abYcK3EYn7Q9dgz1IXNP//8c7Ms/in+uZBvTw88ebOEjNmTHi6eyM3wOstZdF67RlcYcBrEUYtO23jNLZ/4ZkgMUA4BP5LQ09o6owVfAXlaHBy8Pj5+rZBu1CGryDvqIY9b+ecqsa56o+z9n4uPxXEhL0F9pDJohz4wHZPU6bgrBOkQEaOSioLSGfghp3rI2N4RPW3TbWRDnD5avwxlb7iTqJtrjvgyc5PuXx8cn50Vr1Ux+fVx8aD4oPpZ6rnHT1SocxSPFCuTVx+pP/5RF2KrxkohNtxBAXEJJDaO1TNSHZKquWXmajoiHSoh0iJSJrOTJg++0zoc7PMFGp9uq4Kr/sk3IEPLx2dnZx8OXjcHrxR5qlAWf/Di0dnZ8cGbVH1zW19Lt6PRl3/+ZuYuZOCPN0dA/4JKypOKacn8z82cKO4wYcoah/hoA1MVLb6KUGcNXw9o9ZOsEfr0yrom/3JNEy1p5cXj59LypcX/+eHDq4OmUVQq+dzB6zkZT1me6PxqUiw/afv/p9jNq/mlfCjpsFm3mTPa1lGJDRel2VrEDO6j/1wU2PAt7H7guU133vqdY7mdHFBCTqCecTtUYiRzQik7f+1P2CfuA1XnP9gzlQVVF11q6ItCuBLPbFYOuieT7jkWP+LniWwIq/6BtqqHg7/WS2uAHTlvRZuh5XPnAKpod9tWiHYS8I2g7NNl9Jh3PArynVqJp9Z985E+bq8nVQWDYCfdlDD/QPx9kpVFYiTS8Jvbe4Bf74GCb3bTdG2B68uzOt4YxNEOGXNRzdejbXEz+vLH30un/rKQbmejdklPuDgR0F9dCniUJQvpdiEvR6jvLhU2DBaAVk3zFHyvd2fGUiIVkp4kt9erhsYPU7lQjZTfvgL80YXbXrx4Oxo91d3FfceMT3mPIehsT9fH+GK46rw+ofYx+JULcUCkwyit2a7C+R7K4RoAPod/q8psXwu+TrOKi7ejhQrzj9b1+L5eh029sgsmvMMHzcoc+pA5JYhIT879BRz4hrzAmn5eBI6+wjTQpyrn88l+8fXgS7N6+3ZZLBZarLuPOppJvKAk4mqQk752/TFl+M+Ge/y7ywR8R+MAYLPbKrOZydeSZ+XgWDMzydtMdpdfAf7JjaEyLEbvC2n8FyqL7HpBs8zeGrtTMdIxxVwIosss/9AV5GfDDb8kb59ojCDwq6TBUnE+v6euEBcNM2PU8tiR1r9n7X/6u350W/5CBf4X2/3+RB7d7+XbvLjLdKlywo+401iSCSLgvagF/14ef3sJCfg2vwVc1qmY7lbKW+5zqMk0R26E3Y6kR7D+/uKPQ/co/vjr9xz470ejm8/F3ViI3eJysdisGMGpVEU2WRcXpL+IfkRJm1jEpFS4sD46OloPMvzLEhjLr5KSWtURYg7Fnu2hC3ZFhZnga3YYeQl8cfz47Ozh2dmjs8ePnx8e/vFXDvzpaHS99acs7LfTbkcIOfEXqtuBypvAnM6zMlDB1+s+6fmN9IVUp8Rj37a0kq/z3ijJJaY/rJDPsORjhSCnTigfewz988cP1ePR2fMXZ4/UR4+PDw9f8G5nOp2O91De78GdpUBVpZgxUTLIK5rV3XalHgbfTd3FDxxTyfCW23Cb7kvJLGCF+0TIeP9ChUrLaGrYW/5UQn/28PHjx2ePHj16fHj4WP31+IXE//DwLwb85Wg63t0f/Cx/OalmJp33ktaNppd3d1Z6fr0+qvnKws5pP1Vh7SpbQW6jiLBlNsFBdwW5a0jCS7ahuVUZ8lg4/1LQP5SO5vihNPmzY4m6RF+avXr28A8m1FxMx5dfYO7Akxqg7FCTzSZnU30F7B2wZnsojNcRg7cLBw9tZ/5yOSJkkpeAfhtEOPWUlgw2XbDzx+FjBfajF+rvs8fPH7948Vh6/uNDdR88fPT80J28i98Wu6kEfyPBvxwNBn+GBnEdexYz1YAJj+J4OtMdgPHlb5f6Fojhdw0sSJMskV3PkeMNIrauKSFCb+ZImhRopa8usIUws5CYyzP20cOzxy8Ow+P5Y3VJHkr3f+xcz05mCLvRslieLEbj8t7gJ3lUTnn2vqfI+PJym8K/SyNtDH7Mi8qDTwTVZgNcKp3PiSv7VRXinMNCOpxjdb4Wh4fHf/39t66e/SUP28Nj5YSeP5eux6C/a6rmUlq+hH9UDK1kevBNqjWjlRvoiI8ijzVjf7nDf7eNGm71OJtjEjGvqu3aICQizuLAd82Ajx4e/MPnD6W/OTw7K+Kz9W+J/+OHL9QfDv1LlRhLn//082IC9/f5wNQ9O2wI7nWiw462dI8Ggi8S8CuWMgLlQOJIpHHgCUYyrTWjm5NL7+8fql6hcjiF9EBvzv3j9Hw0kvCfSf//SKL/Ozpwpd0vdrvyKx4w5BsAen4E6AE+rldoTHLblWSKHCuN9rHIDo78lsfUsCj4Or7ZL2R2dKRmNx32Lw7VUSt9y+Gx+vT8QXicaus/NIexvAEQ+Dej6+J8N4cvBRuGXALAkhkD80rFDdOlHzu3R1KcHoYab/nB/vU/MhtoRtjraCL1ZDcenY+vC1TP//1QRjUS2ufe4zhe/oOChEJnD5//EcBfTEfL6zEmSnW7fCiBnYDubDIO4EQiFULzqZhbXSFr+JAEMtABfnqNOib+M+Zk1325MENNlWrop+PxaDwqitW7q9+8w5e51EOJ/d8O2fHBwes//zw4OJi6Z2TE+fDhi7Mzf30k+PIGKka7/UCbv38/xbx2gN47CCugGoLYXLOCMfhiAPgiDz7fwsqNFltdOyVe0uomsRpckAfsWBn+Rt+Tv7nkSrqT5zKgd9iP581cqX29PJAfjL3tn8lEV/6HwZfX5u1imC+HLz9E+x4zTHVzUhUT6XiOLPix24FO8EUX+DDA3ahv8osh3AjWtXQUCnzjdDz4Oph54UIZ+Q3j+ejcWL68DvIT+22HZ4fF2UNX53Hgj67n0j5n+pF1KYyK/tecEh1d69LLrqvi23pHd/plAI6m/Idbfq6JotgVilD37p2ZwVJuUKVU0vCvTzD40vDPzs58/UCauoR7/uDDq1fFy7G6Vtb4/5YXSHp9Z/rK50/lV6Y7kR5AymHMvlHIA73XDEgJ3eiEmC61PW9j9eU4ry2B6LwATbjwryiHvyvhS6/bnSFKPfjngeM+OfD1USpt3zid8bnCfmrAfzBXF8uhf3yoygwP7R1iwZ9OL0tfooNsF/ALwGf0yHPVBZzXW5EWo0CyhQh8rqltTkffzgKR7NN2K/265ECTKptoHKVuB6YG/kD+70TDf2LB//1QFXQeWW8ybpStj8ZvHnz489XLU+Vy5H825lEVt0cu4HHgjxcz59/kAWPnIXThEGYD6mJl79vpBz+KNEQCvhgOPjJ3EU/+s6+JdbV2EMtEXHdT+eF7Bb6MHjWdXrUANfh/PFeFGxvATxWGxVwduH82fypyrBpAnBdza/qqznl2OHVJ1vRcFZVVgW6/3+12k0aYop+SeZRpHPsKZ/fnkHBXakY/xsVo25lNwQdEsEdaUmjMItF3ieWSO0b7ohnEEkyzU5GG5ItRQxEflOGfLEejRbEx4Kvj9uyR9PgylR2Z41l6+nPldmSGNTamr+6G0fnfh49VTGr8jmqmKJc/lphPruV3yLiz3o9twa5ebYuJmOU4VN/4Ee8fUjquejiPBR9tABJEuo4oLkQrWvCMfF41AsliqOhemb7mtDa76eiztPxi+fFmpD404P9++Pj54XNVN3ignI59GPCLBwp4dwHOT0fqG+X3/0HAH+92H1WINB2915pHTWPElIqUxuNz8BkMSW/hS+4Jg5fiJV1F4NMd8tbyUawDTIATmz4reMFNS2p20cRR2HcSoMXJ9UhHPNPFiT1wZazzWMWZo5G086Lxj5fK8h9o4PUhMFVffyGjzUMb76hmyrkGf6wDWAW+XZxly4p303ywmXeevUF9zzUR1utofsOWW4lKhLyYOVvwokeR7yn5tSRYyYD6qMYtN19ImM6LjYRLoblw0c6L5w9lAPlcgf/gzXgc0P/zz8PCgG9M/1SC/5eu+Tvw18X1OQZ/ocXzbNv67u7uMh3uga/PsvpiPQv+5Da4HQEZ8M33ov55ay6I5S8DUgm2dClUKwMG/DIx/frq6KhQjQ9p+h8Vkhr8jQFfnrcyglEFNTUCenp6gOB/+eD04I0SwVD/qRrb3yosfXima5uqk3Vzrn4pAr9Ya7m1i8tpOb1fF/0bfa/xO+AW0G9j5kxa4wy7yCrM3nTSUFjsruTXqOGbgfCYAcamw1+/VwCNFruxtvwLD74OH1WgaeZvXx4g+F8+0GIAB+a/U5sTPLLgy/P7WoNv0mLV27KrP+6mfVW2jMTLF2ZZielXCfgiiTiTZSgW8KA0GGmslWWs9QlJE5qsdJf/G0/qd9vdbn8tAbqcNnsN/nvndv548dBG+RLgV4eHf746fIV9j/xUPXf4pwH/BQJfPj4vdJijwV8Uy8Xl5R170mYAhfu6IfDTdrNuw7d7U7ZEqIuAT0WMAvhlWIwbfrZKR699RysRShFmXZ89nc0tU0zGu7F0hgr8RYHAl37cgi+x/lP91zQY/z/1cwZ8eZ/IWNOBLy39owN/tFxeT2fl9PJyMukf1Us5gd8q/jQnpiUxJ+ALcvx6w6/cZvHKM2qE08sJyyIY8Ycy5pOYX9Pa5eatU/uXwddcfkVH7Qj840fFcwv+yw8fPvz5Wv+BfM+rD3/Kp15btyNDI2f5H7WfuZbgL66L62Vx3Qh76e8dOMJXgg/E8sPqDgy+jD+TQhpgEj4LPtrIDdkHymP0OPykAXL/aIU7Bf5+dK6DHQe+Ct3P3IFrdRfU3wH9A+/z5YH7wiQFuryw0La/GF3u5/Jy7pSm6ZcnSV8LfqjtIEFrCn5auXSGHwaEhPM7Mfgiu2SbUN2N9IqWU1PSQ2bxtyoBjFWFZyfBX4TCWvH84fHjM5U3KakLJQFQnBfz89MHH5DzOXhz7sA/Uw0VE2rKnEGXiRaLRvRVXvoK4NDPHYFhxzLgDafbZJUc1kj2i55F2DUcWz4W1KflIax4i16GuumsoJfOrxq9i6W+Pt/J7HM6Or/+HMBXBWXVQFTgn49tUK9SKplkId9TjE2cr8qaPskajRYqUZb+xlTUZj2UCvjCaBKGhDkQTL/1Y6Lb3FyUCEtdhR9PwdpJgqvAkWJPOETIi7A1BbeB0qjayVT3ZrTb7yT4JiZc2/KCaow/Pvx7FCo58lCw5YW5R19nwIrk4MqaurCmRDQ2xYkBfzYTHY4Hvrioz5UisBZJwjUZAD7ZqEvhJleCk5oCtMeDQq85Co2XsrPD8bWZ2nyrA8PrkyWq59vQ/cXo1Ji9yWnfavBPR3MLv63tmJryC8demE7H50rDR/dO7M3bZpwP7jYlmhggYBD4s1BKmeWJPkH6yDRTmL4hpmtbvJEuVNsBvl287fib5OXpH4kGN2qj6XIiHcX4fCSDlELBb8GXWdaZYmLaFuJ0PJcxe3H+8vWfr16+HM9tvcf2vEKOZduIMsS8KRrhlkyrmj70H43Juo5O8DGFdlbOSujxUxAUNrc7vJeesAJz4AvqgwJXWWlRJ4wf4vPtvxRPzagdQcubojh98+BUxecfl66wpitrL16c2UZWMx8XEv1iLmN+Vc+fq89VkVnTOZ+fHT9+ZPuIF4aeL9HfO+kVdbzLKKs1kkc9Db+YSnc/h589n72Ga22lRkh9MgU/ELYJ+C0DfqtPXy2+oFaf25YZ1okwkU29LhK2tIwMNQtK8epDqDmaGlbCoe1WGcejOlnK7egD4K3tof+tovzD0Mm60VW18XTfmB1c+0v1a1dT9T60lc44xXw8FkeqUb0UHorxLEvRA6885dkLAXy8zYFseWqJVmEkEsU7/tDyKsHTJuwGhZoMxyzV4Xh6elqo6bXl0neyVKT//PjMkRck0KpYc6CbKaqHOx85/oLm0r5wlMELUyhVh8j+erGTj+loU2/rYiVj3HaW88febczKYeDnCMD5yo4u5lsV0W0EId4nEAqe1PKV0xfoUkT6X1UiLytILV809XYVSWdKDy0NUxr+hTlTPfi/K/bCw4fW61v056qH++Alxv6Fok099py1CxU9afCni4+2uKlCnyMdYRma1oxhvc5KuHeOBYOzB988t9uut5H5QiLG7CbTKqJPK2LLt6i3bUbn0W4PMcFTOZ54CabljU5EpWUq8BfKsqe+jWiryvIcddTAuTxzzw9eq5W4MtpxrKnfdVHN1pPdWJABf/TWgv/ZH/HzctbK+HPGslqgTGRf8j68v/RDx14B6d2tMfjRUBoeVCORZqyUzRGtUBfGRDzG+ZcQakCXe/sipKO5UVwD1cn6qMNNDL6iampYjz1bsGgUY+2gCYS1vw/1JQpkTVVY05VkBL7fX1PsZ4UmybXZrHdWQmL50OfyezI0hZqRE39WDAAfrYeniasLZGhxB9hhIge+67W4xWUz4UzgWp2sMij/vBjdJOBbgvhjhP5ISTseHLx8M0LYv0CUKQ3+e1PN9+AvyG4MwycRXTsbaU0TenYTDwE/XmKw3UVCZxT8VJhZhBTXncVtsjnIEsjxoii0Zse/mMYqekmEVFx4/dvoZqqLwBh8lTypzvhj53nOKUPczMopPuejMDmhLP+agK9/pxNCmmgDXNWTfDEnBX94zxxHOyhmteB77KnTJ+DbMLED/KCQxjNoowWB7hWgW3viOrim1/3W9ro9e8E6Hmn2iiduxlJOET//wbm+NVQdXxo/mkm8KC6Kz9f6Lhq9nRLD12psWiNerTbIZkzJXH+untYT5yNbAyGQnLZ63I6p3xEMl6HT8m2o79c/m2vY8uMqdK7PJbsOfGOkUxXoI/B17vpYenQZ8xR/xxO3eiTokZqWOzzEo6DrwlTzRxL8c91GTGSyj7b1HZs2RfSXkKfzQMOw2o9IN4OuxnG4DnE7PaziMq7IRjbI9oPXr6JZiWRLcrifjQbfleEuGKKBBn8Ugy/RPzPDKdL9HL74m8oBqFF0fdgeppIvC81UVsyIJbu/zPRze9h1egvuVxPHDSwR+DWiygbAEzIaobNVtrtlf7B11QU8TRg1U0D4cxeDb17JQkGuw0IP/pqIHem6zdnZ88dnSm7h8I/jF3/99eK4UJdCPavuiuKQ0dtZKi6KBP+c2UF4J8Ot+rJn2KfE3a8vgj9U8rnds7sUe7/xEIOHd36SYF4C7vwOHheK3U4AHx1lRhbIHI2u1z0aBaJsQP/YDCQ+lO5do66mcNX0uRlFPItm0C9C2UKR9D/H4vy16aNPs5NWMBT8vrYKcjskxTJxVx1F7FTd2A/7oItBpqRbE01WaFyrFXxXC0umGxk+Vdy/LYrP52M9kmLBX2jhairz9bsE/tHzYzWcJWPKMy0B8EjTxx8/fyHN/jgd/zfSajJEuknkZtfFatcxHAH8pvphNObc8L0DH5UV1X52SLh/tCDvsiPHS9PaIyCIhyGzcpWoRNJHp+9U/ZhMMXXUuzm5MQQbM5oyeqpKnInGmta9UMmuCn3M8OFz/bey/d8T7YVlsfyou7ijBQX+bq9qS/V01hm087vhvpBBpcjGriclgx2kQlXvUvAh1DMZA7Zyg2QOt63cyvm2EozlBxMyh5fZjO03z18bjocC/+3yROK1TAXuftfwP3SKI4+O/acvGMmXjcycl3oOfVF8XL7/7DeEjlvdRB53QwjQ2asaDL5NLQPzibj8pLCZcjeBLptUPr81w2xoOWjlrkFLoyM6mO5uoSCoVDW3m+1WDSzrAbbR2xuZ8V5/XHLqgjq4kWHnQ/N4LB3Pc1ZuR4Jfy3x5ac5c/bi+WYxUsbSem92ojiJOoOWJ1sMP2swIsrBEmWRj0xX1O5lBFZpr2RXcIcYUlQ3sfQBaptiLeHeRzDN1jc6EYs3+ejF6q6rKity95KUdjcjX8+cvXrw4fq4Dn79yGms357pKsdAtABnwqDLPQqFuEvyJiMal8qWaPvLgkD0BomI3ldVGTTZd3Y2SU279kHfxtoPlolB2aUtJnJiwK6l1mt/6t94ogv6D4rNC6zqvq/n7X3+Yx4u/shp3yt2YrHahJ7l0FjHVV0M3j9d6QWufvhfLOO0cZOSbY7aLWad7DFw3q0xX6HrQEuyt8iDYDpYg0xUhUQyj0eRXaBPQu7HMNh/VElb+v1ALyCTqKuzx/uJLHr/ZU+S90rkzSYROI3x9Z10sOsNFZu35kOJOUv4M4Dd1XaR7DFy8w+55Khmjt5maTw0qRycEVMTBKsMiOgJ8vGVJDGaZj74ip6qkr2Y4x4u0knAf8Jfnpn+y1OBrsri2fMtXKYpdH4gc3ffLBkPBbPctjq5qRuFun9ZhsAdyq1jCnu228i3HisupwA8AuWIaTpQry5tyesfqk5WZxVWOZ6FgU8WYL8f+qU6aFfiLkeWJnzvwvbBc1k9QofaeKB9Iu5cX0tJDz7cZnbstAj0mXaI9ONGZYP/QMxMcP5YDv3SH7TN/4ujLsPxowvH3xXmhS/rKYd98OfbLkQXf5G2Xu+v3qlm2OPFiK5F3mMXkcMy6LvOWTxnxmV0BegMeLzL7jPodUoCxm5+gY7E9Y/giie/97+bW8j6r9WyKLgMspgZ8FaoUyy8Rs/7t5kQds6Zz+FGDv9up1sFyhOrKlzNOqCBdBR3RfHm5355BXO1pcyqzNtQPKcFA8Llx0Aw9Wf9SuxU1sz9Hj2UtZU4UwNc1gvix9Jfkt5tl8lWzU+tkYaaxCpM07xv9r96MjlZbW8st+9S2WWcD7FrWEnryW7P8Mbc+RZm+v84gQsuDCxtj19KBPdMIhT2L/XKtPcX5+ciwBrGVpmubNPw3JzmV1pOlaQ+MtPjF+flC7+QuPi8W072+67a7PsZlVuArW+CBjuKC8fp1Rti0bsD110tC6+6wfCqFnInqCfigaKKresWDdu3YBga20ediqVLUo+VyeYIfm40u/CiYL8gX5DdqMtb7haaNjM5tY+a9tPRaXpPVvizV7b8p7r4oVYWOsHSWVWOzyY+Kd64y6JsFUoLsU+fBD8cQcL11oGNvaNrfuh3e+UmAVHSo+34WfBUnXntrpvvilqPfMnb/frkYLd6PXGyvsF/aTkrdVJYivJgVffMQHZPcqYvq4vY7tfW8uPgzmW4DmlSOLywDfhl0eKMzwIMvALu9PPgy1hktFsub83Pty996t7NQz19/Zl7wb0tmi9/n64W5bNKFnZtLeXNtpE7lY6k2CCn7qwu1Gb2YuUfGyEW8IB1yzXLIWj7YmSpdDMtFPMr2WZnmGTe9TI5hzvLjsQh7hmfAP1neaOeskZtOp65CcKR53tPx+fUi2dN6s8RLK+1z5zqTkj8pLd/N4GrS4Nj81uWtPfXsQAzQ/T/0rE2sHzrLELw8pAPflHayy7NWxQ6SM0Vf1mjOLXY7kEmwIBLbsGsG+U3s7zXqYw+U2nRS6JDRPDlafN6QLaG2U4Jvn+txoAXqUFPnC+53ymt7RJYUB/3OQEIAICuIgakyQ5IgpJubCE8KgZ/fnnVU7yGeBeAinbKM2IRVlJSV+LswMb/scPrLhYVJ+/tzzRUvHOdvrIn26tPfFsvczp1zC7PqvteGn6nPXHvx9A+6cE9XluzDljeBGHdk9jCwlxJHPQH8TFUThTx7yFOIArozkkfpsg7dbRs4OkIIN4Tol0mxN9/GBjvGRqenurypnr4euWffn6g06XeXpdrfcbGfXzuX4wzfDZ+fj+ilQ11EtdDD/oZFxrFgCQ+I6w+5o3cWET8DcbIbfAZ94MCHksSSqmNL4yGBpr+EJQcG8PMrRa7Pp8rlKK9zo1Zs64tycn3uXNGi+CjBn44+Ij9/M2+auYR7EUz8ZKN2BNk8TD0tjwyHuH+j9WQ3GqvYf3s5zcTxkEphwD2jU7AdFAz+VXaPAcOfS0eb/ZhDOHDj6r19pU77K3iqMh9sKq9tApORZotLt/9eHwfXpr8r89WPI72l5uNSxi7X+2v5A2okca74hh577cKMMJU5ZWPKjvzH7y7H2lmPLxPo42g+3lMDXdHpLL4Mdsdn63x+B/gK/Sj1m+EDFEMssmcsKuhYtxNqFmQMlY32N0sd85+eflA1sYUMaj7fmER1OtosR7/rUOitvAYS9XMzDTr/vHD+RTV/bxaWd2uGskZxA31dZJenUJUIzyHhV4XmuD5YTBrsyisHfjbYtI50nOweYiGmxc/k3ig9x9kZjqcZ5rE/MUQb+RidnxeHha4pf9SkBhOKFhb8kdH8crOIzvD15gKnvqlFkMaOfUjbF06vfdZBpQ+rcGeZrCp74cLdb7a5hWXo3Tucal/mKTGv2O+1R+DbqYcU/Jhk7QQYzJh/5/qcz9cjF3NqlqXm+vnQX14Ua/nyP2n1b/RK1mb+0VyOt2+1p//40aJ/bq/BFPM01882k0rjaXIjk2VByo2FmMADw8B3LTxHkAngN73Ls+ri1gjvzcroStJkyw3okiVSFHybYoE7E9xxn30NJ+819CHm9OGPvQ4j4/P1J9LsXULs8zIjInsuD4PlkaopnNvQlTCUd3MV2RufAPkmoF/7PJQdDiVE4FsqZeVcTjEAfSOIEAc7NqGIavkYeE+0IhfMXw/R+wJObhbee4cY3dQLlpvNRsU05+fzgwMJ+tt5czD6+++/1aK4xcVmY1q+9tKd23DUpLyj0LqV2N9OJk3jVYOsYhblggOlJw+swIGj5RswSsD/RjMZtIi+sBP5QLSH05gnNNZL0t1FRU0nvmn937CLf70wYaO/CMFp31hxx0aB/8aA/7cCf2ln6kbo4NVwv9fNw9EG14Hq+la9v0bpDE7M73O1GciS67vKanG4Q5rVDvp6yCJ6p783aeLuWL5kH0lykrqDIOAXq4ujAa/h+voaY3+taX9q5Zs+Yg+a87ejt+dz5XQ0+PbqmJnz8xByurIFBV8HtXY3/EoVe+oVDSKhv4xcBqZ11GoPMyCeG9aE4b9B8Nd6ZC8usA3C3t0Ksdqp8v1GyXEzYGmgS5okwLagoKCdnmvw5zdLpRJgerwK/Kk5Uxf+uJj6Q/bGcKVI07KuKUtfhp558LsYVMBQaoWGSgi3AEazdfLRPQv/qtiOu8sMSaucJ16VaGkc7C8vd3ocZ7PpWtxop8dlbros3p8Y0SIV8yyuVWR5HZbdLkZ//z79uNBJcaHYVtbrqCfeG2qyzrjep+ZVq5Bb/nEk83rm3MxMfVKaFNPWMkAIt8u28eoe93psVYM/SbzTmL+MD+AI/1JQXS2Yb7fReEjidfROyevrDW7wauLHcj6/XuLmykLXnrVWvkIf14c84u8X2WqcZi3v+sbH87ufGc4JIHmuanKrkH9W3PuxibaGR+D7MmVHa92yruJYbbzf3t2tXC87rTKMFpvlZ1ryNLWdIu1eqR6j9UkLXR8aO76zvConQ97nZXmf2X7oIEk5iqsZzzSB/VVdfMmjjmnUJN8NWaCgwY9g2rklu5x7vMqUeKydbo68c3FePftOFjYFLj4vNzJD3ug8+eNTrgcZP8b3o3x3RPiWC+nN/j7HbOoXJx0DwmxRh1O5E1jnC792MXBjsjTum27Poa/Qx48fb5ZfYGHzjt0i2Vo+RH0+BL7FXnn7q+IrHvIoKtC/MvNBT8wq8fNWHLETeOZ1vrx58jWvebnRtr4e+A7Xq3EivgBdggrpquiw29FoXVrsv8Ls3bRcXFqOdGLDLTAr05aiIGoLEflI35eDMNqox4Bv+oL3tzXvELiaWtnRP4/XcWMKdidT4R6Wf1GMHcdiNnNz7QB4JHtGCjpY293RSGwcGkVsw/Ld7/dYm0t6xwbUWNAXIEeXiiN84QdHqm/x1jbR0nZIc+pZlkXoKM2QaOrr+aFJ8TOxL3x+1al5wRR8mNl/Z/LB8L/NW6t3PQWNMsuQBa8kkFDeTV/hZ2K/2dxtt9v9NC3QAM+N7dQcKU293ID/TZxO7PVZZaBuliYIl2LRewaq5jaejf2Bj7q43U25+zldrdktreCoNbZkbkg6Hfycrwz2o4ZPOuVP2lm6j4j7a2Vg76zWPxH8ummtDj2wlkTBn3U1bv1HRuRGJ1frb2P462Lf8S/nqGo2yLELzihl1li+Xk/3E/2OmkUyw6hUzDQRVIMesqD9IbeLBqpvZvhmgKYDfFrtLBnNQVfjBDLlKprdZvXzAh15013UtS7pNwJo/zujMBLz9UOfEUo1B1t6ze/m251m62LSfcvF8hZUkZ/cDSQjKae7nxJrrpW7Wyunp0v69TweQAkrbN1zmkw78zE3avsGLYNS+NT26zJbCv7FtAv9eNJZRzczM57I0XnQexLNT0Bfgr66u7MFTX4sEbfuoh414RUICELqYKYEv1GIj0ODrEAERPxlz88EW8XndPSdOYnqx4OvOGr7cTndv5OR5uV0t1rtOF4IuquFYXi3Tq4Ay1d6QVE1iuz75N84hJ6yUf4MiZUSAynLdDETsymXi4fXR9/5atxdTjvT1jChkF9DQu8FbfKaASyq6pvb03q9muZHUHGFrXRHK/5SHO4EKp0K9skr1WO53+61HzHz3tOu2arS+xsveOTrib6dijmUiJHq1Ou+/b3cNa49o2ZuFpsnNwVTGRFinLzU1XdJezemNbAu7sbMhCdXXPCXIM4Oo0KaZ0YBCPFdsK+Ld9N47mU2i0POMpAEHcefvBXOzCZ1xNOdwrd6/TJQ0CxkV+08qtdHqlPeLSHiyvOK9ERqsR78Ga6pBFoaEer9tpbTZfozf5Latr2goytdU2eYQVcXm6ay28G/yMc8w55SrTgWYu8cvSHjXxIKY5fkAiQDEpSgk4L/vbDnOorhtcwsNc7NQ0AUiHWBr8rKR89cr2/fPTrTF7vLC7B20aTuw8lXubuzOyj327peTemoPjPQDEQAAOJDmDvGQrv8O8Vuz2LTh8zgJKThfdmRLILYn6h2kgLv4jJoft7f819szc8cHcmreLVVlj4hVEyYT8ZxXUAIyNRqfP5aonA/hBKRLoujKnyfSO3IJoJ9Cikmt40nRzOzxOa9WY9QvFP2qSW260Ar2eiAZV3ohTZdyF+OJLjFSlcsLu52Y5k913ZFU5540LELhZy7btTMM1NLVMEy4FfVd0xaNopTl5EcmIVOVaoyxeza8eVx8zPT/WS336kRkdlMbRJ6pv612mxHNwdlcbGb1F1Hq9/zOd1NJpeXpZ2AEUMldTqqhkTZMQ32fYxZfd+McZdT1ZiVENedUi1ZDvzUJKXhSxu/W0zV+7iQNqzZJXejnhho3zcYm55UMESnERJNlyh4Vgs5HQP/O2Ivo4dpj4gbW25OFlPmROOMIIx0HaZ1qd6Jykb3k/pyOoOq3hzlObaTodJ/99myiknxaRpAt2Z8b8PnM63cm0nU23FnbsaoN1nfpWLPrW7Lz82wmr5yMxeA1rzb2Q5S/MPlj/5Nn84viuh+oSWrHwR+zeqAAgzqsyQRP3Bj2/L/bbO9GycVdWn5xW6zWeXeXdpygK8GP3QJE7/z48G36gx0UjEjQcmAL+JVfbEX9qXaPHrZErTnGaMsqWtoqo/0mo7BlhFV0vNifpTbibjUDHkoIkqncg3MenRAUwZpj7jE9Sx5JJwUHOU30i6CsnNiDYW6gyyfYTYAEbr/EeArx1P0kUoJ2wh7fRZ8YLUQIWegbfOOfYd3l922EHfeSqRp3jXgpo4nAakvLQk1yRXyv7PlFwUUXEslhp0MapTxEolIxACS+DM6ILyRzgQL/mbt4/zMgLIrTyJ2dS/4Oa2yVObJgX/7vTtDk3SvGgF/FoMP+Y6KcpnRvcJOh4D7rcDe2xtEq5tlC8Vl1EvuAD8Z6i5zcb4vJf8Qp19klhux75sGOmm1ATJUgbBYdkZciOo7xta1VvXiy4jblwc/amHl1QCTSVZWcVfgIefv3hPVSnizHFe0jFf4IvDDCorkYIz3GuRmohjw14zDz3p7vOgt0G1STy8SJkyOmhfAFz8A/L4KG2f4AgVnbL808deQmcdh3M52exknzR1kG6B2D5l0YPjDo/9DwE+jfUSmi1Yoe5VOwU4bBH5/HIHzsxTa8qPRk82UGxgsWbJ9XPfL0zDvg35lthKIsPLwu6KvdLFmuVyS3NlO8QiYEAZFhRFNL1A7Z7RxGY+yrC328WHBCIQA0WjFi7sGg093ccYz5uK7FtbIoYvRB+ipqaQyJEwSyU8bRyUGeWdfvKtRc3NT9iRXSSkBenxON/hlstsBqSv8EA7SM4n+PPY1Ze8WozTORMbJFavjRahGdp90ljfx4A5fvkDBMNkTCOV9/A4aqff5rWGE/yiX78y/gUgpqINHzfunQQc2DWZFNd7twzu8UODz1XrG9tPGbGdoyoh84L1hpJr8Ay3fRZzUWAn4nklSdtrl0C/if0OELH5DVm/kCFBR6SONuAD60PeLOoHb/O7Av/1Rln8Vx/vMrB5Abw0R7YwDojKU82ezsg0kYAU+9FQkuWi/C31gBBX9tloRLw3A6E9+HO00zbbgPi6FOQtwEx5vgoeYZOhv737wOcGcJNPjKsYU/LAJErjFvwM1vL51pWHW4zx7NQwgHr5MCU0JvXYSwL/s7hjG8z3sjBXu8/NyfQIv7EQXgaDfFD8afVthZuQPM63TWZnI5OI6Sj5zKFGPPUQ7l/1dEEiDJwA+EUOEBM7vlDnwqx8PvvrH3o0VnjOaxnSN7XLxKb1yqWVGTIkc+MB2DFm6AgBn+QAZ5SC0fTb5UPygan6K/kbpQHbxYeLGHeSTAyIm0Al+E1Lcy3zsahg1HDkaWPAhLdfHW2E48H94oEnKbJPc+teZlzfHAV+eHQxlCUlrphv8zWVPVuEUgXhqI6K1R7LzXP2sJOATheQf73Uc+ns2joPcGRsfgamggACWWcWAf3EJQ/K6rvUP7AQxV1ooCfgQgz/5GaN9aNbD4TsrgRlfyfE1MzWx3B1CwH932VvI74t8s66GAK9Z78jPE038n+R1jO2vohOTN/N7kiWjWUwe/Pqy85/hHf59K8duohWCm2/j0kI1uSp+ymNZTwvqJ2Zl3/xHGVHg0+sAmSMiAz7h/wDktf+gB/oyWQzpKjr4jLVr3ocKVH+/x4WqsMyyEV//iZi/CaDb7Ry5LS8Qy2YPSbQzYh2c2Ys4rDcXQCCl3p/0QARt8M2RoWzUANgskyN0RDsa/FkZsdPT7IFvCeexxwmXqKCEZOoWPxotz/mz0L+wuY6PK2GY2yEV92E1ibzlR0WiEgaAX5asSg2yf1TJgQz4k7r4mbpBFzbXmdFRmi7we6vwWa+Bwd8UlyUkzO0SRHeTKmooMtijSoIIglmWpiBi7K+Kn/jwfodMzsMQd1Om234hZs3GMQsGf1eWQPLiSHSyG/20iGMH+qK6pbsL2hT8n2v2JurYeauDmH0z6/E9uR2yObcF1O1gFgLEFYQcd7Ak81ZlR00hyNYggg6y+5+Pvd0uyxSygoRBD/idPn+GLxAB/zL0wvEdgKiY0DPMkVmaDBCVz7ijVgnrXP1s6PX6nVhZJLSuOfUm8Cc0ZIhqUUQKCPwTXNUMoHN8y+SU1X8VZhklEHJgpJDCgB9jX03+BXav/U7ScsaIxAvWGIlZyAjm2o2bQA7cOlQ1gdROqSojlW8pUU8h2hYbujlZz8OA/3N1QZHpj/FEsCuIiDYGf0aqyj31BW5QhYBvq5pkTQ+R+eG5yBZFARnXk8HebYFwKy3/Hdjb/U6uNmg7PW51HGP5ZYZdCxmWJULPdNAp+JgFNSMUrRlErXk9YWEhVBi6XTrA7RtnwNed2vr29rZWI6v/Buw1/iWxfLy8BiDR7uhZMtgZ74iw0/XikvTc1ffOUu8VnbFhm0OtjVjgE4LB3utLCUMJDIzMfwv262JvXz4LPppxgLRFnuv98lcrbHJ3By4zH2M16UiLzBQxnPWaq6cUBisRSL0u1I98javdG91Au8q1+Nc81Ii025CCggXfo5uV0RQUlCVHEezPADD4C46TaAIa6UpmfsbChZ8zCGvSahsnSvMXwp7p4VT1Ejpm2U9j6miTfxPkuKy/9SpffkOW/9OFGH2cQSovlKFfevCP/Fh2oC6aby/0rE4rY8oSR6KQrOoyumIS/lZeGJPCms1ZOJYv3OLof8kRm/qdut7NSkqtC/QipN0hyp65FiCDWZAshgzgry34ZrHCDGe2BkT5789mqPTQSiteR/gZ/yGx1eep2yZW2+1ljXEzV4qd2vxbsbdSYL4OGMD37QirwyPuQ2ZLqmqA3Y4ZCJpprFuLvzb11i4sUXvuXLEaRHYzo8ZW7YxjC/Nftmvph4ebO6ut6r29QAcvTXXvRSikxFcEvpmN8G7afo/RHVobzSS9ZNOyDZp6mTHdZ3WxfqeDx2duM/oz/UD7zNQn/2b0xyFUSJZVDtJcy7Rh6SRVAF9JLoA9EhXOoa23Ung+M/A3aFFb3cEA+9fbd9dDVXjTCRohIp33lL/NMd1m2baiQAfuHrfxaueow4ok47EnxpUr6+2M1/7/Qq8e2zm/vSkS2Z+VkGcFeqZVCNdprhvAVzx1E464uNsF4FfPIo9d//8Ht59BlSF8JS0LroNFZUMhJXDHcb62amrmReo9TDR/9J9GXsd+F+O4LSEiJcQOvRtgWGao4JUmWdZXB2fyjE896/+40bsiQ53uMEgWyg2ZzMrTnYCAXxf/C7gObWkZ0xec+HbU4OgDH5It9nYo6+fwIv/9DxVu8uBTMdYckT9aeMPO7rbNTyYM/Gsfz4qJMEvhksM2UJB9l5URsXehqQA6OO32v4p/b4Xl32D6jShKAenABx5ZiOjLEDl7wdFpwOayzS/su9CHUiSLoqnEFu0oxvpIZSLQpr9dFR1NpevXowt9HE5G1JF4aVa6wZ07q015pqlXdfHL7vs8Dxp55YaOmb42s2OF5Atu0vWX5fehPwFW5YU2m2i4ky4XCk8Ipx9X/wBJm//36BeTxqtPcuDPMoF9qkPo1PuaX/5muO3Xk0rw81jhDKC+XiTpgdJXdjXi21/+5j4XwDRGB81jcbPHagWCsD3V+pfZ3+thOnNzAR3aCDStFUiiWFt829qmav3rmL2v5etCelNlJx8g0ckNPsk0sxu36e4X9F8G/0Tktpty6tzgNz02oTj/C/ovq/Rc1dr447U8vu5gKQ1+9gNNHdiu1K/Q8iuDfrtxmU228DkrPGepLn4VLr/F40idvKazXTnWmLN7TbdB6pTGyysC8C9X881SrqK4rW8Vi2A+b7Vpe1E4T/do0Pn6K6781ievPTwnxrYn5uE/qmP+wa/HN4R/EKT/W6j/H/SdCZIelQTiAAAAAElFTkSuQmCC" alt="Logo Parque dos Cedros">
+    <div class="header-text">
+      <h1>Tramitação do Regimento Interno</h1>
+      <p>Comissão do Regimento Interno — Parque dos Cedros</p>
+    </div>
+  </div>
+  <div class="subbar">
+    <div class="subbar-inner">
+      <a href="index.html">Apresentação</a>
+      <a href="texto-consolidado.html">Texto-consolidado</a>
+      <a href="emendas.html">Manifestações</a>
+      <a href="analise-manifestacoes.html">Análise das manifestações</a>
+      <a href="#" class="current">Emendas</a>
+    </div>
+  </div>
+  <div class="subbar subbar2">
+    <div class="subbar-inner">
+      <a href="emendas-redacao.html">Redação</a>
+      <a href="emendas-aditiva.html">Aditiva</a>
+      <a href="emendas-modificativa.html">Modificativa</a>
+      <a href="emendas-supressiva.html">Supressiva</a>
+      <a href="#" class="current">Substitutiva</a>
+      <a href="pareceres-tecnicos.html">Pareceres técnicos</a>
+    </div>
+  </div>
+</header>
+<div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div><div class="fy"></div><div class="fb"></div></div>
+
+<div class="container">
+<header class="capa">
+  <div class="eyebrow">Substitutiva — Unidade 512</div>
+  <h1>EM-024</h1>
+  <div class="subtitulo">Emenda substitutiva integral ao Regimento Interno — reduz o texto-base de 384 para 102 artigos</div>
+</header>
+
+<nav id="indice">
+  <h2>Índice</h2>
+<ul class="toc-list toc-depth-0">
+<li><a href="#cap-1">CAPÍTULO I — DISPOSIÇÕES GERAIS</a>
+</li>
+<li><a href="#cap-2">CAPÍTULO II — DA GOVERNANÇA CONDOMINIAL</a>
+<ul class="toc-list toc-depth-1">
+<li><a href="#cap-2-sec-1">Seção I — Dos Princípios e do Critério de Triagem Normativa</a>
+</li>
+<li><a href="#cap-2-sec-2">Seção II — Da Assembleia Geral</a>
+<ul class="toc-list toc-depth-2">
+<li><a href="#cap-2-sec-2-sub-1">Subseção I — Das Emendas de Tramitação</a></li>
+<li><a href="#cap-2-sec-2-sub-2">Subseção II — Das Deliberações, das Votações Eletrônicas e das Atas</a></li>
+</ul>
+</li>
+<li><a href="#cap-2-sec-3">Seção III — Dos Agentes da Governança Condominial</a>
+</li>
+<li><a href="#cap-2-sec-4">Seção IV — Do Conselho</a>
+</li>
+<li><a href="#cap-2-sec-5">Seção V — Do Síndico e do Subsíndico</a>
+</li>
+<li><a href="#cap-2-sec-6">Seção VI — Da Transição da Administração</a>
+</li>
+</ul>
+</li>
+<li><a href="#cap-3">CAPÍTULO III — DA GESTÃO ADMINISTRATIVA, FINANCEIRA, PATRIMONIAL E ORÇAMENTÁRIA</a>
+<ul class="toc-list toc-depth-1">
+<li><a href="#cap-3-sec-1">Seção I — Dos Princípios</a>
+</li>
+<li><a href="#cap-3-sec-2">Seção II — Do Ciclo Eleitoral e do Orçamento Anual</a>
+</li>
+<li><a href="#cap-3-sec-3">Seção III — Da Proposta Orçamentária e de sua Execução</a>
+</li>
+<li><a href="#cap-3-sec-4">Seção IV — Das Contratações</a>
+</li>
+<li><a href="#cap-3-sec-5">Seção V — Da Prestação de Contas</a>
+</li>
+<li><a href="#cap-3-sec-6">Seção VI — Dos Fundos Condominiais e do Controle Patrimonial</a>
+</li>
+</ul>
+</li>
+<li><a href="#cap-4">CAPÍTULO IV — DA UTILIZAÇÃO DAS UNIDADES AUTÔNOMAS</a>
+</li>
+<li><a href="#cap-5">CAPÍTULO V — DAS ÁREAS COMUNS DE USO COLETIVO</a>
+</li>
+<li><a href="#cap-6">CAPÍTULO VI — DOS VEÍCULOS, GARAGENS E CIRCULAÇÃO INTERNA</a>
+</li>
+<li><a href="#cap-7">CAPÍTULO VII — DA CONVIVÊNCIA CONDOMINIAL</a>
+</li>
+<li><a href="#cap-8">CAPÍTULO VIII — DAS INFRAÇÕES, PENALIDADES E DO PROCESSO ADMINISTRATIVO</a>
+<ul class="toc-list toc-depth-1">
+<li><a href="#cap-8-sec-1">Seção I — Disposições Gerais</a>
+</li>
+<li><a href="#cap-8-sec-2">Seção II — Das Infrações e das Penalidades</a>
+</li>
+<li><a href="#cap-8-sec-3">Seção III — Do Procedimento Administrativo</a>
+</li>
+<li><a href="#cap-8-sec-4">Seção IV — Dos Recursos Administrativos</a>
+</li>
+<li><a href="#cap-8-sec-5">Seção V — Da Execução das Penalidades</a>
+</li>
+</ul>
+</li>
+<li><a href="#cap-9">CAPÍTULO IX — DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS</a>
+</li>
+<li><a href="#anexo-1">ANEXO I — QUADRO DE REMISSÕES CONVENCIONAIS, LEGAIS E JURISPRUDENCIAIS</a>
+</li>
+</ul>
+</nav>
+<section id="preambulo">
+<h2 class="titulo-preambulo">Preâmbulo</h2>
+<p>Considerando que a convivência harmônica em comunidade pressupõe o respeito mútuo, a solidariedade e a observância da dignidade da pessoa humana;</p>
+<p>Considerando que a boa administração de bens e interesses coletivos exige boa-fé, responsabilidade, transparência e a participação ativa de todos na gestão dos interesses comuns; e</p>
+<p>Considerando que a segurança, o patrimônio comum e a liberdade individual de cada morador dependem de regras claras, estáveis e justas;</p>
+<p>Nós, os condôminos do Condomínio Parque dos Cedros, a fim de formar uma comunidade mais perfeita, estabelecer a justiça e a transparência, garantir a tranquilidade interna, prover a segurança comum, promover o bem-estar geral e assegurar as bênçãos da liberdade a nós e aos que vierem a habitar este condomínio, para que possamos viver em paz, realizar nossos projetos de vida e buscar nossa felicidade, sob a proteção de Deus, ordenamos e estabelecemos este Regimento Interno.</p>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-1">
+<h2 class="titulo-capitulo">CAPÍTULO I — DISPOSIÇÕES GERAIS</h2>
+<div class="artigo" id="art-1">
+<p class="art-caput"><span class="art-num">Art. 1º.</span> Este Regimento Interno complementa a Convenção Condominial e disciplina a organização administrativa, o funcionamento e a convivência no Condomínio Parque dos Cedros, observada a legislação vigente.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Este Regimento vincula, no que lhes couber, todos os condôminos, moradores, ocupantes, visitantes e prestadores de serviços, que têm o dever de conhecê-lo, respeitá-lo e cumpri-lo, respondendo por sua inobservância na forma da legislação vigente, da Convenção Condominial e deste Regimento.</p>
+</div>
+<div class="artigo" id="art-2">
+<p class="art-caput"><span class="art-num">Art. 2º.</span> Este Regimento será interpretado e aplicado em conformidade com a legislação vigente, a Convenção Condominial e os princípios e objetivos expressos em seu Preâmbulo, privilegiando-se a interpretação que melhor promova a convivência harmoniosa, a boa-fé, a transparência, a segurança jurídica e a boa governança condominial.</p>
+</div>
+<div class="artigo" id="art-3">
+<p class="art-caput"><span class="art-num">Art. 3º.</span> Todo aquele que, por ação, omissão, negligência, imprudência, imperícia ou uso inadequado de unidade autônoma ou de área comum, causar dano ao condomínio, a outra unidade, a terceiro ou ao patrimônio comum, responde por sua reparação, sem prejuízo das demais responsabilidades previstas na legislação vigente.</p>
+</div>
+<div class="artigo" id="art-4">
+<p class="art-caput"><span class="art-num">Art. 4º.</span> É vedado o exercício de qualquer atividade comercial, empresarial ou a prestação remunerada de serviços a terceiros, tanto nas áreas comuns quanto nas unidades autônomas, por serem incompatíveis com a destinação residencial do Edifício estabelecida na Convenção Condominial.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Excetuam-se da vedação prevista no caput as atividades pontuais expressamente autorizadas pela Administração, observadas as condições estabelecidas em Norma Interna.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Não caracteriza atividade vedada pelo caput o trabalho remoto ou a atividade profissional ou intelectual exercida no interior da unidade autônoma, sem atendimento habitual ao público, publicidade externa, estoque relevante de mercadorias, circulação anormal de pessoas ou veículos, ou perturbação à segurança, ao sossego ou à salubridade do condomínio.</p>
+</div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-2">
+<h2 class="titulo-capitulo">CAPÍTULO II — DA GOVERNANÇA CONDOMINIAL</h2>
+<section class="nivel-secao" id="cap-2-sec-1">
+<h3 class="titulo-secao">Seção I — Dos Princípios e do Critério de Triagem Normativa</h3>
+<div class="artigo" id="art-5">
+<p class="art-caput"><span class="art-num">Art. 5º.</span> As normas deste Regimento serão interpretadas e aplicadas à luz dos seguintes princípios, de observância obrigatória pelos agentes da Governança Condominial no exercício de suas atribuições: legalidade; transparência; motivação; responsabilidade; impessoalidade; eficiência; integridade; boa-fé; economicidade; publicidade; prestação de contas; participação dos condôminos; harmonização entre os direitos individuais e o interesse coletivo; e accountability, entendida como o dever permanente de justificar decisões, prestar contas e responder pelos atos praticados.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Regem, especialmente, a utilização das unidades autônomas e das áreas comuns e a convivência entre condôminos, moradores, ocupantes, visitantes e prestadores de serviços: boa convivência; isonomia; segurança; preservação do patrimônio comum; acessibilidade; e respeito aos direitos dos demais usuários.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> A Administração Condominial somente poderá praticar atos autorizados pela legislação vigente, pela Convenção Condominial, por este Regimento ou por deliberação válida da Assembleia Geral, sendo-lhe vedado criar obrigações, restringir direitos ou adotar medidas sem fundamento normativo e sem motivação expressa.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> A Administração Condominial dará ampla publicidade a seus atos, assegurado aos condôminos o acesso integral às informações, documentos e registros administrativos, financeiros e patrimoniais do condomínio, ressalvadas as hipóteses de sigilo previstas em lei.</p>
+</div>
+<div class="artigo" id="art-6">
+<p class="art-caput"><span class="art-num">Art. 6º.</span> A Governança Condominial é exercida pela Assembleia Geral, pelo Conselho, pelo Síndico e pelo Subsíndico, observada a separação e a harmonia entre as funções deliberativa, executiva e fiscalizatória, vedada a usurpação das atribuições próprias de cada órgão.</p>
+</div>
+<div class="artigo" id="art-7">
+<p class="art-caput"><span class="art-num">Art. 7º.</span> O ordenamento normativo do Condomínio compõe-se dos seguintes níveis:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> a Convenção Condominial;</li>
+<li><span class="inc-num">II.</span> este Regimento Interno;</li>
+<li><span class="inc-num">III.</span> as Normas Complementares;</li>
+<li><span class="inc-num">IV.</span> as Normas Internas;</li>
+<li><span class="inc-num">V.</span> os Procedimentos Operacionais.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Os níveis previstos nos incisos III a V subordinam-se à Convenção Condominial e a este Regimento Interno, sob pena de nulidade; as Normas Complementares e as Normas Internas, contudo, não guardam relação de hierarquia entre si, distinguindo-se apenas quanto à matéria e ao quórum de aprovação, nos termos dos arts. 9º e 10; os Procedimentos Operacionais subordinam-se, ainda, às Normas Complementares e às Normas Internas eventualmente editadas sobre a mesma matéria.</p>
+</div>
+<div class="artigo" id="art-8">
+<p class="art-caput"><span class="art-num">Art. 8º.</span> Permanece reservado a este Regimento Interno, exclusivamente:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> os direitos e deveres dos condôminos e moradores;</li>
+<li><span class="inc-num">II.</span> a composição, o mandato, a eleição e as competências dos órgãos da Governança Condominial;</li>
+<li><span class="inc-num">III.</span> o devido processo administrativo e o sistema de infrações e penalidades;</li>
+<li><span class="inc-num">IV.</span> as regras de disciplina financeira, orçamentária, patrimonial e de contratações;</li>
+<li><span class="inc-num">V.</span> as matérias que a Convenção Condominial exija expressamente sejam tratadas em Regimento Interno.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Toda matéria de natureza operacional ou técnica, sujeita a ajuste frequente, ou vinculada ao uso específico de um espaço, situação ou exercício financeiro determinado deve ser tratada em Norma Complementar, Norma Interna ou Procedimento Operacional, conforme o caso, sendo vedado o tratamento em nível de Regimento Interno de matéria que se enquadre nesta hipótese, e vedado, reciprocamente, o tratamento em Norma Complementar, Norma Interna ou Procedimento Operacional de matéria reservada ao Regimento Interno nos termos do caput.</p>
+</div>
+<div class="artigo" id="art-9">
+<p class="art-caput"><span class="art-num">Art. 9º.</span> Norma Complementar é o ato deliberativo da Assembleia Geral que disciplina matéria que, por sua natureza, exige maior estabilidade do que a conferida à Norma Interna, sem constituir alteração do texto deste Regimento, aprovado pelo mesmo quórum exigido para a alteração deste Regimento, nos termos do § 1º do art. 97.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Constituem obrigatoriamente matéria de Norma Complementar, sem prejuízo de outras que a Assembleia Geral venha a instituir pelo mesmo quórum:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> a padronização de armários ou outros equipamentos fixos instaláveis nas vagas de garagem;</li>
+<li><span class="inc-num">II.</span> alterações que afetem a fachada do edifício, incluindo películas, telas de proteção, padrões de instalação de equipamentos nas lajes técnicas e fechamentos de coberturas; e</li>
+<li><span class="inc-num">III.</span> a instalação de pontos de recarga de veículo elétrico ou híbrido nas vagas de garagem.</li>
+</ol>
+</div>
+<div class="artigo" id="art-10">
+<p class="art-caput"><span class="art-num">Art. 10.</span> Norma Interna é o ato deliberativo da Assembleia Geral aprovado por maioria simples dos presentes, dispensado quórum qualificado, competindo exclusivamente à Assembleia Geral aprová-la e alterá-la, vedada a delegação desse rito à própria Norma Interna ou a qualquer outro órgão.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Constituem Norma Interna de aprovação e renovação anual obrigatórias:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> a Proposta Orçamentária Anual; e</li>
+<li><span class="inc-num">II.</span> a Proposta de Calendário Anual das Áreas Comuns.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Constituem Norma Interna:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> as regras de uso das áreas comuns de que trata o Capítulo V;</li>
+<li><span class="inc-num">II.</span> as regras de utilização de garagens, vagas e circulação interna de que trata o Capítulo VI, no que exceder o núcleo de segurança mantido neste Regimento; e</li>
+<li><span class="inc-num">III.</span> todas as matérias não reservadas a outro tipo normativo.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> A edição das Normas Internas referidas no § 2º não é obrigatória e, uma vez aprovadas, não se sujeitam a renovação periódica, permanecendo em vigor até sua alteração ou revogação pela Assembleia Geral.</p>
+<p class="paragrafo"><span class="par-num">§ 4º.</span> Rejeitada a proposta de Proposta Orçamentária Anual ou de Calendário Anual das Áreas Comuns sem aprovação de substituta na mesma Assembleia, permanecerá em vigor, em caráter provisório, a Norma Interna do exercício anterior, no que for compatível, até nova deliberação pela Assembleia Geral.</p>
+</div>
+<div class="artigo" id="art-11">
+<p class="art-caput"><span class="art-num">Art. 11.</span> Procedimento Operacional é o ato editado pela Administração Condominial para disciplinar exclusivamente a forma de execução das disposições da legislação vigente, da Convenção Condominial, deste Regimento, das Normas Complementares e das Normas Internas, vedado criar direito, obrigação, restrição ou penalidade não prevista em tais instrumentos.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O Procedimento Operacional que exceder os limites previstos no caput é nulo nessa parte, cabendo impugnação ao Conselho e, sucessivamente, à Assembleia Geral, na forma da Seção IV do Capítulo VIII.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-2-sec-2">
+<h3 class="titulo-secao">Seção II — Da Assembleia Geral</h3>
+<div class="artigo" id="art-12">
+<p class="art-caput"><span class="art-num">Art. 12.</span> A Assembleia Geral é o órgão máximo de deliberação do Condomínio, competindo-lhe definir a vontade coletiva, estabelecer as diretrizes da Governança Condominial, fiscalizar em última instância os atos da Administração e deliberar sobre as matérias de sua competência.</p>
+</div>
+<div class="artigo" id="art-13">
+<p class="art-caput"><span class="art-num">Art. 13.</span> A Assembleia Geral Ordinária realizar-se-á anualmente, no mês de março, competindo-lhe deliberar, especialmente:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> sobre a prestação de contas do exercício anterior;</li>
+<li><span class="inc-num">II.</span> a eleição dos membros do Conselho, individualmente;</li>
+<li><span class="inc-num">III.</span> a eleição do Síndico e do Subsíndico, em chapa única;</li>
+<li><span class="inc-num">IV.</span> a Proposta Orçamentária Anual e a Proposta de Calendário Anual das Áreas Comuns para o exercício seguinte;</li>
+<li><span class="inc-num">V.</span> as demais matérias da ordem do dia.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A Assembleia Geral Extraordinária reunir-se-á sempre que os interesses do condomínio o exigirem, nas hipóteses previstas na legislação vigente, na Convenção Condominial e neste Regimento.</p>
+</div>
+<div class="artigo" id="art-14">
+<p class="art-caput"><span class="art-num">Art. 14.</span> A Assembleia Geral será convocada pelo Síndico, pelo Conselho — mediante deliberação da maioria de seus membros em exercício, tomada na forma do art. 30 e registrada em ata — ou por condôminos que representem, no mínimo, um quarto das frações ideais do condomínio.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> O edital de convocação, divulgado com antecedência mínima de 10 (dez) dias, conterá a identificação da Assembleia, data, horário, local e modalidade de realização, a ordem do dia redigida de forma clara e específica, e as informações necessárias à sua compreensão, permanecendo disponível aos condôminos toda a documentação relativa a matéria de impacto patrimonial relevante desde a convocação.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Qualquer condômino poderá requerer a inclusão de matéria na ordem do dia no prazo de até 2 (dois) dias contado da divulgação do edital, cabendo a quem convocou decidir motivadamente e, em caso de recusa, à própria Assembleia, por maioria simples dos presentes, deliberar pela inclusão no início dos trabalhos.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> A apreciação de mérito da matéria incluída nos termos do § 2º, com efeito vinculante, somente ocorrerá na mesma Assembleia se estiverem presentes todos os condôminos, conforme exigido pela legislação vigente para deliberação sobre matéria estranha à ordem do dia; não estando presente a totalidade, a matéria será incluída na ordem do dia da próxima Assembleia que comporte pauta não exclusiva, ou, se depender por sua natureza de Assembleia especialmente convocada, na primeira que vier a ser convocada para esse fim.</p>
+</div>
+<div class="artigo" id="art-15">
+<p class="art-caput"><span class="art-num">Art. 15.</span> O condômino poderá fazer-se representar em Assembleia Geral por procurador, mediante instrumento de mandato que indique especificamente a Assembleia a que se refere, admitida a procuração em meio físico ou digital.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> A procuração digital será enviada à Administração em seu formato nativo, com assinatura por certificado ICP-Brasil, plataforma gov.br em nível prata ou ouro, ou outra que assegure autenticidade, integridade e rastreabilidade, com antecedência mínima de 24 (vinte e quatro) horas da abertura da Assembleia.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Nenhum procurador poderá representar número de condôminos superior ao limite máximo de procurações por outorgado fixado na Convenção Condominial, além de si mesmo quando também condômino.</p>
+</div>
+<div class="artigo" id="art-16">
+<p class="art-caput"><span class="art-num">Art. 16.</span> A Assembleia Geral instalar-se-á, em primeira convocação, com a presença de condôminos que representem, no mínimo, metade das frações ideais do condomínio e, em segunda convocação, trinta minutos após, com qualquer número de presentes, ressalvadas as hipóteses de quórum especial previstas na legislação vigente, na Convenção Condominial, ou neste Regimento.</p>
+</div>
+<div class="artigo" id="art-17">
+<p class="art-caput"><span class="art-num">Art. 17.</span> Instalada a Assembleia, serão escolhidos, dentre os presentes, um Presidente e um Secretário para compor a Mesa, ressalvada disposição diversa da Convenção Condominial, competindo ao Presidente dirigir os trabalhos, decidir questões de ordem, organizar a votação e proclamar os resultados, e ao Secretário lavrar a ata.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A condução detalhada dos trabalhos, a ordem de manifestação e demais aspectos procedimentais não essenciais ao exercício do voto poderão ser disciplinados por Norma Interna, preservados o contraditório e a ampla participação dos condôminos.</p>
+</div>
+<div class="artigo" id="art-18">
+<p class="art-caput"><span class="art-num">Art. 18.</span> A Assembleia deliberará exclusivamente sobre as matérias constantes da ordem do dia, admitido o debate de assuntos gerais que não impliquem deliberação capaz de criar obrigações, impor despesas, restringir direitos ou alterar a Convenção Condominial ou este Regimento.</p>
+</div>
+<section class="nivel-subsecao" id="cap-2-sec-2-sub-1">
+<h4 class="titulo-subsecao">Subseção I — Das Emendas de Tramitação</h4>
+<div class="artigo" id="art-19">
+<p class="art-caput"><span class="art-num">Art. 19.</span> Emenda de Tramitação é a proposta de alteração de texto submetido à deliberação da Assembleia Geral, somente admitida quando verse sobre matéria constante da ordem do dia e divulgada aos presentes antes de submetida a debate e votação, cabendo a Norma Interna disciplinar suas modalidades e, havendo mais de uma, a ordem de votação.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A Emenda de Tramitação é aprovada por maioria simples dos presentes, independentemente do quórum exigido para a matéria principal, não supre o quórum exigido para a aprovação do texto-base por ela alterado e não se confunde com a Alteração do Regimento Interno de que trata o art. 97, ato de aprovação definitiva sujeito a quórum próprio.</p>
+</div>
+</section>
+<section class="nivel-subsecao" id="cap-2-sec-2-sub-2">
+<h4 class="titulo-subsecao">Subseção II — Das Deliberações, das Votações Eletrônicas e das Atas</h4>
+<div class="artigo" id="art-20">
+<p class="art-caput"><span class="art-num">Art. 20.</span> As deliberações da Assembleia Geral classificam-se em alteração do Regimento Interno, Norma Complementar, Norma Interna, decisão em recurso administrativo e deliberação específica, cada qual observando o quórum previsto na legislação vigente, na Convenção Condominial ou neste Regimento, obrigando todos os condôminos, inclusive ausentes e dissidentes, ressalvado o direito de impugnação pelos meios legalmente cabíveis.</p>
+</div>
+<div class="artigo" id="art-21">
+<p class="art-caput"><span class="art-num">Art. 21.</span> Antes de cada votação, o Presidente anunciará a matéria, o quórum exigido, a forma de votação e o critério de apuração, proclamando ao final o resultado com os votos favoráveis, contrários, abstenções e o quórum obtido.</p>
+</div>
+<div class="artigo" id="art-22">
+<p class="art-caput"><span class="art-num">Art. 22.</span> A Assembleia Geral poderá realizar-se de forma presencial, eletrônica ou híbrida, podendo ser utilizado sistema eletrônico de votação que assegure identificação inequívoca do votante, vinculação do voto à unidade, autenticidade, integridade e auditabilidade dos registros, vedada a alteração de voto após sua confirmação.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Verificada falha, inconsistência ou indício de irregularidade capaz de comprometer a votação eletrônica, o Presidente suspenderá imediatamente sua utilização e determinará a repetição por votação manual, registrando o ocorrido em ata.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Sempre que a legislação vigente, a Convenção Condominial ou este Regimento exigirem votação secreta, esta será realizada obrigatoriamente por meio manual, vedado o uso de sistema eletrônico para essa finalidade.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> Os demais requisitos técnicos e operacionais do sistema eletrônico de votação serão disciplinados por Norma Interna.</p>
+</div>
+<div class="artigo" id="art-23">
+<p class="art-caput"><span class="art-num">Art. 23.</span> Toda Assembleia Geral será registrada em ata, assinada pelo Presidente e pelo Secretário, contendo, no mínimo, a identificação da Assembleia, o quórum de instalação, as matérias apreciadas, as deliberações adotadas com seus fundamentos e o resultado das votações, disponibilizada aos condôminos no prazo de 15 (quinze) dias corridos de sua realização.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O conteúdo mínimo da ata, sua forma de arquivamento e disponibilização eletrônica poderão ser detalhados por Norma Interna, vedada a supressão de qualquer elemento exigido no caput.</p>
+</div>
+</section>
+</section>
+<section class="nivel-secao" id="cap-2-sec-3">
+<h3 class="titulo-secao">Seção III — Dos Agentes da Governança Condominial</h3>
+<div class="artigo" id="art-24">
+<p class="art-caput"><span class="art-num">Art. 24.</span> São elegíveis aos cargos de Síndico, Subsíndico e membro do Conselho os candidatos que, cumulativamente, atendam aos requisitos da legislação vigente e da Convenção Condominial, estejam em pleno gozo dos direitos condominiais, estejam quites com suas obrigações financeiras perante o condomínio e não incorram em impedimento ou inelegibilidade previstos neste Regimento.</p>
+</div>
+<div class="artigo" id="art-25">
+<p class="art-caput"><span class="art-num">Art. 25.</span> Considera-se conflito de interesses toda situação em que interesses privados, de natureza financeira, familiar, profissional, comercial ou de qualquer outra espécie, comprometam ou tenham potencial para comprometer a imparcialidade, a independência ou a objetividade no exercício das atribuições dos agentes da Governança Condominial.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Constituem hipóteses de conflito de interesses, dentre outras: participar de deliberação que beneficie a si, cônjuge, companheiro ou parentes até o quarto grau, ou pessoa jurídica com quem mantenha vínculo relevante; utilizar informações do cargo para vantagem própria ou de terceiro; intervir em contratação que envolva pessoa com quem possua vínculo de interesse; contratar ou influenciar a contratação de pessoa jurídica vinculada a agente da Governança Condominial, ressalvadas as hipóteses admitidas pela Convenção Condominial; receber vantagem relacionada ao exercício do cargo, ressalvados brindes institucionais simbólicos; e utilizar bens, recursos ou oportunidades do condomínio em benefício próprio ou de terceiro.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> O agente em situação de conflito de interesses declarará imediatamente seu impedimento, abstendo-se de participar da discussão, deliberação e prática de qualquer ato relacionado à matéria, sob pena de caracterização de infração aos deveres do cargo.</p>
+</div>
+<div class="artigo" id="art-26">
+<p class="art-caput"><span class="art-num">Art. 26.</span> Não poderá candidatar-se, nem permanecer em cargo eletivo da Governança Condominial, quem deixar de preencher os requisitos de elegibilidade, sofrer condenação definitiva por ato incompatível com o cargo, tiver contas de mandato anterior rejeitadas por irregularidade grave, dolo ou culpa grave, figurar como parte ré em processo judicial movido pelo condomínio enquanto perdurar a demanda, ou incorrer em restrição cadastral relevante diretamente ligada à idoneidade financeira necessária ao cargo.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Nas hipóteses de processo judicial ou restrição cadastral, será concedido prazo de 15 (quinze) dias para regularização, sob pena de perda do resultado eleitoral ou afastamento do cargo.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> O ocupante de cargo eletivo comunicará ao Conselho, em 5 (cinco) dias, a superveniência de qualquer dessas situações, cabendo ao Conselho relatar o fato à Assembleia Geral e, se entender necessário, requerer sua convocação extraordinária em até 30 (trinta) dias, para deliberar definitivamente sobre o caso, inclusive quanto a eventual afastamento preventivo, que somente produzirá efeitos por decisão da própria Assembleia.</p>
+</div>
+<div class="artigo" id="art-27">
+<p class="art-caput"><span class="art-num">Art. 27.</span> Compete exclusivamente à Assembleia Geral, especialmente convocada para esse fim, deliberar sobre a perda do mandato do Síndico, do Subsíndico ou de membro do Conselho antes do término de seu prazo, observado o contraditório e a ampla defesa.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> A destituição do Síndico por irregularidade, por ausência de prestação de contas ou por má administração — a juízo da própria Assembleia quanto à inadequação ou à inconveniência da gestão, independentemente de prova de infração específica — observará o rito e o quórum próprios fixados na Convenção Condominial para essa hipótese, dispensado quórum de instalação especial, cabendo ao edital de convocação indicar expressamente qual dessas causas fundamenta o pedido de destituição.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> A perda do mandato do Subsíndico ou de membro do Conselho, bem como a perda do mandato do Síndico por causa diversa das previstas no § 1º, observará o quórum geral de instalação e deliberação da Assembleia Geral.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> A rejeição da prestação de contas não implica, por si só, perda automática do mandato em curso.</p>
+<p class="paragrafo"><span class="par-num">§ 4º.</span> O ex-ocupante de cargo eletivo cujas contas tenham sido rejeitadas por irregularidade grave, dolo ou culpa grave ficará inelegível para qualquer cargo da Governança Condominial pelo prazo de 5 (cinco) anos, ressalvada deliberação posterior da Assembleia Geral que afaste os fundamentos da rejeição.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-2-sec-4">
+<h3 class="titulo-secao">Seção IV — Do Conselho</h3>
+<div class="artigo" id="art-28">
+<p class="art-caput"><span class="art-num">Art. 28.</span> O Conselho é o órgão permanente de fiscalização, controle preventivo, acompanhamento e assessoramento da Assembleia Geral, competindo-lhe zelar pela regularidade da administração condominial, composto por 3 (três) membros titulares e 3 (três) suplentes, eleitos individualmente pela Assembleia Geral para mandato de 1 (um) ano, permitida a reeleição, considerando-se eleitos titulares os 3 (três) mais votados e suplentes os subsequentes, em fila única de suplência.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Na ausência ou impedimento temporário de titular, o suplente mais votado ainda disponível exercerá a função pelo período necessário, retornando o titular cessada a causa; na vacância definitiva, o suplente assumirá a titularidade até o término do mandato. Enquanto não convocado, o suplente não terá direito a voto nem exercerá competência própria do Conselho.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> O Conselho terá um Presidente, o membro titular mais votado, responsável por convocar e presidir suas reuniões e por receber e distribuir as comunicações a ele dirigidas.</p>
+</div>
+<div class="artigo" id="art-29">
+<p class="art-caput"><span class="art-num">Art. 29.</span> Compete ao Conselho: fiscalizar os atos da administração condominial; acompanhar a execução orçamentária, financeira, patrimonial e administrativa; examinar, a qualquer tempo, a documentação do condomínio; emitir parecer sobre a prestação de contas e sobre a proposta orçamentária; recomendar medidas corretivas, preventivas ou de aperfeiçoamento; comunicar à Assembleia Geral irregularidades relevantes; emitir parecer sobre os recursos administrativos interpostos contra decisão do Síndico, sem caráter decisório, na forma da Seção V do Capítulo VIII; e convocar a Assembleia Geral, nas hipóteses previstas na legislação vigente, na Convenção Condominial e neste Regimento.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Os pareceres do Conselho serão fundamentados, formalizados por escrito e integrarão os registros administrativos do condomínio, permanecendo disponíveis para consulta.</p>
+</div>
+<div class="artigo" id="art-30">
+<p class="art-caput"><span class="art-num">Art. 30.</span> O Conselho reunir-se-á ordinariamente a cada 6 (seis) meses e, extraordinariamente, sempre que necessário, deliberando por maioria simples de seus membros, em reunião registrada em ata.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Cabe à reunião ordinária, entre outras atribuições, emitir parecer, de ofício, sobre todas as multas aplicadas pelo Síndico desde a última reunião, podendo recomendar sua manutenção ou revisão, sem caráter decisório; acolhida pelo Síndico a recomendação de revisão, o condômino terá direito ao ressarcimento dos valores eventualmente pagos, com correção; não acolhida, aplica-se o disposto na Seção V do Capítulo VIII.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Todo ato praticado pelo Síndico com base no art. 36, X, é válido desde sua prática, sob responsabilidade do Síndico, devendo ser justificado por escrito e comunicado ao Conselho na primeira oportunidade; o Conselho emitirá parecer sobre o ato, podendo recomendar sua manutenção, revisão pela Administração ou submissão à Assembleia Geral, sem que tal parecer constitua condição de validade do ato praticado.</p>
+</div>
+<div class="artigo" id="art-31">
+<p class="art-caput"><span class="art-num">Art. 31.</span> Os pareceres e as recomendações do Conselho terão natureza opinativa e não vinculante, destinando-se a subsidiar a atuação do Síndico e as deliberações da Assembleia Geral.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Nenhum ato do Conselho previsto neste Regimento constituirá decisão vinculante ou condição de validade de ato de outro órgão da Governança Condominial, ressalvadas exclusivamente as hipóteses em que a atuação do Conselho corresponda ao exercício de atribuição prevista na Convenção Condominial que, por sua própria natureza, não tenha caráter meramente opinativo.</p>
+</div>
+<div class="artigo" id="art-32">
+<p class="art-caput"><span class="art-num">Art. 32.</span> O Conselho poderá disciplinar, por deliberação da maioria de seus membros, seu próprio funcionamento interno — periodicidade adicional de reuniões, formato de atas e fluxo interno de distribuição de pareceres —, vedado tratar, por essa via, de matéria já fixada neste Regimento, especialmente composição, atribuições, natureza não vinculante ou prazos processuais do Capítulo VIII, e vedada a edição dessa norma pelo Síndico ou por qualquer outro órgão que não o próprio Conselho.</p>
+</div>
+<div class="artigo" id="art-33">
+<p class="art-caput"><span class="art-num">Art. 33.</span> É dever dos membros do Conselho exercer suas atribuições com diligência, independência, imparcialidade e boa-fé, fundamentar seus pareceres, declarar imediatamente eventual conflito de interesses e comparecer às reuniões do Conselho e às Assembleias Gerais.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O membro do Conselho que possuir interesse direto ou indireto na matéria, vínculo de parentesco, relação profissional ou qualquer circunstância capaz de comprometer sua imparcialidade ficará impedido de participar da instrução, discussão e emissão de parecer sobre a matéria.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-2-sec-5">
+<h3 class="titulo-secao">Seção V — Do Síndico e do Subsíndico</h3>
+<div class="artigo" id="art-34">
+<p class="art-caput"><span class="art-num">Art. 34.</span> O Síndico é o representante legal e administrador executivo do condomínio, competindo-lhe executar as deliberações da Assembleia Geral, administrar o condomínio e praticar os atos necessários à sua gestão, observadas a legislação vigente, a Convenção Condominial, este Regimento e as deliberações da Assembleia Geral.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> O mandato do Síndico e do Subsíndico será de 1 (um) ano, permitida a reeleição, observado o disposto na Convenção Condominial.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> O Subsíndico, necessariamente condômino, auxiliará o Síndico, substituindo-o em ausências e impedimentos temporários e completando seu mandato em caso de vacância definitiva.</p>
+</div>
+<div class="artigo" id="art-35">
+<p class="art-caput"><span class="art-num">Art. 35.</span> É vedado ao Síndico: praticar atos em conflito de interesses; restringir sem fundamento o acesso dos condôminos às áreas comuns, informações ou documentos; omitir ou retardar injustificadamente informação de publicidade obrigatória; utilizar bens, recursos, informações ou oportunidades do condomínio em benefício próprio ou de terceiro; contratar ou manter contratação em desacordo com a legislação vigente, a Convenção Condominial, este Regimento ou deliberação da Assembleia; e praticar ato que exceda sua competência ou contrarie deliberação válida da Assembleia Geral.</p>
+</div>
+<div class="artigo" id="art-36">
+<p class="art-caput"><span class="art-num">Art. 36.</span> Compete ao Síndico, além do disposto na legislação vigente e na Convenção Condominial:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> representar ativa e passivamente o condomínio, em juízo ou fora dele;</li>
+<li><span class="inc-num">II.</span> administrar os interesses, bens, serviços, contratos, recursos financeiros e patrimônio do condomínio;</li>
+<li><span class="inc-num">III.</span> elaborar as propostas de Orçamento Anual e de Calendário Anual e executá-las após aprovação pela Assembleia Geral;</li>
+<li><span class="inc-num">IV.</span> contratar, supervisionar e avaliar empregados, prestadores de serviços e fornecedores, observados os procedimentos deste Regimento;</li>
+<li><span class="inc-num">V.</span> zelar pela conservação, segurança, funcionamento e manutenção das áreas comuns e dos bens do condomínio;</li>
+<li><span class="inc-num">VI.</span> realizar e manter vigente o seguro obrigatório da edificação e manter a edificação em conformidade com as exigências de segurança contra incêndio e pânico, inclusive quanto ao documento de vistoria do Corpo de Bombeiros, podendo a Assembleia Geral estabelecer, por Norma Interna, regras complementares a que ficará vinculado o Síndico, sem prejuízo do cumprimento da obrigação legal independentemente de deliberação;</li>
+<li><span class="inc-num">VII.</span> convocar a Assembleia Geral nos casos previstos na legislação vigente, na Convenção Condominial e neste Regimento;</li>
+<li><span class="inc-num">VIII.</span> prestar contas de sua administração, na forma prevista neste Regimento;</li>
+<li><span class="inc-num">IX.</span> instaurar e conduzir a instrução dos procedimentos administrativos disciplinares, na forma do Capítulo VIII; e</li>
+<li><span class="inc-num">X.</span> praticar os demais atos inerentes à administração, não especificamente previstos nos incisos anteriores, necessários para lidar com situação de urgência ou imprevista, observado o disposto no art. 30, § 2º.</li>
+</ol>
+</div>
+<div class="artigo" id="art-37">
+<p class="art-caput"><span class="art-num">Art. 37.</span> Salvo prazo diverso previsto neste Regimento, o pedido de autorização dirigido à Administração será decidido, mediante decisão fundamentada, no prazo de 5 (cinco) dias úteis, findo o qual, sem manifestação, considerar-se-á tacitamente deferido, cabendo recurso ao Conselho e, sucessivamente, à Assembleia Geral, na forma do Capítulo VIII.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Esta regra não se aplica a pedidos de autorização de obra que envolvam intervenção em elemento estrutural, instalação técnica predial ou sistema de proteção contra incêndio, ou que possam afetar a segurança da edificação.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-2-sec-6">
+<h3 class="titulo-secao">Seção VI — Da Transição da Administração</h3>
+<div class="artigo" id="art-38">
+<p class="art-caput"><span class="art-num">Art. 38.</span> Ao término do mandato, renúncia, destituição ou qualquer outra hipótese de substituição do Síndico, será promovida a transição administrativa, assegurando a continuidade da gestão e a preservação do patrimônio, das informações e dos documentos do condomínio, vedada a retenção, pelo Síndico que deixar o cargo, de qualquer documento, bem, recurso financeiro, equipamento, senha ou informação pertencente ao condomínio, ainda que exista controvérsia relativa ao mandato ou à prestação de contas.</p>
+</div>
+<div class="artigo" id="art-39">
+<p class="art-caput"><span class="art-num">Art. 39.</span> O Síndico que deixar o cargo entregará ao sucessor, mediante termo circunstanciado:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> no prazo máximo de 48 (quarenta e oito) horas contado da posse do sucessor: chaves, controles, dispositivos de acesso e demais bens necessários ao funcionamento imediato da portaria e das instalações comuns; e senhas, certificados digitais, credenciais e acessos aos sistemas, plataformas, contas bancárias e institucionais e demais ferramentas utilizadas na administração;</li>
+<li><span class="inc-num">II.</span> no prazo máximo de 10 (dez) dias úteis contado da posse do sucessor: livros obrigatórios e registros administrativos; documentos contábeis, financeiros e fiscais; contratos vigentes; demonstrativos bancários e saldos dos fundos condominiais; relação de obrigações financeiras pendentes e de ações judiciais e procedimentos em andamento; inventário atualizado dos bens patrimoniais; e demais documentos necessários à continuidade regular da administração.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Havendo recusa de qualquer das partes em assinar o termo, tal circunstância será registrada, sem prejuízo da validade da entrega efetivamente realizada.</p>
+</div>
+<div class="artigo" id="art-40">
+<p class="art-caput"><span class="art-num">Art. 40.</span> A transição observará os princípios da boa-fé, da transparência, da continuidade da gestão e da cooperação, devendo a Administração que deixar o cargo prestar, em prazo razoável, os esclarecimentos necessários à compreensão da documentação entregue; o sucessor poderá conferir a documentação recebida, comunicando ao Conselho, em até 30 (trinta) dias, eventual irregularidade, sem prejuízo das medidas administrativas, civis ou judiciais cabíveis.</p>
+</div>
+</section>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-3">
+<h2 class="titulo-capitulo">CAPÍTULO III — DA GESTÃO ADMINISTRATIVA, FINANCEIRA, PATRIMONIAL E ORÇAMENTÁRIA</h2>
+<section class="nivel-secao" id="cap-3-sec-1">
+<h3 class="titulo-secao">Seção I — Dos Princípios</h3>
+<div class="artigo" id="art-41">
+<p class="art-caput"><span class="art-num">Art. 41.</span> A gestão administrativa, financeira, patrimonial e orçamentária tem por finalidade assegurar a continuidade dos serviços, a conservação e valorização do patrimônio comum, o equilíbrio financeiro e a execução das deliberações da Assembleia Geral, regendo-se, além dos princípios do art. 5º, pelo planejamento permanente, pela compatibilidade entre receitas, despesas e disponibilidade financeira, pela sustentabilidade financeira e patrimonial, pela prevenção de desperdícios e mitigação de riscos, e pela segregação de funções, sempre que compatível com a estrutura administrativa do condomínio.</p>
+</div>
+<div class="artigo" id="art-42">
+<p class="art-caput"><span class="art-num">Art. 42.</span> Todo ato relevante de gestão será adequadamente documentado, permitindo identificar seu fundamento, responsável, suporte documental e resultados, assegurando sua rastreabilidade e fiscalização, e os procedimentos administrativos e financeiros incorporarão mecanismos de controle interno destinados à prevenção, detecção e correção de erros, irregularidades, desperdícios, fraudes e conflitos de interesse.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-3-sec-2">
+<h3 class="titulo-secao">Seção II — Do Ciclo Eleitoral e do Orçamento Anual</h3>
+<div class="artigo" id="art-43">
+<p class="art-caput"><span class="art-num">Art. 43.</span> A Administração disponibilizará aos condôminos a prestação de contas do exercício anterior no primeiro dia útil de fevereiro, cabendo ao Conselho o prazo de 15 (quinze) dias para emitir parecer, igualmente disponibilizado.</p>
+</div>
+<div class="artigo" id="art-44">
+<p class="art-caput"><span class="art-num">Art. 44.</span> Na Assembleia Geral Ordinária, a apreciação da prestação de contas, instruída pelo parecer do Conselho, constituirá o primeiro item da ordem do dia, seguindo-se a eleição dos membros do Conselho, individualmente, e, em seguida, a eleição do Síndico e do Subsíndico, em chapa única.</p>
+</div>
+<div class="artigo" id="art-45">
+<p class="art-caput"><span class="art-num">Art. 45.</span> As candidaturas a Síndico e Subsíndico serão apresentadas em chapa única, podendo ser acompanhadas, a título de compromisso de campanha, de Proposta de Orçamento Anual e de Proposta de Calendário Anual das Áreas Comuns para o exercício seguinte.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Imediatamente após a eleição do Síndico e do Subsíndico e antes da deliberação de que trata o art. 13, inciso IV, o Conselho recém-eleito emitirá parecer oral, em Assembleia, sobre a Proposta de Orçamento Anual e a Proposta de Calendário Anual das Áreas Comuns apresentadas pela chapa eleita; não as tendo a chapa eleita apresentado a título de compromisso de campanha, o Síndico eleito as apresentará nesse mesmo ato, para que sobre elas o Conselho se manifeste; ouvido o parecer, as propostas — eventualmente ajustadas à sua luz — seguem para deliberação da Assembleia Geral, não se submetendo a deliberação as propostas eventualmente apresentadas pelas demais chapas.</p>
+</div>
+<div class="artigo" id="art-46">
+<p class="art-caput"><span class="art-num">Art. 46.</span> Em caso de vacância do cargo de Síndico e Subsíndico fora do ciclo previsto nesta Seção, a Assembleia Geral extraordinariamente convocada para nova eleição observará, no que couber, o disposto nesta Seção, dispensados os prazos vinculados ao mês de fevereiro.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-3-sec-3">
+<h3 class="titulo-secao">Seção III — Da Proposta Orçamentária e de sua Execução</h3>
+<div class="artigo" id="art-47">
+<p class="art-caput"><span class="art-num">Art. 47.</span> A Proposta Orçamentária constitui Norma Interna e conterá, no mínimo, a estimativa das receitas e despesas ordinárias e extraordinárias, a previsão de investimentos, obras e aquisições de bens permanentes, a previsão de constituição, utilização e recomposição dos fundos condominiais, e reserva destinada a despesas contingenciais, quando cabível, apresentada de forma clara, padronizada e comparável com os exercícios anteriores.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> A elaboração da Proposta Orçamentária observará critérios de prudência, razoabilidade e exequibilidade, vedada a inclusão de receitas sem fundamento ou a subavaliação deliberada de despesas.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Eventual remuneração, pró-labore ou isenção, total ou parcial, da cota condominial em favor do Síndico, do Subsíndico ou de membro do Conselho somente poderá ser instituída se prevista expressamente na Proposta Orçamentária, com indicação do valor, da forma de pagamento e da fonte de recursos, submetida ao mesmo processo de aprovação das demais disposições orçamentárias.</p>
+</div>
+<div class="artigo" id="art-48">
+<p class="art-caput"><span class="art-num">Art. 48.</span> Nenhuma despesa poderá ser realizada sem que estejam simultaneamente presentes previsão ou autorização orçamentária, disponibilidade financeira compatível, observância dos procedimentos de contratação deste Regimento, quando aplicáveis, e motivação e documentação suficientes.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> As dotações orçamentárias representam limites máximos autorizados, não constituindo obrigação de execução integral, devendo a Administração buscar a utilização eficiente dos recursos, preservadas a qualidade dos serviços, a segurança e a conservação do patrimônio.</p>
+</div>
+<div class="artigo" id="art-49">
+<p class="art-caput"><span class="art-num">Art. 49.</span> Consideram-se alterações orçamentárias o remanejamento de dotações, sem aumento do valor global do orçamento aprovado; a suplementação de dotações; a inclusão de despesas extraordinárias não previstas; e a utilização extraordinária de fundos condominiais, quando admitida.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> O remanejamento dependerá de prévia ciência do Conselho e será documentado e motivado; a suplementação dependerá de prévia autorização da Assembleia Geral, ressalvadas as despesas emergenciais.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Consideram-se despesas emergenciais as indispensáveis à preservação da vida, da segurança das pessoas, da integridade do patrimônio ou da continuidade dos serviços essenciais, cuja postergação possa causar dano relevante; o Síndico poderá autorizá-las independentemente de prévia autorização da Assembleia Geral, devendo comunicá-las ao Conselho em até 5 (cinco) dias úteis e submetê-las à primeira Assembleia Geral subsequente, acompanhadas da documentação comprobatória.</p>
+</div>
+<div class="artigo" id="art-50">
+<p class="art-caput"><span class="art-num">Art. 50.</span> Nenhuma alteração orçamentária poderá ser utilizada para afastar as competências deliberativas da Assembleia Geral, dispensar procedimentos deste Regimento, ou justificar despesa em desacordo com a legislação vigente, a Convenção Condominial ou este Regimento.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-3-sec-4">
+<h3 class="titulo-secao">Seção IV — Das Contratações</h3>
+<div class="artigo" id="art-51">
+<p class="art-caput"><span class="art-num">Art. 51.</span> Toda contratação de obras, serviços ou fornecimento de bens observará os princípios da competitividade, da sustentabilidade e da seleção da proposta mais vantajosa para o condomínio, sendo precedida, sempre que aplicável, de planejamento mínimo com descrição do objeto, justificativa, estimativa de custo, verificação de disponibilidade orçamentária e critérios objetivos de seleção.</p>
+</div>
+<div class="artigo" id="art-52">
+<p class="art-caput"><span class="art-num">Art. 52.</span> Sempre que a natureza, a complexidade ou o valor estimado da contratação o justificarem, o Síndico realizará pesquisa de mercado, compreendendo, preferencialmente, no mínimo três propostas independentes, dispensável quando houver fornecedor exclusivo, inviabilidade de competição, contratação emergencial, serviço técnico especializado ou outra hipótese motivada.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A contratação da proposta de menor preço não é obrigatória quando outra demonstrar ser globalmente mais vantajosa, mediante justificativa fundamentada, considerados preço, qualidade, capacidade técnica, prazo, garantia e histórico de desempenho do fornecedor.</p>
+</div>
+<div class="artigo" id="art-53">
+<p class="art-caput"><span class="art-num">Art. 53.</span> É vedada a participação, direta ou indireta, do Síndico, do Subsíndico, dos membros do Conselho, ou de seus cônjuges, companheiros ou parentes até o quarto grau, bem como de pessoas jurídicas a eles vinculadas, em contratação realizada pelo condomínio, salvo nas hipóteses expressamente admitidas pela Convenção Condominial e mediante observância integral das condições nela estabelecidas.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O condômino que possuir interesse econômico relevante em empresa que participe ou possa participar de contratação com o condomínio declarará formalmente tal circunstância, sem que isso impeça, por si só, a contratação, observados os demais requisitos deste Regimento.</p>
+</div>
+<div class="artigo" id="art-54">
+<p class="art-caput"><span class="art-num">Art. 54.</span> Toda contratação será formalizada por documentação adequada, permanecerá arquivada durante sua vigência e pelo prazo mínimo legal ou, na ausência de disposição específica, por 10 (dez) anos, e integrará os registros administrativos, disponíveis para fiscalização pelo Conselho e pelos condôminos.</p>
+</div>
+<div class="artigo" id="art-55">
+<p class="art-caput"><span class="art-num">Art. 55.</span> A proposta de despesa extraordinária, obra ou investimento relevante não contemplado no orçamento, quando sujeita a taxa extraordinária ou rateio específico, será instruída com projeto técnico ou memorial descritivo, cotação prévia de mercado, estudo de impacto financeiro e minuta das condições de pagamento, cabendo à Assembleia Geral, ao aprovar a despesa, fixar o valor da taxa, o número e o valor das parcelas e o prazo de arrecadação, e à Administração apresentar prestação de contas parcial mensal específica durante a execução.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-3-sec-5">
+<h3 class="titulo-secao">Seção V — Da Prestação de Contas</h3>
+<div class="artigo" id="art-56">
+<p class="art-caput"><span class="art-num">Art. 56.</span> O Síndico prestará contas de sua gestão de forma completa, clara, objetiva, tempestiva e verificável, observando a transparência, a boa-fé e a accountability na administração dos recursos condominiais.</p>
+</div>
+<div class="artigo" id="art-57">
+<p class="art-caput"><span class="art-num">Art. 57.</span> A prestação de contas anual será submetida à Assembleia Geral, acompanhada de parecer do Conselho, sem prejuízo da disponibilização mensal aos condôminos e ao Conselho de relatório financeiro simplificado, contendo o extrato de receitas e despesas do período e o saldo das contas e aplicações financeiras.</p>
+</div>
+<div class="artigo" id="art-58">
+<p class="art-caput"><span class="art-num">Art. 58.</span> A prestação de contas compreenderá, no mínimo, o demonstrativo de receitas e despesas, o comparativo entre orçamento aprovado e sua execução com as respectivas justificativas de variação, a posição financeira e o saldo das contas e aplicações, a situação dos fundos condominiais, a relação das contratações realizadas e das despesas emergenciais, o demonstrativo de inadimplência, e informações sobre demandas judiciais com impacto financeiro relevante, acompanhada da documentação comprobatória correspondente.</p>
+</div>
+<div class="artigo" id="art-59">
+<p class="art-caput"><span class="art-num">Art. 59.</span> Compete à Assembleia Geral deliberar sobre a aprovação, aprovação com ressalvas ou rejeição da prestação de contas, não implicando a rejeição, por si só, perda automática do mandato em curso, nem a aprovação impedimento à apuração posterior de irregularidades, fraudes ou omissões que somente venham a ser conhecidas ou comprovadas depois, observado o devido processo legal.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-3-sec-6">
+<h3 class="titulo-secao">Seção VI — Dos Fundos Condominiais e do Controle Patrimonial</h3>
+<div class="artigo" id="art-60">
+<p class="art-caput"><span class="art-num">Art. 60.</span> Os fundos condominiais destinam-se ao atendimento de finalidades específicas, permanecerão contabilmente individualizados, vedada sua utilização para finalidade diversa da que motivou sua constituição, ressalvadas as hipóteses previstas na Convenção Condominial, neste Regimento ou autorizadas pela Assembleia Geral.</p>
+</div>
+<div class="artigo" id="art-61">
+<p class="art-caput"><span class="art-num">Art. 61.</span> O Fundo de Reserva, instituído pela Convenção Condominial, é constituído pelo percentual mínimo das contribuições condominiais ordinárias nela fixado, acrescido dos valores arrecadados em decorrência de infrações, observado que esse percentual somente poderá ser majorado por deliberação da Assembleia Geral; a existência de valor-alvo revisável anualmente, que constará da Proposta Orçamentária; e a limitação de uso, até o valor-alvo, a despesas de caráter extraordinário e emergencial.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Os recursos dos fundos condominiais somente poderão ser aplicados em instituições financeiras autorizadas pelo Banco Central do Brasil, em aplicações de baixo risco e elevada liquidez, vedadas aplicações especulativas.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Os rendimentos decorrentes da aplicação financeira do Fundo de Reserva revertem obrigatoriamente ao próprio fundo, sendo vedada sua utilização para finalidade diversa ou sua destinação, por deliberação da Assembleia Geral, a outra rubrica ou fundo, ressalvada disposição em sentido diverso da própria Convenção Condominial.</p>
+</div>
+<div class="artigo" id="art-62">
+<p class="art-caput"><span class="art-num">Art. 62.</span> Os bens móveis, equipamentos e demais ativos permanentes do condomínio integrarão o patrimônio condominial, objeto de inventário permanentemente atualizado e revisado, no mínimo, uma vez por ano, permanecendo disponível para fiscalização pelo Conselho e pelos condôminos, e integrando a documentação entregue na transição da administração.</p>
+</div>
+</section>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-4">
+<h2 class="titulo-capitulo">CAPÍTULO IV — DA UTILIZAÇÃO DAS UNIDADES AUTÔNOMAS</h2>
+<div class="artigo" id="art-63">
+<p class="art-caput"><span class="art-num">Art. 63.</span> As unidades autônomas destinam-se exclusivamente ao uso residencial, devendo seu uso observar a função social da propriedade, a boa-fé, o sossego e o bem-estar da coletividade, respondendo o proprietário, possuidor, morador ou ocupante pelo cumprimento da legislação vigente, da Convenção Condominial, deste Regimento e das deliberações da Assembleia Geral, inclusive pelos atos de familiares, dependentes, empregados, prestadores de serviços, locatários e visitantes que autorizar a ingressar no condomínio.</p>
+</div>
+<div class="artigo" id="art-64">
+<p class="art-caput"><span class="art-num">Art. 64.</span> Compete ao condômino conservar sua unidade em condições adequadas de uso, segurança, higiene e manutenção, adotando as providências necessárias para evitar vazamentos, infiltrações e demais situações capazes de comprometer a segurança ou a salubridade do condomínio, e comunicando imediatamente à Administração qualquer risco identificado.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Constatada situação de urgência ou emergência, a Administração poderá adotar as medidas estritamente necessárias para conter ou eliminar o risco, inclusive com acesso à unidade, mediante prévia comunicação sempre que possível.</p>
+</div>
+<div class="artigo" id="art-65">
+<p class="art-caput"><span class="art-num">Art. 65.</span> Obras, reformas e intervenções que envolvam elemento estrutural, instalação técnica predial, sistema de proteção contra incêndio, ou que possam afetar a segurança da edificação, a fachada ou as instalações comuns, dependem de prévia autorização da Administração, respondendo o condômino integralmente pelos danos delas decorrentes; as demais obras serão comunicadas com antecedência mínima de 7 (sete) dias, dispensada comunicação para reparo emergencial e intervenção de pequena monta sem uso de área comum ou risco à edificação.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Regras operacionais de execução de obras — cadastramento, agendamento, horários e circulação de materiais — serão disciplinadas por Procedimento Operacional ou, quando importarem restrição a condôminos, por Norma Interna.</p>
+</div>
+<div class="artigo" id="art-66">
+<p class="art-caput"><span class="art-num">Art. 66.</span> A fachada do Edifício, as lajes técnicas e os equipamentos nelas instalados observarão o padrão fixado em Norma Complementar, nos termos do art. 9º, parágrafo único, respondendo o condômino pela conservação dos equipamentos de sua laje técnica e pelos danos decorrentes de sua instalação, funcionamento ou ausência de manutenção.</p>
+</div>
+<div class="artigo" id="art-67">
+<p class="art-caput"><span class="art-num">Art. 67.</span> Os registros administrativos do condomínio — cadastro de proprietários, moradores, veículos, bicicletas e animais, registro de ocorrências, de recebimento de encomendas e de achados e perdidos — poderão ser disciplinados por Procedimento Operacional, inexistindo Norma Interna, observada a legislação vigente de proteção de dados pessoais e limitada a coleta às informações necessárias às finalidades de identificação, comunicação, segurança e controle de acesso.</p>
+</div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-5">
+<h2 class="titulo-capitulo">CAPÍTULO V — DAS ÁREAS COMUNS DE USO COLETIVO</h2>
+<div class="artigo" id="art-68">
+<p class="art-caput"><span class="art-num">Art. 68.</span> As áreas comuns de uso coletivo destinam-se ao lazer, à convivência, ao esporte, à recreação e às demais atividades compatíveis com sua finalidade, devendo ser utilizadas de forma compatível com essa destinação, vedada sua utilização que comprometa sua finalidade, cause risco, dano ou transtorno, ou impeça o exercício do direito de uso pelos demais condôminos.</p>
+</div>
+<div class="artigo" id="art-69">
+<p class="art-caput"><span class="art-num">Art. 69.</span> Os horários de funcionamento das áreas comuns e a disciplina de reserva e utilização exclusiva temporária das áreas reserváveis constarão da Proposta de Calendário Anual das Áreas Comuns, nos termos do art. 10, § 1º, II.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> As demais regras específicas de cada área comum — incluindo idade mínima de uso sem supervisão de adulto, capacidade máxima de usuários e condições de higiene e segurança —, quando editadas, revestem-se da forma de Norma Interna, nos termos do art. 10, § 2º, I, não sendo obrigatória sua edição nem, uma vez aprovadas, sua renovação periódica, nos termos do art. 10, § 3º; inexistindo Norma Interna, tais regras poderão ser disciplinadas por Procedimento Operacional.</p>
+</div>
+<div class="artigo" id="art-70">
+<p class="art-caput"><span class="art-num">Art. 70.</span> A reserva de área comum de utilização exclusiva temporária poderá sujeitar-se a taxa de utilização e limpeza, cujo valor constará da Proposta Orçamentária, destinada a fundo próprio de manutenção das áreas comuns reserváveis, não se confundindo com a cota condominial ordinária.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Caracterizado mau uso do espaço reservado, evidenciado por sujeira ou desorganização que exceda o desgaste natural da utilização normal, o responsável arcará com ressarcimento correspondente ao custo da limpeza ou recomposição extraordinária necessária, destinado ao fundo próprio de manutenção das áreas comuns reserváveis de que trata o caput, assegurado o contraditório prévio à cobrança, sem prejuízo da taxa de utilização e da responsabilidade por outros danos eventualmente causados.</p>
+</div>
+<div class="artigo" id="art-71">
+<p class="art-caput"><span class="art-num">Art. 71.</span> É vedada a apropriação, ocupação ou utilização de espaço comum sem destinação definida por condômino, morador, ocupante ou pela própria Administração, ressalvada autorização expressa da Assembleia Geral, competindo à Administração, até a deliberação, zelar por sua conservação, limpeza e segurança.</p>
+</div>
+<div class="artigo" id="art-72">
+<p class="art-caput"><span class="art-num">Art. 72.</span> A implantação de projetos de paisagismo, arborização, hortas comunitárias ou o plantio de espécie vegetal não prevista no projeto paisagístico original dependerá de prévia aprovação da Assembleia Geral, precedida de informação técnica suficiente sobre a adequação das espécies e seus impactos.</p>
+</div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-6">
+<h2 class="titulo-capitulo">CAPÍTULO VI — DOS VEÍCULOS, GARAGENS E CIRCULAÇÃO INTERNA</h2>
+<div class="artigo" id="art-73">
+<p class="art-caput"><span class="art-num">Art. 73.</span> As garagens, os estacionamentos e os bicicletários destinam-se à guarda e à circulação segura de veículos e bicicletas, devendo o veículo permanecer integralmente dentro dos limites da vaga que lhe corresponda, vedada sua utilização para depósito ou finalidade estranha, e vedada a locação, o comodato ou a cessão de vaga a pessoa não residente no condomínio.</p>
+</div>
+<div class="artigo" id="art-74">
+<p class="art-caput"><span class="art-num">Art. 74.</span> A circulação de veículos nas garagens observará a velocidade máxima, o uso de faróis e as demais condições operacionais de segurança fixadas em Norma Interna, nos termos do art. 10, § 2º, II, sendo vedadas, em qualquer caso, acelerações bruscas e manobras perigosas; o veículo que obstruir a circulação estará sujeito à remoção por guincho, às expensas do infrator.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> As demais regras de utilização das garagens, estacionamentos, bicicletário, armários e elevadores, incluindo a classificação de infrações relativas a este Capítulo por grau de gravidade para fins de aplicação da multa prevista no art. 86, observam a mesma forma de Norma Interna referida no caput, não sendo obrigatória sua edição nem, uma vez aprovadas, sua renovação periódica, nos termos do art. 10, § 3º, ressalvadas as matérias reservadas a Norma Complementar, nos termos do art. 9º, parágrafo único.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Inexistindo Norma Interna, as regras de que trata este artigo, exceto a classificação de infrações referida no § 1º, poderão ser disciplinadas por Procedimento Operacional; à falta de Norma Interna quanto a essa classificação, aplicam-se os critérios gerais do art. 85.</p>
+</div>
+<div class="artigo" id="art-75">
+<p class="art-caput"><span class="art-num">Art. 75.</span> É vedada a instalação de divisórias, cercamentos ou estruturas que alterem as características originais das vagas de garagem, bem como a instalação de armário em desacordo com o padrão fixado em Norma Complementar nos termos do art. 9º, parágrafo único, ou que prejudique circulação, ventilação, rotas de fuga ou acesso a equipamentos de segurança.</p>
+</div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-7">
+<h2 class="titulo-capitulo">CAPÍTULO VII — DA CONVIVÊNCIA CONDOMINIAL</h2>
+<div class="artigo" id="art-76">
+<p class="art-caput"><span class="art-num">Art. 76.</span> A convivência condominial pauta-se pelo respeito recíproco, pela cooperação, pela urbanidade e pela solidariedade, devendo o exercício dos direitos de propriedade e de uso das áreas comuns compatibilizar-se com os direitos dos demais moradores, vedada qualquer utilização que comprometa a segurança, o sossego, a salubridade ou a boa convivência.</p>
+</div>
+<div class="artigo" id="art-77">
+<p class="art-caput"><span class="art-num">Art. 77.</span> Constituem direitos dos condôminos e moradores, além dos previstos na legislação vigente e na Convenção Condominial: utilizar e fruir de sua unidade e das áreas comuns; participar da vida condominial em ambiente seguro e respeitoso; receber tratamento isonômico da Administração; ter acesso às informações e documentos do condomínio, na forma deste Regimento; apresentar sugestões, reclamações e requerimentos, obtendo resposta em prazo razoável; e participar das Assembleias Gerais.</p>
+</div>
+<div class="artigo" id="art-78">
+<p class="art-caput"><span class="art-num">Art. 78.</span> Constituem deveres dos condôminos e moradores, além dos previstos na legislação vigente e na Convenção Condominial: cumprir a legislação vigente, a Convenção Condominial, este Regimento, as deliberações da Assembleia Geral e os Procedimentos Operacionais; utilizar sua unidade e as áreas comuns de forma compatível com sua destinação; preservar o patrimônio comum, comunicando à Administração situação de risco; tratar com urbanidade os demais moradores, visitantes, prestadores de serviços e integrantes da Administração; e responder por seus atos e pelos de pessoas cujo ingresso no condomínio tenha autorizado.</p>
+</div>
+<div class="artigo" id="art-79">
+<p class="art-caput"><span class="art-num">Art. 79.</span> É permitida a permanência de animais nas unidades autônomas, observado o respeito à segurança, à saúde, ao sossego e à boa convivência, não podendo sua permanência ser proibida exclusivamente em razão de espécie, raça ou porte, admitindo-se restrição apenas diante de comportamento concreto que represente risco ou descumprimento das condições deste Regimento; é dispensado o uso de focinheira para cães-guia e demais animais de assistência devidamente identificados.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Nas áreas comuns, os animais permanecerão sob permanente supervisão de pessoa capaz, com dispositivo de contenção compatível com sua espécie, porte e comportamento, respondendo o responsável pela imediata remoção de dejetos e pela reparação de danos causados.</p>
+</div>
+<div class="artigo" id="art-80">
+<p class="art-caput"><span class="art-num">Art. 80.</span> É vedada a prática de atos que perturbem, de forma reiterada ou injustificada, a tranquilidade dos moradores, comprometam a segurança das pessoas ou do patrimônio, ou constituam conduta ofensiva, intimidatória, discriminatória ou incompatível com a convivência harmoniosa.</p>
+</div>
+<div class="artigo" id="art-81">
+<p class="art-caput"><span class="art-num">Art. 81.</span> O ingresso e a permanência de visitantes, prestadores de serviços e entregadores no condomínio, bem como as regras de circulação e de utilização das áreas comuns por essas pessoas, quando editadas, revestem-se da forma de Norma Interna, nos termos do art. 10, § 2º, III, não sendo obrigatória sua edição nem, uma vez aprovadas, sua renovação periódica, nos termos do art. 10, § 3º; inexistindo Norma Interna, tais regras poderão ser disciplinadas por Procedimento Operacional, observadas a legislação vigente, a Convenção Condominial e este Regimento, dependendo sempre de autorização do morador responsável ou da Administração, conforme o caso.</p>
+</div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-8">
+<h2 class="titulo-capitulo">CAPÍTULO VIII — DAS INFRAÇÕES, PENALIDADES E DO PROCESSO ADMINISTRATIVO</h2>
+<section class="nivel-secao" id="cap-8-sec-1">
+<h3 class="titulo-secao">Seção I — Disposições Gerais</h3>
+<div class="artigo" id="art-82">
+<p class="art-caput"><span class="art-num">Art. 82.</span> O descumprimento da legislação vigente, da Convenção Condominial, deste Regimento, das Normas Complementares, das Normas Internas, das deliberações da Assembleia Geral ou dos Procedimentos Operacionais sujeitará o responsável às medidas administrativas previstas neste Capítulo, sem prejuízo das responsabilidades civis, penais e administrativas cabíveis, observados os princípios da legalidade, da motivação, da proporcionalidade, do contraditório, da ampla defesa e do devido processo administrativo.</p>
+</div>
+<div class="artigo" id="art-83">
+<p class="art-caput"><span class="art-num">Art. 83.</span> Para os fins deste Regimento:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> penalidade é a sanção aplicada em razão de infração, sujeita integralmente ao procedimento e às garantias deste Capítulo;</li>
+<li><span class="inc-num">II.</span> ressarcimento é o valor correspondente ao prejuízo material comprovadamente causado ao condomínio, não podendo superar o dano efetivamente apurado; e</li>
+<li><span class="inc-num">III.</span> taxa ou retenção de natureza contratual é a cobrança vinculada ao uso, reserva ou cancelamento de área comum sujeita a agendamento, calculada segundo critérios objetivos fixados em Norma Interna, não tendo natureza sancionatória e não se sujeitando às garantias processuais deste Capítulo, salvo disposição expressa em sentido diverso.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Penalidade, ressarcimento e taxa ou retenção contratual podem ser cumulados quando tiverem fundamentos distintos, vedado o enriquecimento sem causa do condomínio.</p>
+</div>
+<div class="artigo" id="art-84">
+<p class="art-caput"><span class="art-num">Art. 84.</span> Nenhuma penalidade será aplicada sem que a conduta esteja previamente prevista na legislação vigente, na Convenção Condominial, neste Regimento, em Norma Complementar, em Norma Interna ou em deliberação regularmente aprovada pela Assembleia Geral, nem com finalidade arrecadatória, devendo sua imposição observar exclusivamente sua função educativa, preventiva, corretiva e disciplinar.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-8-sec-2">
+<h3 class="titulo-secao">Seção II — Das Infrações e das Penalidades</h3>
+<div class="artigo" id="art-85">
+<p class="art-caput"><span class="art-num">Art. 85.</span> As infrações classificam-se, conforme sua natureza, extensão do dano, risco à segurança, existência de dolo ou culpa e reincidência, em leves, médias, graves e gravíssimas, devendo a classificação ser expressamente fundamentada na decisão administrativa.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Consideram-se, em regra, leves as infrações de reduzido impacto, prontamente corrigidas e sem risco relevante; médias as que causem prejuízo moderado ou dificultem o funcionamento do condomínio; graves as que comprometam a segurança, causem dano relevante ou representem descumprimento reiterado; e gravíssimas as que exponham pessoas a risco concreto de dano grave, causem dano patrimonial de elevada relevância, envolvam fraude, violência ou ameaça, ou revelem manifesta incompatibilidade com a convivência condominial.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Consideram-se circunstâncias agravantes, entre outras, a reincidência, a prática dolosa, a tentativa de ocultação dos fatos e a recusa injustificada em cessar a conduta; e atenuantes a cessação espontânea, a pronta reparação do dano e a colaboração para a apuração dos fatos.</p>
+</div>
+<div class="artigo" id="art-86">
+<p class="art-caput"><span class="art-num">Art. 86.</span> Verificada a prática de infração, poderão ser aplicadas, isolada ou cumulativamente, conforme a gravidade: advertência, de caráter educativo, preferencialmente às infrações leves; multa, calculada sobre o valor da Taxa Condominial Ordinária vigente na data da decisão, nos percentuais de 25% (leve), 50% (média), 75% (grave) e 100% (gravíssima), sem prejuízo da multa agravada por descumprimento reiterado de deveres condominiais ou por comportamento antissocial, de aplicação privativa da Assembleia Geral, observado o quórum específico exigido pela legislação vigente para essa hipótese, ainda que superior ao previsto na Convenção Condominial para as demais deliberações; e suspensão temporária de autorização ou utilização de área, equipamento ou serviço comum sujeito a reserva, quando a infração estiver diretamente relacionada ao seu uso.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Sempre que possível, a Administração privilegiará medidas preventivas, orientativas e conciliatórias, sem prejuízo da aplicação das penalidades cabíveis diante de reincidência ou quando necessárias à proteção da coletividade.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> É vedada a restrição de acesso às áreas comuns de uso geral como meio de coerção para pagamento de contribuição condominial em atraso, sem prejuízo das medidas de cobrança cabíveis e da possibilidade de a Norma Interna condicionar a reserva de área comum de uso exclusivo temporário à regularidade das obrigações condominiais do condômino reservante.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-8-sec-3">
+<h3 class="titulo-secao">Seção III — Do Procedimento Administrativo</h3>
+<div class="artigo" id="art-87">
+<p class="art-caput"><span class="art-num">Art. 87.</span> O procedimento administrativo poderá ter início de ofício pela Administração, mediante comunicação do Conselho, por representação de condômino, morador ou usuário, ou em decorrência de fatos regularmente registrados, competindo à Administração promover a instrução, podendo realizar diligências, colher provas e ouvir os envolvidos.</p>
+</div>
+<div class="artigo" id="art-88">
+<p class="art-caput"><span class="art-num">Art. 88.</span> Concluída a instrução, o Síndico notificará o interessado para, querendo, apresentar defesa escrita no prazo de 15 (quinze) dias, encerrada a qual decidirá, podendo determinar diligência complementar, reconhecer a inexistência da infração e arquivar o procedimento, ou aplicar a penalidade cabível, mediante decisão fundamentada contendo os fatos comprovados, a análise da defesa, os fundamentos legais e regimentais, a classificação da infração e a penalidade aplicada.</p>
+</div>
+<div class="artigo" id="art-89">
+<p class="art-caput"><span class="art-num">Art. 89.</span> O membro do Conselho ou o Síndico que possuir interesse direto ou indireto na matéria, vínculo de parentesco ou qualquer circunstância capaz de comprometer sua imparcialidade ficará impedido de participar da instrução, discussão ou decisão do procedimento.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Estando o Síndico impedido nos termos do caput, a instrução e a decisão do procedimento caberão ao Subsíndico e, na sua impossibilidade ou impedimento, serão submetidas diretamente à Assembleia Geral, vedado ao Síndico impedido praticar qualquer ato de instrução, ainda que de mero expediente, relativo ao procedimento de que trata este artigo.</p>
+</div>
+<div class="artigo" id="art-90">
+<p class="art-caput"><span class="art-num">Art. 90.</span> O Síndico comunicará ao Presidente do Conselho a multa aplicada no prazo de 5 (cinco) dias úteis, sob pena de nulidade, assegurado ao condômino o ressarcimento dos valores eventualmente pagos, com correção, sem prejuízo do parecer de ofício do Conselho nos termos do art. 30, § 1º.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-8-sec-4">
+<h3 class="titulo-secao">Seção IV — Dos Recursos Administrativos</h3>
+<div class="artigo" id="art-91">
+<p class="art-caput"><span class="art-num">Art. 91.</span> Da decisão do Síndico caberá recurso ao Conselho, no prazo de 15 (quinze) dias, com efeito suspensivo quanto à produção de efeitos da penalidade, ressalvados os casos de medida urgente destinada à proteção da segurança das pessoas ou do patrimônio comum e a hipótese do art. 94, referente às multas aplicadas pelo Síndico.</p>
+</div>
+<div class="artigo" id="art-92">
+<p class="art-caput"><span class="art-num">Art. 92.</span> O Conselho, em seu parecer recursal, sem caráter decisório, poderá recomendar a manutenção da decisão recorrida, sua reforma total ou parcial, a realização de nova instrução, ou o reconhecimento de nulidade processual.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Do parecer do Conselho que recomendar, total ou parcialmente, a manutenção da decisão recorrida, caberá recurso à Assembleia Geral, que decidirá em caráter definitivo, incluído na pauta da primeira Assembleia que puder apreciá-lo; acolhida integralmente a recomendação de reforma ou anulação, a decisão do Síndico será revista de ofício pela Administração, independentemente de novo recurso.</p>
+</div>
+<div class="artigo" id="art-93">
+<p class="art-caput"><span class="art-num">Art. 93.</span> As decisões proferidas pela Assembleia Geral encerram a esfera administrativa condominial, sem prejuízo do direito de acesso ao Poder Judiciário.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-8-sec-5">
+<h3 class="titulo-secao">Seção V — Da Execução das Penalidades</h3>
+<div class="artigo" id="art-94">
+<p class="art-caput"><span class="art-num">Art. 94.</span> As penalidades produzirão efeitos após o encerramento da esfera administrativa, ressalvadas as medidas cautelares indispensáveis à proteção da segurança das pessoas ou do patrimônio, e ressalvadas as multas aplicadas pelo Síndico, que produzem efeito imediato sem prejuízo do efeito suspensivo do recurso, na forma do art. 91.</p>
+</div>
+<div class="artigo" id="art-95">
+<p class="art-caput"><span class="art-num">Art. 95.</span> A aplicação de penalidade não afasta o dever de reparar integralmente os danos eventualmente causados, considerando-se a reparação espontânea e o cumprimento voluntário das determinações administrativas circunstâncias favoráveis em apuração de infrações futuras.</p>
+</div>
+<div class="artigo" id="art-96">
+<p class="art-caput"><span class="art-num">Art. 96.</span> Considera-se reincidência, para os fins deste Regimento, a prática de nova infração da mesma natureza pelo mesmo responsável, após decisão administrativa definitiva, observado o período de 2 (dois) anos contado do trânsito em julgado administrativo, mantendo a Administração registro atualizado das penalidades definitivamente aplicadas, exclusivamente para fins de controle, reincidência e cumprimento deste Regimento, observadas as normas de proteção de dados pessoais.</p>
+</div>
+</section>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-9">
+<h2 class="titulo-capitulo">CAPÍTULO IX — DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS</h2>
+<div class="artigo" id="art-97">
+<p class="art-caput"><span class="art-num">Art. 97.</span> Este Regimento Interno somente poderá ser alterado mediante deliberação da Assembleia Geral especialmente convocada para esse fim, cujo edital indicará expressamente os dispositivos cuja alteração se pretende, acompanhado da justificativa e da redação proposta, vedada a deliberação sobre alteração deste Regimento sob a rubrica de assuntos gerais.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> A aprovação de alterações deste Regimento dependerá do quórum qualificado fixado na Convenção Condominial para esse fim.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> As alterações aprovadas integrarão imediatamente o texto deste Regimento, entrando em vigor na data fixada pela Assembleia ou, na ausência de disposição específica, na data de sua aprovação.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> A apresentação de Emenda de Tramitação por qualquer condômino, nos termos do art. 19, não se confunde com a Alteração do Regimento Interno de que trata este artigo: a Emenda de Tramitação define apenas o conteúdo do texto submetido a votação final, sendo aprovada pelo quórum do art. 19, parágrafo único; a Alteração do Regimento Interno é o ato que aprova esse texto em caráter definitivo, observando o quórum qualificado do § 1º deste artigo.</p>
+<p class="paragrafo"><span class="par-num">§ 4º.</span> As alterações deste Regimento, bem como a aprovação ou alteração de Norma Complementar ou Norma Interna, que criem nova obrigação, restrição ou penalidade para condôminos, moradores ou ocupantes somente produzirão efeitos decorrido prazo de carência de, no mínimo, 30 (trinta) dias contado de sua aprovação, ressalvada a fixação de prazo maior pelo próprio ato aprovador e ressalvada, ainda, a hipótese de medida estritamente necessária à proteção da segurança das pessoas ou do patrimônio comum, que produzirá efeitos imediatos.</p>
+</div>
+<div class="artigo" id="art-98">
+<p class="art-caput"><span class="art-num">Art. 98.</span> Na interpretação deste Regimento prevalecerão, sucessivamente: a legislação vigente; a Convenção Condominial; este Regimento Interno; a Norma Complementar ou a Norma Interna que regular a matéria específica, nos termos do art. 7º, parágrafo único; as demais deliberações regularmente aprovadas pela Assembleia Geral; e os Procedimentos Operacionais regularmente instituídos pela Administração.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Os casos omissos serão resolvidos pela Assembleia Geral, observadas a legislação vigente, a Convenção Condominial e os princípios estabelecidos neste Regimento.</p>
+</div>
+<div class="artigo" id="art-99">
+<p class="art-caput"><span class="art-num">Art. 99.</span> Ficam revogadas, no que forem incompatíveis com este Regimento, todas as regras, normas, portarias, regulamentos, comunicados ou quaisquer outros atos de caráter geral estabelecidos pela Administração Condominial ou por qualquer órgão da Governança Condominial antes de sua entrada em vigor, permanecendo em vigor as disposições anteriores não incompatíveis, até que sejam expressamente revistas, substituídas ou revogadas na forma deste Regimento.</p>
+</div>
+<div class="artigo" id="art-100">
+<p class="art-caput"><span class="art-num">Art. 100.</span> No prazo máximo de 90 (noventa) dias contados da entrada em vigor deste Regimento, será realizada Assembleia Geral especialmente convocada, por qualquer dos legitimados do art. 14, para deliberar, em caráter de Norma Interna, sobre a Proposta Orçamentária Anual provisória e a Proposta de Calendário Anual das Áreas Comuns provisória.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Qualquer condômino poderá apresentar proposta relativa às matérias de que trata o caput.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> As propostas apresentadas nos termos do § 1º serão divulgadas a todos os condôminos, em conjunto com o edital de convocação ou em complemento a ele, com antecedência mínima de 15 (quinze) dias do início da votação, assegurada a cada proponente igual oportunidade de apresentar e esclarecer sua proposta perante os demais condôminos.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> A votação observará o rito geral de aprovação de Norma Interna previsto no art. 10 deste Regimento.</p>
+<p class="paragrafo"><span class="par-num">§ 4º.</span> A Proposta Orçamentária Anual provisória e a Proposta de Calendário Anual das Áreas Comuns provisória vigorarão até a aprovação da Proposta Orçamentária Anual e do Calendário Anual das Áreas Comuns regulares pela Assembleia Geral Ordinária de março a que se refere o art. 13, inciso IV.</p>
+</div>
+<div class="artigo" id="art-101">
+<p class="art-caput"><span class="art-num">Art. 101.</span> A eventual declaração de nulidade, invalidade ou inexequibilidade de qualquer disposição deste Regimento não prejudicará a validade das demais disposições, que permanecerão em vigor sempre que puderem produzir efeitos de forma autônoma.</p>
+</div>
+<div class="artigo" id="art-102">
+<p class="art-caput"><span class="art-num">Art. 102.</span> Este Regimento Interno entra em vigor na data de sua aprovação pela Assembleia Geral, revogadas as disposições em contrário.</p>
+</div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+
+<section class="nivel-capitulo" id="anexo-1">
+<h2 class="titulo-capitulo">ANEXO I — QUADRO DE REMISSÕES CONVENCIONAIS, LEGAIS E JURISPRUDENCIAIS</h2>
+<h2 id="sec-anexo-i-quadro-de-remissoes-convencionais-legais-e-jurisprudenciais">ANEXO I — QUADRO DE REMISSÕES CONVENCIONAIS, LEGAIS E JURISPRUDENCIAIS</h2>
+<div class="callout"><p>Quadro de consulta; não integra o texto normativo nem se sujeita a quórum de alteração regimental</p></div>
+<div class="table-wrap"><table class="datatable">
+<thead><tr><th>Dispositivo deste Regimento</th><th>Remissão à Convenção Condominial</th><th>Remissão à legislação</th><th>Remissão à jurisprudência</th><th>Observações</th></tr></thead>
+<tbody>
+<tr><td>Art. 14</td><td>Cláusula 36ª (legitimados para convocar Assembleia Extraordinária: Síndico, Conselho ou 1/4 dos condôminos)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Art. 14, § 3º</td><td>—</td><td>Código Civil, art. 1.354 (veda deliberação sobre matéria estranha à pauta, salvo comparecimento da totalidade dos condôminos)</td><td>—</td><td>—</td></tr>
+<tr><td>Art. 15</td><td>Cláusula 42ª (procuração: forma, prazo, limite máximo de procurações por outorgado)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Art. 16</td><td>Cláusula 37ª (quórum geral de instalação: metade das frações em 1ª convocação, maioria simples dos presentes em 2ª)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Art. 20</td><td>Cláusula 44ª (valor do voto corresponde à fração ideal de cada unidade)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Art. 27, § 1º</td><td>Cláusula 29ª (destituição do Síndico por maioria absoluta dos presentes, sem quórum de instalação especial)</td><td>Código Civil, art. 1.349 (irregularidade, ausência de prestação de contas ou má administração)</td><td>STJ, REsp 1.266.016/DF (a "maioria absoluta" do art. 1.349 do CC calcula-se sobre os condôminos presentes à Assembleia, não sobre a totalidade)</td><td>—</td></tr>
+<tr><td>Arts. 28 e 34, § 2º</td><td>Cláusula 25ª e parágrafos (composição do Conselho — 3 titulares e 3 suplentes —, do Subsíndico e regras de sucessão)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Arts. 29 e 31</td><td>Cláusula 32ª (rol de competências do Conselho)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Art. 34, § 1º</td><td>Cláusula 25ª (mesmo padrão do Código Civil quanto ao mandato)</td><td>Código Civil, art. 1.347 (teto de 2 anos por mandato, renovação permitida, sem limite de reconduções)</td><td>—</td><td>O mandato de 1 ano, sem limite de reconduções, fixado neste Regimento está dentro do teto legal e convencional — é escolha de política interna, não exigência da lei ou da Convenção.</td></tr>
+<tr><td>Art. 61</td><td>Cláusulas 56ª a 59ª (Fundo de Reserva: percentual mínimo de constituição, valor-alvo, hipóteses de uso)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Art. 61, § 2º</td><td>Cláusula 57ª (reversão obrigatória dos rendimentos do Fundo de Reserva ao próprio fundo)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Arts. 67 e 96</td><td>—</td><td>Lei federal vigente sobre proteção de dados pessoais</td><td>—</td><td>—</td></tr>
+<tr><td>Cap. VI (arts. 73 a 76)</td><td>Anexo I e Anexo V, Cláusula Quinta (bicicletários individuais vinculados a unidades autônomas)</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>Art. 79</td><td>—</td><td>—</td><td>STJ, REsp 1.783.076/DF (Informativo 649): veda proibição genérica de animal por espécie, raça ou porte; restrição só se sustenta diante de comportamento concreto de risco</td><td>—</td></tr>
+<tr><td>Art. 86</td><td>Cláusula 12ª, Parágrafo Primeiro e Parágrafo Segundo (multa agravada por descumprimento reiterado — até o quíntuplo — ou por comportamento antissocial reiterado — até o décuplo —, quórum de 2/3)</td><td>Código Civil, art. 1.337 (quórum de 3/4 dos condôminos restantes para as mesmas hipóteses — norma de ordem pública)</td><td>TJDFT, Processo 0700274-46.2017.8.07.0004 (multa qualificada por comportamento antissocial exige deliberação assemblear)</td><td>O quórum efetivamente exigível é o de 3/4 (legislação, norma de ordem pública), que prevalece sobre o de 2/3 fixado na Convenção.</td></tr>
+<tr><td>Art. 86, § 2º</td><td>—</td><td>—</td><td>STJ, REsp 1.699.022/SP: veda restringir o acesso a área comum como meio de coerção para cobrança de condômino inadimplente</td><td>—</td></tr>
+<tr><td>Art. 97, § 1º</td><td>Cláusula 14ª (quórum de alteração do Regimento: instalação com 2/3 de todos os condôminos, aprovação por maioria simples dos presentes)</td><td>—</td><td>STJ, REsp 1.169.865/DF: confirma que o quórum de alteração do Regimento Interno segue o fixado na Convenção Condominial</td><td>—</td></tr>
+</tbody></table></div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+
+</div>
+
+<div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div>
+<script>
+(function(){
+  var nav = document.getElementById('indice');
+  if(!nav) return;
+
+  // Monta as linhas do índice: todo <li> com link ganha uma "coluna" reservada
+  // à esquerda (seta, se tiver subitens; espaço em branco do mesmo tamanho, se não tiver),
+  // para que os títulos de mesmo nível fiquem sempre alinhados entre si.
+  var items = nav.querySelectorAll('li');
+  items.forEach(function(li){
+    var childUl = null;
+    for (var i = 0; i < li.children.length; i++){
+      if (li.children[i].tagName === 'UL' && li.children[i].classList.contains('toc-list')){
+        childUl = li.children[i];
+        break;
+      }
+    }
+    var link = li.querySelector(':scope > a');
+    if (!link) return;
+
+    var row = document.createElement('span');
+    row.className = 'toc-row';
+
+    if (childUl){
+      li.classList.add('has-children');
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'toc-toggle';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Expandir seções');
+      btn.textContent = '\u25B8';
+
+      li.insertBefore(row, link);
+      row.appendChild(btn);
+      row.appendChild(link);
+
+      btn.addEventListener('click', function(){
+        var open = li.classList.toggle('toc-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    } else {
+      var espaco = document.createElement('span');
+      espaco.className = 'toc-toggle toc-toggle-vazio';
+      espaco.setAttribute('aria-hidden', 'true');
+
+      li.insertBefore(row, link);
+      row.appendChild(espaco);
+      row.appendChild(link);
+    }
+  });
+
+  // Se a página abrir direto num link interno do índice (ex.: veio de outra página),
+  // expande automaticamente os capítulos/seções pai até revelar o item.
+  function expandToHash(){
+    var hash = window.location.hash;
+    if (!hash || hash === '#indice') return;
+    var target;
+    try { target = nav.querySelector('a[href="' + hash + '"]'); } catch(e){ return; }
+    if (!target) return;
+    var li = target.closest('li');
+    while (li){
+      if (li.classList.contains('has-children')) li.classList.add('toc-open');
+      var parentUl = li.parentElement;
+      li = parentUl ? parentUl.closest('li') : null;
+    }
+  }
+  expandToHash();
+  window.addEventListener('hashchange', expandToHash);
+})();
+</script>
+</body>
+</html>
