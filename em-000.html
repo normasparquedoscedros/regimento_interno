@@ -121,11 +121,17 @@
     border-bottom: 2px solid var(--line); padding-bottom: 10px; margin-top: 50px; scroll-margin-top: 70px;
   }
   #preambulo p{ text-align: justify; font-size: 15px; margin: 0 0 12px; }
-  /* ---------- Alternador entre as substitutivas (menu lateral) ---------- */
+  /* ---------- Alternador entre as substitutivas (coluna ao lado do texto) ---------- */
+  .page-layout{
+    display: flex; align-items: flex-start; justify-content: center;
+    gap: 22px; max-width: 1080px; margin: 0 auto; padding: 0 20px;
+  }
+  .page-layout .container{ margin: 0; flex: none; }
   .substitutiva-switch{
-    position: fixed; top: 130px; right: 24px; width: 176px; z-index: 90;
+    position: sticky; top: 90px; width: 168px; flex: none;
     background: #fff; border: 1px solid var(--line); border-radius: 8px;
-    padding: 14px 16px; box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    margin-top: 44px;
   }
   .substitutiva-switch .ss-title{
     font-size: 11px; text-transform: uppercase; letter-spacing: .04em;
@@ -143,14 +149,16 @@
   .substitutiva-switch a span{
     display: block; font-size: 11px; color: var(--muted); font-weight: 400;
   }
-  @media (max-width: 1180px){
+  @media (max-width: 1000px){
+    .page-layout{ flex-direction: column; padding: 0; }
     .substitutiva-switch{
-      position: static; width: auto; margin: 0 auto 20px; max-width: 900px;
+      position: static; width: auto; margin: 0 auto 0; max-width: 860px;
       display: flex; align-items: center; gap: 10px; box-shadow: none;
     }
     .substitutiva-switch .ss-title{ margin: 0; white-space: nowrap; }
     .substitutiva-switch a{ flex: 1; text-align: center; margin-bottom: 0; }
   }
+
 
 
   /* ---------- Visualizador de PDF incorporado ---------- */
@@ -254,14 +262,15 @@
       <a href="pareceres-tecnicos.html">Pareceres técnicos</a>
   </div>
 </div>
-<div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div><div class="fy"></div><div class="fb"></div></div>
+<div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div>
 
-<div class="container">
+<div class="page-layout">
 <aside class="substitutiva-switch">
   <div class="ss-title">Substitutivas</div>
   <a href="em-024.html">EM-024 <span>Unidade 512</span></a>
   <a href="#" class="current">EM-000 <span>Unidade 110</span></a>
 </aside>
+<div class="container">
 <header class="capa">
   <div class="eyebrow">Substitutiva — Unidade 110</div>
   <h1>EM-000</h1>
@@ -272,6 +281,7 @@
   <iframe class="pdf-frame" src="em-000.pdf" title="EM-000 — documento completo"></iframe>
 </div>
 <p class="pdf-fallback">Não consegue ver o documento acima? <a href="em-000.pdf" target="_blank" rel="noopener">Abra o PDF em uma nova aba ↗</a></p>
+</div>
 </div>
 
 <div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div>
