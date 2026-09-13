@@ -8,12 +8,12 @@
 
   :root{
     --ink: #16281d;
-    --green-deep: #1e4d19;  /* Independência — verde 115°, formula título */
-    --green-mid: #298321;   /* Independência — verde 115°, tom intermediário */
-    --green-pale: #dbe7da;  /* Independência — verde 115°, fundo do cabeçalho */
-    --green-mint: #ddc23c;  /* Independência — amarelo 50°, cor de destaque */
+    --green-deep: #1a4d2e;  /* Tempo Comum — verde escuro (títulos) */
+    --green-mid: #117a37;   /* Tempo Comum — verde primário (destaques) */
+    --green-pale: #dbe7da;  /* Tempo Comum — fundo do cabeçalho */
+    --green-mint: #ffd500;  /* Tempo Comum — dourado de destaque */
     --paper: #fbfbf8;
-    --line: #c4d6c2;
+    --line: #d7e6de;
     --muted: #556f52;
     --flag-green: #117a37;
     --flag-yellow: #ffd500;
@@ -34,8 +34,8 @@
   .flag-stripe{ display:flex; height:6px; }
   .flag-stripe div{ flex:1; }
   .flag-stripe .fg{ background: var(--flag-green); }
-  .flag-stripe .fy{ background: var(--flag-yellow); }
-  .flag-stripe .fb{ background: var(--flag-blue); }
+  .flag-stripe .fy{ background: #117a37; }
+  .flag-stripe .fb{ background: #117a37; }
 
   /* ---------- Header do site (igual às demais páginas) ---------- */
   header.site{ background: var(--green-pale); }
@@ -121,6 +121,9 @@
     border-bottom: 2px solid var(--line); padding-bottom: 10px; margin-top: 50px; scroll-margin-top: 110px;
   }
   #preambulo p{ text-align: justify; font-size: 15px; margin: 0 0 12px; }
+  .anexo-note{ font-size: 13px; font-style: italic; color: var(--muted); margin: -6px 0 14px; }
+  p.caption{ text-align: center; font-size: 12px; font-style: italic; color: var(--muted); margin: 4px 0 22px; }
+
   /* ---------- Alternador entre as substitutivas (coluna ao lado do texto) ---------- */
   .page-layout{
     display: flex; align-items: flex-start; justify-content: center;
@@ -230,6 +233,41 @@
   .subbar2 .subbar-inner{ font-size: 13.5px; padding-top: 8px; padding-bottom: 8px; }
 
   .subbar a, .subbar a:link, .subbar a:visited{ color: inherit; }
+  /* ---------- Alternador entre o texto-consolidado e as normas vinculadas ---------- */
+  .page-layout{
+    display: flex; align-items: flex-start; justify-content: center;
+    gap: 22px; max-width: 1080px; margin: 0 auto; padding: 0 20px;
+  }
+  .page-layout .container{ margin: 0; flex: none; }
+  .normas-switch{
+    position: sticky; top: 90px; width: 190px; flex: none;
+    background: #fff; border: 1px solid var(--line); border-radius: 8px;
+    padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    margin-top: 44px;
+  }
+  .normas-switch .ss-title{
+    font-size: 11px; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--muted); font-weight: 700; margin-bottom: 8px;
+  }
+  .normas-switch a{
+    display: block; padding: 8px 10px; border-radius: 6px; text-decoration: none;
+    color: var(--ink); font-size: 13px; margin-bottom: 3px; line-height: 1.3;
+  }
+  .normas-switch a span{ display: block; font-size: 11px; color: var(--muted); font-weight: 400; }
+  .normas-switch a:hover{ background: var(--green-pale); }
+  .normas-switch a.current{
+    background: var(--green-pale); font-weight: 700; color: var(--green-deep);
+    pointer-events: none;
+  }
+  @media (max-width: 1080px){
+    .page-layout{ flex-direction: column; padding: 0; }
+    .normas-switch{
+      position: static; width: auto; margin: 0 auto 0; max-width: 860px;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; box-shadow: none;
+    }
+    .normas-switch .ss-title{ margin: 0; white-space: nowrap; }
+    .normas-switch a{ margin-bottom: 0; }
+  }
 </style>
 </head>
 <body>
@@ -262,90 +300,165 @@
       <a href="comparacao.html">Comparação</a>
   </div>
 </div>
-<div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div><div class="fy"></div><div class="fb"></div></div><div class="fy"></div><div class="fb"></div></div>
+<div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div>
 
 <div class="page-layout">
-<aside class="substitutiva-switch">
+<aside class="normas-switch">
   <div class="ss-title">Substitutivas</div>
   <a href="#" class="current">EM-024 <span>Unidade 512</span></a>
   <a href="em-000.html">EM-000 <span>Unidade 110</span></a>
+  <div class="ss-title" style="margin-top:14px;">Normas vinculadas à EM-024</div>
+  <a href="em024-norma-complementar.html">Norma Complementar</a>
+  <a href="em024-norma-interna.html">Norma Interna</a>
+  <a href="em024-orcamento-anual.html">Orçamento Anual</a>
+  <a href="em024-calendario-anual.html">Calendário Anual</a>
 </aside>
 <div class="container">
 <header class="capa">
   <div class="eyebrow">Substitutiva — Unidade 512</div>
   <h1>EM-024</h1>
-  <div class="subtitulo">Emenda substitutiva integral ao Regimento Interno — reduz o texto-base de 384 para 102 artigos</div>
+  <div class="subtitulo">Emenda substitutiva integral ao Regimento Interno — 120 artigos, com Exposição de Motivos e Anexo I (quadro de remissões)</div>
 </header>
 
 <nav id="indice">
   <h2>Índice</h2>
 <ul class="toc-list toc-depth-0">
-<li><a href="#cap-1">CAPÍTULO I — DISPOSIÇÕES GERAIS</a>
+<li><a href="#cap-1">1. Objetivo da Emenda</a>
 </li>
-<li><a href="#cap-2">CAPÍTULO II — DA GOVERNANÇA CONDOMINIAL</a>
+<li><a href="#cap-2">2. Critério de Triagem Normativa</a>
+</li>
+<li><a href="#cap-3">3. Do Sistema Normativo Infralegal</a>
+</li>
+<li><a href="#cap-4">4. Da Disciplina Financeira, Orçamentária e Patrimonial</a>
+</li>
+<li><a href="#cap-5">5. Do Regime de Infrações e Penalidades</a>
+</li>
+<li><a href="#cap-6">6. Do Procedimento Administrativo</a>
+</li>
+<li><a href="#cap-7">7. Considerações Finais</a>
+</li>
+<li><a href="#cap-8">Capítulo I — DISPOSIÇÕES GERAIS E DO SISTEMA NORMATIVO</a>
 <ul class="toc-list toc-depth-1">
-<li><a href="#cap-2-sec-1">Seção I — Dos Princípios e do Critério de Triagem Normativa</a>
+<li><a href="#cap-8-sec-1">Seção I — Disposições Preliminares</a>
 </li>
-<li><a href="#cap-2-sec-2">Seção II — Da Assembleia Geral</a>
+<li><a href="#cap-8-sec-2">Seção II — Do Sistema Normativo</a>
+</li>
+</ul>
+</li>
+<li><a href="#cap-9">Capítulo II — DA GOVERNANÇA CONDOMINIAL</a>
+<ul class="toc-list toc-depth-1">
+<li><a href="#cap-9-sec-1">Seção I — Da Assembleia Geral</a>
 <ul class="toc-list toc-depth-2">
-<li><a href="#cap-2-sec-2-sub-1">Subseção I — Das Emendas de Tramitação</a></li>
-<li><a href="#cap-2-sec-2-sub-2">Subseção II — Das Deliberações, das Votações Eletrônicas e das Atas</a></li>
+<li><a href="#cap-9-sec-1-sub-1">Subseção I — Das Emendas de Tramitação</a></li>
+<li><a href="#cap-9-sec-1-sub-2">Subseção II — Das Deliberações, das Votações Eletrônicas e das Atas</a></li>
 </ul>
 </li>
-<li><a href="#cap-2-sec-3">Seção III — Dos Agentes da Governança Condominial</a>
+<li><a href="#cap-9-sec-2">Seção II — Dos Agentes da Governança Condominial</a>
 </li>
-<li><a href="#cap-2-sec-4">Seção IV — Do Conselho</a>
+<li><a href="#cap-9-sec-3">Seção III — Do Conselho</a>
 </li>
-<li><a href="#cap-2-sec-5">Seção V — Do Síndico e do Subsíndico</a>
+<li><a href="#cap-9-sec-4">Seção IV — Do Síndico e do Subsíndico</a>
 </li>
-<li><a href="#cap-2-sec-6">Seção VI — Da Transição da Administração</a>
+<li><a href="#cap-9-sec-5">Seção V — Da Transição da Administração</a>
 </li>
 </ul>
 </li>
-<li><a href="#cap-3">CAPÍTULO III — DA GESTÃO ADMINISTRATIVA, FINANCEIRA, PATRIMONIAL E ORÇAMENTÁRIA</a>
+<li><a href="#cap-10">Capítulo III — DA GESTÃO ADMINISTRATIVA, FINANCEIRA, PATRIMONIAL E ORÇAMENTÁRIA</a>
 <ul class="toc-list toc-depth-1">
-<li><a href="#cap-3-sec-1">Seção I — Dos Princípios</a>
+<li><a href="#cap-10-sec-1">Seção I — Dos Princípios</a>
 </li>
-<li><a href="#cap-3-sec-2">Seção II — Do Ciclo Eleitoral e do Orçamento Anual</a>
+<li><a href="#cap-10-sec-2">Seção II — Do Ciclo Eleitoral e do Orçamento Anual</a>
 </li>
-<li><a href="#cap-3-sec-3">Seção III — Da Proposta Orçamentária e de sua Execução</a>
+<li><a href="#cap-10-sec-3">Seção III — Da Proposta Orçamentária e de sua Execução</a>
 </li>
-<li><a href="#cap-3-sec-4">Seção IV — Das Contratações</a>
+<li><a href="#cap-10-sec-4">Seção IV — Das Contratações</a>
 </li>
-<li><a href="#cap-3-sec-5">Seção V — Da Prestação de Contas</a>
+<li><a href="#cap-10-sec-5">Seção V — Da Prestação de Contas</a>
 </li>
-<li><a href="#cap-3-sec-6">Seção VI — Dos Fundos Condominiais e do Controle Patrimonial</a>
+<li><a href="#cap-10-sec-6">Seção VI — Dos Fundos Condominiais e do Controle Patrimonial</a>
 </li>
 </ul>
 </li>
-<li><a href="#cap-4">CAPÍTULO IV — DA UTILIZAÇÃO DAS UNIDADES AUTÔNOMAS</a>
+<li><a href="#cap-11">Capítulo IV — DA UTILIZAÇÃO DAS UNIDADES AUTÔNOMAS</a>
 </li>
-<li><a href="#cap-5">CAPÍTULO V — DAS ÁREAS COMUNS DE USO COLETIVO</a>
+<li><a href="#cap-12">Capítulo V — DAS ÁREAS COMUNS DE USO COLETIVO</a>
 </li>
-<li><a href="#cap-6">CAPÍTULO VI — DOS VEÍCULOS, GARAGENS E CIRCULAÇÃO INTERNA</a>
+<li><a href="#cap-13">Capítulo VI — DOS VEÍCULOS, GARAGENS E CIRCULAÇÃO INTERNA</a>
 </li>
-<li><a href="#cap-7">CAPÍTULO VII — DA CONVIVÊNCIA CONDOMINIAL</a>
+<li><a href="#cap-14">Capítulo VII — DA CONVIVÊNCIA CONDOMINIAL</a>
 </li>
-<li><a href="#cap-8">CAPÍTULO VIII — DAS INFRAÇÕES, PENALIDADES E DO PROCESSO ADMINISTRATIVO</a>
+<li><a href="#cap-15">Capítulo VIII — DAS INFRAÇÕES, PENALIDADES E DO PROCESSO ADMINISTRATIVO</a>
 <ul class="toc-list toc-depth-1">
-<li><a href="#cap-8-sec-1">Seção I — Disposições Gerais</a>
+<li><a href="#cap-15-sec-1">Seção I — Disposições Gerais</a>
 </li>
-<li><a href="#cap-8-sec-2">Seção II — Das Infrações e das Penalidades</a>
+<li><a href="#cap-15-sec-2">Seção II — Das Infrações e das Penalidades</a>
 </li>
-<li><a href="#cap-8-sec-3">Seção III — Do Procedimento Administrativo</a>
+<li><a href="#cap-15-sec-3">Seção III — Do Procedimento Administrativo</a>
+<ul class="toc-list toc-depth-2">
+<li><a href="#cap-15-sec-3-sub-1">Subseção I — Disposições Comuns</a></li>
+<li><a href="#cap-15-sec-3-sub-2">Subseção II — Da Apuração de Infrações</a></li>
+</ul>
 </li>
-<li><a href="#cap-8-sec-4">Seção IV — Dos Recursos Administrativos</a>
+<li><a href="#cap-15-sec-4">Seção IV — Dos Recursos Administrativos</a>
 </li>
-<li><a href="#cap-8-sec-5">Seção V — Da Execução das Penalidades</a>
+<li><a href="#cap-15-sec-5">Seção V — Da Execução das Penalidades</a>
+</li>
+<li><a href="#cap-15-sec-6">Seção VI — Do Procedimento Administrativo Comum</a>
 </li>
 </ul>
 </li>
-<li><a href="#cap-9">CAPÍTULO IX — DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS</a>
+<li><a href="#cap-16">Capítulo IX — DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS</a>
 </li>
-<li><a href="#anexo-1">ANEXO I — QUADRO DE REMISSÕES CONVENCIONAIS, LEGAIS E JURISPRUDENCIAIS</a>
+<li><a href="#cap-17">Anexo I — Quadro de Remissões Convencionais, Legais e Jurisprudenciais</a>
 </li>
 </ul>
 </nav>
+<section class="nivel-capitulo" id="cap-1">
+<h2 class="titulo-capitulo">1. Objetivo da Emenda</h2>
+<p>Esta Emenda Substitutiva apresenta uma nova redação integral ao Regimento Interno do Condomínio Parque dos Cedros, estruturada em 120 artigos. O objetivo central é concentrar no Regimento apenas as matérias que, por sua natureza, exigem a estabilidade e as garantias próprias desse nível normativo — direitos e deveres dos condôminos, composição e competências dos órgãos de governança, devido processo administrativo, disciplina financeira e orçamentária —, remetendo a instrumentos normativos de hierarquia inferior toda matéria operacional, técnica ou sujeita a ajuste frequente.</p>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-2">
+<h2 class="titulo-capitulo">2. Critério de Triagem Normativa</h2>
+<p>O Art. 8º fixa, de forma taxativa, as matérias reservadas ao Regimento Interno: os direitos e deveres dos condôminos e moradores; a composição, o mandato, a eleição e as competências dos órgãos da Governança Condominial; o devido processo administrativo e o sistema de infrações e penalidades; as regras de disciplina financeira, orçamentária, patrimonial e de contratações; e as matérias que a própria Convenção Condominial exija expressamente sejam tratadas em Regimento.</p>
+<p>O Art. 9º complementa esse critério com uma regra de mão dupla: toda matéria de natureza operacional ou técnica, sujeita a ajuste frequente ou vinculada ao uso específico de um espaço, situação ou exercício financeiro determinado, deve ser tratada em nível normativo inferior — vedado tanto elevá-la ao Regimento quanto, reciprocamente, rebaixar ao nível inferior matéria que o Art. 8º reserva ao Regimento. Esse critério de dupla vedação é o que confere estabilidade e previsibilidade à divisão de competências normativas dentro do condomínio.</p>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-3">
+<h2 class="titulo-capitulo">3. Do Sistema Normativo Infralegal</h2>
+<p>O Capítulo I disciplina, em Seção própria, o sistema normativo infralegal do condomínio, estruturado em quatro instrumentos fixos e nomeados — em vez de uma multiplicação indefinida de normas dispersas sobre os mesmos temas:</p>
+<ol class="incisos">
+<li><span class="inc-num"></span> Norma Complementar (Art. 10): instrumento único e consolidado, aprovado pelo mesmo quórum exigido para a alteração do Regimento, destinado às matérias que exigem maior estabilidade — como a padronização de armários de garagem, alterações de fachada e a instalação de pontos de recarga de veículo elétrico ou híbrido.</li>
+<li><span class="inc-num"></span> Norma Interna (Art. 11): instrumento único e consolidado, aprovado por maioria simples, que disciplina as demais matérias regimentalmente delegadas ou que a Assembleia Geral decida instituir, com vedação expressa a matéria financeira ou orçamentária.</li>
+<li><span class="inc-num"></span> Orçamento Anual (Art. 12): instrumento de aprovação e renovação anual obrigatórias, que concentra toda a disciplina financeira e orçamentária do condomínio, inclusive o valor-alvo dos fundos condominiais.</li>
+<li><span class="inc-num"></span> Calendário Anual (Art. 13): instrumento de aprovação e renovação anual obrigatórias, que disciplina o calendário de uso das áreas comuns.</li>
+</ol>
+<p>Cada um desses instrumentos pode ser aprovado ou alterado em sua integralidade, ou apenas em capítulo, artigo, parágrafo ou inciso específico, sem que isso exija nova aprovação da íntegra — no mesmo molde de uma lei ordinária, que pode ser emendada em parte sem necessidade de reedição completa.</p>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-4">
+<h2 class="titulo-capitulo">4. Da Disciplina Financeira, Orçamentária e Patrimonial</h2>
+<p>O Capítulo III disciplina a gestão administrativa, financeira, patrimonial e orçamentária do condomínio, com destaque para o regime dos fundos condominiais (Arts. 63 a 66). A regra geral veda a utilização de qualquer fundo para finalidade diversa da que motivou sua constituição, ressalvadas as hipóteses expressamente previstas na Convenção Condominial, no Regimento, ou autorizadas pela Assembleia Geral nos termos do Art. 64: o Orçamento Anual pode fixar, para cada fundo, um valor-alvo a ser mantido, e somente o que exceder esse valor pode ser destinado a outra finalidade; na ausência de valor-alvo fixado, os recursos permanecem integralmente vinculados ao seu propósito original. O Fundo de Reserva (Art. 65) e o Fundo de Manutenção das Áreas Comuns Reserváveis (Art. 66) têm, cada um,</p>
+<p>regramento próprio dentro dessa mesma seção.</p>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-5">
+<h2 class="titulo-capitulo">5. Do Regime de Infrações e Penalidades</h2>
+<p>O Capítulo VIII estabelece o regime de infrações e penalidades. As condutas são classificadas em leves, médias, graves e gravíssimas (Art. 90), com fundamentação expressa exigida em cada decisão administrativa. As penalidades cabíveis — advertência, multa e suspensão temporária de autorização ou utilização de área, equipamento ou serviço comum sujeito a reserva — estão previstas no Art. 91, e o cálculo da multa comum, nos percentuais de 10% (leve), 25% (média), 50% (grave) e 100% (gravíssima) sobre a Taxa Condominial Ordinária, está no Art. 92, sem prejuízo da multa agravada de aplicação privativa da Assembleia Geral para as hipóteses de descumprimento reiterado de deveres condominiais ou comportamento antissocial, na forma da legislação vigente.</p>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-6">
+<h2 class="titulo-capitulo">6. Do Procedimento Administrativo</h2>
+<p>A Seção III do Capítulo VIII disciplina o procedimento administrativo em duas subseções. A Subseção I fixa as disposições comuns a toda petição dirigida à Administração ou ao Conselho: o direito de petição (Art. 93), o dever de resposta fundamentada (Art. 94), o prazo padrão de 15 dias úteis prorrogável uma vez (Art. 95), o escalonamento automático à instância superior em caso de omissão, sem que o silêncio jamais produza decisão tácita (Art. 96), e as consequências pessoais ao agente que descumprir prazos reiteradamente — redução de remuneração, quando houver, e inclusão automática em pauta de deliberação sobre destituição a partir do terceiro descumprimento em doze meses (Arts. 97 e 98).</p>
+<p>A Subseção II disciplina especificamente a apuração de infrações, com prazo para a decisão do Síndico após a fase de defesa e escalonamento a parecer opinativo do Conselho e, em seguida, à Assembleia Geral em caso de nova omissão (Arts. 99 a 102). A comunicação da multa ao Conselho, no prazo de 5 dias úteis, tem finalidade de controle de ofício e não afeta a validade da multa aplicada (Art. 104).</p>
+<p>Ao final do Capítulo, a Seção VI disciplina o procedimento aplicável a petições que não tenham por objeto a apuração de infração — pedidos de autorização, esclarecimento, providência ou de objeto diverso (Arts. 111 a 114) —, mantendo o mesmo núcleo procedimental da Subseção I, com a ressalva de que pedidos de obra que envolvam elemento estrutural, instalação técnica predial ou sistema de proteção contra incêndio somente se consideram atendidos mediante decisão expressa, vedada em qualquer hipótese decisão tácita.</p>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-7">
+<h2 class="titulo-capitulo">7. Considerações Finais</h2>
+<p>A estratégia de concentrar no Regimento apenas o núcleo estável e estrutural, remetendo o detalhamento operacional a instrumentos de hierarquia inferior, não é inédita: reflete o entendimento já expresso, de forma independente, em pareceres técnicos de condôminos que analisaram a estrutura da Convenção e do Regimento sob essa mesma ótica — entre eles, os pareceres de Franz Thiele e de Ricardo Martins, que, cada qual por método próprio, concluíram pela conveniência de reservar ao Regimento apenas a matéria verdadeiramente fundamental e estrutural do condomínio.</p>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
 <section id="preambulo">
 <h2 class="titulo-preambulo">Preâmbulo</h2>
 <p>Considerando que a convivência harmônica em comunidade pressupõe o respeito mútuo, a solidariedade e a observância da dignidade da pessoa humana;</p>
@@ -354,8 +467,10 @@
 <p>Nós, os condôminos do Condomínio Parque dos Cedros, a fim de formar uma comunidade mais perfeita, estabelecer a justiça e a transparência, garantir a tranquilidade interna, prover a segurança comum, promover o bem-estar geral e assegurar as bênçãos da liberdade a nós e aos que vierem a habitar este condomínio, para que possamos viver em paz, realizar nossos projetos de vida e buscar nossa felicidade, sob a proteção de Deus, ordenamos e estabelecemos este Regimento Interno.</p>
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
-<section class="nivel-capitulo" id="cap-1">
-<h2 class="titulo-capitulo">CAPÍTULO I — DISPOSIÇÕES GERAIS</h2>
+<section class="nivel-capitulo" id="cap-8">
+<h2 class="titulo-capitulo">Capítulo I — DISPOSIÇÕES GERAIS E DO SISTEMA NORMATIVO</h2>
+<section class="nivel-secao" id="cap-8-sec-1">
+<h3 class="titulo-secao">Seção I — Disposições Preliminares</h3>
 <div class="artigo" id="art-1">
 <p class="art-caput"><span class="art-num">Art. 1º.</span> Este Regimento Interno complementa a Convenção Condominial e disciplina a organização administrativa, o funcionamento e a convivência no Condomínio Parque dos Cedros, observada a legislação vigente.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> Este Regimento vincula, no que lhes couber, todos os condôminos, moradores, ocupantes, visitantes e prestadores de serviços, que têm o dever de conhecê-lo, respeitá-lo e cumpri-lo, respondendo por sua inobservância na forma da legislação vigente, da Convenção Condominial e deste Regimento.</p>
@@ -371,12 +486,9 @@
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Excetuam-se da vedação prevista no caput as atividades pontuais expressamente autorizadas pela Administração, observadas as condições estabelecidas em Norma Interna.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> Não caracteriza atividade vedada pelo caput o trabalho remoto ou a atividade profissional ou intelectual exercida no interior da unidade autônoma, sem atendimento habitual ao público, publicidade externa, estoque relevante de mercadorias, circulação anormal de pessoas ou veículos, ou perturbação à segurança, ao sossego ou à salubridade do condomínio.</p>
 </div>
-<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
-<section class="nivel-capitulo" id="cap-2">
-<h2 class="titulo-capitulo">CAPÍTULO II — DA GOVERNANÇA CONDOMINIAL</h2>
-<section class="nivel-secao" id="cap-2-sec-1">
-<h3 class="titulo-secao">Seção I — Dos Princípios e do Critério de Triagem Normativa</h3>
+<section class="nivel-secao" id="cap-8-sec-2">
+<h3 class="titulo-secao">Seção II — Do Sistema Normativo</h3>
 <div class="artigo" id="art-5">
 <p class="art-caput"><span class="art-num">Art. 5º.</span> As normas deste Regimento serão interpretadas e aplicadas à luz dos seguintes princípios, de observância obrigatória pelos agentes da Governança Condominial no exercício de suas atribuições: legalidade; transparência; motivação; responsabilidade; impessoalidade; eficiência; integridade; boa-fé; economicidade; publicidade; prestação de contas; participação dos condôminos; harmonização entre os direitos individuais e o interesse coletivo; e accountability, entendida como o dever permanente de justificar decisões, prestar contas e responder pelos atos praticados.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Regem, especialmente, a utilização das unidades autônomas e das áreas comuns e a convivência entre condôminos, moradores, ocupantes, visitantes e prestadores de serviços: boa convivência; isonomia; segurança; preservação do patrimônio comum; acessibilidade; e respeito aos direitos dos demais usuários.</p>
@@ -395,7 +507,7 @@
 <li><span class="inc-num">IV.</span> as Normas Internas;</li>
 <li><span class="inc-num">V.</span> os Procedimentos Operacionais.</li>
 </ol>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Os níveis previstos nos incisos III a V subordinam-se à Convenção Condominial e a este Regimento Interno, sob pena de nulidade; as Normas Complementares e as Normas Internas, contudo, não guardam relação de hierarquia entre si, distinguindo-se apenas quanto à matéria e ao quórum de aprovação, nos termos dos arts. 9º e 10; os Procedimentos Operacionais subordinam-se, ainda, às Normas Complementares e às Normas Internas eventualmente editadas sobre a mesma matéria.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Os níveis previstos nos incisos III a V subordinam-se à Convenção Condominial e a este Regimento Interno, sob pena de nulidade; as Normas Complementares e as Normas Internas, contudo, não guardam relação de hierarquia entre si, distinguindo-se apenas quanto à matéria e ao quórum de aprovação, nos termos dos arts. 10 e 11; os Procedimentos Operacionais subordinam-se, ainda, às Normas Complementares e às Normas Internas eventualmente editadas sobre a mesma matéria.</p>
 </div>
 <div class="artigo" id="art-8">
 <p class="art-caput"><span class="art-num">Art. 8º.</span> Permanece reservado a este Regimento Interno, exclusivamente:</p>
@@ -406,45 +518,55 @@
 <li><span class="inc-num">IV.</span> as regras de disciplina financeira, orçamentária, patrimonial e de contratações;</li>
 <li><span class="inc-num">V.</span> as matérias que a Convenção Condominial exija expressamente sejam tratadas em Regimento Interno.</li>
 </ol>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Toda matéria de natureza operacional ou técnica, sujeita a ajuste frequente, ou vinculada ao uso específico de um espaço, situação ou exercício financeiro determinado deve ser tratada em Norma Complementar, Norma Interna ou Procedimento Operacional, conforme o caso, sendo vedado o tratamento em nível de Regimento Interno de matéria que se enquadre nesta hipótese, e vedado, reciprocamente, o tratamento em Norma Complementar, Norma Interna ou Procedimento Operacional de matéria reservada ao Regimento Interno nos termos do caput.</p>
 </div>
 <div class="artigo" id="art-9">
-<p class="art-caput"><span class="art-num">Art. 9º.</span> Norma Complementar é o ato deliberativo da Assembleia Geral que disciplina matéria que, por sua natureza, exige maior estabilidade do que a conferida à Norma Interna, sem constituir alteração do texto deste Regimento, aprovado pelo mesmo quórum exigido para a alteração deste Regimento, nos termos do § 1º do art. 97.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Constituem obrigatoriamente matéria de Norma Complementar, sem prejuízo de outras que a Assembleia Geral venha a instituir pelo mesmo quórum:</p>
+<p class="art-caput"><span class="art-num">Art. 9º.</span> Toda matéria de natureza operacional ou técnica, sujeita a ajuste frequente, ou vinculada ao uso específico de um espaço, situação ou exercício financeiro determinado deve ser tratada em Norma Complementar, Norma Interna ou Procedimento Operacional, conforme o caso, sendo vedado o tratamento em nível de Regimento Interno de matéria que se enquadre nesta hipótese, e vedado, reciprocamente, o tratamento em Norma Complementar, Norma Interna ou Procedimento Operacional de matéria reservada ao Regimento Interno nos termos do art. 8º.</p>
+</div>
+<div class="artigo" id="art-10">
+<p class="art-caput"><span class="art-num">Art. 10.</span> Norma Complementar é o instrumento único e consolidado, aprovado pela Assembleia Geral pelo mesmo quórum exigido para a alteração deste Regimento, nos termos do § 1º do art. 115, que disciplina, em capítulos próprios, as matérias que, por sua natureza, exijam maior estabilidade do que a conferida à Norma Interna, sem constituir alteração do texto deste Regimento.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Constituem obrigatoriamente capítulo da Norma Complementar, sem prejuízo de outros que a Assembleia Geral venha a instituir pelo mesmo quórum:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> a padronização de armários ou outros equipamentos fixos instaláveis nas vagas de garagem;</li>
 <li><span class="inc-num">II.</span> alterações que afetem a fachada do edifício, incluindo películas, telas de proteção, padrões de instalação de equipamentos nas lajes técnicas e fechamentos de coberturas; e</li>
 <li><span class="inc-num">III.</span> a instalação de pontos de recarga de veículo elétrico ou híbrido nas vagas de garagem.</li>
 </ol>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> A Assembleia Geral pode aprovar a Norma Complementar em sua integralidade, ou alterar capítulo, artigo, parágrafo ou inciso específico, sem que isso exija nova aprovação da íntegra do instrumento, observada a identificação expressa do dispositivo alterado na convocação, nos termos do art. 17, § 1º.</p>
 </div>
-<div class="artigo" id="art-10">
-<p class="art-caput"><span class="art-num">Art. 10.</span> Norma Interna é o ato deliberativo da Assembleia Geral aprovado por maioria simples dos presentes, dispensado quórum qualificado, competindo exclusivamente à Assembleia Geral aprová-la e alterá-la, vedada a delegação desse rito à própria Norma Interna ou a qualquer outro órgão.</p>
-<p class="paragrafo"><span class="par-num">§ 1º.</span> Constituem Norma Interna de aprovação e renovação anual obrigatórias:</p>
-<ol class="incisos">
-<li><span class="inc-num">I.</span> a Proposta Orçamentária Anual; e</li>
-<li><span class="inc-num">II.</span> a Proposta de Calendário Anual das Áreas Comuns.</li>
-</ol>
-<p class="paragrafo"><span class="par-num">§ 2º.</span> Constituem Norma Interna:</p>
+<div class="artigo" id="art-11">
+<p class="art-caput"><span class="art-num">Art. 11.</span> Norma Interna é o instrumento único e consolidado, aprovado pela Assembleia Geral pelo rito de deliberação previsto nesta Seção, dispensado quórum qualificado, competindo exclusivamente à Assembleia Geral aprová-lo e alterá-lo, vedada a delegação desse rito à própria Norma Interna ou a qualquer outro órgão, que disciplina, em capítulos próprios, as matérias submetidas a esse regime por este Regimento ou por deliberação da Assembleia Geral, ressalvadas as matérias de que tratam os arts. 12 e 13.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Constituem obrigatoriamente capítulo da Norma Interna, sem prejuízo de outros que a Assembleia Geral decida instituir, vedada matéria financeira ou orçamentária, disciplinada exclusivamente no Orçamento Anual nos termos do art. 12:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> as regras de uso das áreas comuns de que trata o Capítulo V;</li>
 <li><span class="inc-num">II.</span> as regras de utilização de garagens, vagas e circulação interna de que trata o Capítulo VI, no que exceder o núcleo de segurança mantido neste Regimento; e</li>
-<li><span class="inc-num">III.</span> todas as matérias não reservadas a outro tipo normativo.</li>
+<li><span class="inc-num">III.</span> todas as demais matérias não reservadas a outro tipo normativo.</li>
 </ol>
-<p class="paragrafo"><span class="par-num">§ 3º.</span> A edição das Normas Internas referidas no § 2º não é obrigatória e, uma vez aprovadas, não se sujeitam a renovação periódica, permanecendo em vigor até sua alteração ou revogação pela Assembleia Geral.</p>
-<p class="paragrafo"><span class="par-num">§ 4º.</span> Rejeitada a proposta de Proposta Orçamentária Anual ou de Calendário Anual das Áreas Comuns sem aprovação de substituta na mesma Assembleia, permanecerá em vigor, em caráter provisório, a Norma Interna do exercício anterior, no que for compatível, até nova deliberação pela Assembleia Geral.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> A edição de capítulo da Norma Interna não é obrigatória e, uma vez aprovado, não se sujeita a renovação periódica, permanecendo em vigor até sua alteração ou revogação pela Assembleia Geral.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> Aplica-se à Norma Interna, no que couber, a regra de alteração parcial prevista no art. 10, § 2º.</p>
 </div>
-<div class="artigo" id="art-11">
-<p class="art-caput"><span class="art-num">Art. 11.</span> Procedimento Operacional é o ato editado pela Administração Condominial para disciplinar exclusivamente a forma de execução das disposições da legislação vigente, da Convenção Condominial, deste Regimento, das Normas Complementares e das Normas Internas, vedado criar direito, obrigação, restrição ou penalidade não prevista em tais instrumentos.</p>
+<div class="artigo" id="art-12">
+<p class="art-caput"><span class="art-num">Art. 12.</span> O Orçamento Anual é o instrumento aprovado pela Assembleia Geral, pelo mesmo rito de deliberação da Norma Interna, mediante o qual se aprova a Proposta Orçamentária de que trata o art. 50, disciplinando toda matéria financeira e orçamentária do condomínio, inclusive o valor-alvo e a destinação do excedente dos fundos condominiais nos termos do art. 64, com vigência e renovação anual obrigatória.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Rejeitada a proposta sem aprovação de substituto na mesma Assembleia, permanecerá em vigor, em caráter provisório, o Orçamento Anual do exercício anterior, no que for compatível, até nova aprovação.</p>
+</div>
+<div class="artigo" id="art-13">
+<p class="art-caput"><span class="art-num">Art. 13.</span> O Calendário Anual é o instrumento aprovado pela Assembleia Geral, pelo mesmo rito de deliberação da Norma Interna, mediante o qual se aprova a Proposta de Calendário Anual das Áreas Comuns de que trata o art. 74, com vigência e renovação anual obrigatória.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Rejeitada a proposta sem aprovação de substituto na mesma Assembleia, permanecerá em vigor, em caráter provisório, o Calendário Anual do exercício anterior, no que for compatível, até nova aprovação.</p>
+</div>
+<div class="artigo" id="art-14">
+<p class="art-caput"><span class="art-num">Art. 14.</span> Procedimento Operacional é o ato editado pela Administração Condominial para disciplinar exclusivamente a forma de execução das disposições da legislação vigente, da Convenção Condominial, deste Regimento, das Normas Complementares e das Normas Internas, vedado criar direito, obrigação, restrição ou penalidade não prevista em tais instrumentos.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> O Procedimento Operacional que exceder os limites previstos no caput é nulo nessa parte, cabendo impugnação ao Conselho e, sucessivamente, à Assembleia Geral, na forma da Seção IV do Capítulo VIII.</p>
 </div>
 </section>
-<section class="nivel-secao" id="cap-2-sec-2">
-<h3 class="titulo-secao">Seção II — Da Assembleia Geral</h3>
-<div class="artigo" id="art-12">
-<p class="art-caput"><span class="art-num">Art. 12.</span> A Assembleia Geral é o órgão máximo de deliberação do Condomínio, competindo-lhe definir a vontade coletiva, estabelecer as diretrizes da Governança Condominial, fiscalizar em última instância os atos da Administração e deliberar sobre as matérias de sua competência.</p>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-9">
+<h2 class="titulo-capitulo">Capítulo II — DA GOVERNANÇA CONDOMINIAL</h2>
+<section class="nivel-secao" id="cap-9-sec-1">
+<h3 class="titulo-secao">Seção I — Da Assembleia Geral</h3>
+<div class="artigo" id="art-15">
+<p class="art-caput"><span class="art-num">Art. 15.</span> A Assembleia Geral é o órgão máximo de deliberação do Condomínio, competindo-lhe definir a vontade coletiva, estabelecer as diretrizes da Governança Condominial, fiscalizar em última instância os atos da Administração e deliberar sobre as matérias de sua competência.</p>
 </div>
-<div class="artigo" id="art-13">
-<p class="art-caput"><span class="art-num">Art. 13.</span> A Assembleia Geral Ordinária realizar-se-á anualmente, no mês de março, competindo-lhe deliberar, especialmente:</p>
+<div class="artigo" id="art-16">
+<p class="art-caput"><span class="art-num">Art. 16.</span> A Assembleia Geral Ordinária realizar-se-á anualmente, no mês de março, competindo-lhe deliberar, especialmente:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> sobre a prestação de contas do exercício anterior;</li>
 <li><span class="inc-num">II.</span> a eleição dos membros do Conselho, individualmente;</li>
@@ -454,117 +576,117 @@
 </ol>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> A Assembleia Geral Extraordinária reunir-se-á sempre que os interesses do condomínio o exigirem, nas hipóteses previstas na legislação vigente, na Convenção Condominial e neste Regimento.</p>
 </div>
-<div class="artigo" id="art-14">
-<p class="art-caput"><span class="art-num">Art. 14.</span> A Assembleia Geral será convocada pelo Síndico, pelo Conselho — mediante deliberação da maioria de seus membros em exercício, tomada na forma do art. 30 e registrada em ata — ou por condôminos que representem, no mínimo, um quarto das frações ideais do condomínio.</p>
+<div class="artigo" id="art-17">
+<p class="art-caput"><span class="art-num">Art. 17.</span> A Assembleia Geral será convocada pelo Síndico, pelo Conselho — mediante deliberação da maioria de seus membros em exercício, tomada na forma do art. 33 e registrada em ata — ou por condôminos que representem, no mínimo, um quarto das frações ideais do condomínio.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> O edital de convocação, divulgado com antecedência mínima de 10 (dez) dias, conterá a identificação da Assembleia, data, horário, local e modalidade de realização, a ordem do dia redigida de forma clara e específica, e as informações necessárias à sua compreensão, permanecendo disponível aos condôminos toda a documentação relativa a matéria de impacto patrimonial relevante desde a convocação.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> Qualquer condômino poderá requerer a inclusão de matéria na ordem do dia no prazo de até 2 (dois) dias contado da divulgação do edital, cabendo a quem convocou decidir motivadamente e, em caso de recusa, à própria Assembleia, por maioria simples dos presentes, deliberar pela inclusão no início dos trabalhos.</p>
 <p class="paragrafo"><span class="par-num">§ 3º.</span> A apreciação de mérito da matéria incluída nos termos do § 2º, com efeito vinculante, somente ocorrerá na mesma Assembleia se estiverem presentes todos os condôminos, conforme exigido pela legislação vigente para deliberação sobre matéria estranha à ordem do dia; não estando presente a totalidade, a matéria será incluída na ordem do dia da próxima Assembleia que comporte pauta não exclusiva, ou, se depender por sua natureza de Assembleia especialmente convocada, na primeira que vier a ser convocada para esse fim.</p>
 </div>
-<div class="artigo" id="art-15">
-<p class="art-caput"><span class="art-num">Art. 15.</span> O condômino poderá fazer-se representar em Assembleia Geral por procurador, mediante instrumento de mandato que indique especificamente a Assembleia a que se refere, admitida a procuração em meio físico ou digital.</p>
+<div class="artigo" id="art-18">
+<p class="art-caput"><span class="art-num">Art. 18.</span> O condômino poderá fazer-se representar em Assembleia Geral por procurador, mediante instrumento de mandato que indique especificamente a Assembleia a que se refere, admitida a procuração em meio físico ou digital.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> A procuração digital será enviada à Administração em seu formato nativo, com assinatura por certificado ICP-Brasil, plataforma gov.br em nível prata ou ouro, ou outra que assegure autenticidade, integridade e rastreabilidade, com antecedência mínima de 24 (vinte e quatro) horas da abertura da Assembleia.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> Nenhum procurador poderá representar número de condôminos superior ao limite máximo de procurações por outorgado fixado na Convenção Condominial, além de si mesmo quando também condômino.</p>
 </div>
-<div class="artigo" id="art-16">
-<p class="art-caput"><span class="art-num">Art. 16.</span> A Assembleia Geral instalar-se-á, em primeira convocação, com a presença de condôminos que representem, no mínimo, metade das frações ideais do condomínio e, em segunda convocação, trinta minutos após, com qualquer número de presentes, ressalvadas as hipóteses de quórum especial previstas na legislação vigente, na Convenção Condominial, ou neste Regimento.</p>
+<div class="artigo" id="art-19">
+<p class="art-caput"><span class="art-num">Art. 19.</span> A Assembleia Geral instalar-se-á, em primeira convocação, com a presença de condôminos que representem, no mínimo, metade das frações ideais do condomínio e, em segunda convocação, trinta minutos após, com qualquer número de presentes, ressalvadas as hipóteses de quórum especial previstas na legislação vigente, na Convenção Condominial, ou neste Regimento.</p>
 </div>
-<div class="artigo" id="art-17">
-<p class="art-caput"><span class="art-num">Art. 17.</span> Instalada a Assembleia, serão escolhidos, dentre os presentes, um Presidente e um Secretário para compor a Mesa, ressalvada disposição diversa da Convenção Condominial, competindo ao Presidente dirigir os trabalhos, decidir questões de ordem, organizar a votação e proclamar os resultados, e ao Secretário lavrar a ata.</p>
+<div class="artigo" id="art-20">
+<p class="art-caput"><span class="art-num">Art. 20.</span> Instalada a Assembleia, serão escolhidos, dentre os presentes, um Presidente e um Secretário para compor a Mesa, ressalvada disposição diversa da Convenção Condominial, competindo ao Presidente dirigir os trabalhos, decidir questões de ordem, organizar a votação e proclamar os resultados, e ao Secretário lavrar a ata.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> A condução detalhada dos trabalhos, a ordem de manifestação e demais aspectos procedimentais não essenciais ao exercício do voto poderão ser disciplinados por Norma Interna, preservados o contraditório e a ampla participação dos condôminos.</p>
 </div>
-<div class="artigo" id="art-18">
-<p class="art-caput"><span class="art-num">Art. 18.</span> A Assembleia deliberará exclusivamente sobre as matérias constantes da ordem do dia, admitido o debate de assuntos gerais que não impliquem deliberação capaz de criar obrigações, impor despesas, restringir direitos ou alterar a Convenção Condominial ou este Regimento.</p>
+<div class="artigo" id="art-21">
+<p class="art-caput"><span class="art-num">Art. 21.</span> A Assembleia deliberará exclusivamente sobre as matérias constantes da ordem do dia, admitido o debate de assuntos gerais que não impliquem deliberação capaz de criar obrigações, impor despesas, restringir direitos ou alterar a Convenção Condominial ou este Regimento.</p>
 </div>
-<section class="nivel-subsecao" id="cap-2-sec-2-sub-1">
+<section class="nivel-subsecao" id="cap-9-sec-1-sub-1">
 <h4 class="titulo-subsecao">Subseção I — Das Emendas de Tramitação</h4>
-<div class="artigo" id="art-19">
-<p class="art-caput"><span class="art-num">Art. 19.</span> Emenda de Tramitação é a proposta de alteração de texto submetido à deliberação da Assembleia Geral, somente admitida quando verse sobre matéria constante da ordem do dia e divulgada aos presentes antes de submetida a debate e votação, cabendo a Norma Interna disciplinar suas modalidades e, havendo mais de uma, a ordem de votação.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A Emenda de Tramitação é aprovada por maioria simples dos presentes, independentemente do quórum exigido para a matéria principal, não supre o quórum exigido para a aprovação do texto-base por ela alterado e não se confunde com a Alteração do Regimento Interno de que trata o art. 97, ato de aprovação definitiva sujeito a quórum próprio.</p>
+<div class="artigo" id="art-22">
+<p class="art-caput"><span class="art-num">Art. 22.</span> Emenda de Tramitação é a proposta de alteração de texto submetido à deliberação da Assembleia Geral, somente admitida quando verse sobre matéria constante da ordem do dia e divulgada aos presentes antes de submetida a debate e votação, cabendo a Norma Interna disciplinar suas modalidades e, havendo mais de uma, a ordem de votação.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A Emenda de Tramitação é aprovada por maioria simples dos presentes, independentemente do quórum exigido para a matéria principal, e não se confunde com a Alteração do Regimento Interno, nos termos do art. 115, § 3º.</p>
 </div>
 </section>
-<section class="nivel-subsecao" id="cap-2-sec-2-sub-2">
+<section class="nivel-subsecao" id="cap-9-sec-1-sub-2">
 <h4 class="titulo-subsecao">Subseção II — Das Deliberações, das Votações Eletrônicas e das Atas</h4>
-<div class="artigo" id="art-20">
-<p class="art-caput"><span class="art-num">Art. 20.</span> As deliberações da Assembleia Geral classificam-se em alteração do Regimento Interno, Norma Complementar, Norma Interna, decisão em recurso administrativo e deliberação específica, cada qual observando o quórum previsto na legislação vigente, na Convenção Condominial ou neste Regimento, obrigando todos os condôminos, inclusive ausentes e dissidentes, ressalvado o direito de impugnação pelos meios legalmente cabíveis.</p>
+<div class="artigo" id="art-23">
+<p class="art-caput"><span class="art-num">Art. 23.</span> As deliberações da Assembleia Geral classificam-se em alteração do Regimento Interno, Norma Complementar, Norma Interna, Orçamento Anual, Calendário Anual, decisão em recurso administrativo e deliberação específica, cada qual observando o quórum previsto na legislação vigente, na Convenção Condominial ou neste Regimento, obrigando todos os condôminos, inclusive ausentes e dissidentes, ressalvado o direito de impugnação pelos meios legalmente cabíveis.</p>
 </div>
-<div class="artigo" id="art-21">
-<p class="art-caput"><span class="art-num">Art. 21.</span> Antes de cada votação, o Presidente anunciará a matéria, o quórum exigido, a forma de votação e o critério de apuração, proclamando ao final o resultado com os votos favoráveis, contrários, abstenções e o quórum obtido.</p>
+<div class="artigo" id="art-24">
+<p class="art-caput"><span class="art-num">Art. 24.</span> Antes de cada votação, o Presidente anunciará a matéria, o quórum exigido, a forma de votação e o critério de apuração, proclamando ao final o resultado com os votos favoráveis, contrários, abstenções e o quórum obtido.</p>
 </div>
-<div class="artigo" id="art-22">
-<p class="art-caput"><span class="art-num">Art. 22.</span> A Assembleia Geral poderá realizar-se de forma presencial, eletrônica ou híbrida, podendo ser utilizado sistema eletrônico de votação que assegure identificação inequívoca do votante, vinculação do voto à unidade, autenticidade, integridade e auditabilidade dos registros, vedada a alteração de voto após sua confirmação.</p>
+<div class="artigo" id="art-25">
+<p class="art-caput"><span class="art-num">Art. 25.</span> A Assembleia Geral poderá realizar-se de forma presencial, eletrônica ou híbrida, podendo ser utilizado sistema eletrônico de votação que assegure identificação inequívoca do votante, vinculação do voto à unidade, autenticidade, integridade e auditabilidade dos registros, vedada a alteração de voto após sua confirmação.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Verificada falha, inconsistência ou indício de irregularidade capaz de comprometer a votação eletrônica, o Presidente suspenderá imediatamente sua utilização e determinará a repetição por votação manual, registrando o ocorrido em ata.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> Sempre que a legislação vigente, a Convenção Condominial ou este Regimento exigirem votação secreta, esta será realizada obrigatoriamente por meio manual, vedado o uso de sistema eletrônico para essa finalidade.</p>
 <p class="paragrafo"><span class="par-num">§ 3º.</span> Os demais requisitos técnicos e operacionais do sistema eletrônico de votação serão disciplinados por Norma Interna.</p>
 </div>
-<div class="artigo" id="art-23">
-<p class="art-caput"><span class="art-num">Art. 23.</span> Toda Assembleia Geral será registrada em ata, assinada pelo Presidente e pelo Secretário, contendo, no mínimo, a identificação da Assembleia, o quórum de instalação, as matérias apreciadas, as deliberações adotadas com seus fundamentos e o resultado das votações, disponibilizada aos condôminos no prazo de 15 (quinze) dias corridos de sua realização.</p>
+<div class="artigo" id="art-26">
+<p class="art-caput"><span class="art-num">Art. 26.</span> Toda Assembleia Geral será registrada em ata, assinada pelo Presidente e pelo Secretário, contendo, no mínimo, a identificação da Assembleia, o quórum de instalação, as matérias apreciadas, as deliberações adotadas com seus fundamentos e o resultado das votações, disponibilizada aos condôminos no prazo de 15 (quinze) dias corridos de sua realização.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> O conteúdo mínimo da ata, sua forma de arquivamento e disponibilização eletrônica poderão ser detalhados por Norma Interna, vedada a supressão de qualquer elemento exigido no caput.</p>
 </div>
 </section>
 </section>
-<section class="nivel-secao" id="cap-2-sec-3">
-<h3 class="titulo-secao">Seção III — Dos Agentes da Governança Condominial</h3>
-<div class="artigo" id="art-24">
-<p class="art-caput"><span class="art-num">Art. 24.</span> São elegíveis aos cargos de Síndico, Subsíndico e membro do Conselho os candidatos que, cumulativamente, atendam aos requisitos da legislação vigente e da Convenção Condominial, estejam em pleno gozo dos direitos condominiais, estejam quites com suas obrigações financeiras perante o condomínio e não incorram em impedimento ou inelegibilidade previstos neste Regimento.</p>
+<section class="nivel-secao" id="cap-9-sec-2">
+<h3 class="titulo-secao">Seção II — Dos Agentes da Governança Condominial</h3>
+<div class="artigo" id="art-27">
+<p class="art-caput"><span class="art-num">Art. 27.</span> São elegíveis aos cargos de Síndico, Subsíndico e membro do Conselho os candidatos que, cumulativamente, atendam aos requisitos da legislação vigente e da Convenção Condominial, estejam em pleno gozo dos direitos condominiais, estejam quites com suas obrigações financeiras perante o condomínio e não incorram em impedimento ou inelegibilidade previstos neste Regimento.</p>
 </div>
-<div class="artigo" id="art-25">
-<p class="art-caput"><span class="art-num">Art. 25.</span> Considera-se conflito de interesses toda situação em que interesses privados, de natureza financeira, familiar, profissional, comercial ou de qualquer outra espécie, comprometam ou tenham potencial para comprometer a imparcialidade, a independência ou a objetividade no exercício das atribuições dos agentes da Governança Condominial.</p>
+<div class="artigo" id="art-28">
+<p class="art-caput"><span class="art-num">Art. 28.</span> Considera-se conflito de interesses toda situação em que interesses privados, de natureza financeira, familiar, profissional, comercial ou de qualquer outra espécie, comprometam ou tenham potencial para comprometer a imparcialidade, a independência ou a objetividade no exercício das atribuições dos agentes da Governança Condominial.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Constituem hipóteses de conflito de interesses, dentre outras: participar de deliberação que beneficie a si, cônjuge, companheiro ou parentes até o quarto grau, ou pessoa jurídica com quem mantenha vínculo relevante; utilizar informações do cargo para vantagem própria ou de terceiro; intervir em contratação que envolva pessoa com quem possua vínculo de interesse; contratar ou influenciar a contratação de pessoa jurídica vinculada a agente da Governança Condominial, ressalvadas as hipóteses admitidas pela Convenção Condominial; receber vantagem relacionada ao exercício do cargo, ressalvados brindes institucionais simbólicos; e utilizar bens, recursos ou oportunidades do condomínio em benefício próprio ou de terceiro.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> O agente em situação de conflito de interesses declarará imediatamente seu impedimento, abstendo-se de participar da discussão, deliberação e prática de qualquer ato relacionado à matéria, sob pena de caracterização de infração aos deveres do cargo.</p>
 </div>
-<div class="artigo" id="art-26">
-<p class="art-caput"><span class="art-num">Art. 26.</span> Não poderá candidatar-se, nem permanecer em cargo eletivo da Governança Condominial, quem deixar de preencher os requisitos de elegibilidade, sofrer condenação definitiva por ato incompatível com o cargo, tiver contas de mandato anterior rejeitadas por irregularidade grave, dolo ou culpa grave, figurar como parte ré em processo judicial movido pelo condomínio enquanto perdurar a demanda, ou incorrer em restrição cadastral relevante diretamente ligada à idoneidade financeira necessária ao cargo.</p>
+<div class="artigo" id="art-29">
+<p class="art-caput"><span class="art-num">Art. 29.</span> Não poderá candidatar-se, nem permanecer em cargo eletivo da Governança Condominial, quem deixar de preencher os requisitos de elegibilidade, sofrer condenação definitiva por ato incompatível com o cargo, tiver contas de mandato anterior rejeitadas por irregularidade grave, dolo ou culpa grave, figurar como parte ré em processo judicial movido pelo condomínio enquanto perdurar a demanda, ou incorrer em restrição cadastral relevante diretamente ligada à idoneidade financeira necessária ao cargo.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Nas hipóteses de processo judicial ou restrição cadastral, será concedido prazo de 15 (quinze) dias para regularização, sob pena de perda do resultado eleitoral ou afastamento do cargo.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> O ocupante de cargo eletivo comunicará ao Conselho, em 5 (cinco) dias, a superveniência de qualquer dessas situações, cabendo ao Conselho relatar o fato à Assembleia Geral e, se entender necessário, requerer sua convocação extraordinária em até 30 (trinta) dias, para deliberar definitivamente sobre o caso, inclusive quanto a eventual afastamento preventivo, que somente produzirá efeitos por decisão da própria Assembleia.</p>
 </div>
-<div class="artigo" id="art-27">
-<p class="art-caput"><span class="art-num">Art. 27.</span> Compete exclusivamente à Assembleia Geral, especialmente convocada para esse fim, deliberar sobre a perda do mandato do Síndico, do Subsíndico ou de membro do Conselho antes do término de seu prazo, observado o contraditório e a ampla defesa.</p>
+<div class="artigo" id="art-30">
+<p class="art-caput"><span class="art-num">Art. 30.</span> Compete exclusivamente à Assembleia Geral, especialmente convocada para esse fim, deliberar sobre a perda do mandato do Síndico, do Subsíndico ou de membro do Conselho antes do término de seu prazo, observado o contraditório e a ampla defesa.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> A destituição do Síndico por irregularidade, por ausência de prestação de contas ou por má administração — a juízo da própria Assembleia quanto à inadequação ou à inconveniência da gestão, independentemente de prova de infração específica — observará o rito e o quórum próprios fixados na Convenção Condominial para essa hipótese, dispensado quórum de instalação especial, cabendo ao edital de convocação indicar expressamente qual dessas causas fundamenta o pedido de destituição.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> A perda do mandato do Subsíndico ou de membro do Conselho, bem como a perda do mandato do Síndico por causa diversa das previstas no § 1º, observará o quórum geral de instalação e deliberação da Assembleia Geral.</p>
 <p class="paragrafo"><span class="par-num">§ 3º.</span> A rejeição da prestação de contas não implica, por si só, perda automática do mandato em curso.</p>
 <p class="paragrafo"><span class="par-num">§ 4º.</span> O ex-ocupante de cargo eletivo cujas contas tenham sido rejeitadas por irregularidade grave, dolo ou culpa grave ficará inelegível para qualquer cargo da Governança Condominial pelo prazo de 5 (cinco) anos, ressalvada deliberação posterior da Assembleia Geral que afaste os fundamentos da rejeição.</p>
 </div>
 </section>
-<section class="nivel-secao" id="cap-2-sec-4">
-<h3 class="titulo-secao">Seção IV — Do Conselho</h3>
-<div class="artigo" id="art-28">
-<p class="art-caput"><span class="art-num">Art. 28.</span> O Conselho é o órgão permanente de fiscalização, controle preventivo, acompanhamento e assessoramento da Assembleia Geral, competindo-lhe zelar pela regularidade da administração condominial, composto por 3 (três) membros titulares e 3 (três) suplentes, eleitos individualmente pela Assembleia Geral para mandato de 1 (um) ano, permitida a reeleição, considerando-se eleitos titulares os 3 (três) mais votados e suplentes os subsequentes, em fila única de suplência.</p>
+<section class="nivel-secao" id="cap-9-sec-3">
+<h3 class="titulo-secao">Seção III — Do Conselho</h3>
+<div class="artigo" id="art-31">
+<p class="art-caput"><span class="art-num">Art. 31.</span> O Conselho é o órgão permanente de fiscalização, controle preventivo, acompanhamento e assessoramento da Assembleia Geral, competindo-lhe zelar pela regularidade da administração condominial, composto por 3 (três) membros titulares e 3 (três) suplentes, eleitos individualmente pela Assembleia Geral para mandato de 1 (um) ano, permitida a reeleição, considerando-se eleitos titulares os 3 (três) mais votados e suplentes os subsequentes, em fila única de suplência.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Na ausência ou impedimento temporário de titular, o suplente mais votado ainda disponível exercerá a função pelo período necessário, retornando o titular cessada a causa; na vacância definitiva, o suplente assumirá a titularidade até o término do mandato. Enquanto não convocado, o suplente não terá direito a voto nem exercerá competência própria do Conselho.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> O Conselho terá um Presidente, o membro titular mais votado, responsável por convocar e presidir suas reuniões e por receber e distribuir as comunicações a ele dirigidas.</p>
 </div>
-<div class="artigo" id="art-29">
-<p class="art-caput"><span class="art-num">Art. 29.</span> Compete ao Conselho: fiscalizar os atos da administração condominial; acompanhar a execução orçamentária, financeira, patrimonial e administrativa; examinar, a qualquer tempo, a documentação do condomínio; emitir parecer sobre a prestação de contas e sobre a proposta orçamentária; recomendar medidas corretivas, preventivas ou de aperfeiçoamento; comunicar à Assembleia Geral irregularidades relevantes; emitir parecer sobre os recursos administrativos interpostos contra decisão do Síndico, sem caráter decisório, na forma da Seção V do Capítulo VIII; e convocar a Assembleia Geral, nas hipóteses previstas na legislação vigente, na Convenção Condominial e neste Regimento.</p>
+<div class="artigo" id="art-32">
+<p class="art-caput"><span class="art-num">Art. 32.</span> Compete ao Conselho: fiscalizar os atos da administração condominial; acompanhar a execução orçamentária, financeira, patrimonial e administrativa; examinar, a qualquer tempo, a documentação do condomínio; emitir parecer sobre a prestação de contas e sobre a proposta orçamentária; recomendar medidas corretivas, preventivas ou de aperfeiçoamento; comunicar à Assembleia Geral irregularidades relevantes; emitir parecer sobre os recursos administrativos interpostos contra decisão do Síndico, sem caráter decisório, na forma da Seção V do Capítulo VIII; e convocar a Assembleia Geral, nas hipóteses previstas na legislação vigente, na Convenção Condominial e neste Regimento.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> Os pareceres do Conselho serão fundamentados, formalizados por escrito e integrarão os registros administrativos do condomínio, permanecendo disponíveis para consulta.</p>
 </div>
-<div class="artigo" id="art-30">
-<p class="art-caput"><span class="art-num">Art. 30.</span> O Conselho reunir-se-á ordinariamente a cada 6 (seis) meses e, extraordinariamente, sempre que necessário, deliberando por maioria simples de seus membros, em reunião registrada em ata.</p>
+<div class="artigo" id="art-33">
+<p class="art-caput"><span class="art-num">Art. 33.</span> O Conselho reunir-se-á ordinariamente a cada 6 (seis) meses e, extraordinariamente, sempre que necessário, deliberando por maioria simples de seus membros, em reunião registrada em ata.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Cabe à reunião ordinária, entre outras atribuições, emitir parecer, de ofício, sobre todas as multas aplicadas pelo Síndico desde a última reunião, podendo recomendar sua manutenção ou revisão, sem caráter decisório; acolhida pelo Síndico a recomendação de revisão, o condômino terá direito ao ressarcimento dos valores eventualmente pagos, com correção; não acolhida, aplica-se o disposto na Seção V do Capítulo VIII.</p>
-<p class="paragrafo"><span class="par-num">§ 2º.</span> Todo ato praticado pelo Síndico com base no art. 36, X, é válido desde sua prática, sob responsabilidade do Síndico, devendo ser justificado por escrito e comunicado ao Conselho na primeira oportunidade; o Conselho emitirá parecer sobre o ato, podendo recomendar sua manutenção, revisão pela Administração ou submissão à Assembleia Geral, sem que tal parecer constitua condição de validade do ato praticado.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Todo ato praticado pelo Síndico com base no art. 39, X, é válido desde sua prática, sob responsabilidade do Síndico, devendo ser justificado por escrito e comunicado ao Conselho na primeira oportunidade; o Conselho emitirá parecer sobre o ato, podendo recomendar sua manutenção, revisão pela Administração ou submissão à Assembleia Geral, sem que tal parecer constitua condição de validade do ato praticado.</p>
 </div>
-<div class="artigo" id="art-31">
-<p class="art-caput"><span class="art-num">Art. 31.</span> Os pareceres e as recomendações do Conselho terão natureza opinativa e não vinculante, destinando-se a subsidiar a atuação do Síndico e as deliberações da Assembleia Geral.</p>
+<div class="artigo" id="art-34">
+<p class="art-caput"><span class="art-num">Art. 34.</span> Os pareceres e as recomendações do Conselho terão natureza opinativa e não vinculante, destinando-se a subsidiar a atuação do Síndico e as deliberações da Assembleia Geral.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> Nenhum ato do Conselho previsto neste Regimento constituirá decisão vinculante ou condição de validade de ato de outro órgão da Governança Condominial, ressalvadas exclusivamente as hipóteses em que a atuação do Conselho corresponda ao exercício de atribuição prevista na Convenção Condominial que, por sua própria natureza, não tenha caráter meramente opinativo.</p>
 </div>
-<div class="artigo" id="art-32">
-<p class="art-caput"><span class="art-num">Art. 32.</span> O Conselho poderá disciplinar, por deliberação da maioria de seus membros, seu próprio funcionamento interno — periodicidade adicional de reuniões, formato de atas e fluxo interno de distribuição de pareceres —, vedado tratar, por essa via, de matéria já fixada neste Regimento, especialmente composição, atribuições, natureza não vinculante ou prazos processuais do Capítulo VIII, e vedada a edição dessa norma pelo Síndico ou por qualquer outro órgão que não o próprio Conselho.</p>
+<div class="artigo" id="art-35">
+<p class="art-caput"><span class="art-num">Art. 35.</span> O Conselho poderá disciplinar, por deliberação da maioria de seus membros, seu próprio funcionamento interno — periodicidade adicional de reuniões, formato de atas e fluxo interno de distribuição de pareceres —, vedado tratar, por essa via, de matéria já fixada neste Regimento, especialmente composição, atribuições, natureza não vinculante ou prazos processuais do Capítulo VIII, e vedada a edição dessa norma pelo Síndico ou por qualquer outro órgão que não o próprio Conselho.</p>
 </div>
-<div class="artigo" id="art-33">
-<p class="art-caput"><span class="art-num">Art. 33.</span> É dever dos membros do Conselho exercer suas atribuições com diligência, independência, imparcialidade e boa-fé, fundamentar seus pareceres, declarar imediatamente eventual conflito de interesses e comparecer às reuniões do Conselho e às Assembleias Gerais.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O membro do Conselho que possuir interesse direto ou indireto na matéria, vínculo de parentesco, relação profissional ou qualquer circunstância capaz de comprometer sua imparcialidade ficará impedido de participar da instrução, discussão e emissão de parecer sobre a matéria.</p>
+<div class="artigo" id="art-36">
+<p class="art-caput"><span class="art-num">Art. 36.</span> É dever dos membros do Conselho exercer suas atribuições com diligência, independência, imparcialidade e boa-fé, fundamentar seus pareceres, declarar imediatamente eventual conflito de interesses e comparecer às reuniões do Conselho e às Assembleias Gerais.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Aplica-se ao membro do Conselho o disposto no art. 28 quanto às hipóteses de conflito de interesses e ao dever de declarar impedimento.</p>
 </div>
 </section>
-<section class="nivel-secao" id="cap-2-sec-5">
-<h3 class="titulo-secao">Seção V — Do Síndico e do Subsíndico</h3>
-<div class="artigo" id="art-34">
-<p class="art-caput"><span class="art-num">Art. 34.</span> O Síndico é o representante legal e administrador executivo do condomínio, competindo-lhe executar as deliberações da Assembleia Geral, administrar o condomínio e praticar os atos necessários à sua gestão, observadas a legislação vigente, a Convenção Condominial, este Regimento e as deliberações da Assembleia Geral.</p>
+<section class="nivel-secao" id="cap-9-sec-4">
+<h3 class="titulo-secao">Seção IV — Do Síndico e do Subsíndico</h3>
+<div class="artigo" id="art-37">
+<p class="art-caput"><span class="art-num">Art. 37.</span> O Síndico é o representante legal e administrador executivo do condomínio, competindo-lhe executar as deliberações da Assembleia Geral, administrar o condomínio e praticar os atos necessários à sua gestão, observadas a legislação vigente, a Convenção Condominial, este Regimento e as deliberações da Assembleia Geral.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> O mandato do Síndico e do Subsíndico será de 1 (um) ano, permitida a reeleição, observado o disposto na Convenção Condominial.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> O Subsíndico, necessariamente condômino, auxiliará o Síndico, substituindo-o em ausências e impedimentos temporários e completando seu mandato em caso de vacância definitiva.</p>
 </div>
-<div class="artigo" id="art-35">
-<p class="art-caput"><span class="art-num">Art. 35.</span> É vedado ao Síndico: praticar atos em conflito de interesses; restringir sem fundamento o acesso dos condôminos às áreas comuns, informações ou documentos; omitir ou retardar injustificadamente informação de publicidade obrigatória; utilizar bens, recursos, informações ou oportunidades do condomínio em benefício próprio ou de terceiro; contratar ou manter contratação em desacordo com a legislação vigente, a Convenção Condominial, este Regimento ou deliberação da Assembleia; e praticar ato que exceda sua competência ou contrarie deliberação válida da Assembleia Geral.</p>
+<div class="artigo" id="art-38">
+<p class="art-caput"><span class="art-num">Art. 38.</span> É vedado ao Síndico: praticar atos em conflito de interesses; restringir sem fundamento o acesso dos condôminos às áreas comuns, informações ou documentos; omitir ou retardar injustificadamente informação de publicidade obrigatória; utilizar bens, recursos, informações ou oportunidades do condomínio em benefício próprio ou de terceiro; contratar ou manter contratação em desacordo com a legislação vigente, a Convenção Condominial, este Regimento ou deliberação da Assembleia; e praticar ato que exceda sua competência ou contrarie deliberação válida da Assembleia Geral.</p>
 </div>
-<div class="artigo" id="art-36">
-<p class="art-caput"><span class="art-num">Art. 36.</span> Compete ao Síndico, além do disposto na legislação vigente e na Convenção Condominial:</p>
+<div class="artigo" id="art-39">
+<p class="art-caput"><span class="art-num">Art. 39.</span> Compete ao Síndico, além do disposto na legislação vigente e na Convenção Condominial:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> representar ativa e passivamente o condomínio, em juízo ou fora dele;</li>
 <li><span class="inc-num">II.</span> administrar os interesses, bens, serviços, contratos, recursos financeiros e patrimônio do condomínio;</li>
@@ -575,349 +697,554 @@
 <li><span class="inc-num">VII.</span> convocar a Assembleia Geral nos casos previstos na legislação vigente, na Convenção Condominial e neste Regimento;</li>
 <li><span class="inc-num">VIII.</span> prestar contas de sua administração, na forma prevista neste Regimento;</li>
 <li><span class="inc-num">IX.</span> instaurar e conduzir a instrução dos procedimentos administrativos disciplinares, na forma do Capítulo VIII; e</li>
-<li><span class="inc-num">X.</span> praticar os demais atos inerentes à administração, não especificamente previstos nos incisos anteriores, necessários para lidar com situação de urgência ou imprevista, observado o disposto no art. 30, § 2º.</li>
+<li><span class="inc-num">X.</span> praticar os demais atos inerentes à administração, não especificamente previstos nos incisos anteriores, necessários para lidar com situação de urgência ou imprevista, observado o disposto no art. 33, § 2º.</li>
 </ol>
 </div>
-<div class="artigo" id="art-37">
-<p class="art-caput"><span class="art-num">Art. 37.</span> Salvo prazo diverso previsto neste Regimento, o pedido de autorização dirigido à Administração será decidido, mediante decisão fundamentada, no prazo de 5 (cinco) dias úteis, findo o qual, sem manifestação, considerar-se-á tacitamente deferido, cabendo recurso ao Conselho e, sucessivamente, à Assembleia Geral, na forma do Capítulo VIII.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Esta regra não se aplica a pedidos de autorização de obra que envolvam intervenção em elemento estrutural, instalação técnica predial ou sistema de proteção contra incêndio, ou que possam afetar a segurança da edificação.</p>
+<div class="artigo" id="art-40">
+<p class="art-caput"><span class="art-num">Art. 40.</span> (Revogado). Matéria disciplinada nos arts. 93 a 98 e 111 a 114 deste Regimento.</p>
 </div>
 </section>
-<section class="nivel-secao" id="cap-2-sec-6">
-<h3 class="titulo-secao">Seção VI — Da Transição da Administração</h3>
-<div class="artigo" id="art-38">
-<p class="art-caput"><span class="art-num">Art. 38.</span> Ao término do mandato, renúncia, destituição ou qualquer outra hipótese de substituição do Síndico, será promovida a transição administrativa, assegurando a continuidade da gestão e a preservação do patrimônio, das informações e dos documentos do condomínio, vedada a retenção, pelo Síndico que deixar o cargo, de qualquer documento, bem, recurso financeiro, equipamento, senha ou informação pertencente ao condomínio, ainda que exista controvérsia relativa ao mandato ou à prestação de contas.</p>
+<section class="nivel-secao" id="cap-9-sec-5">
+<h3 class="titulo-secao">Seção V — Da Transição da Administração</h3>
+<div class="artigo" id="art-41">
+<p class="art-caput"><span class="art-num">Art. 41.</span> Ao término do mandato, renúncia, destituição ou qualquer outra hipótese de substituição do Síndico, será promovida a transição administrativa, assegurando a continuidade da gestão e a preservação do patrimônio, das informações e dos documentos do condomínio, vedada a retenção, pelo Síndico que deixar o cargo, de qualquer documento, bem, recurso financeiro, equipamento, senha ou informação pertencente ao condomínio, ainda que exista controvérsia relativa ao mandato ou à prestação de contas.</p>
 </div>
-<div class="artigo" id="art-39">
-<p class="art-caput"><span class="art-num">Art. 39.</span> O Síndico que deixar o cargo entregará ao sucessor, mediante termo circunstanciado:</p>
+<div class="artigo" id="art-42">
+<p class="art-caput"><span class="art-num">Art. 42.</span> O Síndico que deixar o cargo entregará ao sucessor, mediante termo circunstanciado:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> no prazo máximo de 48 (quarenta e oito) horas contado da posse do sucessor: chaves, controles, dispositivos de acesso e demais bens necessários ao funcionamento imediato da portaria e das instalações comuns; e senhas, certificados digitais, credenciais e acessos aos sistemas, plataformas, contas bancárias e institucionais e demais ferramentas utilizadas na administração;</li>
 <li><span class="inc-num">II.</span> no prazo máximo de 10 (dez) dias úteis contado da posse do sucessor: livros obrigatórios e registros administrativos; documentos contábeis, financeiros e fiscais; contratos vigentes; demonstrativos bancários e saldos dos fundos condominiais; relação de obrigações financeiras pendentes e de ações judiciais e procedimentos em andamento; inventário atualizado dos bens patrimoniais; e demais documentos necessários à continuidade regular da administração.</li>
 </ol>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> Havendo recusa de qualquer das partes em assinar o termo, tal circunstância será registrada, sem prejuízo da validade da entrega efetivamente realizada.</p>
 </div>
-<div class="artigo" id="art-40">
-<p class="art-caput"><span class="art-num">Art. 40.</span> A transição observará os princípios da boa-fé, da transparência, da continuidade da gestão e da cooperação, devendo a Administração que deixar o cargo prestar, em prazo razoável, os esclarecimentos necessários à compreensão da documentação entregue; o sucessor poderá conferir a documentação recebida, comunicando ao Conselho, em até 30 (trinta) dias, eventual irregularidade, sem prejuízo das medidas administrativas, civis ou judiciais cabíveis.</p>
+<div class="artigo" id="art-43">
+<p class="art-caput"><span class="art-num">Art. 43.</span> A transição observará os princípios da boa-fé, da transparência, da continuidade da gestão e da cooperação, devendo a Administração que deixar o cargo prestar, em prazo razoável, os esclarecimentos necessários à compreensão da documentação entregue; o sucessor poderá conferir a documentação recebida, comunicando ao Conselho, em até 30 (trinta) dias, eventual irregularidade, sem prejuízo das medidas administrativas, civis ou judiciais cabíveis.</p>
 </div>
 </section>
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
-<section class="nivel-capitulo" id="cap-3">
-<h2 class="titulo-capitulo">CAPÍTULO III — DA GESTÃO ADMINISTRATIVA, FINANCEIRA, PATRIMONIAL E ORÇAMENTÁRIA</h2>
-<section class="nivel-secao" id="cap-3-sec-1">
+<section class="nivel-capitulo" id="cap-10">
+<h2 class="titulo-capitulo">Capítulo III — DA GESTÃO ADMINISTRATIVA, FINANCEIRA, PATRIMONIAL E ORÇAMENTÁRIA</h2>
+<section class="nivel-secao" id="cap-10-sec-1">
 <h3 class="titulo-secao">Seção I — Dos Princípios</h3>
-<div class="artigo" id="art-41">
-<p class="art-caput"><span class="art-num">Art. 41.</span> A gestão administrativa, financeira, patrimonial e orçamentária tem por finalidade assegurar a continuidade dos serviços, a conservação e valorização do patrimônio comum, o equilíbrio financeiro e a execução das deliberações da Assembleia Geral, regendo-se, além dos princípios do art. 5º, pelo planejamento permanente, pela compatibilidade entre receitas, despesas e disponibilidade financeira, pela sustentabilidade financeira e patrimonial, pela prevenção de desperdícios e mitigação de riscos, e pela segregação de funções, sempre que compatível com a estrutura administrativa do condomínio.</p>
-</div>
-<div class="artigo" id="art-42">
-<p class="art-caput"><span class="art-num">Art. 42.</span> Todo ato relevante de gestão será adequadamente documentado, permitindo identificar seu fundamento, responsável, suporte documental e resultados, assegurando sua rastreabilidade e fiscalização, e os procedimentos administrativos e financeiros incorporarão mecanismos de controle interno destinados à prevenção, detecção e correção de erros, irregularidades, desperdícios, fraudes e conflitos de interesse.</p>
-</div>
-</section>
-<section class="nivel-secao" id="cap-3-sec-2">
-<h3 class="titulo-secao">Seção II — Do Ciclo Eleitoral e do Orçamento Anual</h3>
-<div class="artigo" id="art-43">
-<p class="art-caput"><span class="art-num">Art. 43.</span> A Administração disponibilizará aos condôminos a prestação de contas do exercício anterior no primeiro dia útil de fevereiro, cabendo ao Conselho o prazo de 15 (quinze) dias para emitir parecer, igualmente disponibilizado.</p>
-</div>
 <div class="artigo" id="art-44">
-<p class="art-caput"><span class="art-num">Art. 44.</span> Na Assembleia Geral Ordinária, a apreciação da prestação de contas, instruída pelo parecer do Conselho, constituirá o primeiro item da ordem do dia, seguindo-se a eleição dos membros do Conselho, individualmente, e, em seguida, a eleição do Síndico e do Subsíndico, em chapa única.</p>
+<p class="art-caput"><span class="art-num">Art. 44.</span> A gestão administrativa, financeira, patrimonial e orçamentária tem por finalidade assegurar a continuidade dos serviços, a conservação e valorização do patrimônio comum, o equilíbrio financeiro e a execução das deliberações da Assembleia Geral, regendo-se, além dos princípios do art. 5º, pelo planejamento permanente, pela compatibilidade entre receitas, despesas e disponibilidade financeira, pela sustentabilidade financeira e patrimonial, pela prevenção de desperdícios e mitigação de riscos, e pela segregação de funções, sempre que compatível com a estrutura administrativa do condomínio.</p>
 </div>
 <div class="artigo" id="art-45">
-<p class="art-caput"><span class="art-num">Art. 45.</span> As candidaturas a Síndico e Subsíndico serão apresentadas em chapa única, podendo ser acompanhadas, a título de compromisso de campanha, de Proposta de Orçamento Anual e de Proposta de Calendário Anual das Áreas Comuns para o exercício seguinte.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Imediatamente após a eleição do Síndico e do Subsíndico e antes da deliberação de que trata o art. 13, inciso IV, o Conselho recém-eleito emitirá parecer oral, em Assembleia, sobre a Proposta de Orçamento Anual e a Proposta de Calendário Anual das Áreas Comuns apresentadas pela chapa eleita; não as tendo a chapa eleita apresentado a título de compromisso de campanha, o Síndico eleito as apresentará nesse mesmo ato, para que sobre elas o Conselho se manifeste; ouvido o parecer, as propostas — eventualmente ajustadas à sua luz — seguem para deliberação da Assembleia Geral, não se submetendo a deliberação as propostas eventualmente apresentadas pelas demais chapas.</p>
-</div>
-<div class="artigo" id="art-46">
-<p class="art-caput"><span class="art-num">Art. 46.</span> Em caso de vacância do cargo de Síndico e Subsíndico fora do ciclo previsto nesta Seção, a Assembleia Geral extraordinariamente convocada para nova eleição observará, no que couber, o disposto nesta Seção, dispensados os prazos vinculados ao mês de fevereiro.</p>
+<p class="art-caput"><span class="art-num">Art. 45.</span> Todo ato relevante de gestão será adequadamente documentado, permitindo identificar seu fundamento, responsável, suporte documental e resultados, assegurando sua rastreabilidade e fiscalização, e os procedimentos administrativos e financeiros incorporarão mecanismos de controle interno destinados à prevenção, detecção e correção de erros, irregularidades, desperdícios, fraudes e conflitos de interesse.</p>
 </div>
 </section>
-<section class="nivel-secao" id="cap-3-sec-3">
-<h3 class="titulo-secao">Seção III — Da Proposta Orçamentária e de sua Execução</h3>
+<section class="nivel-secao" id="cap-10-sec-2">
+<h3 class="titulo-secao">Seção II — Do Ciclo Eleitoral e do Orçamento Anual</h3>
+<div class="artigo" id="art-46">
+<p class="art-caput"><span class="art-num">Art. 46.</span> A Administração disponibilizará aos condôminos a prestação de contas do exercício anterior no primeiro dia útil de fevereiro, cabendo ao Conselho o prazo de 15 (quinze) dias para emitir parecer, igualmente disponibilizado.</p>
+</div>
 <div class="artigo" id="art-47">
-<p class="art-caput"><span class="art-num">Art. 47.</span> A Proposta Orçamentária constitui Norma Interna e conterá, no mínimo, a estimativa das receitas e despesas ordinárias e extraordinárias, a previsão de investimentos, obras e aquisições de bens permanentes, a previsão de constituição, utilização e recomposição dos fundos condominiais, e reserva destinada a despesas contingenciais, quando cabível, apresentada de forma clara, padronizada e comparável com os exercícios anteriores.</p>
+<p class="art-caput"><span class="art-num">Art. 47.</span> Na Assembleia Geral Ordinária, a apreciação da prestação de contas, instruída pelo parecer do Conselho, constituirá o primeiro item da ordem do dia, seguindo-se a eleição dos membros do Conselho, individualmente, e, em seguida, a eleição do Síndico e do Subsíndico, em chapa única.</p>
+</div>
+<div class="artigo" id="art-48">
+<p class="art-caput"><span class="art-num">Art. 48.</span> As candidaturas a Síndico e Subsíndico serão apresentadas em chapa única, podendo ser acompanhadas, a título de compromisso de campanha, de Proposta de Orçamento Anual e de Proposta de Calendário Anual das Áreas Comuns para o exercício seguinte.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Imediatamente após a eleição do Síndico e do Subsíndico e antes da deliberação de que trata o art. 16, inciso IV, o Conselho recém-eleito emitirá parecer oral, em Assembleia, sobre a Proposta de Orçamento Anual e a Proposta de Calendário Anual das Áreas Comuns apresentadas pela chapa eleita; não as tendo a chapa eleita apresentado a título de compromisso de campanha, o Síndico eleito as apresentará nesse mesmo ato, para que sobre elas o Conselho se manifeste; ouvido o parecer, as propostas — eventualmente ajustadas à sua luz — seguem para deliberação da Assembleia Geral, não se submetendo a deliberação as propostas eventualmente apresentadas pelas demais chapas.</p>
+</div>
+<div class="artigo" id="art-49">
+<p class="art-caput"><span class="art-num">Art. 49.</span> Em caso de vacância do cargo de Síndico e Subsíndico fora do ciclo previsto nesta Seção, a Assembleia Geral extraordinariamente convocada para nova eleição observará, no que couber, o disposto nesta Seção, dispensados os prazos vinculados ao mês de fevereiro.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-10-sec-3">
+<h3 class="titulo-secao">Seção III — Da Proposta Orçamentária e de sua Execução</h3>
+<div class="artigo" id="art-50">
+<p class="art-caput"><span class="art-num">Art. 50.</span> A Proposta Orçamentária, uma vez aprovada, constitui o Orçamento Anual de que trata o art. 12, e conterá, no mínimo, a estimativa das receitas e despesas ordinárias e extraordinárias, a previsão de investimentos, obras e aquisições de bens permanentes, a previsão de constituição, utilização e recomposição dos fundos condominiais, e reserva destinada a despesas contingenciais, quando cabível, apresentada de forma clara, padronizada e comparável com os exercícios anteriores.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> A elaboração da Proposta Orçamentária observará critérios de prudência, razoabilidade e exequibilidade, vedada a inclusão de receitas sem fundamento ou a subavaliação deliberada de despesas.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> Eventual remuneração, pró-labore ou isenção, total ou parcial, da cota condominial em favor do Síndico, do Subsíndico ou de membro do Conselho somente poderá ser instituída se prevista expressamente na Proposta Orçamentária, com indicação do valor, da forma de pagamento e da fonte de recursos, submetida ao mesmo processo de aprovação das demais disposições orçamentárias.</p>
 </div>
-<div class="artigo" id="art-48">
-<p class="art-caput"><span class="art-num">Art. 48.</span> Nenhuma despesa poderá ser realizada sem que estejam simultaneamente presentes previsão ou autorização orçamentária, disponibilidade financeira compatível, observância dos procedimentos de contratação deste Regimento, quando aplicáveis, e motivação e documentação suficientes.</p>
+<div class="artigo" id="art-51">
+<p class="art-caput"><span class="art-num">Art. 51.</span> Nenhuma despesa poderá ser realizada sem que estejam simultaneamente presentes previsão ou autorização orçamentária, disponibilidade financeira compatível, observância dos procedimentos de contratação deste Regimento, quando aplicáveis, e motivação e documentação suficientes.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> As dotações orçamentárias representam limites máximos autorizados, não constituindo obrigação de execução integral, devendo a Administração buscar a utilização eficiente dos recursos, preservadas a qualidade dos serviços, a segurança e a conservação do patrimônio.</p>
 </div>
-<div class="artigo" id="art-49">
-<p class="art-caput"><span class="art-num">Art. 49.</span> Consideram-se alterações orçamentárias o remanejamento de dotações, sem aumento do valor global do orçamento aprovado; a suplementação de dotações; a inclusão de despesas extraordinárias não previstas; e a utilização extraordinária de fundos condominiais, quando admitida.</p>
+<div class="artigo" id="art-52">
+<p class="art-caput"><span class="art-num">Art. 52.</span> Consideram-se alterações orçamentárias o remanejamento de dotações, sem aumento do valor global do orçamento aprovado; a suplementação de dotações; a inclusão de despesas extraordinárias não previstas; e a utilização extraordinária de fundos condominiais, quando admitida.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> O remanejamento dependerá de prévia ciência do Conselho e será documentado e motivado; a suplementação dependerá de prévia autorização da Assembleia Geral, ressalvadas as despesas emergenciais.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> Consideram-se despesas emergenciais as indispensáveis à preservação da vida, da segurança das pessoas, da integridade do patrimônio ou da continuidade dos serviços essenciais, cuja postergação possa causar dano relevante; o Síndico poderá autorizá-las independentemente de prévia autorização da Assembleia Geral, devendo comunicá-las ao Conselho em até 5 (cinco) dias úteis e submetê-las à primeira Assembleia Geral subsequente, acompanhadas da documentação comprobatória.</p>
 </div>
-<div class="artigo" id="art-50">
-<p class="art-caput"><span class="art-num">Art. 50.</span> Nenhuma alteração orçamentária poderá ser utilizada para afastar as competências deliberativas da Assembleia Geral, dispensar procedimentos deste Regimento, ou justificar despesa em desacordo com a legislação vigente, a Convenção Condominial ou este Regimento.</p>
+<div class="artigo" id="art-53">
+<p class="art-caput"><span class="art-num">Art. 53.</span> Nenhuma alteração orçamentária poderá ser utilizada para afastar as competências deliberativas da Assembleia Geral, dispensar procedimentos deste Regimento, ou justificar despesa em desacordo com a legislação vigente, a Convenção Condominial ou este Regimento.</p>
 </div>
 </section>
-<section class="nivel-secao" id="cap-3-sec-4">
+<section class="nivel-secao" id="cap-10-sec-4">
 <h3 class="titulo-secao">Seção IV — Das Contratações</h3>
-<div class="artigo" id="art-51">
-<p class="art-caput"><span class="art-num">Art. 51.</span> Toda contratação de obras, serviços ou fornecimento de bens observará os princípios da competitividade, da sustentabilidade e da seleção da proposta mais vantajosa para o condomínio, sendo precedida, sempre que aplicável, de planejamento mínimo com descrição do objeto, justificativa, estimativa de custo, verificação de disponibilidade orçamentária e critérios objetivos de seleção.</p>
-</div>
-<div class="artigo" id="art-52">
-<p class="art-caput"><span class="art-num">Art. 52.</span> Sempre que a natureza, a complexidade ou o valor estimado da contratação o justificarem, o Síndico realizará pesquisa de mercado, compreendendo, preferencialmente, no mínimo três propostas independentes, dispensável quando houver fornecedor exclusivo, inviabilidade de competição, contratação emergencial, serviço técnico especializado ou outra hipótese motivada.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A contratação da proposta de menor preço não é obrigatória quando outra demonstrar ser globalmente mais vantajosa, mediante justificativa fundamentada, considerados preço, qualidade, capacidade técnica, prazo, garantia e histórico de desempenho do fornecedor.</p>
-</div>
-<div class="artigo" id="art-53">
-<p class="art-caput"><span class="art-num">Art. 53.</span> É vedada a participação, direta ou indireta, do Síndico, do Subsíndico, dos membros do Conselho, ou de seus cônjuges, companheiros ou parentes até o quarto grau, bem como de pessoas jurídicas a eles vinculadas, em contratação realizada pelo condomínio, salvo nas hipóteses expressamente admitidas pela Convenção Condominial e mediante observância integral das condições nela estabelecidas.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O condômino que possuir interesse econômico relevante em empresa que participe ou possa participar de contratação com o condomínio declarará formalmente tal circunstância, sem que isso impeça, por si só, a contratação, observados os demais requisitos deste Regimento.</p>
-</div>
 <div class="artigo" id="art-54">
-<p class="art-caput"><span class="art-num">Art. 54.</span> Toda contratação será formalizada por documentação adequada, permanecerá arquivada durante sua vigência e pelo prazo mínimo legal ou, na ausência de disposição específica, por 10 (dez) anos, e integrará os registros administrativos, disponíveis para fiscalização pelo Conselho e pelos condôminos.</p>
+<p class="art-caput"><span class="art-num">Art. 54.</span> Toda contratação de obras, serviços ou fornecimento de bens observará os princípios da competitividade, da sustentabilidade e da seleção da proposta mais vantajosa para o condomínio, sendo precedida, sempre que aplicável, de planejamento mínimo com descrição do objeto, justificativa, estimativa de custo, verificação de disponibilidade orçamentária e critérios objetivos de seleção.</p>
 </div>
 <div class="artigo" id="art-55">
-<p class="art-caput"><span class="art-num">Art. 55.</span> A proposta de despesa extraordinária, obra ou investimento relevante não contemplado no orçamento, quando sujeita a taxa extraordinária ou rateio específico, será instruída com projeto técnico ou memorial descritivo, cotação prévia de mercado, estudo de impacto financeiro e minuta das condições de pagamento, cabendo à Assembleia Geral, ao aprovar a despesa, fixar o valor da taxa, o número e o valor das parcelas e o prazo de arrecadação, e à Administração apresentar prestação de contas parcial mensal específica durante a execução.</p>
+<p class="art-caput"><span class="art-num">Art. 55.</span> Sempre que a natureza, a complexidade ou o valor estimado da contratação o justificarem, o Síndico realizará pesquisa de mercado, compreendendo, preferencialmente, no mínimo três propostas independentes, dispensável quando houver fornecedor exclusivo, inviabilidade de competição, contratação emergencial, serviço técnico especializado ou outra hipótese motivada.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A contratação da proposta de menor preço não é obrigatória quando outra demonstrar ser globalmente mais vantajosa, mediante justificativa fundamentada, considerados preço, qualidade, capacidade técnica, prazo, garantia e histórico de desempenho do fornecedor.</p>
 </div>
-</section>
-<section class="nivel-secao" id="cap-3-sec-5">
-<h3 class="titulo-secao">Seção V — Da Prestação de Contas</h3>
 <div class="artigo" id="art-56">
-<p class="art-caput"><span class="art-num">Art. 56.</span> O Síndico prestará contas de sua gestão de forma completa, clara, objetiva, tempestiva e verificável, observando a transparência, a boa-fé e a accountability na administração dos recursos condominiais.</p>
+<p class="art-caput"><span class="art-num">Art. 56.</span> É vedada a participação, direta ou indireta, do Síndico, do Subsíndico, dos membros do Conselho, ou de seus cônjuges, companheiros ou parentes até o quarto grau, bem como de pessoas jurídicas a eles vinculadas, em contratação realizada pelo condomínio, salvo nas hipóteses expressamente admitidas pela Convenção Condominial e mediante observância integral das condições nela estabelecidas.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O condômino que possuir interesse econômico relevante em empresa que participe ou possa participar de contratação com o condomínio declarará formalmente tal circunstância, sem que isso impeça, por si só, a contratação, observados os demais requisitos deste Regimento.</p>
 </div>
 <div class="artigo" id="art-57">
-<p class="art-caput"><span class="art-num">Art. 57.</span> A prestação de contas anual será submetida à Assembleia Geral, acompanhada de parecer do Conselho, sem prejuízo da disponibilização mensal aos condôminos e ao Conselho de relatório financeiro simplificado, contendo o extrato de receitas e despesas do período e o saldo das contas e aplicações financeiras.</p>
+<p class="art-caput"><span class="art-num">Art. 57.</span> Toda contratação será formalizada por documentação adequada, permanecerá arquivada durante sua vigência e pelo prazo mínimo legal ou, na ausência de disposição específica, por 10 (dez) anos, e integrará os registros administrativos, disponíveis para fiscalização pelo Conselho e pelos condôminos.</p>
 </div>
 <div class="artigo" id="art-58">
-<p class="art-caput"><span class="art-num">Art. 58.</span> A prestação de contas compreenderá, no mínimo, o demonstrativo de receitas e despesas, o comparativo entre orçamento aprovado e sua execução com as respectivas justificativas de variação, a posição financeira e o saldo das contas e aplicações, a situação dos fundos condominiais, a relação das contratações realizadas e das despesas emergenciais, o demonstrativo de inadimplência, e informações sobre demandas judiciais com impacto financeiro relevante, acompanhada da documentação comprobatória correspondente.</p>
-</div>
-<div class="artigo" id="art-59">
-<p class="art-caput"><span class="art-num">Art. 59.</span> Compete à Assembleia Geral deliberar sobre a aprovação, aprovação com ressalvas ou rejeição da prestação de contas, não implicando a rejeição, por si só, perda automática do mandato em curso, nem a aprovação impedimento à apuração posterior de irregularidades, fraudes ou omissões que somente venham a ser conhecidas ou comprovadas depois, observado o devido processo legal.</p>
+<p class="art-caput"><span class="art-num">Art. 58.</span> A proposta de despesa extraordinária, obra ou investimento relevante não contemplado no orçamento, quando sujeita a taxa extraordinária ou rateio específico, será instruída com projeto técnico ou memorial descritivo, cotação prévia de mercado, estudo de impacto financeiro e minuta das condições de pagamento, cabendo à Assembleia Geral, ao aprovar a despesa, fixar o valor da taxa, o número e o valor das parcelas e o prazo de arrecadação, e à Administração apresentar prestação de contas parcial mensal específica durante a execução.</p>
 </div>
 </section>
-<section class="nivel-secao" id="cap-3-sec-6">
-<h3 class="titulo-secao">Seção VI — Dos Fundos Condominiais e do Controle Patrimonial</h3>
+<section class="nivel-secao" id="cap-10-sec-5">
+<h3 class="titulo-secao">Seção V — Da Prestação de Contas</h3>
+<div class="artigo" id="art-59">
+<p class="art-caput"><span class="art-num">Art. 59.</span> O Síndico prestará contas de sua gestão de forma completa, clara, objetiva, tempestiva e verificável, observando a transparência, a boa-fé e a accountability na administração dos recursos condominiais.</p>
+</div>
 <div class="artigo" id="art-60">
-<p class="art-caput"><span class="art-num">Art. 60.</span> Os fundos condominiais destinam-se ao atendimento de finalidades específicas, permanecerão contabilmente individualizados, vedada sua utilização para finalidade diversa da que motivou sua constituição, ressalvadas as hipóteses previstas na Convenção Condominial, neste Regimento ou autorizadas pela Assembleia Geral.</p>
+<p class="art-caput"><span class="art-num">Art. 60.</span> A prestação de contas anual será submetida à Assembleia Geral, acompanhada de parecer do Conselho, sem prejuízo da disponibilização mensal aos condôminos e ao Conselho de relatório financeiro simplificado, contendo o extrato de receitas e despesas do período e o saldo das contas e aplicações financeiras.</p>
 </div>
 <div class="artigo" id="art-61">
-<p class="art-caput"><span class="art-num">Art. 61.</span> O Fundo de Reserva, instituído pela Convenção Condominial, é constituído pelo percentual mínimo das contribuições condominiais ordinárias nela fixado, acrescido dos valores arrecadados em decorrência de infrações, observado que esse percentual somente poderá ser majorado por deliberação da Assembleia Geral; a existência de valor-alvo revisável anualmente, que constará da Proposta Orçamentária; e a limitação de uso, até o valor-alvo, a despesas de caráter extraordinário e emergencial.</p>
+<p class="art-caput"><span class="art-num">Art. 61.</span> A prestação de contas compreenderá, no mínimo, o demonstrativo de receitas e despesas, o comparativo entre orçamento aprovado e sua execução com as respectivas justificativas de variação, a posição financeira e o saldo das contas e aplicações, a situação dos fundos condominiais, a relação das contratações realizadas e das despesas emergenciais, o demonstrativo de inadimplência, e informações sobre demandas judiciais com impacto financeiro relevante, acompanhada da documentação comprobatória correspondente.</p>
+</div>
+<div class="artigo" id="art-62">
+<p class="art-caput"><span class="art-num">Art. 62.</span> Compete à Assembleia Geral deliberar sobre a aprovação, aprovação com ressalvas ou rejeição da prestação de contas, não implicando a rejeição, por si só, perda automática do mandato em curso, nem a aprovação impedimento à apuração posterior de irregularidades, fraudes ou omissões que somente venham a ser conhecidas ou comprovadas depois, observado o devido processo legal.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-10-sec-6">
+<h3 class="titulo-secao">Seção VI — Dos Fundos Condominiais e do Controle Patrimonial</h3>
+<div class="artigo" id="art-63">
+<p class="art-caput"><span class="art-num">Art. 63.</span> Os fundos condominiais destinam-se ao atendimento de finalidades específicas, permanecerão contabilmente individualizados, vedada sua utilização para finalidade diversa da que motivou sua constituição, ressalvadas as hipóteses previstas na Convenção Condominial, neste Regimento, ou autorizadas pela Assembleia Geral nos termos do art. 64.</p>
+</div>
+<div class="artigo" id="art-64">
+<p class="art-caput"><span class="art-num">Art. 64.</span> Ressalvado fundo condominial que possua regramento diverso previsto na Convenção Condominial ou neste Regimento — como o Fundo de Reserva, nos termos do art. 65 — a autorização da Assembleia Geral referida no art. 63 fica condicionada ao disposto neste artigo.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> A Proposta Orçamentária poderá estabelecer, para cada fundo condominial, valor-alvo a ser mantido, bem como a destinação do que exceder a esse valor, hipótese em que a vedação prevista no caput do art. 63 aplica-se apenas até o valor-alvo fixado.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Na ausência de valor-alvo fixado na forma do § 1º, os recursos do respectivo fundo permanecem integralmente vinculados à finalidade que motivou sua constituição, nos termos do art. 63.</p>
+</div>
+<div class="artigo" id="art-65">
+<p class="art-caput"><span class="art-num">Art. 65.</span> O Fundo de Reserva, instituído pela Convenção Condominial, é constituído pelo percentual mínimo das contribuições condominiais ordinárias nela fixado, acrescido dos valores arrecadados em decorrência de infrações, observado que esse percentual somente poderá ser majorado por deliberação da Assembleia Geral; a existência de valor-alvo revisável anualmente, que constará da Proposta Orçamentária; e a limitação de uso, até o valor-alvo, a despesas de caráter extraordinário e emergencial.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Os recursos dos fundos condominiais somente poderão ser aplicados em instituições financeiras autorizadas pelo Banco Central do Brasil, em aplicações de baixo risco e elevada liquidez, vedadas aplicações especulativas.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> Os rendimentos decorrentes da aplicação financeira do Fundo de Reserva revertem obrigatoriamente ao próprio fundo, sendo vedada sua utilização para finalidade diversa ou sua destinação, por deliberação da Assembleia Geral, a outra rubrica ou fundo, ressalvada disposição em sentido diverso da própria Convenção Condominial.</p>
 </div>
-<div class="artigo" id="art-62">
-<p class="art-caput"><span class="art-num">Art. 62.</span> Os bens móveis, equipamentos e demais ativos permanentes do condomínio integrarão o patrimônio condominial, objeto de inventário permanentemente atualizado e revisado, no mínimo, uma vez por ano, permanecendo disponível para fiscalização pelo Conselho e pelos condôminos, e integrando a documentação entregue na transição da administração.</p>
-</div>
-</section>
-<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
-</section>
-<section class="nivel-capitulo" id="cap-4">
-<h2 class="titulo-capitulo">CAPÍTULO IV — DA UTILIZAÇÃO DAS UNIDADES AUTÔNOMAS</h2>
-<div class="artigo" id="art-63">
-<p class="art-caput"><span class="art-num">Art. 63.</span> As unidades autônomas destinam-se exclusivamente ao uso residencial, devendo seu uso observar a função social da propriedade, a boa-fé, o sossego e o bem-estar da coletividade, respondendo o proprietário, possuidor, morador ou ocupante pelo cumprimento da legislação vigente, da Convenção Condominial, deste Regimento e das deliberações da Assembleia Geral, inclusive pelos atos de familiares, dependentes, empregados, prestadores de serviços, locatários e visitantes que autorizar a ingressar no condomínio.</p>
-</div>
-<div class="artigo" id="art-64">
-<p class="art-caput"><span class="art-num">Art. 64.</span> Compete ao condômino conservar sua unidade em condições adequadas de uso, segurança, higiene e manutenção, adotando as providências necessárias para evitar vazamentos, infiltrações e demais situações capazes de comprometer a segurança ou a salubridade do condomínio, e comunicando imediatamente à Administração qualquer risco identificado.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Constatada situação de urgência ou emergência, a Administração poderá adotar as medidas estritamente necessárias para conter ou eliminar o risco, inclusive com acesso à unidade, mediante prévia comunicação sempre que possível.</p>
-</div>
-<div class="artigo" id="art-65">
-<p class="art-caput"><span class="art-num">Art. 65.</span> Obras, reformas e intervenções que envolvam elemento estrutural, instalação técnica predial, sistema de proteção contra incêndio, ou que possam afetar a segurança da edificação, a fachada ou as instalações comuns, dependem de prévia autorização da Administração, respondendo o condômino integralmente pelos danos delas decorrentes; as demais obras serão comunicadas com antecedência mínima de 7 (sete) dias, dispensada comunicação para reparo emergencial e intervenção de pequena monta sem uso de área comum ou risco à edificação.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Regras operacionais de execução de obras — cadastramento, agendamento, horários e circulação de materiais — serão disciplinadas por Procedimento Operacional ou, quando importarem restrição a condôminos, por Norma Interna.</p>
-</div>
 <div class="artigo" id="art-66">
-<p class="art-caput"><span class="art-num">Art. 66.</span> A fachada do Edifício, as lajes técnicas e os equipamentos nelas instalados observarão o padrão fixado em Norma Complementar, nos termos do art. 9º, parágrafo único, respondendo o condômino pela conservação dos equipamentos de sua laje técnica e pelos danos decorrentes de sua instalação, funcionamento ou ausência de manutenção.</p>
+<p class="art-caput"><span class="art-num">Art. 66.</span> Fica instituído o Fundo de Manutenção das Áreas Comuns Reserváveis, constituído pelos valores arrecadados a título da taxa de utilização e limpeza de que trata o art. 75, destinado exclusivamente à manutenção, limpeza e recomposição das áreas comuns sujeitas a reserva, sujeito às regras gerais dos arts. 63 e 64.</p>
 </div>
 <div class="artigo" id="art-67">
-<p class="art-caput"><span class="art-num">Art. 67.</span> Os registros administrativos do condomínio — cadastro de proprietários, moradores, veículos, bicicletas e animais, registro de ocorrências, de recebimento de encomendas e de achados e perdidos — poderão ser disciplinados por Procedimento Operacional, inexistindo Norma Interna, observada a legislação vigente de proteção de dados pessoais e limitada a coleta às informações necessárias às finalidades de identificação, comunicação, segurança e controle de acesso.</p>
+<p class="art-caput"><span class="art-num">Art. 67.</span> Os bens móveis, equipamentos e demais ativos permanentes do condomínio integrarão o patrimônio condominial, objeto de inventário permanentemente atualizado e revisado, no mínimo, uma vez por ano, permanecendo disponível para fiscalização pelo Conselho e pelos condôminos, e integrando a documentação entregue na transição da administração.</p>
 </div>
+</section>
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
-<section class="nivel-capitulo" id="cap-5">
-<h2 class="titulo-capitulo">CAPÍTULO V — DAS ÁREAS COMUNS DE USO COLETIVO</h2>
+<section class="nivel-capitulo" id="cap-11">
+<h2 class="titulo-capitulo">Capítulo IV — DA UTILIZAÇÃO DAS UNIDADES AUTÔNOMAS</h2>
 <div class="artigo" id="art-68">
-<p class="art-caput"><span class="art-num">Art. 68.</span> As áreas comuns de uso coletivo destinam-se ao lazer, à convivência, ao esporte, à recreação e às demais atividades compatíveis com sua finalidade, devendo ser utilizadas de forma compatível com essa destinação, vedada sua utilização que comprometa sua finalidade, cause risco, dano ou transtorno, ou impeça o exercício do direito de uso pelos demais condôminos.</p>
+<p class="art-caput"><span class="art-num">Art. 68.</span> As unidades autônomas destinam-se exclusivamente ao uso residencial, devendo seu uso observar a função social da propriedade, a boa-fé, o sossego e o bem-estar da coletividade, respondendo o proprietário, possuidor, morador ou ocupante pelo cumprimento da legislação vigente, da Convenção Condominial, deste Regimento e das deliberações da Assembleia Geral, inclusive pelos atos de familiares, dependentes, empregados, prestadores de serviços, locatários e visitantes que autorizar a ingressar no condomínio.</p>
 </div>
 <div class="artigo" id="art-69">
-<p class="art-caput"><span class="art-num">Art. 69.</span> Os horários de funcionamento das áreas comuns e a disciplina de reserva e utilização exclusiva temporária das áreas reserváveis constarão da Proposta de Calendário Anual das Áreas Comuns, nos termos do art. 10, § 1º, II.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> As demais regras específicas de cada área comum — incluindo idade mínima de uso sem supervisão de adulto, capacidade máxima de usuários e condições de higiene e segurança —, quando editadas, revestem-se da forma de Norma Interna, nos termos do art. 10, § 2º, I, não sendo obrigatória sua edição nem, uma vez aprovadas, sua renovação periódica, nos termos do art. 10, § 3º; inexistindo Norma Interna, tais regras poderão ser disciplinadas por Procedimento Operacional.</p>
+<p class="art-caput"><span class="art-num">Art. 69.</span> Compete ao condômino conservar sua unidade em condições adequadas de uso, segurança, higiene e manutenção, adotando as providências necessárias para evitar vazamentos, infiltrações e demais situações capazes de comprometer a segurança ou a salubridade do condomínio, e comunicando imediatamente à Administração qualquer risco identificado.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Constatada situação de urgência ou emergência, a Administração poderá adotar as medidas estritamente necessárias para conter ou eliminar o risco, inclusive com acesso à unidade, mediante prévia comunicação sempre que possível.</p>
 </div>
 <div class="artigo" id="art-70">
-<p class="art-caput"><span class="art-num">Art. 70.</span> A reserva de área comum de utilização exclusiva temporária poderá sujeitar-se a taxa de utilização e limpeza, cujo valor constará da Proposta Orçamentária, destinada a fundo próprio de manutenção das áreas comuns reserváveis, não se confundindo com a cota condominial ordinária.</p>
-<p class="paragrafo"><span class="par-num">§ 1º.</span> Caracterizado mau uso do espaço reservado, evidenciado por sujeira ou desorganização que exceda o desgaste natural da utilização normal, o responsável arcará com ressarcimento correspondente ao custo da limpeza ou recomposição extraordinária necessária, destinado ao fundo próprio de manutenção das áreas comuns reserváveis de que trata o caput, assegurado o contraditório prévio à cobrança, sem prejuízo da taxa de utilização e da responsabilidade por outros danos eventualmente causados.</p>
+<p class="art-caput"><span class="art-num">Art. 70.</span> Obras, reformas e intervenções que envolvam elemento estrutural, instalação técnica predial, sistema de proteção contra incêndio, ou que possam afetar a segurança da edificação, a fachada ou as instalações comuns, dependem de prévia autorização da Administração, respondendo o condômino integralmente pelos danos delas decorrentes; as demais obras serão comunicadas com antecedência mínima de 7 (sete) dias, dispensada comunicação para reparo emergencial e intervenção de pequena monta sem uso de área comum ou risco à edificação.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Regras operacionais de execução de obras — cadastramento, agendamento, horários e circulação de materiais — serão disciplinadas por Procedimento Operacional ou, quando importarem restrição a condôminos, por Norma Interna.</p>
 </div>
 <div class="artigo" id="art-71">
-<p class="art-caput"><span class="art-num">Art. 71.</span> É vedada a apropriação, ocupação ou utilização de espaço comum sem destinação definida por condômino, morador, ocupante ou pela própria Administração, ressalvada autorização expressa da Assembleia Geral, competindo à Administração, até a deliberação, zelar por sua conservação, limpeza e segurança.</p>
+<p class="art-caput"><span class="art-num">Art. 71.</span> A fachada do Edifício, as lajes técnicas e os equipamentos nelas instalados observarão o padrão fixado em Norma Complementar, nos termos do art. 10, § 1º, respondendo o condômino pela conservação dos equipamentos de sua laje técnica e pelos danos decorrentes de sua instalação, funcionamento ou ausência de manutenção.</p>
 </div>
 <div class="artigo" id="art-72">
-<p class="art-caput"><span class="art-num">Art. 72.</span> A implantação de projetos de paisagismo, arborização, hortas comunitárias ou o plantio de espécie vegetal não prevista no projeto paisagístico original dependerá de prévia aprovação da Assembleia Geral, precedida de informação técnica suficiente sobre a adequação das espécies e seus impactos.</p>
+<p class="art-caput"><span class="art-num">Art. 72.</span> Os registros administrativos do condomínio — cadastro de proprietários, moradores, veículos, bicicletas e animais, registro de ocorrências, de recebimento de encomendas e de achados e perdidos — poderão ser disciplinados por Procedimento Operacional, inexistindo Norma Interna, observada a legislação vigente de proteção de dados pessoais e limitada a coleta às informações necessárias às finalidades de identificação, comunicação, segurança e controle de acesso.</p>
 </div>
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
-<section class="nivel-capitulo" id="cap-6">
-<h2 class="titulo-capitulo">CAPÍTULO VI — DOS VEÍCULOS, GARAGENS E CIRCULAÇÃO INTERNA</h2>
+<section class="nivel-capitulo" id="cap-12">
+<h2 class="titulo-capitulo">Capítulo V — DAS ÁREAS COMUNS DE USO COLETIVO</h2>
 <div class="artigo" id="art-73">
-<p class="art-caput"><span class="art-num">Art. 73.</span> As garagens, os estacionamentos e os bicicletários destinam-se à guarda e à circulação segura de veículos e bicicletas, devendo o veículo permanecer integralmente dentro dos limites da vaga que lhe corresponda, vedada sua utilização para depósito ou finalidade estranha, e vedada a locação, o comodato ou a cessão de vaga a pessoa não residente no condomínio.</p>
+<p class="art-caput"><span class="art-num">Art. 73.</span> As áreas comuns de uso coletivo destinam-se ao lazer, à convivência, ao esporte, à recreação e às demais atividades compatíveis com sua finalidade, devendo ser utilizadas de forma compatível com essa destinação, vedada sua utilização que comprometa sua finalidade, cause risco, dano ou transtorno, ou impeça o exercício do direito de uso pelos demais condôminos.</p>
 </div>
 <div class="artigo" id="art-74">
-<p class="art-caput"><span class="art-num">Art. 74.</span> A circulação de veículos nas garagens observará a velocidade máxima, o uso de faróis e as demais condições operacionais de segurança fixadas em Norma Interna, nos termos do art. 10, § 2º, II, sendo vedadas, em qualquer caso, acelerações bruscas e manobras perigosas; o veículo que obstruir a circulação estará sujeito à remoção por guincho, às expensas do infrator.</p>
-<p class="paragrafo"><span class="par-num">§ 1º.</span> As demais regras de utilização das garagens, estacionamentos, bicicletário, armários e elevadores, incluindo a classificação de infrações relativas a este Capítulo por grau de gravidade para fins de aplicação da multa prevista no art. 86, observam a mesma forma de Norma Interna referida no caput, não sendo obrigatória sua edição nem, uma vez aprovadas, sua renovação periódica, nos termos do art. 10, § 3º, ressalvadas as matérias reservadas a Norma Complementar, nos termos do art. 9º, parágrafo único.</p>
-<p class="paragrafo"><span class="par-num">§ 2º.</span> Inexistindo Norma Interna, as regras de que trata este artigo, exceto a classificação de infrações referida no § 1º, poderão ser disciplinadas por Procedimento Operacional; à falta de Norma Interna quanto a essa classificação, aplicam-se os critérios gerais do art. 85.</p>
+<p class="art-caput"><span class="art-num">Art. 74.</span> Os horários de funcionamento das áreas comuns e a disciplina de reserva e utilização exclusiva temporária das áreas reserváveis constarão da Proposta de Calendário Anual das Áreas Comuns, nos termos do art. 13.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> As demais regras específicas de cada área comum — incluindo idade mínima de uso sem supervisão de adulto, capacidade máxima de usuários e condições de higiene e segurança —, quando editadas, revestem-se da forma de Norma Interna, nos termos do art. 11, § 1º, I, não sendo obrigatória sua edição nem, uma vez aprovadas, sua renovação periódica, nos termos do art. 11, § 2º; inexistindo Norma Interna, tais regras poderão ser disciplinadas por Procedimento Operacional.</p>
 </div>
 <div class="artigo" id="art-75">
-<p class="art-caput"><span class="art-num">Art. 75.</span> É vedada a instalação de divisórias, cercamentos ou estruturas que alterem as características originais das vagas de garagem, bem como a instalação de armário em desacordo com o padrão fixado em Norma Complementar nos termos do art. 9º, parágrafo único, ou que prejudique circulação, ventilação, rotas de fuga ou acesso a equipamentos de segurança.</p>
+<p class="art-caput"><span class="art-num">Art. 75.</span> A reserva de área comum de utilização exclusiva temporária poderá sujeitar-se a taxa de utilização e limpeza, cujo valor constará da Proposta Orçamentária, destinada ao Fundo de Manutenção das Áreas Comuns Reserváveis de que trata o art. 66, não se confundindo com a cota condominial ordinária.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Caracterizado mau uso do espaço reservado, evidenciado por sujeira ou desorganização que exceda o desgaste natural da utilização normal, o responsável arcará com ressarcimento correspondente ao custo da limpeza ou recomposição extraordinária necessária, destinado ao fundo próprio de manutenção das áreas comuns reserváveis de que trata o caput, assegurado o contraditório prévio à cobrança, sem prejuízo da taxa de utilização e da responsabilidade por outros danos eventualmente causados.</p>
 </div>
-<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
-</section>
-<section class="nivel-capitulo" id="cap-7">
-<h2 class="titulo-capitulo">CAPÍTULO VII — DA CONVIVÊNCIA CONDOMINIAL</h2>
 <div class="artigo" id="art-76">
-<p class="art-caput"><span class="art-num">Art. 76.</span> A convivência condominial pauta-se pelo respeito recíproco, pela cooperação, pela urbanidade e pela solidariedade, devendo o exercício dos direitos de propriedade e de uso das áreas comuns compatibilizar-se com os direitos dos demais moradores, vedada qualquer utilização que comprometa a segurança, o sossego, a salubridade ou a boa convivência.</p>
+<p class="art-caput"><span class="art-num">Art. 76.</span> É vedada a apropriação, ocupação ou utilização de espaço comum sem destinação definida por condômino, morador, ocupante ou pela própria Administração, ressalvada autorização expressa da Assembleia Geral, competindo à Administração, até a deliberação, zelar por sua conservação, limpeza e segurança.</p>
 </div>
 <div class="artigo" id="art-77">
-<p class="art-caput"><span class="art-num">Art. 77.</span> Constituem direitos dos condôminos e moradores, além dos previstos na legislação vigente e na Convenção Condominial: utilizar e fruir de sua unidade e das áreas comuns; participar da vida condominial em ambiente seguro e respeitoso; receber tratamento isonômico da Administração; ter acesso às informações e documentos do condomínio, na forma deste Regimento; apresentar sugestões, reclamações e requerimentos, obtendo resposta em prazo razoável; e participar das Assembleias Gerais.</p>
-</div>
-<div class="artigo" id="art-78">
-<p class="art-caput"><span class="art-num">Art. 78.</span> Constituem deveres dos condôminos e moradores, além dos previstos na legislação vigente e na Convenção Condominial: cumprir a legislação vigente, a Convenção Condominial, este Regimento, as deliberações da Assembleia Geral e os Procedimentos Operacionais; utilizar sua unidade e as áreas comuns de forma compatível com sua destinação; preservar o patrimônio comum, comunicando à Administração situação de risco; tratar com urbanidade os demais moradores, visitantes, prestadores de serviços e integrantes da Administração; e responder por seus atos e pelos de pessoas cujo ingresso no condomínio tenha autorizado.</p>
-</div>
-<div class="artigo" id="art-79">
-<p class="art-caput"><span class="art-num">Art. 79.</span> É permitida a permanência de animais nas unidades autônomas, observado o respeito à segurança, à saúde, ao sossego e à boa convivência, não podendo sua permanência ser proibida exclusivamente em razão de espécie, raça ou porte, admitindo-se restrição apenas diante de comportamento concreto que represente risco ou descumprimento das condições deste Regimento; é dispensado o uso de focinheira para cães-guia e demais animais de assistência devidamente identificados.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Nas áreas comuns, os animais permanecerão sob permanente supervisão de pessoa capaz, com dispositivo de contenção compatível com sua espécie, porte e comportamento, respondendo o responsável pela imediata remoção de dejetos e pela reparação de danos causados.</p>
-</div>
-<div class="artigo" id="art-80">
-<p class="art-caput"><span class="art-num">Art. 80.</span> É vedada a prática de atos que perturbem, de forma reiterada ou injustificada, a tranquilidade dos moradores, comprometam a segurança das pessoas ou do patrimônio, ou constituam conduta ofensiva, intimidatória, discriminatória ou incompatível com a convivência harmoniosa.</p>
-</div>
-<div class="artigo" id="art-81">
-<p class="art-caput"><span class="art-num">Art. 81.</span> O ingresso e a permanência de visitantes, prestadores de serviços e entregadores no condomínio, bem como as regras de circulação e de utilização das áreas comuns por essas pessoas, quando editadas, revestem-se da forma de Norma Interna, nos termos do art. 10, § 2º, III, não sendo obrigatória sua edição nem, uma vez aprovadas, sua renovação periódica, nos termos do art. 10, § 3º; inexistindo Norma Interna, tais regras poderão ser disciplinadas por Procedimento Operacional, observadas a legislação vigente, a Convenção Condominial e este Regimento, dependendo sempre de autorização do morador responsável ou da Administração, conforme o caso.</p>
+<p class="art-caput"><span class="art-num">Art. 77.</span> A implantação de projetos de paisagismo, arborização, hortas comunitárias ou o plantio de espécie vegetal não prevista no projeto paisagístico original dependerá de prévia aprovação da Assembleia Geral, precedida de informação técnica suficiente sobre a adequação das espécies e seus impactos.</p>
 </div>
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
-<section class="nivel-capitulo" id="cap-8">
-<h2 class="titulo-capitulo">CAPÍTULO VIII — DAS INFRAÇÕES, PENALIDADES E DO PROCESSO ADMINISTRATIVO</h2>
-<section class="nivel-secao" id="cap-8-sec-1">
-<h3 class="titulo-secao">Seção I — Disposições Gerais</h3>
+<section class="nivel-capitulo" id="cap-13">
+<h2 class="titulo-capitulo">Capítulo VI — DOS VEÍCULOS, GARAGENS E CIRCULAÇÃO INTERNA</h2>
+<div class="artigo" id="art-78">
+<p class="art-caput"><span class="art-num">Art. 78.</span> As garagens, os estacionamentos e os bicicletários destinam-se à guarda e à circulação segura de veículos e bicicletas, devendo o veículo permanecer integralmente dentro dos limites da vaga que lhe corresponda, vedada sua utilização para depósito ou finalidade estranha, e vedada a locação, o comodato ou a cessão de vaga a pessoa não residente no condomínio.</p>
+</div>
+<div class="artigo" id="art-79">
+<p class="art-caput"><span class="art-num">Art. 79.</span> A circulação de veículos nas garagens observará a velocidade máxima, o uso de faróis e as demais condições operacionais de segurança fixadas em Norma Interna, nos termos do art. 11, § 1º, II, sendo vedadas, em qualquer caso, acelerações bruscas e manobras perigosas; o veículo que obstruir a circulação estará sujeito à remoção por guincho, às expensas do infrator.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> As demais regras de utilização das garagens, estacionamentos, bicicletário, armários e elevadores, incluindo a classificação de infrações relativas a este Capítulo por grau de gravidade para fins de aplicação da multa prevista no art. 92, observam a mesma forma de Norma Interna referida no caput, não sendo obrigatória sua edição nem, uma vez aprovadas, sua renovação periódica, nos termos do art. 11, § 2º, ressalvadas as matérias reservadas a Norma Complementar, nos termos do art. 10, § 1º.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Inexistindo Norma Interna, as regras de que trata este artigo, exceto a classificação de infrações referida no § 1º, poderão ser disciplinadas por Procedimento Operacional; à falta de Norma Interna quanto a essa classificação, aplicam-se os critérios gerais do art. 90.</p>
+</div>
+<div class="artigo" id="art-80">
+<p class="art-caput"><span class="art-num">Art. 80.</span> É vedada a instalação de divisórias, cercamentos ou estruturas que alterem as características originais das vagas de garagem, bem como a instalação de armário em desacordo com o padrão fixado em Norma Complementar nos termos do art. 10, § 1º, ou que prejudique circulação, ventilação, rotas de fuga ou acesso a equipamentos de segurança.</p>
+</div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-14">
+<h2 class="titulo-capitulo">Capítulo VII — DA CONVIVÊNCIA CONDOMINIAL</h2>
+<div class="artigo" id="art-81">
+<p class="art-caput"><span class="art-num">Art. 81.</span> A convivência condominial pauta-se pelo respeito recíproco, pela cooperação, pela urbanidade e pela solidariedade, devendo o exercício dos direitos de propriedade e de uso das áreas comuns compatibilizar-se com os direitos dos demais moradores, vedada qualquer utilização que comprometa a segurança, o sossego, a salubridade ou a boa convivência.</p>
+</div>
 <div class="artigo" id="art-82">
-<p class="art-caput"><span class="art-num">Art. 82.</span> O descumprimento da legislação vigente, da Convenção Condominial, deste Regimento, das Normas Complementares, das Normas Internas, das deliberações da Assembleia Geral ou dos Procedimentos Operacionais sujeitará o responsável às medidas administrativas previstas neste Capítulo, sem prejuízo das responsabilidades civis, penais e administrativas cabíveis, observados os princípios da legalidade, da motivação, da proporcionalidade, do contraditório, da ampla defesa e do devido processo administrativo.</p>
+<p class="art-caput"><span class="art-num">Art. 82.</span> Constituem direitos dos condôminos e moradores, além dos previstos na legislação vigente e na Convenção Condominial: utilizar e fruir de sua unidade e das áreas comuns; participar da vida condominial em ambiente seguro e respeitoso; receber tratamento isonômico da Administração; ter acesso às informações e documentos do condomínio, na forma deste Regimento; apresentar sugestões, reclamações e requerimentos, obtendo resposta em prazo razoável; e participar das Assembleias Gerais.</p>
 </div>
 <div class="artigo" id="art-83">
-<p class="art-caput"><span class="art-num">Art. 83.</span> Para os fins deste Regimento:</p>
+<p class="art-caput"><span class="art-num">Art. 83.</span> Constituem deveres dos condôminos e moradores, além dos previstos na legislação vigente e na Convenção Condominial: cumprir a legislação vigente, a Convenção Condominial, este Regimento, as deliberações da Assembleia Geral e os Procedimentos Operacionais; utilizar sua unidade e as áreas comuns de forma compatível com sua destinação; preservar o patrimônio comum, comunicando à Administração situação de risco; tratar com urbanidade os demais moradores, visitantes, prestadores de serviços e integrantes da Administração; e responder por seus atos e pelos de pessoas cujo ingresso no condomínio tenha autorizado.</p>
+</div>
+<div class="artigo" id="art-84">
+<p class="art-caput"><span class="art-num">Art. 84.</span> É permitida a permanência de animais nas unidades autônomas, observado o respeito à segurança, à saúde, ao sossego e à boa convivência, não podendo sua permanência ser proibida exclusivamente em razão de espécie, raça ou porte, admitindo-se restrição apenas diante de comportamento concreto que represente risco ou descumprimento das condições deste Regimento; é dispensado o uso de focinheira para cães-guia e demais animais de assistência devidamente identificados.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Nas áreas comuns, os animais permanecerão sob permanente supervisão de pessoa capaz, com dispositivo de contenção compatível com sua espécie, porte e comportamento, respondendo o responsável pela imediata remoção de dejetos e pela reparação de danos causados.</p>
+</div>
+<div class="artigo" id="art-85">
+<p class="art-caput"><span class="art-num">Art. 85.</span> É vedada a prática de atos que perturbem, de forma reiterada ou injustificada, a tranquilidade dos moradores, comprometam a segurança das pessoas ou do patrimônio, ou constituam conduta ofensiva, intimidatória, discriminatória ou incompatível com a convivência harmoniosa.</p>
+</div>
+<div class="artigo" id="art-86">
+<p class="art-caput"><span class="art-num">Art. 86.</span> O ingresso e a permanência de visitantes, prestadores de serviços e entregadores no condomínio, bem como as regras de circulação e de utilização das áreas comuns por essas pessoas, quando editadas, revestem-se da forma de Norma Interna, nos termos do art. 11, § 1º, III, não sendo obrigatória sua edição nem, uma vez aprovadas, sua renovação periódica, nos termos do art. 11, § 2º; inexistindo Norma Interna, tais regras poderão ser disciplinadas por Procedimento Operacional, observadas a legislação vigente, a Convenção Condominial e este Regimento, dependendo sempre de autorização do morador responsável ou da Administração, conforme o caso.</p>
+</div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-15">
+<h2 class="titulo-capitulo">Capítulo VIII — DAS INFRAÇÕES, PENALIDADES E DO PROCESSO ADMINISTRATIVO</h2>
+<section class="nivel-secao" id="cap-15-sec-1">
+<h3 class="titulo-secao">Seção I — Disposições Gerais</h3>
+<div class="artigo" id="art-87">
+<p class="art-caput"><span class="art-num">Art. 87.</span> O descumprimento da legislação vigente, da Convenção Condominial, deste Regimento, das Normas Complementares, das Normas Internas, das deliberações da Assembleia Geral ou dos Procedimentos Operacionais sujeitará o responsável às medidas administrativas previstas neste Capítulo, sem prejuízo das responsabilidades civis, penais e administrativas cabíveis, observados os princípios da legalidade, da motivação, da proporcionalidade, do contraditório, da ampla defesa e do devido processo administrativo.</p>
+</div>
+<div class="artigo" id="art-88">
+<p class="art-caput"><span class="art-num">Art. 88.</span> Para os fins deste Regimento:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> penalidade é a sanção aplicada em razão de infração, sujeita integralmente ao procedimento e às garantias deste Capítulo;</li>
 <li><span class="inc-num">II.</span> ressarcimento é o valor correspondente ao prejuízo material comprovadamente causado ao condomínio, não podendo superar o dano efetivamente apurado; e</li>
-<li><span class="inc-num">III.</span> taxa ou retenção de natureza contratual é a cobrança vinculada ao uso, reserva ou cancelamento de área comum sujeita a agendamento, calculada segundo critérios objetivos fixados em Norma Interna, não tendo natureza sancionatória e não se sujeitando às garantias processuais deste Capítulo, salvo disposição expressa em sentido diverso.</li>
+<li><span class="inc-num">III.</span> taxa ou retenção de natureza contratual é a cobrança vinculada ao uso, reserva ou cancelamento de área comum sujeita a agendamento, calculada segundo critérios objetivos fixados no Orçamento Anual, nos termos do art. 12, não tendo natureza sancionatória e não se sujeitando às garantias processuais deste Capítulo, salvo disposição expressa em sentido diverso.</li>
 </ol>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> Penalidade, ressarcimento e taxa ou retenção contratual podem ser cumulados quando tiverem fundamentos distintos, vedado o enriquecimento sem causa do condomínio.</p>
 </div>
-<div class="artigo" id="art-84">
-<p class="art-caput"><span class="art-num">Art. 84.</span> Nenhuma penalidade será aplicada sem que a conduta esteja previamente prevista na legislação vigente, na Convenção Condominial, neste Regimento, em Norma Complementar, em Norma Interna ou em deliberação regularmente aprovada pela Assembleia Geral, nem com finalidade arrecadatória, devendo sua imposição observar exclusivamente sua função educativa, preventiva, corretiva e disciplinar.</p>
+<div class="artigo" id="art-89">
+<p class="art-caput"><span class="art-num">Art. 89.</span> Nenhuma penalidade será aplicada sem que a conduta esteja previamente prevista na legislação vigente, na Convenção Condominial, neste Regimento, em Norma Complementar, em Norma Interna ou em deliberação regularmente aprovada pela Assembleia Geral, nem com finalidade arrecadatória, devendo sua imposição observar exclusivamente sua função educativa, preventiva, corretiva e disciplinar.</p>
 </div>
 </section>
-<section class="nivel-secao" id="cap-8-sec-2">
+<section class="nivel-secao" id="cap-15-sec-2">
 <h3 class="titulo-secao">Seção II — Das Infrações e das Penalidades</h3>
-<div class="artigo" id="art-85">
-<p class="art-caput"><span class="art-num">Art. 85.</span> As infrações classificam-se, conforme sua natureza, extensão do dano, risco à segurança, existência de dolo ou culpa e reincidência, em leves, médias, graves e gravíssimas, devendo a classificação ser expressamente fundamentada na decisão administrativa.</p>
+<div class="artigo" id="art-90">
+<p class="art-caput"><span class="art-num">Art. 90.</span> As infrações classificam-se, conforme sua natureza, extensão do dano, risco à segurança, existência de dolo ou culpa e reincidência, em leves, médias, graves e gravíssimas, devendo a classificação ser expressamente fundamentada na decisão administrativa.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Consideram-se, em regra, leves as infrações de reduzido impacto, prontamente corrigidas e sem risco relevante; médias as que causem prejuízo moderado ou dificultem o funcionamento do condomínio; graves as que comprometam a segurança, causem dano relevante ou representem descumprimento reiterado; e gravíssimas as que exponham pessoas a risco concreto de dano grave, causem dano patrimonial de elevada relevância, envolvam fraude, violência ou ameaça, ou revelem manifesta incompatibilidade com a convivência condominial.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> Consideram-se circunstâncias agravantes, entre outras, a reincidência, a prática dolosa, a tentativa de ocultação dos fatos e a recusa injustificada em cessar a conduta; e atenuantes a cessação espontânea, a pronta reparação do dano e a colaboração para a apuração dos fatos.</p>
 </div>
-<div class="artigo" id="art-86">
-<p class="art-caput"><span class="art-num">Art. 86.</span> Verificada a prática de infração, poderão ser aplicadas, isolada ou cumulativamente, conforme a gravidade: advertência, de caráter educativo, preferencialmente às infrações leves; multa, calculada sobre o valor da Taxa Condominial Ordinária vigente na data da decisão, nos percentuais de 25% (leve), 50% (média), 75% (grave) e 100% (gravíssima), sem prejuízo da multa agravada por descumprimento reiterado de deveres condominiais ou por comportamento antissocial, de aplicação privativa da Assembleia Geral, observado o quórum específico exigido pela legislação vigente para essa hipótese, ainda que superior ao previsto na Convenção Condominial para as demais deliberações; e suspensão temporária de autorização ou utilização de área, equipamento ou serviço comum sujeito a reserva, quando a infração estiver diretamente relacionada ao seu uso.</p>
+<div class="artigo" id="art-91">
+<p class="art-caput"><span class="art-num">Art. 91.</span> Verificada a prática de infração, poderão ser aplicadas, isolada ou cumulativamente, conforme a gravidade, as seguintes penalidades:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> advertência, de caráter educativo, preferencialmente às infrações leves;</li>
+<li><span class="inc-num">II.</span> multa, nos termos do art. 92; e</li>
+<li><span class="inc-num">III.</span> suspensão temporária de autorização ou utilização de área, equipamento ou serviço comum sujeito a reserva, quando a infração estiver diretamente relacionada ao seu uso.</li>
+</ol>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Sempre que possível, a Administração privilegiará medidas preventivas, orientativas e conciliatórias, sem prejuízo da aplicação das penalidades cabíveis diante de reincidência ou quando necessárias à proteção da coletividade.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> É vedada a restrição de acesso às áreas comuns de uso geral como meio de coerção para pagamento de contribuição condominial em atraso, sem prejuízo das medidas de cobrança cabíveis e da possibilidade de a Norma Interna condicionar a reserva de área comum de uso exclusivo temporário à regularidade das obrigações condominiais do condômino reservante.</p>
 </div>
-</section>
-<section class="nivel-secao" id="cap-8-sec-3">
-<h3 class="titulo-secao">Seção III — Do Procedimento Administrativo</h3>
-<div class="artigo" id="art-87">
-<p class="art-caput"><span class="art-num">Art. 87.</span> O procedimento administrativo poderá ter início de ofício pela Administração, mediante comunicação do Conselho, por representação de condômino, morador ou usuário, ou em decorrência de fatos regularmente registrados, competindo à Administração promover a instrução, podendo realizar diligências, colher provas e ouvir os envolvidos.</p>
-</div>
-<div class="artigo" id="art-88">
-<p class="art-caput"><span class="art-num">Art. 88.</span> Concluída a instrução, o Síndico notificará o interessado para, querendo, apresentar defesa escrita no prazo de 15 (quinze) dias, encerrada a qual decidirá, podendo determinar diligência complementar, reconhecer a inexistência da infração e arquivar o procedimento, ou aplicar a penalidade cabível, mediante decisão fundamentada contendo os fatos comprovados, a análise da defesa, os fundamentos legais e regimentais, a classificação da infração e a penalidade aplicada.</p>
-</div>
-<div class="artigo" id="art-89">
-<p class="art-caput"><span class="art-num">Art. 89.</span> O membro do Conselho ou o Síndico que possuir interesse direto ou indireto na matéria, vínculo de parentesco ou qualquer circunstância capaz de comprometer sua imparcialidade ficará impedido de participar da instrução, discussão ou decisão do procedimento.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Estando o Síndico impedido nos termos do caput, a instrução e a decisão do procedimento caberão ao Subsíndico e, na sua impossibilidade ou impedimento, serão submetidas diretamente à Assembleia Geral, vedado ao Síndico impedido praticar qualquer ato de instrução, ainda que de mero expediente, relativo ao procedimento de que trata este artigo.</p>
-</div>
-<div class="artigo" id="art-90">
-<p class="art-caput"><span class="art-num">Art. 90.</span> O Síndico comunicará ao Presidente do Conselho a multa aplicada no prazo de 5 (cinco) dias úteis, sob pena de nulidade, assegurado ao condômino o ressarcimento dos valores eventualmente pagos, com correção, sem prejuízo do parecer de ofício do Conselho nos termos do art. 30, § 1º.</p>
-</div>
-</section>
-<section class="nivel-secao" id="cap-8-sec-4">
-<h3 class="titulo-secao">Seção IV — Dos Recursos Administrativos</h3>
-<div class="artigo" id="art-91">
-<p class="art-caput"><span class="art-num">Art. 91.</span> Da decisão do Síndico caberá recurso ao Conselho, no prazo de 15 (quinze) dias, com efeito suspensivo quanto à produção de efeitos da penalidade, ressalvados os casos de medida urgente destinada à proteção da segurança das pessoas ou do patrimônio comum e a hipótese do art. 94, referente às multas aplicadas pelo Síndico.</p>
-</div>
 <div class="artigo" id="art-92">
-<p class="art-caput"><span class="art-num">Art. 92.</span> O Conselho, em seu parecer recursal, sem caráter decisório, poderá recomendar a manutenção da decisão recorrida, sua reforma total ou parcial, a realização de nova instrução, ou o reconhecimento de nulidade processual.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Do parecer do Conselho que recomendar, total ou parcialmente, a manutenção da decisão recorrida, caberá recurso à Assembleia Geral, que decidirá em caráter definitivo, incluído na pauta da primeira Assembleia que puder apreciá-lo; acolhida integralmente a recomendação de reforma ou anulação, a decisão do Síndico será revista de ofício pela Administração, independentemente de novo recurso.</p>
-</div>
-<div class="artigo" id="art-93">
-<p class="art-caput"><span class="art-num">Art. 93.</span> As decisões proferidas pela Assembleia Geral encerram a esfera administrativa condominial, sem prejuízo do direito de acesso ao Poder Judiciário.</p>
+<p class="art-caput"><span class="art-num">Art. 92.</span> A multa será calculada sobre o valor da Taxa Condominial Ordinária vigente na data da decisão, nos percentuais de 10% (leve), 25% (média), 50% (grave) e 100% (gravíssima).</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Os percentuais previstos no caput não prejudicam a multa agravada por descumprimento reiterado de deveres condominiais ou por comportamento antissocial, de aplicação privativa da Assembleia Geral, observado o quórum específico exigido pela legislação vigente para essa hipótese, ainda que superior ao previsto na Convenção Condominial para as demais deliberações.</p>
 </div>
 </section>
-<section class="nivel-secao" id="cap-8-sec-5">
-<h3 class="titulo-secao">Seção V — Da Execução das Penalidades</h3>
+<section class="nivel-secao" id="cap-15-sec-3">
+<h3 class="titulo-secao">Seção III — Do Procedimento Administrativo</h3>
+<section class="nivel-subsecao" id="cap-15-sec-3-sub-1">
+<h4 class="titulo-subsecao">Subseção I — Disposições Comuns</h4>
+<div class="artigo" id="art-93">
+<p class="art-caput"><span class="art-num">Art. 93.</span> É assegurado a todo condômino, morador ou usuário do condomínio o direito de dirigir à Administração e, nas hipóteses em que a matéria for de sua competência, ao Conselho, petição de qualquer natureza, inclusive pedido de autorização, de esclarecimento, de providência ou outro pedido não expressamente previsto neste Regimento.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O exercício do direito de petição não poderá sujeitar o requerente a qualquer forma de retaliação, restrição indevida ou tratamento discriminatório.</p>
+</div>
 <div class="artigo" id="art-94">
-<p class="art-caput"><span class="art-num">Art. 94.</span> As penalidades produzirão efeitos após o encerramento da esfera administrativa, ressalvadas as medidas cautelares indispensáveis à proteção da segurança das pessoas ou do patrimônio, e ressalvadas as multas aplicadas pelo Síndico, que produzem efeito imediato sem prejuízo do efeito suspensivo do recurso, na forma do art. 91.</p>
+<p class="art-caput"><span class="art-num">Art. 94.</span> O órgão a quem for dirigida a petição tem o dever de apreciá-la e respondê-la de forma fundamentada, no prazo e na forma previstos nesta Subseção, ainda que para indeferi-la ou para declarar sua incompetência para apreciá-la, hipótese em que a encaminhará ao órgão competente, dando ciência ao requerente.</p>
 </div>
 <div class="artigo" id="art-95">
-<p class="art-caput"><span class="art-num">Art. 95.</span> A aplicação de penalidade não afasta o dever de reparar integralmente os danos eventualmente causados, considerando-se a reparação espontânea e o cumprimento voluntário das determinações administrativas circunstâncias favoráveis em apuração de infrações futuras.</p>
+<p class="art-caput"><span class="art-num">Art. 95.</span> Salvo prazo diverso expressamente previsto neste Regimento, a petição será decidida no prazo de 15 (quinze) dias úteis, contado de seu recebimento.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> O prazo poderá ser prorrogado uma única vez, por igual período, mediante decisão fundamentada, comunicada ao requerente antes do vencimento do prazo original.</p>
 </div>
 <div class="artigo" id="art-96">
-<p class="art-caput"><span class="art-num">Art. 96.</span> Considera-se reincidência, para os fins deste Regimento, a prática de nova infração da mesma natureza pelo mesmo responsável, após decisão administrativa definitiva, observado o período de 2 (dois) anos contado do trânsito em julgado administrativo, mantendo a Administração registro atualizado das penalidades definitivamente aplicadas, exclusivamente para fins de controle, reincidência e cumprimento deste Regimento, observadas as normas de proteção de dados pessoais.</p>
+<p class="art-caput"><span class="art-num">Art. 96.</span> Vencido o prazo previsto no art. 95 sem decisão fundamentada, a petição será automaticamente encaminhada à instância imediatamente superior, independentemente de requerimento do interessado, observada a seguinte ordem:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> tratando-se de petição dirigida à Administração, ao Conselho;</li>
+<li><span class="inc-num">II.</span> tratando-se de petição dirigida ao Conselho, ou de nova omissão verificada após o encaminhamento previsto no inciso I, à Assembleia Geral.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> O encaminhamento previsto no caput não prejudica a apreciação do mérito da petição pelo órgão para o qual for encaminhada, observados o mesmo prazo e procedimento previstos nesta Subseção.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> A omissão do órgão originalmente competente não gera, em qualquer hipótese, decisão tácita favorável ou desfavorável ao requerente.</p>
 </div>
-</section>
-<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
-</section>
-<section class="nivel-capitulo" id="cap-9">
-<h2 class="titulo-capitulo">CAPÍTULO IX — DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS</h2>
 <div class="artigo" id="art-97">
-<p class="art-caput"><span class="art-num">Art. 97.</span> Este Regimento Interno somente poderá ser alterado mediante deliberação da Assembleia Geral especialmente convocada para esse fim, cujo edital indicará expressamente os dispositivos cuja alteração se pretende, acompanhado da justificativa e da redação proposta, vedada a deliberação sobre alteração deste Regimento sob a rubrica de assuntos gerais.</p>
-<p class="paragrafo"><span class="par-num">§ 1º.</span> A aprovação de alterações deste Regimento dependerá do quórum qualificado fixado na Convenção Condominial para esse fim.</p>
-<p class="paragrafo"><span class="par-num">§ 2º.</span> As alterações aprovadas integrarão imediatamente o texto deste Regimento, entrando em vigor na data fixada pela Assembleia ou, na ausência de disposição específica, na data de sua aprovação.</p>
-<p class="paragrafo"><span class="par-num">§ 3º.</span> A apresentação de Emenda de Tramitação por qualquer condômino, nos termos do art. 19, não se confunde com a Alteração do Regimento Interno de que trata este artigo: a Emenda de Tramitação define apenas o conteúdo do texto submetido a votação final, sendo aprovada pelo quórum do art. 19, parágrafo único; a Alteração do Regimento Interno é o ato que aprova esse texto em caráter definitivo, observando o quórum qualificado do § 1º deste artigo.</p>
-<p class="paragrafo"><span class="par-num">§ 4º.</span> As alterações deste Regimento, bem como a aprovação ou alteração de Norma Complementar ou Norma Interna, que criem nova obrigação, restrição ou penalidade para condôminos, moradores ou ocupantes somente produzirão efeitos decorrido prazo de carência de, no mínimo, 30 (trinta) dias contado de sua aprovação, ressalvada a fixação de prazo maior pelo próprio ato aprovador e ressalvada, ainda, a hipótese de medida estritamente necessária à proteção da segurança das pessoas ou do patrimônio comum, que produzirá efeitos imediatos.</p>
+<p class="art-caput"><span class="art-num">Art. 97.</span> A reiteração, por qualquer órgão da Governança Condominial, do descumprimento injustificado dos prazos previstos nesta Subseção será registrada, com a identificação do órgão responsável, a matéria e a data do descumprimento, nos registros administrativos do condomínio, e comunicada à Assembleia Geral na primeira oportunidade, para fins de apuração da responsabilidade do agente e adoção das providências cabíveis, sem prejuízo das demais consequências previstas na legislação vigente, na Convenção Condominial e neste Regimento.</p>
 </div>
 <div class="artigo" id="art-98">
-<p class="art-caput"><span class="art-num">Art. 98.</span> Na interpretação deste Regimento prevalecerão, sucessivamente: a legislação vigente; a Convenção Condominial; este Regimento Interno; a Norma Complementar ou a Norma Interna que regular a matéria específica, nos termos do art. 7º, parágrafo único; as demais deliberações regularmente aprovadas pela Assembleia Geral; e os Procedimentos Operacionais regularmente instituídos pela Administração.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Os casos omissos serão resolvidos pela Assembleia Geral, observadas a legislação vigente, a Convenção Condominial e os princípios estabelecidos neste Regimento.</p>
+<p class="art-caput"><span class="art-num">Art. 98.</span> Sem prejuízo do disposto no art. 97, o descumprimento de prazo previsto nesta Subseção sujeitará o agente responsável às seguintes consequências:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> havendo remuneração, pró-labore ou isenção prevista na Proposta Orçamentária para o exercício do cargo, nos termos do art. 50, § 2º, sua redução em 5% (cinco por cento) a cada prazo descumprido, incidente sobre a remuneração do mês em que se verificar o descumprimento, vedada a restituição do valor retido ainda que o prazo venha a ser cumprido posteriormente;</li>
+<li><span class="inc-num">II.</span> independentemente de remuneração, a cada 3 (três) prazos descumpridos no período de 12 (doze) meses, a inclusão automática, na pauta da primeira Assembleia Geral seguinte, de deliberação sobre a destituição do agente responsável, nos termos do art. 30 deste Regimento.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Ocorrendo mais de um descumprimento no mesmo mês, as reduções previstas no inciso I são cumulativas, limitadas ao valor integral da remuneração devida no mês.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> As consequências previstas neste artigo aplicam-se cumulativamente com as demais previstas na legislação vigente, na Convenção Condominial e neste Regimento.</p>
 </div>
+</section>
+<section class="nivel-subsecao" id="cap-15-sec-3-sub-2">
+<h4 class="titulo-subsecao">Subseção II — Da Apuração de Infrações</h4>
 <div class="artigo" id="art-99">
-<p class="art-caput"><span class="art-num">Art. 99.</span> Ficam revogadas, no que forem incompatíveis com este Regimento, todas as regras, normas, portarias, regulamentos, comunicados ou quaisquer outros atos de caráter geral estabelecidos pela Administração Condominial ou por qualquer órgão da Governança Condominial antes de sua entrada em vigor, permanecendo em vigor as disposições anteriores não incompatíveis, até que sejam expressamente revistas, substituídas ou revogadas na forma deste Regimento.</p>
+<p class="art-caput"><span class="art-num">Art. 99.</span> O procedimento administrativo poderá ter início de ofício pela Administração, mediante comunicação do Conselho, por representação de condômino, morador ou usuário, ou em decorrência de fatos regularmente registrados, competindo à Administração promover a instrução, podendo realizar diligências, colher provas e ouvir os envolvidos.</p>
 </div>
 <div class="artigo" id="art-100">
-<p class="art-caput"><span class="art-num">Art. 100.</span> No prazo máximo de 90 (noventa) dias contados da entrada em vigor deste Regimento, será realizada Assembleia Geral especialmente convocada, por qualquer dos legitimados do art. 14, para deliberar, em caráter de Norma Interna, sobre a Proposta Orçamentária Anual provisória e a Proposta de Calendário Anual das Áreas Comuns provisória.</p>
-<p class="paragrafo"><span class="par-num">§ 1º.</span> Qualquer condômino poderá apresentar proposta relativa às matérias de que trata o caput.</p>
-<p class="paragrafo"><span class="par-num">§ 2º.</span> As propostas apresentadas nos termos do § 1º serão divulgadas a todos os condôminos, em conjunto com o edital de convocação ou em complemento a ele, com antecedência mínima de 15 (quinze) dias do início da votação, assegurada a cada proponente igual oportunidade de apresentar e esclarecer sua proposta perante os demais condôminos.</p>
-<p class="paragrafo"><span class="par-num">§ 3º.</span> A votação observará o rito geral de aprovação de Norma Interna previsto no art. 10 deste Regimento.</p>
-<p class="paragrafo"><span class="par-num">§ 4º.</span> A Proposta Orçamentária Anual provisória e a Proposta de Calendário Anual das Áreas Comuns provisória vigorarão até a aprovação da Proposta Orçamentária Anual e do Calendário Anual das Áreas Comuns regulares pela Assembleia Geral Ordinária de março a que se refere o art. 13, inciso IV.</p>
+<p class="art-caput"><span class="art-num">Art. 100.</span> Concluída a instrução, o Síndico notificará o interessado para, querendo, apresentar defesa escrita no prazo de 15 (quinze) dias, encerrada a qual decidirá, podendo determinar diligência complementar, reconhecer a inexistência da infração e arquivar o procedimento, ou aplicar a penalidade cabível, mediante decisão fundamentada contendo os fatos comprovados, a análise da defesa, os fundamentos legais e regimentais, a classificação da infração e a penalidade aplicada.</p>
 </div>
 <div class="artigo" id="art-101">
-<p class="art-caput"><span class="art-num">Art. 101.</span> A eventual declaração de nulidade, invalidade ou inexequibilidade de qualquer disposição deste Regimento não prejudicará a validade das demais disposições, que permanecerão em vigor sempre que puderem produzir efeitos de forma autônoma.</p>
+<p class="art-caput"><span class="art-num">Art. 101.</span> Encerrado o prazo para apresentação de defesa, ou apresentada esta antes de seu termo, o Síndico decidirá no prazo previsto no art. 95, contado do encerramento da fase de defesa.</p>
 </div>
 <div class="artigo" id="art-102">
-<p class="art-caput"><span class="art-num">Art. 102.</span> Este Regimento Interno entra em vigor na data de sua aprovação pela Assembleia Geral, revogadas as disposições em contrário.</p>
+<p class="art-caput"><span class="art-num">Art. 102.</span> Vencido o prazo previsto no art. 101 sem decisão fundamentada, os autos serão encaminhados ao Conselho, que emitirá parecer opinativo no mesmo prazo, opinando pela procedência ou improcedência da infração.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Emitido o parecer, ou vencido o prazo sem sua emissão, os autos serão encaminhados à Assembleia Geral, que decidirá a aplicação da penalidade como deliberação específica, servindo o parecer do Conselho, quando existente, de subsídio à decisão, nos termos do art. 34.</p>
+</div>
+<div class="artigo" id="art-103">
+<p class="art-caput"><span class="art-num">Art. 103.</span> Aplica-se à instrução, discussão e decisão do procedimento de apuração de infração o disposto no art. 28 quanto às hipóteses de conflito de interesses e ao impedimento do Síndico e dos membros do Conselho.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Estando o Síndico impedido nos termos do caput, a instrução e a decisão do procedimento caberão ao Subsíndico e, na sua impossibilidade ou impedimento, serão submetidas diretamente à Assembleia Geral, vedado ao Síndico impedido praticar qualquer ato de instrução, ainda que de mero expediente, relativo ao procedimento de que trata este artigo.</p>
+</div>
+<div class="artigo" id="art-104">
+<p class="art-caput"><span class="art-num">Art. 104.</span> Independentemente da interposição de recurso pelo condômino, o Síndico comunicará ao Presidente do Conselho toda multa aplicada, no prazo de 5 (cinco) dias úteis, contado da decisão, para fins do parecer de ofício previsto no art. 33, § 1º.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O descumprimento do prazo previsto no caput sujeita o Síndico às consequências previstas no art. 98, sem prejuízo da validade da multa aplicada.</p>
+</div>
+</section>
+</section>
+<section class="nivel-secao" id="cap-15-sec-4">
+<h3 class="titulo-secao">Seção IV — Dos Recursos Administrativos</h3>
+<div class="artigo" id="art-105">
+<p class="art-caput"><span class="art-num">Art. 105.</span> Da decisão do Síndico caberá recurso ao Conselho, no prazo de 15 (quinze) dias, com efeito suspensivo quanto à produção de efeitos da penalidade, ressalvados os casos de medida urgente destinada à proteção da segurança das pessoas ou do patrimônio comum e a hipótese do art. 108, referente às multas aplicadas pelo Síndico.</p>
+</div>
+<div class="artigo" id="art-106">
+<p class="art-caput"><span class="art-num">Art. 106.</span> O Conselho, em seu parecer recursal, nos termos do art. 34, poderá recomendar a manutenção da decisão recorrida, sua reforma total ou parcial, a realização de nova instrução, ou o reconhecimento de nulidade processual.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Do parecer do Conselho que recomendar, total ou parcialmente, a manutenção da decisão recorrida, caberá recurso à Assembleia Geral, que decidirá em caráter definitivo, incluído na pauta da primeira Assembleia que puder apreciá-lo; acolhida integralmente a recomendação de reforma ou anulação, a decisão do Síndico será revista de ofício pela Administração, independentemente de novo recurso.</p>
+</div>
+<div class="artigo" id="art-107">
+<p class="art-caput"><span class="art-num">Art. 107.</span> As decisões proferidas pela Assembleia Geral encerram a esfera administrativa condominial, sem prejuízo do direito de acesso ao Poder Judiciário.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-15-sec-5">
+<h3 class="titulo-secao">Seção V — Da Execução das Penalidades</h3>
+<div class="artigo" id="art-108">
+<p class="art-caput"><span class="art-num">Art. 108.</span> As penalidades produzirão efeitos após o encerramento da esfera administrativa, ressalvadas as medidas cautelares indispensáveis à proteção da segurança das pessoas ou do patrimônio, e ressalvadas as multas aplicadas pelo Síndico, que produzem efeito imediato sem prejuízo do efeito suspensivo do recurso, na forma do art. 105.</p>
+</div>
+<div class="artigo" id="art-109">
+<p class="art-caput"><span class="art-num">Art. 109.</span> A aplicação de penalidade não afasta o dever de reparar integralmente os danos eventualmente causados, considerando-se a reparação espontânea e o cumprimento voluntário das determinações administrativas circunstâncias favoráveis em apuração de infrações futuras.</p>
+</div>
+<div class="artigo" id="art-110">
+<p class="art-caput"><span class="art-num">Art. 110.</span> Considera-se reincidência, para os fins deste Regimento, a prática de nova infração da mesma natureza pelo mesmo responsável, após decisão administrativa definitiva, observado o período de 2 (dois) anos contado do trânsito em julgado administrativo, mantendo a Administração registro atualizado das penalidades definitivamente aplicadas, exclusivamente para fins de controle, reincidência e cumprimento deste Regimento, observadas as normas de proteção de dados pessoais.</p>
+</div>
+</section>
+<section class="nivel-secao" id="cap-15-sec-6">
+<h3 class="titulo-secao">Seção VI — Do Procedimento Administrativo Comum</h3>
+<div class="artigo" id="art-111">
+<p class="art-caput"><span class="art-num">Art. 111.</span> Esta Seção disciplina o procedimento aplicável às petições dirigidas à Administração ou ao Conselho que não tenham por objeto a apuração de infração administrativa, aplicando-se, no que couber, as disposições da Subseção I da Seção III deste Capítulo.</p>
+</div>
+<div class="artigo" id="art-112">
+<p class="art-caput"><span class="art-num">Art. 112.</span> Constituem, entre outras, espécies de petição reguladas por esta Seção:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> pedido de autorização;</li>
+<li><span class="inc-num">II.</span> pedido de esclarecimento;</li>
+<li><span class="inc-num">III.</span> pedido de providência; e</li>
+<li><span class="inc-num">IV.</span> petição de objeto diverso não expressamente previsto neste Regimento.</li>
+</ol>
+</div>
+<div class="artigo" id="art-113">
+<p class="art-caput"><span class="art-num">Art. 113.</span> A petição indicará, sempre que possível, a identificação do requerente e da unidade, quando aplicável, a descrição objetiva do pedido, sua justificativa e os documentos disponíveis que o instruam.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A Administração ou o Conselho, conforme o caso, poderá solicitar ao requerente a complementação de informações indispensáveis à apreciação do pedido, hipótese em que o prazo previsto no art. 95 ficará suspenso até o atendimento da solicitação ou o decurso de prazo razoável assinalado para tanto.</p>
+</div>
+<div class="artigo" id="art-114">
+<p class="art-caput"><span class="art-num">Art. 114.</span> O pedido de autorização para a realização de obra, reforma ou intervenção em unidade autônoma que envolva elemento estrutural, instalação técnica predial ou sistema de proteção contra incêndio, ou que possa afetar a segurança da edificação, as instalações comuns ou o funcionamento do condomínio, somente será considerado atendido mediante decisão expressa da Administração, vedada, em qualquer hipótese, decisão tácita.</p>
+</div>
+</section>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-16">
+<h2 class="titulo-capitulo">Capítulo IX — DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS</h2>
+<div class="artigo" id="art-115">
+<p class="art-caput"><span class="art-num">Art. 115.</span> Este Regimento Interno somente poderá ser alterado mediante deliberação da Assembleia Geral especialmente convocada para esse fim, cujo edital indicará expressamente os dispositivos cuja alteração se pretende, acompanhado da justificativa e da redação proposta, vedada a deliberação sobre alteração deste Regimento sob a rubrica de assuntos gerais.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> A aprovação de alterações deste Regimento dependerá do quórum qualificado fixado na Convenção Condominial para esse fim.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> As alterações aprovadas integrarão imediatamente o texto deste Regimento, entrando em vigor na data fixada pela Assembleia ou, na ausência de disposição específica, na data de sua aprovação.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> A apresentação de Emenda de Tramitação por qualquer condômino, nos termos do art. 22, não se confunde com a Alteração do Regimento Interno de que trata este artigo: a Emenda de Tramitação define apenas o conteúdo do texto submetido a votação final, sendo aprovada pelo quórum do art. 22, parágrafo único; a Alteração do Regimento Interno é o ato que aprova esse texto em caráter definitivo, observando o quórum qualificado do § 1º deste artigo.</p>
+<p class="paragrafo"><span class="par-num">§ 4º.</span> As alterações deste Regimento, bem como a aprovação ou alteração de Norma Complementar, de Norma Interna, do Orçamento Anual ou do Calendário Anual, que criem nova obrigação, restrição ou penalidade para condôminos, moradores ou ocupantes somente produzirão efeitos decorrido prazo de carência de, no mínimo, 30 (trinta) dias contado de sua aprovação, ressalvada a fixação de prazo maior pelo próprio ato aprovador e ressalvada, ainda, a hipótese de medida estritamente necessária à proteção da segurança das pessoas ou do patrimônio comum, que produzirá efeitos imediatos.</p>
+</div>
+<div class="artigo" id="art-116">
+<p class="art-caput"><span class="art-num">Art. 116.</span> Na interpretação deste Regimento prevalecerão, sucessivamente: a legislação vigente; a Convenção Condominial; este Regimento Interno; a Norma Complementar, a Norma Interna, o Orçamento Anual ou o Calendário Anual que regular a matéria específica, nos termos do art. 7º, parágrafo único; as demais deliberações regularmente aprovadas pela Assembleia Geral; e os Procedimentos Operacionais regularmente instituídos pela Administração.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Os casos omissos serão resolvidos pela Assembleia Geral, observadas a legislação vigente, a Convenção Condominial e os princípios estabelecidos neste Regimento.</p>
+</div>
+<div class="artigo" id="art-117">
+<p class="art-caput"><span class="art-num">Art. 117.</span> Ficam revogadas, no que forem incompatíveis com este Regimento, todas as regras, normas, portarias, regulamentos, comunicados ou quaisquer outros atos de caráter geral estabelecidos pela Administração Condominial ou por qualquer órgão da Governança Condominial antes de sua entrada em vigor, permanecendo em vigor as disposições anteriores não incompatíveis, até que sejam expressamente revistas, substituídas ou revogadas na forma deste Regimento.</p>
+</div>
+<div class="artigo" id="art-118">
+<p class="art-caput"><span class="art-num">Art. 118.</span> No prazo máximo de 90 (noventa) dias contados da entrada em vigor deste Regimento, será realizada Assembleia Geral especialmente convocada, por qualquer dos legitimados do art. 17, para deliberar, na forma dos arts. 12 e 13, sobre a Proposta Orçamentária Anual provisória e a Proposta de Calendário Anual das Áreas Comuns provisória.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Qualquer condômino poderá apresentar proposta relativa às matérias de que trata o caput.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> As propostas apresentadas nos termos do § 1º serão divulgadas a todos os condôminos, em conjunto com o edital de convocação ou em complemento a ele, com antecedência mínima de 15 (quinze) dias do início da votação, assegurada a cada proponente igual oportunidade de apresentar e esclarecer sua proposta perante os demais condôminos.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> A votação observará o rito de deliberação da Norma Interna previsto no art. 11 deste Regimento, aplicável ao Orçamento Anual e ao Calendário Anual nos termos dos arts. 12 e 13.</p>
+<p class="paragrafo"><span class="par-num">§ 4º.</span> A Proposta Orçamentária Anual provisória e a Proposta de Calendário Anual das Áreas Comuns provisória vigorarão até a aprovação da Proposta Orçamentária Anual e do Calendário Anual das Áreas Comuns regulares pela Assembleia Geral Ordinária de março a que se refere o art. 16, inciso IV.</p>
+</div>
+<div class="artigo" id="art-119">
+<p class="art-caput"><span class="art-num">Art. 119.</span> A eventual declaração de nulidade, invalidade ou inexequibilidade de qualquer disposição deste Regimento não prejudicará a validade das demais disposições, que permanecerão em vigor sempre que puderem produzir efeitos de forma autônoma.</p>
+</div>
+<div class="artigo" id="art-120">
+<p class="art-caput"><span class="art-num">Art. 120.</span> Este Regimento Interno entra em vigor na data de sua aprovação pela Assembleia Geral, revogadas as disposições em contrário.</p>
 </div>
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
-
-<section class="nivel-capitulo" id="anexo-1">
-<h2 class="titulo-capitulo">ANEXO I — QUADRO DE REMISSÕES CONVENCIONAIS, LEGAIS E JURISPRUDENCIAIS</h2>
-<h2 id="sec-anexo-i-quadro-de-remissoes-convencionais-legais-e-jurisprudenciais">ANEXO I — QUADRO DE REMISSÕES CONVENCIONAIS, LEGAIS E JURISPRUDENCIAIS</h2>
-<div class="callout"><p>Quadro de consulta; não integra o texto normativo nem se sujeita a quórum de alteração regimental</p></div>
-<div class="table-wrap"><table class="datatable">
-<thead><tr><th>Dispositivo deste Regimento</th><th>Remissão à Convenção Condominial</th><th>Remissão à legislação</th><th>Remissão à jurisprudência</th><th>Observações</th></tr></thead>
-<tbody>
-<tr><td>Art. 14</td><td>Cláusula 36ª (legitimados para convocar Assembleia Extraordinária: Síndico, Conselho ou 1/4 dos condôminos)</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>Art. 14, § 3º</td><td>—</td><td>Código Civil, art. 1.354 (veda deliberação sobre matéria estranha à pauta, salvo comparecimento da totalidade dos condôminos)</td><td>—</td><td>—</td></tr>
-<tr><td>Art. 15</td><td>Cláusula 42ª (procuração: forma, prazo, limite máximo de procurações por outorgado)</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>Art. 16</td><td>Cláusula 37ª (quórum geral de instalação: metade das frações em 1ª convocação, maioria simples dos presentes em 2ª)</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>Art. 20</td><td>Cláusula 44ª (valor do voto corresponde à fração ideal de cada unidade)</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>Art. 27, § 1º</td><td>Cláusula 29ª (destituição do Síndico por maioria absoluta dos presentes, sem quórum de instalação especial)</td><td>Código Civil, art. 1.349 (irregularidade, ausência de prestação de contas ou má administração)</td><td>STJ, REsp 1.266.016/DF (a "maioria absoluta" do art. 1.349 do CC calcula-se sobre os condôminos presentes à Assembleia, não sobre a totalidade)</td><td>—</td></tr>
-<tr><td>Arts. 28 e 34, § 2º</td><td>Cláusula 25ª e parágrafos (composição do Conselho — 3 titulares e 3 suplentes —, do Subsíndico e regras de sucessão)</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>Arts. 29 e 31</td><td>Cláusula 32ª (rol de competências do Conselho)</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>Art. 34, § 1º</td><td>Cláusula 25ª (mesmo padrão do Código Civil quanto ao mandato)</td><td>Código Civil, art. 1.347 (teto de 2 anos por mandato, renovação permitida, sem limite de reconduções)</td><td>—</td><td>O mandato de 1 ano, sem limite de reconduções, fixado neste Regimento está dentro do teto legal e convencional — é escolha de política interna, não exigência da lei ou da Convenção.</td></tr>
-<tr><td>Art. 61</td><td>Cláusulas 56ª a 59ª (Fundo de Reserva: percentual mínimo de constituição, valor-alvo, hipóteses de uso)</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>Art. 61, § 2º</td><td>Cláusula 57ª (reversão obrigatória dos rendimentos do Fundo de Reserva ao próprio fundo)</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>Arts. 67 e 96</td><td>—</td><td>Lei federal vigente sobre proteção de dados pessoais</td><td>—</td><td>—</td></tr>
-<tr><td>Cap. VI (arts. 73 a 76)</td><td>Anexo I e Anexo V, Cláusula Quinta (bicicletários individuais vinculados a unidades autônomas)</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td>Art. 79</td><td>—</td><td>—</td><td>STJ, REsp 1.783.076/DF (Informativo 649): veda proibição genérica de animal por espécie, raça ou porte; restrição só se sustenta diante de comportamento concreto de risco</td><td>—</td></tr>
-<tr><td>Art. 86</td><td>Cláusula 12ª, Parágrafo Primeiro e Parágrafo Segundo (multa agravada por descumprimento reiterado — até o quíntuplo — ou por comportamento antissocial reiterado — até o décuplo —, quórum de 2/3)</td><td>Código Civil, art. 1.337 (quórum de 3/4 dos condôminos restantes para as mesmas hipóteses — norma de ordem pública)</td><td>TJDFT, Processo 0700274-46.2017.8.07.0004 (multa qualificada por comportamento antissocial exige deliberação assemblear)</td><td>O quórum efetivamente exigível é o de 3/4 (legislação, norma de ordem pública), que prevalece sobre o de 2/3 fixado na Convenção.</td></tr>
-<tr><td>Art. 86, § 2º</td><td>—</td><td>—</td><td>STJ, REsp 1.699.022/SP: veda restringir o acesso a área comum como meio de coerção para cobrança de condômino inadimplente</td><td>—</td></tr>
-<tr><td>Art. 97, § 1º</td><td>Cláusula 14ª (quórum de alteração do Regimento: instalação com 2/3 de todos os condôminos, aprovação por maioria simples dos presentes)</td><td>—</td><td>STJ, REsp 1.169.865/DF: confirma que o quórum de alteração do Regimento Interno segue o fixado na Convenção Condominial</td><td>—</td></tr>
-</tbody></table></div>
+<section class="nivel-capitulo" id="cap-17">
+<h2 class="titulo-capitulo">Anexo I — Quadro de Remissões Convencionais, Legais e Jurisprudenciais</h2>
+<p class="anexo-note">Quadro de consulta; não integra o texto normativo da Emenda Substitutiva nem se sujeita a quórum de alteração regimental.</p>
+<div class="table-wrap"><table class="cmp">
+<tr>
+<th>Dispositivo</th>
+<th>Remissão à Convenção Condominial</th>
+<th>Remissão à legislação</th>
+<th>Remissão à jurisprudência</th>
+<th>Observações</th>
+</tr>
+<tr>
+<td>Art. 17</td>
+<td>Cláusula 36ª (legitimados para convocar Assembleia Extraordinária: Síndico, Conselho ou 1/4 dos condôminos)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Art. 17, § 3º</td>
+<td>—</td>
+<td>Código Civil, art. 1.354 (veda deliberação sobre matéria estranha à pauta, salvo comparecimento da totalidade dos condôminos)</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Art. 18</td>
+<td>Cláusula 42ª (procuração: forma, prazo, limite máximo de procurações por outorgado)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Art. 19</td>
+<td>Cláusula 37ª (quórum geral de instalação: metade das frações em 1ª convocação, maioria simples dos presentes em 2ª)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Art. 23</td>
+<td>Cláusula 44ª (valor do voto corresponde à fração ideal de cada unidade)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Art. 30, § 1º</td>
+<td>Cláusula 29ª (destituição do Síndico por maioria absoluta dos presentes, sem quórum de instalação especial)</td>
+<td>Código Civil, art. 1.349 (irregularidade, ausência de prestação de contas ou má administração)</td>
+<td>STJ, REsp 1.266.016/DF (a "maioria absoluta" do art. 1.349 do CC calcula-se sobre os condôminos presentes à Assembleia, não sobre a totalidade)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Arts. 31 e 37, § 2º</td>
+<td>Cláusula 25ª e parágrafos (composição do Conselho — 3 titulares e 3 suplentes —, do Subsíndico e regras de sucessão)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Arts. 32 e 34</td>
+<td>Cláusula 32ª (rol de competências do Conselho)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Art. 37, § 1º</td>
+<td>Cláusula 25ª (mesmo padrão do Código Civil quanto ao mandato)</td>
+<td>Código Civil, art. 1.347 (teto de 2 anos por mandato, renovação permitida, sem limite de reconduções)</td>
+<td>—</td>
+<td>O mandato de 1 ano, sem limite de reconduções, fixado neste Regimento está dentro do teto legal e convencional — é escolha de política interna, não exigência da lei ou da Convenção.</td>
+</tr>
+<tr>
+<td>Art. 65</td>
+<td>Cláusulas 56ª a 59ª (Fundo de Reserva: percentual mínimo de constituição, valor-alvo, hipóteses de uso)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Art. 65, § 2º</td>
+<td>Cláusula 57ª (reversão obrigatória dos rendimentos do Fundo de Reserva ao próprio fundo)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Art. 64</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>[Novo — Bloco 4] Dispositivo original deste Regimento (não decorre de cláusula específica da Convenção); ressalva expressamente o Fundo de Reserva (Art. 65), que permanece regido pelas Cláusulas 56ª a 59ª, remetidas na linha acima.</td>
+</tr>
+<tr>
+<td>Art. 66 e Art. 75</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>[Novo — Item 1] Fundo específico das áreas comuns reserváveis, instituído no Art. 66 (Capítulo III, junto aos demais fundos) e alimentado pela taxa de utilização e limpeza cujo valor é fixado no Art. 75 (Capítulo V) — separação entre a existência do fundo e sua regra operacional de origem.</td>
+</tr>
+<tr>
+<td>Arts. 72 e 110</td>
+<td>—</td>
+<td>Lei federal vigente sobre proteção de dados pessoais</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Cap. VI (arts. 78 a 80)</td>
+<td>Anexo I e Anexo V, Cláusula Quinta (bicicletários individuais vinculados a unidades autônomas)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Art. 84</td>
+<td>—</td>
+<td>—</td>
+<td>STJ, REsp 1.783.076/DF (Informativo 649): veda proibição genérica de animal por espécie, raça ou porte; restrição só se sustenta diante de comportamento concreto de risco</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Art. 92</td>
+<td>Cláusula 12ª, Parágrafo Primeiro e Parágrafo Segundo (multa agravada por descumprimento reiterado — até o quíntuplo — ou por comportamento antissocial reiterado — até o décuplo —, quórum de 2/3)</td>
+<td>Código Civil, art. 1.337 (quórum de 3/4 dos condôminos restantes para as mesmas hipóteses — norma de ordem pública)</td>
+<td>TJDFT, Processo 0700274-46.2017.8.07.0004 (multa qualificada por comportamento antissocial exige deliberação assemblear)</td>
+<td>O quórum efetivamente exigível é o de 3/4 (legislação, norma de ordem pública), que prevalece sobre o de 2/3 fixado na Convenção. Os percentuais-base da multa comum (10/25/50/100%, Bloco 2) não têm remissão convencional própria — são de livre fixação regimental.</td>
+</tr>
+<tr>
+<td>Art. 98, II</td>
+<td>Cláusula 29ª (mesmo rito de destituição por maioria absoluta dos presentes, já remetido no art. 30, § 1º)</td>
+<td>—</td>
+<td>—</td>
+<td>[Novo — Bloco 3] Aplica o mesmo rito e quórum do art. 30 à hipótese específica de descumprimento reiterado de prazos administrativos.</td>
+</tr>
+<tr>
+<td>Art. 115, § 1º</td>
+<td>Cláusula 14ª (quórum de alteração do Regimento: instalação com 2/3 de todos os condôminos, aprovação por maioria simples dos presentes)</td>
+<td>—</td>
+<td>STJ, REsp 1.169.865/DF: confirma que o quórum de alteração do Regimento Interno segue o fixado na Convenção Condominial</td>
+<td>—</td>
+</tr>
+</table></div>
+<p class="caption">Nota: este quadro reflete a renumeração sequencial completa da Emenda (120 artigos, sem sufixação).</p>
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
+</div>
+</div>
 
-</div>
-</div>
+
 
 <div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div>
 <script>

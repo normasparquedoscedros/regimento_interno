@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EM-000 — Emenda Substitutiva — Parque dos Cedros</title>
+<title>Armários de Garagem e Fachada — Regimento Interno — Parque dos Cedros</title>
 <style>
 
   :root{
@@ -83,7 +83,7 @@
   nav#indice{
     background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--green-mid);
     border-radius: 8px; padding: 26px 30px; margin-bottom: 40px; font-family: Arial, Helvetica, sans-serif;
-    scroll-margin-top: 70px;
+    scroll-margin-top: 110px;
   }
   nav#indice h2{
     font-family: Arial, Helvetica, sans-serif; font-weight: 500; font-size: 19px; margin-top: 0;
@@ -118,7 +118,7 @@
 
   h2.titulo-preambulo, h2.titulo-capitulo{
     font-family: Arial, Helvetica, sans-serif; font-weight: 600; color: var(--green-deep); font-size: 21px;
-    border-bottom: 2px solid var(--line); padding-bottom: 10px; margin-top: 50px; scroll-margin-top: 70px;
+    border-bottom: 2px solid var(--line); padding-bottom: 10px; margin-top: 50px; scroll-margin-top: 110px;
   }
   #preambulo p{ text-align: justify; font-size: 15px; margin: 0 0 12px; }
   /* ---------- Alternador entre as substitutivas (coluna ao lado do texto) ---------- */
@@ -161,29 +161,28 @@
 
 
 
-  /* ---------- Visualizador de PDF incorporado ---------- */
-  .pdf-note{
-    background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--green-mid);
-    border-radius: 8px; padding: 14px 20px; margin: 0 0 18px;
+  /* ---------- Anexo I (quadro de remissões) ---------- */
+  .callout{
+    background: var(--green-pale); border-left: 4px solid var(--green-mid);
+    padding: 12px 16px; margin: 0 0 20px; font-size: 13px; color: var(--green-deep);
   }
-  .pdf-note p{ margin: 0; font-size: 13.5px; color: var(--muted); }
-  .pdf-frame-wrap{
-    border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
-    height: 82vh; min-height: 480px; box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  .callout p{ margin: 0; text-align: justify; }
+  .table-wrap{ overflow-x: auto; margin-bottom: 20px; }
+  table.datatable{ border-collapse: collapse; width: 100%; font-size: 12.5px; }
+  table.datatable th, table.datatable td{
+    border: 1px solid var(--line); padding: 7px 9px; text-align: left; vertical-align: top;
   }
-  .pdf-frame{ width: 100%; height: 100%; border: none; display: block; }
-  .pdf-fallback{ text-align: center; font-size: 13.5px; color: var(--muted); margin: 14px 0 0; }
-  .pdf-fallback a{ color: var(--green-mid); font-weight: 500; }
+  table.datatable th{ background: var(--green-pale); color: var(--green-deep); font-weight: bold; }
   h3.titulo-secao{
     font-family: Arial, Helvetica, sans-serif; font-weight: 500; color: var(--green-mid); font-size: 17px;
-    margin-top: 34px; border-bottom: 1px solid var(--line); padding-bottom: 6px; scroll-margin-top: 70px;
+    margin-top: 34px; border-bottom: 1px solid var(--line); padding-bottom: 6px; scroll-margin-top: 110px;
   }
   h4.titulo-subsecao{
     font-family: Arial, Helvetica, sans-serif; font-size: 14.5px; font-style: italic; font-weight: 600;
-    color: var(--muted); margin-top: 24px; scroll-margin-top: 70px;
+    color: var(--muted); margin-top: 24px; scroll-margin-top: 110px;
   }
 
-  .artigo{ margin: 0 0 18px; scroll-margin-top: 70px; }
+  .artigo{ margin: 0 0 18px; scroll-margin-top: 110px; }
   p.art-caput{ margin: 0 0 6px; text-align: justify; font-size: 15px; }
   .art-num{ font-family: Arial, Helvetica, sans-serif; font-weight: 600; color: var(--green-mid); }
   p.paragrafo{ margin: 0 0 6px 26px; text-align: justify; font-size: 14.5px; }
@@ -251,7 +250,6 @@
     display: block; padding: 8px 10px; border-radius: 6px; text-decoration: none;
     color: var(--ink); font-size: 13px; margin-bottom: 3px; line-height: 1.3;
   }
-  .normas-switch a span{ display: block; font-size: 11px; color: var(--muted); font-weight: 400; }
   .normas-switch a:hover{ background: var(--green-pale); }
   .normas-switch a.current{
     background: var(--green-pale); font-weight: 700; color: var(--green-deep);
@@ -282,48 +280,221 @@
 <div class="subbar">
   <div class="subbar-inner">
       <a href="index.html">Apresentação</a>
-      <a href="texto-consolidado.html">Texto-consolidado</a>
+      <a href="#" class="current">Texto-consolidado</a>
       <a href="emendas.html">Manifestações</a>
-      <a href="analise-manifestacoes.html" class="current">Análise das manifestações</a>
-  </div>
-</div>
-<div class="subbar subbar2">
-  <div class="subbar-inner">
-      <a href="emendas-redacao.html">Redação</a>
-      <a href="emendas-aditiva.html">Aditiva</a>
-      <a href="emendas-modificativa.html">Modificativa</a>
-      <a href="emendas-supressiva.html">Supressiva</a>
-      <a href="#" class="current">Substitutiva</a>
-      <a href="pareceres-tecnicos.html">Pareceres técnicos</a>
-      <a href="comparacao.html">Comparação</a>
+      <a href="analise-manifestacoes.html">Análise das manifestações</a>
   </div>
 </div>
 <div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div>
 
 <div class="page-layout">
 <aside class="normas-switch">
-  <div class="ss-title">Substitutivas</div>
-  <a href="em-024.html">EM-024 <span>Unidade 512</span></a>
-  <a href="#" class="current">EM-000 <span>Unidade 110</span></a>
-  <div class="ss-title" style="margin-top:14px;">Normas vinculadas à EM-024</div>
-  <a href="em024-norma-complementar.html">Norma Complementar</a>
-  <a href="em024-norma-interna.html">Norma Interna</a>
-  <a href="em024-orcamento-anual.html">Orçamento Anual</a>
-  <a href="em024-calendario-anual.html">Calendário Anual</a>
+  <div class="ss-title">Texto-consolidado &amp; normas</div>
+  <a href="texto-consolidado.html">Texto-consolidado</a>
+  <a href="#" class="current">Norma Complementar — Armários e Fachada</a>
+  <a href="norma-convivencia-areas-comuns.html">Norma Interna — Convivência e Áreas Comuns</a>
+  <a href="norma-obras-reformas-unidades.html">Norma Interna — Obras e Reformas</a>
+  <a href="norma-orcamento-anual.html">Norma Interna — Orçamento Anual</a>
+  <a href="norma-calendario-anual.html">Norma Interna — Calendário Anual</a>
 </aside>
 <div class="container">
 <header class="capa">
-  <div class="eyebrow">Substitutiva — Unidade 110</div>
-  <h1>EM-000</h1>
-  <div class="subtitulo">Emenda substitutiva integral ao Regimento Interno</div>
+  <div class="eyebrow">Norma Complementar</div>
+  <h1>Armários de Garagem e Fachada</h1>
+  <div class="subtitulo">Versão para votação em conjunto com o texto-consolidado do Regimento Interno, com regime transitório para o padrão técnico de armários de garagem, nos termos do art. 17 do texto-consolidado.</div>
 </header>
 
-<div class="pdf-frame-wrap">
-  <iframe class="pdf-frame" src="em-000.pdf" title="EM-000 — documento completo"></iframe>
+<nav id="indice">
+  <h2>Índice</h2>
+<ul class="toc-list toc-depth-0">
+<li><a href="#cap-1">Capítulo I — Disposições Gerais</a>
+</li>
+<li><a href="#cap-2">Capítulo II — Da Fachada, das Lajes Técnicas e das Coberturas</a>
+</li>
+<li><a href="#cap-3">Capítulo III — Da Padronização de Armários e Outros Equipamentos Fixos nas Vagas de Garagem</a>
+</li>
+<li><a href="#cap-4">Exposição de Motivos</a>
+</li>
+</ul>
+</nav>
+<section id="preambulo">
+<h2 class="titulo-preambulo">Preâmbulo</h2>
+<p>A Assembleia Geral do Condomínio Parque dos Cedros, no uso da competência que lhe confere o Regimento Interno para aprovar Norma Complementar, pelo quórum qualificado nele previsto, resolve aprovar a presente <strong>NORMA COMPLEMENTAR</strong>, com a seguinte redação:</p>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-1">
+<h2 class="titulo-capitulo">Capítulo I — Disposições Gerais</h2>
+<div class="artigo" id="art-1">
+<p class="art-caput"><span class="art-num">Art. 1º.</span> Esta Norma Complementar disciplina, em capítulos próprios:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> a padronização de armários e outros equipamentos fixos instaláveis nas vagas de garagem; e</li>
+<li><span class="inc-num">II.</span> as alterações que afetem a fachada do Edifício, incluindo películas, telas de proteção, padrões de instalação de equipamentos nas lajes técnicas e fechamentos de coberturas.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Outras matérias que, por sua natureza, exijam o quórum qualificado desta Norma poderão ser a ela incorporadas em capítulo próprio, mediante deliberação da Assembleia Geral, inserido antes do capítulo de que trata o inciso I, de modo a preservá-lo como o último capítulo do instrumento.</p>
 </div>
-<p class="pdf-fallback">Não consegue ver o documento acima? <a href="em-000.pdf" target="_blank" rel="noopener">Abra o PDF em uma nova aba ↗</a></p>
+<div class="artigo" id="art-2">
+<p class="art-caput"><span class="art-num">Art. 2º.</span> Aplicam-se subsidiariamente a esta Norma, no que não for com ela incompatível, a Convenção Condominial, o Regimento Interno e a legislação vigente.</p>
+</div>
+<div class="artigo" id="art-3">
+<p class="art-caput"><span class="art-num">Art. 3º.</span> Havendo conflito entre disposição desta Norma e Procedimento Operacional que trate da mesma matéria, prevalece a disposição desta Norma, cabendo à Administração adequar o Procedimento Operacional no prazo razoável que a Norma ou a Assembleia fixarem.</p>
+</div>
+<div class="artigo" id="art-4">
+<p class="art-caput"><span class="art-num">Art. 4º.</span> Esta Norma Complementar entra em vigor na data de sua aprovação pela Assembleia Geral.</p>
+</div>
+<div class="artigo" id="art-5">
+<p class="art-caput"><span class="art-num">Art. 5º.</span> Os casos omissos serão resolvidos pela Administração, com recurso ao Conselho e, em última instância, à Assembleia Geral, nos termos do Regimento Interno.</p>
+</div>
+<div class="artigo" id="art-6">
+<p class="art-caput"><span class="art-num">Art. 6º.</span> Esta Norma será disponibilizada aos condôminos por meio eletrônico, permanecendo acessível durante toda a sua vigência.</p>
+</div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-2">
+<h2 class="titulo-capitulo">Capítulo II — Da Fachada, das Lajes Técnicas e das Coberturas</h2>
+<div class="artigo" id="art-7">
+<p class="art-caput"><span class="art-num">Art. 7º.</span> Este Capítulo disciplina a conservação da fachada do Edifício, a instalação, a substituição e a remoção de equipamentos nas lajes técnicas, e o fechamento de coberturas vinculadas a unidades autônomas.</p>
+</div>
+<div class="artigo" id="art-8">
+<p class="art-caput"><span class="art-num">Art. 8º.</span> Os vidros, as esquadrias, os guarda-corpos, os revestimentos, as molduras externas e os demais elementos visíveis da fachada conservarão as características originais de material, cor, acabamento, refletividade e composição arquitetônica previstas no projeto da edificação, vedada sua alteração sem prévia aprovação da Administração.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> É vedada a perfuração, a pintura, a fixação de objetos ou qualquer intervenção nos elementos estruturais ou decorativos externos da fachada, salvo nos locais tecnicamente destinados ou padronizados nos termos do art. 15.</p>
+</div>
+<div class="artigo" id="art-9">
+<p class="art-caput"><span class="art-num">Art. 9º.</span> As redes e as telas de proteção admitidas pela Convenção Condominial observarão o padrão de cor, material, localização e instalação fixado pela Administração, vedada a perfuração ou qualquer intervenção nos elementos externos da fachada, nas esquadrias ou nos sistemas de vedação e impermeabilização para sua fixação.</p>
+</div>
+<div class="artigo" id="art-10">
+<p class="art-caput"><span class="art-num">Art. 10.</span> As lajes técnicas destinam-se exclusivamente à instalação das unidades condensadoras de ar-condicionado e dos demais equipamentos técnicos previstos no projeto da edificação, vedada sua utilização como depósito, almoxarifado, varal, canil, área de permanência ou para qualquer finalidade incompatível com essa destinação.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> É vedado o fechamento total ou parcial da laje técnica, ainda que mediante vidro, esquadria, tela rígida, painel ou material transparente, salvo nas hipóteses expressamente autorizadas nesta Norma.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> É vedada a colocação, na laje técnica, de móveis, vasos, ferramentas ou objetos que ultrapassem a mureta ou o guarda-corpo, produzam alteração visual da fachada ou apresentem risco de queda.</p>
+</div>
+<div class="artigo" id="art-11">
+<p class="art-caput"><span class="art-num">Art. 11. Do fechamento de coberturas..</span> É permitido o fechamento horizontal ou vertical, total ou parcial, de cobertura vinculada a unidade autônoma, mediante prévia aprovação da Administração e observância do padrão técnico fixado nesta Norma ou em Anexo próprio.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> O fechamento observará obrigatoriamente os mesmos materiais, cores, desenho e modelo já padronizados para o Edifício, vedada solução que produza alteração perceptível ou destoante do padrão arquitetônico e visual externo das demais unidades.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> O sistema de fechamento — inclusive quando executado mediante cortinas de vidro de correr ou sistema equivalente — deverá garantir a ausência de infiltração e de deslocamento de água para a fachada, preservar o isolamento acústico da edificação e não comprometer a estrutura, a impermeabilização ou os demais sistemas prediais.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> O pedido de autorização será instruído com projeto técnico do fechamento, termo de responsabilidade assinado pelo proprietário e Anotação ou Registro de Responsabilidade Técnica do profissional responsável pela execução, abrangendo o acompanhamento, a supervisão, a fiscalização e a execução da intervenção.</p>
+<p class="paragrafo"><span class="par-num">§ 4º.</span> Aplicam-se, no que couber, as regras de comunicação prévia, prazo de análise pela Administração e responsabilização por danos previstas nesta Norma para as demais intervenções na fachada.</p>
+</div>
+<div class="artigo" id="art-12">
+<p class="art-caput"><span class="art-num">Art. 12.</span> A substituição de vidros, painéis, esquadrias ou demais componentes externos preservará as especificações técnicas e visuais originais da edificação, inclusive quanto a material, espessura, cor, tonalidade, transparência, refletividade, fator de proteção solar, acabamento e sistema de fixação.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> A substituição ou intervenção será previamente comunicada à Administração, acompanhada das informações técnicas necessárias à verificação de sua compatibilidade com o projeto e com o padrão da fachada.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Em caso de quebra ou avaria que represente risco imediato, o responsável adotará prontamente as medidas de segurança necessárias, comunicará a ocorrência à Administração e promoverá a recomposição definitiva do elemento conforme o padrão original.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> É vedada a aplicação de películas automotivas, espelhadas, fumês, coloridas ou de qualquer material que altere a tonalidade, a transparência, a refletividade ou o padrão visual externo dos vidros.</p>
+<p class="paragrafo"><span class="par-num">§ 4º.</span> Poderá ser admitida solução tecnicamente compatível com as especificações originais, desde que não produza alteração perceptível da fachada e seja previamente aprovada pela Administração, com fundamento em avaliação técnica.</p>
+</div>
+<div class="artigo" id="art-13">
+<p class="art-caput"><span class="art-num">Art. 13.</span> As cortinas, as persianas e os painéis instalados junto aos vidros voltados para o exterior apresentarão, em sua face externa, cor clara e neutra, conforme o padrão visual fixado pela Administração.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> É vedada a utilização de mantas, lençóis, tecidos, papéis, jornais, cartazes, adesivos, papel-alumínio ou materiais semelhantes como cobertura permanente dos vidros, quando visíveis do exterior.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> É igualmente vedada a disposição de móveis, armários, prateleiras, divisórias, biombos, painéis ou outras estruturas que, por sua posição, dimensão, acabamento ou exposição direta, produzam alteração ostensiva e permanente do padrão visual externo da fachada.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> O disposto neste artigo não alcança a organização ordinária do interior da unidade, nem os elementos que não sejam perceptíveis do exterior ou que permaneçam adequadamente resguardados por cortinas ou persianas compatíveis com o padrão estabelecido.</p>
+</div>
+<div class="artigo" id="art-14">
+<p class="art-caput"><span class="art-num">Art. 14.</span> As molduras, as peças de granito, os revestimentos e os demais elementos externos integrantes da composição arquitetônica da edificação não poderão ser perfurados, pintados, envernizados, revestidos, recortados ou utilizados para a fixação de objetos, luminárias, suportes, ganchos, cabos ou equipamentos.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> A limpeza, a conservação, a inspeção e a manutenção desses elementos competem à Administração, ressalvados os danos comprovadamente causados por condômino, morador, ocupante, visitante, empregado ou prestador de serviço vinculado à unidade.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> É vedado ao morador aplicar, por conta própria, produtos abrasivos, corrosivos, impermeabilizantes, solventes ou outras substâncias capazes de manchar, deteriorar ou modificar esses elementos.</p>
+</div>
+<div class="artigo" id="art-15">
+<p class="art-caput"><span class="art-num">Art. 15.</span> É vedado estender, apoiar ou manter roupas, tapetes, toalhas, panos ou objetos semelhantes em guarda-corpos, peitoris, janelas, molduras externas ou outros locais visíveis do exterior.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> É vedada a instalação, na fachada, nos guarda-corpos, nas esquadrias ou nas molduras externas, de antenas, equipamentos de recepção ou transmissão, suportes, cabos, luminárias ou componentes semelhantes, salvo nos locais tecnicamente destinados ou padronizados pela Administração.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> É permitida a instalação, pelo condômino, de antena de recepção de sinais de telecomunicações na parte técnica da cobertura do Edifício, desde que comprovada sua viabilidade técnica e mediante prévia aprovação da Assembleia Geral, correndo a instalação, a manutenção e a eventual remoção às expensas do condômino interessado, que responde por qualquer dano à estrutura, à impermeabilização ou às instalações comuns dela decorrente.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> Vasos, jardineiras, enfeites e demais objetos mantidos em varandas ou próximos a janelas e guarda-corpos permanecerão integralmente no interior da unidade e contarão com estabilidade e proteção compatíveis com o risco de deslocamento ou queda.</p>
+<p class="paragrafo"><span class="par-num">§ 4º.</span> É vedada a colocação de qualquer objeto sobre peitoris, molduras, guarda-corpos ou elementos externos da fachada, ainda que temporariamente, quando houver risco de queda, derramamento ou lançamento de materiais sobre unidades, áreas comuns ou logradouros.</p>
+<p class="paragrafo"><span class="par-num">§ 5º.</span> É proibido lançar, despejar, sacudir ou permitir a queda de água, resíduos, poeira, cinzas, líquidos, produtos de limpeza ou quaisquer materiais pelas janelas, varandas, lajes técnicas ou demais aberturas da edificação.</p>
+<p class="paragrafo"><span class="par-num">§ 6º.</span> É vedada a exposição externa de fiação de equipamentos elétricos ou eletrônicos, bem como a instalação de estação de radioamador ou de qualquer equipamento que possa causar interferência nas instalações elétricas, eletrônicas ou de telecomunicações de outras unidades ou do condomínio.</p>
+</div>
+<div class="artigo" id="art-16">
+<p class="art-caput"><span class="art-num">Art. 16. Da publicidade e da sinalização na fachada..</span> É vedada a fixação, na fachada, em portas, vidros, esquadrias, corredores ou em qualquer área comum visível do exterior, de letreiros, placas, cartazes, adesivos ou material de anúncio ou publicidade, inclusive de venda ou locação de unidade autônoma, ressalvados os locais especificamente destinados pela Administração para comunicados de interesse coletivo.</p>
+</div>
+<div class="artigo" id="art-17">
+<p class="art-caput"><span class="art-num">Art. 17. De toldos e grades..</span> É vedada a instalação de toldos, grades, telas ou estruturas semelhantes nas áreas externas das unidades autônomas quando visíveis do exterior, ressalvada a instalação de toldo interno de cobertura, mediante prévia aprovação da Administração e apresentação de projeto que comprove sua compatibilidade com o padrão arquitetônico do Edifício.</p>
+</div>
+<div class="artigo" id="art-18">
+<p class="art-caput"><span class="art-num">Art. 18. Da limpeza de vidros e elementos externos..</span> A limpeza de vidros, esquadrias e demais elementos externos da fachada, quando realizada pelo próprio condômino, morador ou por prestador por ele contratado, será feita a seco ou com quantidade mínima de água, vedado o uso de mangueira, jato de água ou qualquer método que possa escorrer ou respingar sobre unidades ou áreas comuns inferiores, ou que ofereça risco de queda de material ou de dano a terceiros.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A execução do serviço observará as normas de segurança do trabalho aplicáveis, especialmente quanto ao uso de equipamento de proteção individual e de ancoragem, quando executado em altura.</p>
+</div>
+<div class="artigo" id="art-19">
+<p class="art-caput"><span class="art-num">Art. 19.</span> As unidades condensadoras de ar-condicionado e demais equipamentos técnicos serão instalados exclusivamente na laje técnica de cada unidade ou em local especificamente previsto no projeto da edificação, vedada sua instalação em fachada, varanda, guarda-corpo ou qualquer local externamente visível não destinado a essa finalidade.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Excepcionalmente, mediante prévia aprovação da Assembleia Geral e apresentação de documentação técnica que comprove a inexistência de dano à estrutura, à impermeabilização e à estética da edificação, poderá ser autorizada localização diversa da prevista no projeto original.</p>
+</div>
+<div class="artigo" id="art-20">
+<p class="art-caput"><span class="art-num">Art. 20.</span> O condômino responde pela conservação dos equipamentos instalados em sua laje técnica ou cobertura, inclusive unidades condensadoras de ar-condicionado e sistemas de fechamento, bem como pela preservação da integridade da estrutura, da impermeabilização e das instalações comuns, respondendo pelos danos decorrentes de sua instalação, funcionamento ou ausência de manutenção, inclusive ruído, vibração, vazamento ou infiltração que afete outras unidades ou áreas comuns.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Equipamento desativado, sem uso ou definitivamente substituído deverá ser removido pelo condômino quando apresentar risco à segurança, à fachada ou ao funcionamento da laje técnica.</p>
+</div>
+<div class="artigo" id="art-21">
+<p class="art-caput"><span class="art-num">Art. 21.</span> O responsável por intervenção, instalação ou conduta que altere, suje ou danifique a fachada, a laje técnica ou a cobertura promoverá, às suas expensas, a remoção da irregularidade e a recomposição integral do elemento afetado, de acordo com as especificações técnicas e o padrão arquitetônico da edificação.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> A obrigação prevista no caput alcança os atos praticados pelo condômino, morador, ocupante, visitante, empregado ou prestador de serviço vinculado à unidade.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Verificada irregularidade que não represente risco imediato, a Administração notificará o responsável, descreverá a desconformidade e fixará prazo razoável para sua correção, considerado o tipo de serviço necessário.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> Em caso de risco à segurança, possibilidade de agravamento do dano ou comprometimento dos sistemas de vedação, impermeabilização ou fixação, a Administração poderá adotar as providências emergenciais necessárias, sem prejuízo do disposto nos parágrafos anteriores.</p>
+<p class="paragrafo"><span class="par-num">§ 4º.</span> A tolerância da Administração quanto a instalação ou conduta em desacordo com esta Norma não caracteriza autorização, nem gera direito adquirido à sua manutenção.</p>
+</div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-3">
+<h2 class="titulo-capitulo">Capítulo III — Da Padronização de Armários e Outros Equipamentos Fixos nas Vagas de Garagem</h2>
+<div class="artigo" id="art-22">
+<p class="art-caput"><span class="art-num">Art. 22.</span> Este Capítulo disciplina a instalação e a utilização de armários e outros equipamentos fixos nas vagas de garagem, permitida exclusivamente nos locais e nas condições nele previstos.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A instalação e a utilização de armários somente serão permitidas nos locais previamente definidos pela Administração, observada a compatibilidade com o projeto e com a segurança da edificação.</p>
+</div>
+<div class="artigo" id="art-23">
+<p class="art-caput"><span class="art-num">Art. 23. Do padrão técnico..</span> O padrão técnico de dimensões, material, cor, acabamento, identificação e localização dos armários e demais equipamentos fixos será fixado em Anexo Técnico a ser incorporado a esta Norma, mediante alteração aprovada pela Assembleia Geral pelo mesmo quórum qualificado desta Norma, sem necessidade de reaprovação da íntegra do instrumento, observada a identificação expressa do dispositivo alterado na convocação da respectiva Assembleia, vedada, uma vez aprovado esse Anexo, qualquer instalação que o contrarie ou que comprometa a padronização visual do condomínio.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Até a aprovação do Anexo Técnico de que trata o caput, a instalação de armário ou de outro equipamento fixo em vaga de garagem observará as condições do art. 24 e os limites assegurados pela Convenção Condominial, dispensada, nesse período, a conformidade com a padronização estética e técnica de que trata o caput.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> A instalação realizada nos termos do § 1º não gera, em favor do interessado, direito adquirido à manutenção de característica em desacordo com o Anexo Técnico que vier a ser aprovado, ficando o condômino cientificado desse fato, desde a comunicação prévia de que trata o art. 28, de que poderá ser exigida, no prazo que a Assembleia Geral fixar, a adequação do equipamento ao padrão então definido.</p>
+</div>
+<div class="artigo" id="art-24">
+<p class="art-caput"><span class="art-num">Art. 24.</span> A instalação do armário observará as seguintes condições, sem prejuízo de outras que o padrão técnico de que trata o art. 23 vier a fixar:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> permanecer integralmente dentro da demarcação da vaga, sem avançar sobre a faixa de circulação de pedestres;</li>
+<li><span class="inc-num">II.</span> não exigir intervenção irregular em piso, parede, estrutura ou instalação comum;</li>
+<li><span class="inc-num">III.</span> não prejudicar a circulação de pessoas ou veículos, a ventilação, a iluminação, a sinalização, os equipamentos de combate a incêndio, as rotas de fuga ou o acesso a áreas técnicas para inspeção, manutenção e reparo; e</li>
+<li><span class="inc-num">IV.</span> não comprometer a segurança predial nem a utilização regular das vagas vizinhas.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Recomenda-se, na hipótese de vaga destinada a veículo de maior comprimento, a utilização de armário de meia altura ou meia profundidade, de modo a viabilizar o estacionamento regular do veículo sob o equipamento ou ao seu lado, sem prejuízo das condições deste artigo.</p>
+</div>
+<div class="artigo" id="art-25">
+<p class="art-caput"><span class="art-num">Art. 25.</span> Todos os armários serão padronizados com rodízios ou outro dispositivo de apoio que não danifique o revestimento do piso da garagem.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A responsabilidade por danos causados por eventual tombamento, deslocamento ou queda do armário é do proprietário da unidade a que se vincula, a quem compete zelar pela correta distribuição de peso e pela fixação ou movimentação do equipamento quando necessário.</p>
+</div>
+<div class="artigo" id="art-26">
+<p class="art-caput"><span class="art-num">Art. 26.</span> A instalação de armário limita-se a 2 (dois) por unidade autônoma, vedada, em qualquer hipótese, a instalação em vaga do tipo baliza lateral ou que, por sua configuração, comprometa a manobra e a circulação de veículos.</p>
+</div>
+<div class="artigo" id="art-27">
+<p class="art-caput"><span class="art-num">Art. 27.</span> Os armários destinam-se exclusivamente ao armazenamento de objetos de uso lícito, vedada a guarda de materiais inflamáveis, explosivos, tóxicos, corrosivos, perecíveis, que exalem odores, ou cuja posse ou armazenamento seja proibido pela legislação vigente.</p>
+</div>
+<div class="artigo" id="art-28">
+<p class="art-caput"><span class="art-num">Art. 28.</span> A instalação do armário depende de prévia comunicação à Administração, acompanhada de comprovação de conformidade com as condições do art. 24 e, uma vez aprovado, com o padrão técnico de que trata o art. 23.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A aprovação do padrão técnico não transfere ao condomínio a responsabilidade pela instalação, pela conservação, pelo conteúdo ou pela segurança do armário, que permanece exclusiva do respectivo usuário.</p>
+</div>
+<div class="artigo" id="art-29">
+<p class="art-caput"><span class="art-num">Art. 29.</span> O proprietário permitirá o acesso ao armário, ou promoverá sua abertura, sempre que isso for indispensável à inspeção, à manutenção ou ao reparo de instalações comuns, mediante comunicação prévia da Administração, ressalvadas as situações de urgência ou emergência.</p>
+</div>
+<div class="artigo" id="art-30">
+<p class="art-caput"><span class="art-num">Art. 30.</span> Verificada situação que comprometa a segurança, a integridade das instalações comuns ou o cumprimento desta Norma, a Administração notificará o responsável para promover a regularização ou a remoção do armário no prazo que fixar, sem prejuízo da adoção imediata das medidas necessárias nas hipóteses de urgência ou emergência, e sem prejuízo do ressarcimento dos danos comprovadamente causados.</p>
+</div>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
+<section class="nivel-capitulo" id="cap-4">
+<h2 class="titulo-capitulo">Exposição de Motivos</h2>
+<p>Esta Norma Complementar dá cumprimento à exigência do Regimento Interno de que a padronização de armários de garagem e as alterações de fachada, lajes técnicas e coberturas sejam disciplinadas em capítulos próprios de um mesmo instrumento, aprovado pelo quórum qualificado — o mesmo exigido para a alteração do próprio Regimento —, dada a maior estabilidade que essas matérias exigem em comparação com as demais reguladas por Norma Interna.</p>
+<p>O conteúdo baseia-se no que já constava do Regimento Interno sobre garagens e fachada, complementado por regras mais detalhadas e operacionais extraídas de fontes de subsídio técnico — nunca normas já vigentes no Parque dos Cedros: (i) um regimento de outro condomínio, usado como referência comparativa; (ii) uma proposta preliminar sobre garagens elaborada por uma comissão do próprio condomínio; e (iii) o Regimento Interno do Condomínio Parque das Castanheiras, também em Brasília. Chama-se atenção da Assembleia para os seguintes parâmetros importados dessas fontes, que merecem confirmação expressa antes da aprovação, por não constarem do Regimento Interno em si:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> o limite de 2 (dois) armários por unidade autônoma, a vedação de instalação em vaga do tipo baliza lateral, e a recomendação de armário de meia altura ou meia profundidade para vagas de veículo mais longo (arts. 24, parágrafo único, e 26);</li>
+<li><span class="inc-num">II.</span> o Capítulo do fechamento de coberturas (art. 11), inteiramente novo em relação ao que já havia sido redigido sobre fachada e lajes técnicas — o Regimento Interno já exige que esta Norma trate de "fechamentos de coberturas", mas o conteúdo técnico específico (materiais, cortinas de vidro, garantias contra infiltração, exigência de projeto e responsabilidade técnica) foi construído a partir do modelo do Condomínio Parque das Castanheiras, por não haver equivalente pronto no texto-consolidado; e</li>
+<li><span class="inc-num">III.</span> as vedações de publicidade/anúncio de venda ou locação na fachada (art. 16), de toldos e grades visíveis externamente (art. 17) e a regra de limpeza de vidros a seco (art. 18) — também inteiramente novas, adotadas a partir do mesmo Regimento do Parque das Castanheiras, por serem compatíveis com o poder de padronização visual da fachada que o Regimento Interno já atribui a esta Norma, embora não estejam expressamente exigidas por ele.</li>
+</ol>
+<p>Nenhum dos parâmetros acima é imposto pelo Regimento Interno — são propostas de mérito que a Assembleia é livre para ajustar, reduzir ou suprimir. Quanto à vedação de anúncio de venda ou locação (art. 16), em especial, chama-se atenção para o fato de que ela não impede a venda ou a locação da unidade em si, apenas a sinalização externa correspondente, preservando-se os demais meios usuais de divulgação (imobiliárias, portais, aplicativos).</p>
+<p>Diferentemente da versão desta Norma redigida para a hipótese de aprovação do Regimento na redação da Emenda Substitutiva, esta versão não disciplina a instalação de pontos de recarga de veículo elétrico ou híbrido nas vagas de garagem: o Regimento Interno, na redação do texto-consolidado, não inclui essa matéria entre as obrigatórias de Norma Complementar, permanecendo ela disciplinada apenas no nível de Procedimento Operacional, editado unilateralmente pela Administração. Caso a Assembleia entenda conveniente elevar a recarga elétrica ao mesmo patamar desta Norma, poderá fazê-lo expressamente, pelo mesmo quórum qualificado, incorporando um capítulo próprio sobre a matéria, nos termos do parágrafo único do Art. 1º desta Norma.</p>
+<p><strong>Sobre o regime aplicável a armários enquanto pendente a padronização (art. 23).</strong> Esta versão da Norma Complementar é proposta para votação em conjunto com o texto-consolidado do Regimento Interno, exatamente para que o condomínio não fique, entre a entrada em vigor do Regimento e a aprovação de uma Norma Complementar completa, sem nenhuma regra sobre garagens e fachada. O único ponto em que isso exigiu uma solução diferente da desejável a longo prazo é o padrão técnico de armários: o levantamento fotográfico e dimensional necessário para fixá-lo ainda não foi feito. Duas soluções alternativas foram consideradas e descartadas antes de se chegar à redação do art. 23:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> <strong>Aprovação caso a caso pela Administração</strong>, enquanto o padrão técnico não fosse aprovado. Descartada por criar um risco de mérito relevante: armários instalados sob esse critério transitório, embora regularmente autorizados à época, poderiam revelar-se incompatíveis com o padrão técnico definitivo quando este viesse a ser aprovado — obrigando o condomínio a exigir, de condôminos que agiram de boa-fé e com autorização prévia da própria Administração, a adequação ou a remoção de equipamentos já instalados.</li>
+<li><span class="inc-num">II.</span> <strong>Vedação de toda nova instalação</strong> até a aprovação do Anexo Técnico. Também descartada, por um motivo de hierarquia normativa: a Convenção Condominial já assegura ao condômino, no rol de seus direitos, a possibilidade de instalar armário no espaço privativo de sua vaga de garagem, desde que respeitada a demarcação da vaga e não haja incômodo a terceiros. Por ser a Convenção hierarquicamente superior a esta Norma, esta pode regular a <em>forma</em> de exercício desse direito — inclusive padronizá-lo esteticamente —, mas não pode suprimi-lo, ainda que temporariamente; uma vedação total seria, portanto, juridicamente vulnerável.</li>
+</ol>
+<p>A solução adotada (art. 23, §§ 1º e 2º) evita as duas armadilhas: a instalação permanece permitida enquanto o Anexo Técnico não for aprovado, mas apenas sob as condições já objetivas e hoje vigentes — as do art. 24 (permanência dentro da vaga, ausência de intervenção irregular, preservação de circulação, ventilação, rotas de fuga e equipamentos de segurança) e os limites já assegurados pela própria Convenção Condominial —, dispensando-se, apenas nesse período, a conformidade com a padronização estética e técnica que ainda não existe. Em contrapartida, todo condômino que instalar armário nesse período é formalmente cientificado, já na comunicação prévia exigida pelo art. 28, de que essa instalação não gera direito adquirido contra o padrão técnico que vier a ser aprovado, e de que poderá ser exigida sua adequação, em prazo fixado pela Assembleia (art. 23, § 2º) — nos mesmos moldes da cláusula de não geração de direito adquirido já empregada no art. 21, § 4º, para a fachada. Isso não elimina por completo o risco de um futuro ajuste, mas o reduz de modo relevante: ninguém instala sem saber, desde o início, que a padronização definitiva ainda está pendente.</p>
+<p>Quanto à ausência, nesta Norma, de uma cláusula equivalente à do art. 2º da versão da Emenda Substitutiva (que qualifica aquela Norma como "instrumento único e consolidado"), esclarece-se que ela é deliberada: o art. 17 do texto-consolidado, ao contrário do art. 10 da Emenda Substitutiva, não emprega essa expressão nem a natureza jurídica a ela associada. Para preservar, ainda assim, a mesma segurança prática — a de que a futura inclusão do padrão técnico definitivo dos armários não exigirá a reabertura de toda a Norma —, essa garantia foi incorporada diretamente ao próprio art. 23, caput ("mediante alteração aprovada... sem necessidade de reaprovação da íntegra do instrumento"), em vez de depender de uma declaração geral de natureza jurídica do instrumento como um todo. O efeito prático é o mesmo do previsto na versão da Emenda Substitutiva; muda apenas a técnica de redação, para não atribuir a esta Norma uma qualificação que o texto-consolidado não confere a ela.</p>
+<p>Quando o levantamento técnico estiver pronto, bastará à Assembleia aprovar o Anexo Técnico e a nova redação do art. 23 mediante alteração pontual desta Norma, nos termos do próprio art. 23 — sem necessidade de reaprovar o restante do instrumento, e sem reabrir nenhuma das demais matérias aqui já disciplinadas.</p>
+<p>Por se tratar de Norma que cria obrigações e restrições novas para os condôminos (regime de instalação de armários sujeito a adequação futura, limite de unidades por apartamento, regras de fechamento de coberturas, vedações de publicidade e de toldos/grades na fachada, entre outras), recomenda-se à Assembleia fixar prazo de carência razoável, contado da aprovação desta Norma, antes de sua plena exigibilidade, e que — nas situações em que já existam armários ou fechamentos de cobertura em desacordo com esta Norma, mas tolerados até então — seja também fixado um prazo razoável de adequação ao novo padrão, evitando-se a aplicação retroativa imediata de exigências antes inexistentes.</p>
+<p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
+</section>
 </div>
 </div>
+
 
 <div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div>
 <script>

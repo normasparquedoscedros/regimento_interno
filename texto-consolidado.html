@@ -8,12 +8,12 @@
 
   :root{
     --ink: #16281d;
-    --green-deep: #1e4d19;  /* Independência — verde 115°, formula título */
-    --green-mid: #298321;   /* Independência — verde 115°, tom intermediário */
-    --green-pale: #dbe7da;  /* Independência — verde 115°, fundo do cabeçalho */
-    --green-mint: #ddc23c;  /* Independência — amarelo 50°, cor de destaque */
+    --green-deep: #1a4d2e;  /* Tempo Comum — verde escuro (títulos) */
+    --green-mid: #117a37;   /* Tempo Comum — verde primário (destaques) */
+    --green-pale: #dbe7da;  /* Tempo Comum — fundo do cabeçalho */
+    --green-mint: #ffd500;  /* Tempo Comum — dourado de destaque */
     --paper: #fbfbf8;
-    --line: #c4d6c2;
+    --line: #d7e6de;
     --muted: #556f52;
     --flag-green: #117a37;
     --flag-yellow: #ffd500;
@@ -34,8 +34,8 @@
   .flag-stripe{ display:flex; height:6px; }
   .flag-stripe div{ flex:1; }
   .flag-stripe .fg{ background: var(--flag-green); }
-  .flag-stripe .fy{ background: var(--flag-yellow); }
-  .flag-stripe .fb{ background: var(--flag-blue); }
+  .flag-stripe .fy{ background: #117a37; }
+  .flag-stripe .fb{ background: #117a37; }
 
   /* ---------- Header do site (igual às demais páginas) ---------- */
   header.site{ background: var(--green-pale); }
@@ -188,6 +188,40 @@
   }
 
   .subbar a, .subbar a:link, .subbar a:visited{ color: inherit; }
+  /* ---------- Alternador entre o texto-consolidado e as normas vinculadas ---------- */
+  .page-layout{
+    display: flex; align-items: flex-start; justify-content: center;
+    gap: 22px; max-width: 1080px; margin: 0 auto; padding: 0 20px;
+  }
+  .page-layout .container{ margin: 0; flex: none; }
+  .normas-switch{
+    position: sticky; top: 90px; width: 190px; flex: none;
+    background: #fff; border: 1px solid var(--line); border-radius: 8px;
+    padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    margin-top: 44px;
+  }
+  .normas-switch .ss-title{
+    font-size: 11px; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--muted); font-weight: 700; margin-bottom: 8px;
+  }
+  .normas-switch a{
+    display: block; padding: 8px 10px; border-radius: 6px; text-decoration: none;
+    color: var(--ink); font-size: 13px; margin-bottom: 3px; line-height: 1.3;
+  }
+  .normas-switch a:hover{ background: var(--green-pale); }
+  .normas-switch a.current{
+    background: var(--green-pale); font-weight: 700; color: var(--green-deep);
+    pointer-events: none;
+  }
+  @media (max-width: 1080px){
+    .page-layout{ flex-direction: column; padding: 0; }
+    .normas-switch{
+      position: static; width: auto; margin: 0 auto 0; max-width: 860px;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; box-shadow: none;
+    }
+    .normas-switch .ss-title{ margin: 0; white-space: nowrap; }
+    .normas-switch a{ margin-bottom: 0; }
+  }
 </style>
 </head>
 <body>
@@ -211,26 +245,35 @@
 </div>
 <div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div>
 
+<div class="page-layout">
+<aside class="normas-switch">
+  <div class="ss-title">Texto-consolidado &amp; normas</div>
+  <a href="#" class="current">Texto-consolidado</a>
+  <a href="norma-complementar-armarios-fachada.html">Norma Complementar — Armários e Fachada</a>
+  <a href="norma-convivencia-areas-comuns.html">Norma Interna — Convivência e Áreas Comuns</a>
+  <a href="norma-obras-reformas-unidades.html">Norma Interna — Obras e Reformas</a>
+  <a href="norma-orcamento-anual.html">Norma Interna — Orçamento Anual</a>
+  <a href="norma-calendario-anual.html">Norma Interna — Calendário Anual</a>
+</aside>
 <div class="container">
+
 <header class="capa">
   <div class="eyebrow">Parque dos Cedros</div>
   <h1>Texto-base Consolidado</h1>
-  <div class="subtitulo">Minuta de trabalho da Comissão — incorpora as manifestações acatadas ao texto-base</div>
+  <div class="subtitulo">Minuta de trabalho da Comissão — incorpora as manifestações acatadas ao texto-base, com as normas complementares e internas vinculadas</div>
 </header>
 
 <div class="nota-comissao">
-  <p><strong>Nota da Comissão.</strong> Esta é uma minuta de trabalho que incorpora, ao texto-base de 19/08, todas as manifestações classificadas como <strong>Acatadas</strong> (integral ou parcialmente) na análise das manifestações pós-prazo, incluindo os três blocos de correção de blindagem identificados dentro do texto da EM-024 (nomenclatura da Emenda de Tramitação, caráter opinativo do Conselho e distinção entre multa, ressarcimento e taxa/retenção contratual). Inclui também o ajuste dos arts. 366 e 367 (recurso contra decisão do Síndico), necessário para eliminar a contradição, identificada durante a consolidação, entre o poder decisório que esses artigos davam ao Conselho e o caráter opinativo e não vinculante já fixado no art. 63, § 6º.</p>
-  <p><strong>Numeração provisória.</strong> Os dois dispositivos inteiramente novos (Art. 21-A e Art. 336-A) recebem, por ora, numeração sufixada, para preservar a estabilidade das remissões cruzadas do restante do texto. A renumeração sequencial definitiva será feita em uma única passada, após a aprovação final pela Assembleia — inclusive porque itens ainda pendentes (emendas avulsas) podem exigir novos acréscimos.</p>
-  <p><strong>O que NÃO está neste documento.</strong> As manifestações redirecionadas para Norma Complementar ou Norma Interna (ver Parte 4 da análise) não alteram este texto — serão objeto de minutas à parte. As mantidas para apreciação da Assembleia (avulsas) seguem para votação própria em Assembleia e também não alteram este texto. A EM-024 e a EM-000 (substitutivas integrais) são alternativas a este texto-base como um todo e devem ser votadas separadamente.</p>
-  <p>Cada dispositivo alterado ou inserido nesta minuta traz, entre colchetes, uma nota de origem em itálico indicando a manifestação correspondente. Essas notas são apenas de trabalho e serão retiradas da versão final a ser publicada no edital de convocação.</p>
+  <p>Este é o texto-consolidado atualizado pela Comissão. Para consultar a origem de cada dispositivo novo ou alterado (qual manifestação ou bloco de trabalho motivou a mudança), veja as <a href="notas-origem-texto-consolidado.pdf" target="_blank" rel="noopener">Notas de Origem dos Dispositivos Alterados ↗</a> — documento à parte, com rastreabilidade completa.</p>
+  <p>Use o menu à esquerda para navegar também até a Norma Complementar e as Normas Internas que acompanham este texto, votadas em conjunto com ele.</p>
 </div>
 
 <nav id="indice">
   <h2>Índice</h2>
 <ul class="toc-list toc-depth-0">
-<li><a href="#cap-1">CAPÍTULO I — DISPOSIÇÕES GERAIS</a>
+<li><a href="#cap-1">Capítulo I — DISPOSIÇÕES GERAIS</a>
 </li>
-<li><a href="#cap-2">CAPÍTULO II — DA GOVERNANÇA CONDOMINIAL</a>
+<li><a href="#cap-2">Capítulo II — DA GOVERNANÇA CONDOMINIAL</a>
 <ul class="toc-list toc-depth-1">
 <li><a href="#cap-2-sec-1">Seção I — Dos Princípios Gerais</a>
 </li>
@@ -274,7 +317,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#cap-3">CAPÍTULO III — DA GESTÃO ADMINISTRATIVA, FINANCEIRA, PATRIMONIAL E ORÇAMENTÁRIA</a>
+<li><a href="#cap-3">Capítulo III — DA GESTÃO ADMINISTRATIVA, FINANCEIRA, PATRIMONIAL E ORÇAMENTÁRIA</a>
 <ul class="toc-list toc-depth-1">
 <li><a href="#cap-3-sec-1">Seção I — Dos Princípios da Gestão Administrativa, Financeira, Patrimonial e Orçamentária</a>
 </li>
@@ -294,7 +337,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#cap-4">CAPÍTULO IV — DA UTILIZAÇÃO DAS UNIDADES AUTÔNOMAS</a>
+<li><a href="#cap-4">Capítulo IV — DA UTILIZAÇÃO DAS UNIDADES AUTÔNOMAS</a>
 <ul class="toc-list toc-depth-1">
 <li><a href="#cap-4-sec-1">Seção I — Das Disposições Gerais</a>
 </li>
@@ -310,7 +353,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#cap-5">CAPÍTULO V — DAS ÁREAS COMUNS DE USO COLETIVO</a>
+<li><a href="#cap-5">Capítulo V — DAS ÁREAS COMUNS DE USO COLETIVO</a>
 <ul class="toc-list toc-depth-1">
 <li><a href="#cap-5-sec-1">Seção I — Das Disposições Gerais</a>
 </li>
@@ -342,7 +385,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#cap-6">CAPÍTULO VI — DOS VEÍCULOS, GARAGENS E CIRCULAÇÃO INTERNA</a>
+<li><a href="#cap-6">Capítulo VI — DOS VEÍCULOS, GARAGENS E CIRCULAÇÃO INTERNA</a>
 <ul class="toc-list toc-depth-1">
 <li><a href="#cap-6-sec-1">Seção I — Das Disposições Gerais</a>
 </li>
@@ -355,14 +398,20 @@
 <li><a href="#cap-6-sec-5">Seção V — Da Recarga de Veículos Elétricos</a>
 </li>
 <li><a href="#cap-6-sec-6">Seção VI — Do Bicicletário</a>
+<ul class="toc-list toc-depth-2">
+<li><a href="#cap-6-sec-6-sub-1">Subseção I — Disposições Gerais</a></li>
+<li><a href="#cap-6-sec-6-sub-2">Subseção II — Da Alocação dos Ganchos</a></li>
+</ul>
 </li>
 <li><a href="#cap-6-sec-7">Seção VII — Dos Elevadores</a>
 </li>
 <li><a href="#cap-6-sec-8">Seção VIII — Da Classificação das Infrações Relativas às Garagens</a>
 </li>
+<li><a href="#cap-6-sec-9">Seção IX — Das Vagas de Motocicleta</a>
+</li>
 </ul>
 </li>
-<li><a href="#cap-7">CAPÍTULO VII — DA CONVIVÊNCIA CONDOMINIAL</a>
+<li><a href="#cap-7">Capítulo VII — DA CONVIVÊNCIA CONDOMINIAL</a>
 <ul class="toc-list toc-depth-1">
 <li><a href="#cap-7-sec-1">Seção I — Das Disposições Gerais</a>
 </li>
@@ -384,7 +433,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#cap-8">CAPÍTULO VIII — DAS INFRAÇÕES, PENALIDADES E DO PROCESSO ADMINISTRATIVO</a>
+<li><a href="#cap-8">Capítulo VIII — DAS INFRAÇÕES, PENALIDADES E DO PROCESSO ADMINISTRATIVO</a>
 <ul class="toc-list toc-depth-1">
 <li><a href="#cap-8-sec-1">Seção I — Das Disposições Gerais</a>
 </li>
@@ -393,18 +442,23 @@
 <li><a href="#cap-8-sec-3">Seção III — Das Penalidades</a>
 </li>
 <li><a href="#cap-8-sec-4">Seção IV — Do Procedimento Administrativo</a>
+<ul class="toc-list toc-depth-2">
+<li><a href="#cap-8-sec-4-sub-1">Subseção I — Disposições Comuns</a></li>
+<li><a href="#cap-8-sec-4-sub-2">Subseção II — Do Procedimento de Apuração de Infrações</a></li>
+</ul>
 </li>
 <li><a href="#cap-8-sec-5">Seção V — Dos Recursos Administrativos</a>
 </li>
 <li><a href="#cap-8-sec-6">Seção VI — Da Execução das Penalidades</a>
 </li>
+<li><a href="#cap-8-sec-7">Seção VII — Do Procedimento Administrativo Comum</a>
+</li>
 </ul>
 </li>
-<li><a href="#cap-9">CAPÍTULO IX — DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS</a>
+<li><a href="#cap-9">Capítulo IX — DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS</a>
 </li>
 </ul>
 </nav>
-
 <section id="preambulo">
 <h2 class="titulo-preambulo">Preâmbulo</h2>
 <p>Considerando que a convivência harmônica em comunidade pressupõe o respeito mútuo, a solidariedade e a observância da dignidade da pessoa humana;</p>
@@ -414,7 +468,7 @@
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
 <section class="nivel-capitulo" id="cap-1">
-<h2 class="titulo-capitulo">CAPÍTULO I — DISPOSIÇÕES GERAIS</h2>
+<h2 class="titulo-capitulo">Capítulo I — DISPOSIÇÕES GERAIS</h2>
 <div class="artigo" id="art-1">
 <p class="art-caput"><span class="art-num">Art. 1º.</span> O presente Regimento Interno complementa a Convenção Condominial e disciplina a organização administrativa, o funcionamento e a convivência no Condomínio Parque dos Cedros, observada a legislação vigente.</p>
 </div>
@@ -432,14 +486,14 @@
 <p class="art-caput"><span class="art-num">Art. 5º.</span> Todo aquele que, por ação, omissão, negligência, imprudência, imperícia ou uso inadequado de unidade autônoma ou de área comum, causar dano ao condomínio, a outra unidade, a terceiro ou ao patrimônio comum, responde por sua reparação, sem prejuízo das demais responsabilidades previstas na legislação vigente.</p>
 </div>
 <div class="artigo" id="art-6">
-<p class="art-caput"><span class="art-num">Art. 6º.</span> <span class="origem-nota">[EM-017 — acatada]</span> É vedado o exercício de qualquer atividade comercial, empresarial ou a prestação remunerada de serviços a terceiros, tanto nas áreas comuns quanto nas unidades autônomas, por serem incompatíveis com a destinação residencial do Edifício estabelecida na Convenção Condominial.</p>
+<p class="art-caput"><span class="art-num">Art. 6º.</span> É vedado o exercício de qualquer atividade comercial, empresarial ou a prestação remunerada de serviços a terceiros, tanto nas áreas comuns quanto nas unidades autônomas, por serem incompatíveis com a destinação residencial do Edifício estabelecida na Convenção Condominial.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> Excetuam-se da vedação prevista no caput as atividades pontuais expressamente autorizadas pela Administração, tais como aulas, orientação profissional individual e eventos organizados pelo próprio condomínio, observadas as condições específicas eventualmente estabelecidas neste Regimento, em Norma ou em procedimento operacional.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> Não caracteriza atividade vedada pelo caput o trabalho remoto ou a atividade profissional ou intelectual exercida no interior da unidade autônoma, sem atendimento habitual ao público, publicidade externa, estoque relevante de mercadorias, circulação anormal de pessoas ou veículos, ou perturbação à segurança, ao sossego ou à salubridade do condomínio.</p>
 </div>
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
 <section class="nivel-capitulo" id="cap-2">
-<h2 class="titulo-capitulo">CAPÍTULO II — DA GOVERNANÇA CONDOMINIAL</h2>
+<h2 class="titulo-capitulo">Capítulo II — DA GOVERNANÇA CONDOMINIAL</h2>
 <section class="nivel-secao" id="cap-2-sec-1">
 <h3 class="titulo-secao">Seção I — Dos Princípios Gerais</h3>
 <div class="artigo" id="art-7">
@@ -548,7 +602,7 @@
 <p class="art-caput"><span class="art-num">Art. 21.</span> A Assembleia Geral é o órgão máximo de deliberação do Condomínio, constituída pelos condôminos na forma da legislação vigente e da Convenção Condominial, competindo-lhe definir a vontade coletiva do condomínio, estabelecer as diretrizes da Governança Condominial, fiscalizar os atos da Administração e deliberar sobre as matérias de sua competência.</p>
 </div>
 <div class="artigo" id="art-21-a">
-<p class="art-caput"><span class="art-num">Art. 21-A.</span> <span class="origem-nota">[EM-005 — acatada]</span> O condômino poderá fazer-se representar em Assembleia Geral por procurador, mediante instrumento de mandato que indique especificamente a Assembleia a que se refere, admitida a procuração em meio físico ou digital.</p>
+<p class="art-caput"><span class="art-num">Art. 21-A.</span> O condômino poderá fazer-se representar em Assembleia Geral por procurador, mediante instrumento de mandato que indique especificamente a Assembleia a que se refere, admitida a procuração em meio físico ou digital.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> A procuração digital será enviada à Administração em seu formato nativo, com assinatura por certificado ICP-Brasil, plataforma gov.br em nível prata ou ouro, ou outra que assegure autenticidade, integridade e rastreabilidade, com antecedência mínima de 24 (vinte e quatro) horas da abertura da Assembleia.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> Nenhum procurador poderá representar número de condôminos superior ao limite máximo de procurações por outorgado fixado na Convenção Condominial, além de si mesmo quando também condômino.</p>
 </div>
@@ -569,7 +623,7 @@
 <section class="nivel-subsecao" id="cap-2-sec-4-sub-2">
 <h4 class="titulo-subsecao">Subseção II — Da Convocação</h4>
 <div class="artigo" id="art-23">
-<p class="art-caput"><span class="art-num">Art. 23.</span> <span class="origem-nota">[EM-006 — acatada]</span> A Assembleia Geral será convocada pelo Síndico, pelo Conselho ou por condôminos que representem, no mínimo, um quarto das frações ideais do condomínio, observado o disposto na Convenção Condominial.</p>
+<p class="art-caput"><span class="art-num">Art. 23.</span> A Assembleia Geral será convocada pelo Síndico, pelo Conselho ou por condôminos que representem, no mínimo, um quarto das frações ideais do condomínio, observado o disposto na Convenção Condominial.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> O edital de convocação deverá conter, no mínimo:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> a identificação da Assembleia;</li>
@@ -582,7 +636,7 @@
 <p class="paragrafo"><span class="par-num">§ 3º.</span> Sempre que a matéria constante da ordem do dia envolver obras, investimentos, contratação de serviços, aquisição de bens, alterações orçamentárias ou qualquer decisão de impacto patrimonial relevante, a documentação de suporte permanecerá disponível aos condôminos desde a divulgação do edital.</p>
 </div>
 <div class="artigo" id="art-24">
-<p class="art-caput"><span class="art-num">Art. 24.</span> <span class="origem-nota">[EM-006 — acatada]</span> Qualquer condômino poderá requerer a inclusão de matéria na ordem do dia de Assembleia já convocada, no prazo de até 2 (dois) dias contado da divulgação do edital.</p>
+<p class="art-caput"><span class="art-num">Art. 24.</span> Qualquer condômino poderá requerer a inclusão de matéria na ordem do dia de Assembleia já convocada, no prazo de até 2 (dois) dias contado da divulgação do edital.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Compete a quem convocou a Assembleia decidir motivadamente sobre o requerimento, cabendo à própria Assembleia, por maioria simples dos presentes, deliberar sobre a inclusão da matéria no início dos trabalhos, em caso de recusa.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> Quando a matéria requerida envolver a aprovação, alteração ou revogação de norma ou política condominial, o condômino apresentará, em conjunto com o requerimento, o texto integral da proposta, observado o disposto no art. 25.</p>
 </div>
@@ -660,7 +714,7 @@
 <section class="nivel-subsecao" id="cap-2-sec-4-sub-6">
 <h4 class="titulo-subsecao">Subseção VI — Das Emendas de Tramitação</h4>
 <div class="artigo" id="art-35">
-<p class="art-caput"><span class="art-num">Art. 35.</span> <span class="origem-nota">[EM-024 (bloco de blindagem) — acatado (nomenclatura)]</span> Emenda de Tramitação é a proposta de alteração de texto submetido à deliberação da Assembleia, classificando-se em:</p>
+<p class="art-caput"><span class="art-num">Art. 35.</span> Emenda de Tramitação é a proposta de alteração de texto submetido à deliberação da Assembleia, classificando-se em:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> de redação, quando propõe correção de redação a parte do texto, sem alteração de mérito;</li>
 <li><span class="inc-num">II.</span> supressiva, quando propõe a retirada de parte do texto;</li>
@@ -670,13 +724,13 @@
 </ol>
 </div>
 <div class="artigo" id="art-36">
-<p class="art-caput"><span class="art-num">Art. 36.</span> <span class="origem-nota">[EM-024 (bloco de blindagem) — acatado (nomenclatura)]</span> Somente será admitida Emenda de Tramitação que verse sobre matéria constante da ordem do dia, cabendo ao Presidente da Mesa recusar, motivadamente, emenda estranha à matéria em apreciação, ressalvado recurso à própria Assembleia.</p>
+<p class="art-caput"><span class="art-num">Art. 36.</span> Somente será admitida Emenda de Tramitação que verse sobre matéria constante da ordem do dia, cabendo ao Presidente da Mesa recusar, motivadamente, emenda estranha à matéria em apreciação, ressalvado recurso à própria Assembleia.</p>
 </div>
 <div class="artigo" id="art-37">
-<p class="art-caput"><span class="art-num">Art. 37.</span> <span class="origem-nota">[EM-024 (bloco de blindagem) — acatado (nomenclatura)]</span> O texto de toda Emenda de Tramitação apresentada será divulgado aos presentes antes de submetida a debate e votação, vedada sua apreciação sem que os condôminos tenham tido acesso ao seu conteúdo integral.</p>
+<p class="art-caput"><span class="art-num">Art. 37.</span> O texto de toda Emenda de Tramitação apresentada será divulgado aos presentes antes de submetida a debate e votação, vedada sua apreciação sem que os condôminos tenham tido acesso ao seu conteúdo integral.</p>
 </div>
 <div class="artigo" id="art-38">
-<p class="art-caput"><span class="art-num">Art. 38.</span> <span class="origem-nota">[EM-024 (bloco de blindagem) — acatado (nomenclatura)]</span> Havendo Emenda de Tramitação, a votação observará a seguinte ordem:</p>
+<p class="art-caput"><span class="art-num">Art. 38.</span> Havendo Emenda de Tramitação, a votação observará a seguinte ordem:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> emenda substitutiva, quando admitida para a matéria em apreciação;</li>
 <li><span class="inc-num">II.</span> demais emendas, na ordem em que apresentadas;</li>
@@ -685,7 +739,7 @@
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> A rejeição da emenda substitutiva não prejudica a apreciação das demais emendas nem do texto-base.</p>
 </div>
 <div class="artigo" id="art-39">
-<p class="art-caput"><span class="art-num">Art. 39.</span> <span class="origem-nota">[EM-024 (bloco de blindagem) — acatado (nomenclatura e distinção frente à Alteração do Regimento)]</span> Toda Emenda de Tramitação será aprovada por maioria simples dos presentes, independentemente do quórum exigido para a matéria principal.</p>
+<p class="art-caput"><span class="art-num">Art. 39.</span> Toda Emenda de Tramitação será aprovada por maioria simples dos presentes, independentemente do quórum exigido para a matéria principal.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> A aprovação de Emenda de Tramitação não supre o quórum exigido para a aprovação do texto-base por ela alterado, que permanecerá sujeito ao quórum próprio da matéria, nos termos da legislação vigente, da Convenção Condominial e deste Regimento, não se confundindo a Emenda de Tramitação com a Alteração do Regimento Interno de que trata o art. 383, ato de aprovação definitiva sujeito a quórum próprio.</p>
 </div>
 </section>
@@ -840,7 +894,7 @@
 <p class="art-caput"><span class="art-num">Art. 52.</span> Verificada a ocorrência de fato que possa acarretar perda do mandato ou inelegibilidade superveniente, será assegurado ao interessado o direito ao contraditório e à ampla defesa, na forma deste Regimento.</p>
 </div>
 <div class="artigo" id="art-53">
-<p class="art-caput"><span class="art-num">Art. 53.</span> <span class="origem-nota">[EM-013a — acatada]</span> Compete exclusivamente à Assembleia Geral deliberar sobre a perda do mandato dos ocupantes de cargos eletivos, observados a legislação vigente, a Convenção Condominial e este Regimento.</p>
+<p class="art-caput"><span class="art-num">Art. 53.</span> Compete exclusivamente à Assembleia Geral deliberar sobre a perda do mandato dos ocupantes de cargos eletivos, observados a legislação vigente, a Convenção Condominial e este Regimento.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> A rejeição da prestação de contas não implicará, por si só, a perda automática do mandato, sem prejuízo da adoção das medidas cabíveis pela Assembleia Geral.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> A perda do mandato de qualquer ocupante de cargo eletivo por voto de desconfiança será deliberada pela Assembleia Geral pelo voto da maioria absoluta dos membros presentes, dispensado quórum de instalação especial, observado o disposto na Cláusula Vigésima Nona da Convenção Condominial e no art. 1.349 do Código Civil.</p>
 </div>
@@ -887,7 +941,7 @@
 <p class="paragrafo"><span class="par-num">§ 3º.</span> Em caso de vacância da Presidência, aplica-se o disposto no § 2º.</p>
 </div>
 <div class="artigo" id="art-59">
-<p class="art-caput"><span class="art-num">Art. 59.</span> <span class="origem-nota">[EM-013d — acatada]</span> Compete ao Conselho:</p>
+<p class="art-caput"><span class="art-num">Art. 59.</span> Compete ao Conselho:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> fiscalizar os atos da administração condominial, verificando sua conformidade com a legislação vigente, a Convenção Condominial, este Regimento e as deliberações da Assembleia Geral;</li>
 <li><span class="inc-num">II.</span> acompanhar a execução orçamentária, financeira, patrimonial e administrativa do condomínio;</li>
@@ -937,7 +991,7 @@
 </ol>
 </div>
 <div class="artigo" id="art-63">
-<p class="art-caput"><span class="art-num">Art. 63.</span> <span class="origem-nota">[EM-013d — acatada]</span> O Conselho reunir-se-á, ordinariamente, a cada 3 (três) meses e, extraordinariamente, sempre que necessário.</p>
+<p class="art-caput"><span class="art-num">Art. 63.</span> O Conselho reunir-se-á, ordinariamente, a cada 3 (três) meses e, extraordinariamente, sempre que necessário.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> Cabe à reunião ordinária, entre outras atribuições:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> emitir parecer, de ofício, sem caráter decisório, sobre todas as multas aplicadas pelo Síndico e regularmente comunicadas desde a última reunião, podendo recomendar sua manutenção ou revisão; e</li>
@@ -957,7 +1011,7 @@
 <section class="nivel-subsecao" id="cap-2-sec-7-sub-1">
 <h4 class="titulo-subsecao">Subseção I — Da Natureza do Cargo</h4>
 <div class="artigo" id="art-64">
-<p class="art-caput"><span class="art-num">Art. 64.</span> <span class="origem-nota">[EM-013c — acatada parcialmente (removido apenas o limite de uma única reeleição)]</span> O Síndico é o representante legal e o administrador executivo do condomínio, competindo-lhe executar as deliberações da Assembleia Geral, administrar o condomínio e praticar todos os atos necessários à sua gestão, observadas a legislação vigente, a Convenção Condominial, este Regimento e as deliberações da Assembleia Geral.</p>
+<p class="art-caput"><span class="art-num">Art. 64.</span> O Síndico é o representante legal e o administrador executivo do condomínio, competindo-lhe executar as deliberações da Assembleia Geral, administrar o condomínio e praticar todos os atos necessários à sua gestão, observadas a legislação vigente, a Convenção Condominial, este Regimento e as deliberações da Assembleia Geral.</p>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> O Síndico poderá ser condômino ou profissional contratado, observado o disposto na legislação vigente, na Convenção Condominial e na Seção V deste Regimento.</p>
 <p class="paragrafo"><span class="par-num">§ 2º.</span> O mandato do Síndico, seja ele condômino ou profissional, será de 1 (um) ano, permitida a reeleição, observado o disposto na Convenção Condominial.</p>
 </div>
@@ -1004,8 +1058,7 @@
 </ol>
 </div>
 <div class="artigo" id="art-68">
-<p class="art-caput"><span class="art-num">Art. 68.</span> Salvo prazo diverso estabelecido neste Regimento, o pedido de autorização dirigido à Administração será decidido, mediante decisão fundamentada, no prazo de 5 (cinco) dias úteis contado de sua apresentação, findo o qual, sem manifestação, considerar-se-á tacitamente deferido, cabendo recurso ao Conselho e, sucessivamente, à Assembleia Geral, na forma do Capítulo VIII deste Regimento.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Esta regra não se aplica aos pedidos de autorização de obras em unidades autônomas quando envolverem intervenção em elemento estrutural, instalação técnica predial ou sistema de proteção contra incêndio ou que possam afetar a segurança da edificação, as instalações comuns ou o funcionamento do condomínio.</p>
+<p class="art-caput"><span class="art-num">Art. 68.</span> (Revogado). Matéria disciplinada nos arts. 353-A a 353-F e 376-A a 376-D deste Regimento.</p>
 </div>
 </section>
 <section class="nivel-subsecao" id="cap-2-sec-7-sub-3">
@@ -1043,11 +1096,9 @@
 <p class="art-caput"><span class="art-num">Art. 72.</span> Ao término do mandato, renúncia, destituição ou qualquer outra hipótese de substituição do Síndico, deverá ser promovida a transição administrativa, assegurando a continuidade da gestão e a preservação do patrimônio, das informações e dos documentos do condomínio.</p>
 </div>
 <div class="artigo" id="art-73">
-<p class="art-caput"><span class="art-num">Art. 73.</span> <span class="origem-nota">[EM-003 — acatada]</span> O Síndico que deixar o cargo entregará ao seu sucessor, mediante termo circunstanciado, no mínimo:</p>
+<p class="art-caput"><span class="art-num">Art. 73.</span> O Síndico que deixar o cargo entregará ao seu sucessor, mediante termo circunstanciado, no mínimo:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> no prazo máximo de 48 (quarenta e oito) horas, contado da posse do sucessor:</li>
-</ol>
-<ol class="incisos">
 <li><span class="inc-num">II.</span> no prazo máximo de 10 (dez) dias úteis, contado da posse do sucessor:</li>
 </ol>
 <p class="paragrafo"><span class="par-num">§ 1º.</span> A entrega será formalizada por termo circunstanciado, assinado pelo Síndico que deixa o cargo e pelo seu sucessor, contendo a relação dos documentos, bens e informações entregues, bem como eventuais ressalvas.</p>
@@ -1068,7 +1119,7 @@
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
 <section class="nivel-capitulo" id="cap-3">
-<h2 class="titulo-capitulo">CAPÍTULO III — DA GESTÃO ADMINISTRATIVA, FINANCEIRA, PATRIMONIAL E ORÇAMENTÁRIA</h2>
+<h2 class="titulo-capitulo">Capítulo III — DA GESTÃO ADMINISTRATIVA, FINANCEIRA, PATRIMONIAL E ORÇAMENTÁRIA</h2>
 <section class="nivel-secao" id="cap-3-sec-1">
 <h3 class="titulo-secao">Seção I — Dos Princípios da Gestão Administrativa, Financeira, Patrimonial e Orçamentária</h3>
 <div class="artigo" id="art-77">
@@ -1414,8 +1465,13 @@
 <p class="art-caput"><span class="art-num">Art. 133.</span> Os fundos condominiais previstos na Convenção Condominial ou instituídos por deliberação da Assembleia Geral destinam-se ao atendimento de finalidades específicas e serão administrados com observância dos princípios gerais previstos no § 1º do art. 7º deste Regimento, em especial a legalidade, a transparência, a responsabilidade e a prestação de contas, bem como, especificamente, o princípio da segregação patrimonial.</p>
 </div>
 <div class="artigo" id="art-134">
-<p class="art-caput"><span class="art-num">Art. 134.</span> Os recursos de cada fundo permanecerão contabilmente individualizados, vedada sua utilização para finalidade diversa daquela que motivou sua constituição, ressalvadas as hipóteses expressamente previstas na Convenção Condominial, neste Regimento ou autorizadas pela Assembleia Geral.</p>
+<p class="art-caput"><span class="art-num">Art. 134.</span> Os recursos de cada fundo permanecerão contabilmente individualizados, vedada sua utilização para finalidade diversa daquela que motivou sua constituição, ressalvadas as hipóteses expressamente previstas na Convenção Condominial, neste Regimento, ou autorizadas pela Assembleia Geral nos termos do art. 134-A.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> A individualização contábil dos fundos condominiais independe da manutenção de contas bancárias distintas, devendo a Administração adotar controles que permitam identificar, a qualquer tempo, a origem, a movimentação, a aplicação e o saldo de cada fundo, vedada sua confusão com os recursos destinados às despesas ordinárias do condomínio.</p>
+</div>
+<div class="artigo" id="art-134-a">
+<p class="art-caput"><span class="art-num">Art. 134-A.</span> Ressalvado fundo condominial que possua regramento diverso previsto na Convenção Condominial ou neste Regimento, a autorização da Assembleia Geral referida no art. 134 fica condicionada ao disposto neste artigo.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> A Proposta Orçamentária Anual poderá estabelecer, para cada fundo condominial, valor-alvo a ser mantido, bem como a destinação do que exceder a esse valor, hipótese em que a vedação prevista no caput do art. 134 aplica-se apenas até o valor-alvo fixado.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Na ausência de valor-alvo fixado na forma do § 1º, os recursos do respectivo fundo permanecem integralmente vinculados à finalidade que motivou sua constituição, nos termos do art. 134.</p>
 </div>
 <div class="artigo" id="art-135">
 <p class="art-caput"><span class="art-num">Art. 135.</span> A movimentação dos recursos dos fundos observará as mesmas regras de planejamento, execução, contratação, documentação e prestação de contas aplicáveis às demais despesas do condomínio.</p>
@@ -1493,7 +1549,7 @@
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
 <section class="nivel-capitulo" id="cap-4">
-<h2 class="titulo-capitulo">CAPÍTULO IV — DA UTILIZAÇÃO DAS UNIDADES AUTÔNOMAS</h2>
+<h2 class="titulo-capitulo">Capítulo IV — DA UTILIZAÇÃO DAS UNIDADES AUTÔNOMAS</h2>
 <section class="nivel-secao" id="cap-4-sec-1">
 <h3 class="titulo-secao">Seção I — Das Disposições Gerais</h3>
 <div class="artigo" id="art-149">
@@ -1509,7 +1565,7 @@
 <p class="art-caput"><span class="art-num">Art. 152.</span> O uso da unidade autônoma não poderá causar prejuízo, risco, incômodo anormal ou restrição ao regular exercício dos direitos dos demais condôminos, moradores ou usuários das áreas comuns.</p>
 </div>
 <div class="artigo" id="art-153">
-<p class="art-caput"><span class="art-num">Art. 153.</span> <span class="origem-nota">[EM-018 — acatada, com ressalva (reescrita em ordem direta; crase original mantida por estar correta)]</span> O condômino deverá permitir o acesso à sua unidade sempre que indispensável à realização de obras, reparos, inspeções, vistorias ou intervenções necessárias à preservação da segurança, da integridade das instalações comuns ou à prevenção de danos, mediante prévia comunicação da Administração, ressalvadas as situações de urgência ou emergência.</p>
+<p class="art-caput"><span class="art-num">Art. 153.</span> O condômino deverá permitir o acesso à sua unidade sempre que indispensável à realização de obras, reparos, inspeções, vistorias ou intervenções necessárias à preservação da segurança, da integridade das instalações comuns ou à prevenção de danos, mediante prévia comunicação da Administração, ressalvadas as situações de urgência ou emergência.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> O acesso previsto no caput limitar-se-á ao tempo, ao local e às atividades estritamente necessárias à realização da intervenção, preservando-se, sempre que possível, a privacidade, a segurança e o regular uso da unidade.</p>
 </div>
 </section>
@@ -1546,7 +1602,7 @@
 <p class="art-caput"><span class="art-num">Art. 161.</span> O condômino é integralmente responsável pelas obras e reformas executadas em sua unidade, respondendo pelos danos, prejuízos ou riscos que delas decorram para o condomínio, para as demais unidades ou para terceiros.</p>
 </div>
 <div class="artigo" id="art-162">
-<p class="art-caput"><span class="art-num">Art. 162.</span> A obra que envolver intervenção em elemento estrutural, instalação técnica predial ou sistema de proteção contra incêndio ou que, por sua natureza, possa afetar a segurança da edificação, as instalações comuns ou o funcionamento do condomínio só poderá ser iniciada após autorização da Administração, sem prejuízo da observância das exigências previstas na legislação vigente, nas normas técnicas aplicáveis e nos procedimentos operacionais e Normas aplicáveis, nos termos do parágrafo único do art. 68 deste Regimento.</p>
+<p class="art-caput"><span class="art-num">Art. 162.</span> A obra que envolver intervenção em elemento estrutural, instalação técnica predial ou sistema de proteção contra incêndio ou que, por sua natureza, possa afetar a segurança da edificação, as instalações comuns ou o funcionamento do condomínio só poderá ser iniciada após autorização da Administração, sem prejuízo da observância das exigências previstas na legislação vigente, nas normas técnicas aplicáveis e nos procedimentos operacionais e Normas aplicáveis, nos termos do art. 376-D deste Regimento.</p>
 </div>
 <div class="artigo" id="art-163">
 <p class="art-caput"><span class="art-num">Art. 163.</span> O condômino deverá adotar todas as medidas necessárias para evitar danos, sujeira, obstruções, riscos ou transtornos às áreas comuns durante a execução das obras, responsabilizando-se pela imediata reparação dos prejuízos eventualmente causados.</p>
@@ -1683,7 +1739,7 @@
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
 <section class="nivel-capitulo" id="cap-5">
-<h2 class="titulo-capitulo">CAPÍTULO V — DAS ÁREAS COMUNS DE USO COLETIVO</h2>
+<h2 class="titulo-capitulo">Capítulo V — DAS ÁREAS COMUNS DE USO COLETIVO</h2>
 <section class="nivel-secao" id="cap-5-sec-1">
 <h3 class="titulo-secao">Seção I — Das Disposições Gerais</h3>
 <div class="artigo" id="art-188">
@@ -1711,7 +1767,7 @@
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> Dispensa-se a exigência prevista no caput para a orientação individual por profissional habilitado, em razão de sua natureza individual.</p>
 </div>
 <div class="artigo" id="art-195">
-<p class="art-caput"><span class="art-num">Art. 195.</span> Aplica-se ao pedido de autorização para ministração de aula em área comum o disposto no art. 68 deste Regimento.</p>
+<p class="art-caput"><span class="art-num">Art. 195.</span> Aplica-se ao pedido de autorização para ministração de aula em área comum o disposto na Subseção I da Seção IV e, no que couber, no art. 376-D, deste Regimento.</p>
 </div>
 <div class="artigo" id="art-196">
 <p class="art-caput"><span class="art-num">Art. 196.</span> A Assembleia Geral poderá disciplinar, por Norma Interna, regras específicas de uso das áreas comuns, observados os princípios e os limites estabelecidos na legislação vigente, na Convenção Condominial e neste Regimento.</p>
@@ -1770,7 +1826,7 @@
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> A taxa prevista no caput não se confunde com a cota condominial ordinária, não integra o rateio geral de despesas do condomínio e não exime o condômino do pagamento da caução eventualmente exigida nos termos do art. 206.</p>
 </div>
 <div class="artigo" id="art-208">
-<p class="art-caput"><span class="art-num">Art. 208.</span> <span class="origem-nota">[EM-024 (bloco de blindagem) — acatado]</span> O cancelamento de reserva de área comum poderá sujeitar o responsável à retenção de natureza contratual de até 100% (cem por cento) do valor da taxa prevista no art. 207, na forma do art. 336-A, III, deste Regimento, conforme os prazos e a graduação estabelecidos no Calendário Anual das Áreas Comuns.</p>
+<p class="art-caput"><span class="art-num">Art. 208.</span> O cancelamento de reserva de área comum poderá sujeitar o responsável à retenção de natureza contratual de até 100% (cem por cento) do valor da taxa prevista no art. 207, na forma do art. 336-A, III, deste Regimento, conforme os prazos e a graduação estabelecidos no Calendário Anual das Áreas Comuns.</p>
 </div>
 <div class="artigo" id="art-209">
 <p class="art-caput"><span class="art-num">Art. 209.</span> Fica instituído o Fundo de Manutenção das Áreas Comuns Reserváveis, constituído pela integralidade dos valores arrecadados a título da taxa prevista no art. 207, sujeito às regras gerais dos fundos condominiais previstas nos arts.133 a 138 deste Regimento.</p>
@@ -1949,7 +2005,7 @@
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
 <section class="nivel-capitulo" id="cap-6">
-<h2 class="titulo-capitulo">CAPÍTULO VI — DOS VEÍCULOS, GARAGENS E CIRCULAÇÃO INTERNA</h2>
+<h2 class="titulo-capitulo">Capítulo VI — DOS VEÍCULOS, GARAGENS E CIRCULAÇÃO INTERNA</h2>
 <section class="nivel-secao" id="cap-6-sec-1">
 <h3 class="titulo-secao">Seção I — Das Disposições Gerais</h3>
 <div class="artigo" id="art-250">
@@ -2063,6 +2119,8 @@
 </section>
 <section class="nivel-secao" id="cap-6-sec-6">
 <h3 class="titulo-secao">Seção VI — Do Bicicletário</h3>
+<section class="nivel-subsecao" id="cap-6-sec-6-sub-1">
+<h4 class="titulo-subsecao">Subseção I — Disposições Gerais</h4>
 <div class="artigo" id="art-281">
 <p class="art-caput"><span class="art-num">Art. 281.</span> O bicicletário destina-se exclusivamente à guarda de bicicletas pertencentes aos moradores, observadas a legislação vigente, a Convenção Condominial, este Regimento e os procedimentos operacionais regularmente estabelecidos pela Administração.</p>
 </div>
@@ -2081,6 +2139,55 @@
 <div class="artigo" id="art-286">
 <p class="art-caput"><span class="art-num">Art. 286.</span> Bicicletas abandonadas ou mantidas em desacordo com este Regimento poderão ser objeto de notificação ao responsável para regularização da situação, observado o procedimento administrativo estabelecido pela Administração, vedada sua remoção definitiva sem prévia comunicação ao proprietário, ressalvadas as hipóteses previstas na legislação vigente.</p>
 </div>
+</section>
+<section class="nivel-subsecao" id="cap-6-sec-6-sub-2">
+<h4 class="titulo-subsecao">Subseção II — Da Alocação dos Ganchos</h4>
+<div class="artigo" id="art-286-a">
+<p class="art-caput"><span class="art-num">Art. 286-A.</span> Cada unidade poderá requerer a alocação de tantos ganchos quantos correspondam às bicicletas efetivamente cadastradas em seu favor, nos termos do art. 283, competindo como grupo único no processo de alocação de que trata esta Subseção.</p>
+</div>
+<div class="artigo" id="art-286-b">
+<p class="art-caput"><span class="art-num">Art. 286-B.</span> Havendo ganchos livres em número suficiente para atender a todos os pedidos pendentes, a alocação observará a ordem de apresentação dos pedidos à Administração.</p>
+</div>
+<div class="artigo" id="art-286-c">
+<p class="art-caput"><span class="art-num">Art. 286-C.</span> Não havendo ganchos livres suficientes para atender a todos os pedidos pendentes em determinado momento, a alocação dos ganchos disponíveis naquele momento será decidida por sorteio entre as unidades com pedido pendente, realizado na Assembleia Geral Ordinária.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> O sorteio estabelecerá a ordem completa de classificação entre todas as unidades com pedido pendente naquele momento, não se limitando aos ganchos imediatamente disponíveis.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Classificadas as unidades pela ordem do sorteio, cada uma, sucessivamente, escolherá os ganchos correspondentes ao número por ela requerido, observada a seguinte ordem de preferência:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> ganchos contíguos, em um único bicicletário;</li>
+<li><span class="inc-num">II.</span> não havendo contíguos em número suficiente, ganchos no mesmo bicicletário, ainda que não contíguos;</li>
+<li><span class="inc-num">III.</span> não sendo possível as hipóteses anteriores, ganchos distribuídos entre os dois bicicletários.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> Inexistindo, no momento da escolha, ganchos livres em número suficiente para atender à integralidade do pedido da unidade, esta poderá optar por:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> aceitar os ganchos então disponíveis, permanecendo em posição prioritária na lista de suplência de que trata o art. 286-D para o remanescente do pedido; ou</li>
+<li><span class="inc-num">II.</span> aguardar, sem receber gancho algum naquele momento, permanecendo na mesma posição da lista de suplência para a integralidade do pedido.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">§ 4º.</span> As unidades cujo pedido não seja atendido, total ou parcialmente, no sorteio integrarão lista de suplência, na ordem de classificação obtida.</p>
+</div>
+<div class="artigo" id="art-286-d">
+<p class="art-caput"><span class="art-num">Art. 286-D.</span> Liberado gancho, a qualquer tempo, por desistência, mudança de unidade responsável ou qualquer outra causa, será chamada a próxima unidade da lista de suplência vigente, sucessivamente, até que o gancho seja preenchido ou a lista se esgote.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> A unidade chamada terá o prazo de 5 (cinco) dias úteis, contado da comunicação, para manifestar interesse, findo o qual sem manifestação, ou havendo recusa expressa, será chamada a unidade seguinte.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Esgotada a lista de suplência sem preenchimento do gancho, este ficará disponível a novos pedidos por ordem de apresentação, nos termos do art. 286-B, até que sobrevenha nova hipótese de sorteio nos termos do art. 286-C.</p>
+</div>
+<div class="artigo" id="art-286-e">
+<p class="art-caput"><span class="art-num">Art. 286-E.</span> É vedada a cessão do gancho alocado a uma unidade em favor de outra unidade, ainda que a título gratuito, sem prejuízo da livre distribuição, pela própria unidade, dos ganchos que lhe forem alocados entre suas bicicletas cadastradas.</p>
+</div>
+<div class="artigo" id="art-286-f">
+<p class="art-caput"><span class="art-num">Art. 286-F.</span> A cada Assembleia Geral Ordinária, cada unidade que possuir gancho alocado confirmará a manutenção de seu interesse na utilização, independentemente da existência de cobrança nos termos do art. 286-I.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A ausência de confirmação, no prazo estabelecido pela Administração, importará a liberação automática do gancho, aplicando-se o disposto no art. 286-D.</p>
+</div>
+<div class="artigo" id="art-286-g">
+<p class="art-caput"><span class="art-num">Art. 286-G.</span> A cada 2 (dois) anos, a Assembleia Geral Ordinária deliberará obrigatoriamente, como item específico da ordem do dia, sobre a realização de novo processo geral de alocação de todos os ganchos dos bicicletários, hipótese em que todas as unidades interessadas, inclusive as que já possuírem gancho alocado, concorrerão em conjunto, observado o procedimento do art. 286-C.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> O processo geral de que trata o caput somente ocorrerá mediante deliberação favorável da maioria simples dos presentes; não havendo deliberação favorável, os ganchos permanecem alocados na forma vigente.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> A primeira deliberação de que trata este artigo ocorrerá na Assembleia Geral Ordinária imediatamente subsequente à entrada em vigor deste artigo, e as seguintes a cada 2 (dois) anos a partir de então.</p>
+</div>
+<div class="artigo" id="art-286-h">
+<p class="art-caput"><span class="art-num">Art. 286-H.</span> Realizado o processo geral de que trata o art. 286-G, ou verificado o resultado do sorteio de que trata o art. 286-C na Assembleia Geral Ordinária, a unidade que deixar de ser contemplada, total ou parcialmente, desocupará o gancho correspondente até o segundo sábado do mês de abril imediatamente seguinte; coincidindo essa data com o Sábado de Aleluia, a desocupação fica prorrogada para o sábado seguinte.</p>
+</div>
+<div class="artigo" id="art-286-i">
+<p class="art-caput"><span class="art-num">Art. 286-I.</span> A Proposta Orçamentária Anual poderá instituir taxa pela utilização de gancho no bicicletário, de valor único para os dois bicicletários existentes, aplicável a todas as unidades com gancho alocado.</p>
+</div>
+</section>
 </section>
 <section class="nivel-secao" id="cap-6-sec-7">
 <h3 class="titulo-secao">Seção VII — Dos Elevadores</h3>
@@ -2145,10 +2252,43 @@
 <p class="art-caput"><span class="art-num">Art. 293.</span> A multa correspondente às infrações classificadas na forma do art. 292 será calculada nos termos do art. 349 deste Regimento, conforme o grau de gravidade nele estabelecido.</p>
 </div>
 </section>
+<section class="nivel-secao" id="cap-6-sec-9">
+<h3 class="titulo-secao">Seção IX — Das Vagas de Motocicleta</h3>
+<div class="artigo" id="art-293-a">
+<p class="art-caput"><span class="art-num">Art. 293-A.</span> As vagas de motocicleta não vinculadas a unidade autônoma destinam-se ao estacionamento de motocicletas de propriedade de condômino ou morador, observados os procedimentos operacionais estabelecidos pela Administração.</p>
+</div>
+<div class="artigo" id="art-293-b">
+<p class="art-caput"><span class="art-num">Art. 293-B.</span> Havendo vaga de motocicleta disponível, a alocação observará a ordem de apresentação dos pedidos à Administração.</p>
+</div>
+<div class="artigo" id="art-293-c">
+<p class="art-caput"><span class="art-num">Art. 293-C.</span> Não havendo vagas de motocicleta disponíveis em número suficiente para atender a todos os pedidos pendentes, a totalidade das vagas será anualmente sorteada entre todas as unidades interessadas, inclusive as que já possuírem vaga alocada, na Assembleia Geral Ordinária.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> O sorteio estabelecerá a ordem completa de classificação entre todas as unidades interessadas.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> Classificadas as unidades pela ordem do sorteio, cada uma, sucessivamente, escolherá a vaga correspondente, até o preenchimento da totalidade das vagas existentes.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> As unidades não contempladas integrarão lista de suplência, na ordem de classificação obtida.</p>
+</div>
+<div class="artigo" id="art-293-d">
+<p class="art-caput"><span class="art-num">Art. 293-D.</span> Liberada vaga de motocicleta, a qualquer tempo, será chamada a próxima unidade da lista de suplência vigente, sucessivamente, até que a vaga seja preenchida ou a lista se esgote, aplicando-se o disposto nos §§ 1º e 2º do art. 286-D.</p>
+</div>
+<div class="artigo" id="art-293-e">
+<p class="art-caput"><span class="art-num">Art. 293-E.</span> É vedada a cessão da vaga de motocicleta alocada a uma unidade em favor de outra unidade, ainda que a título gratuito.</p>
+</div>
+<div class="artigo" id="art-293-f">
+<p class="art-caput"><span class="art-num">Art. 293-F.</span> É facultada a cada unidade a alocação de, no máximo, 1 (uma) vaga de motocicleta.</p>
+</div>
+<div class="artigo" id="art-293-g">
+<p class="art-caput"><span class="art-num">Art. 293-G.</span> A cada Assembleia Geral Ordinária, cada unidade que possuir vaga de motocicleta alocada confirmará a manutenção de seu interesse na utilização, independentemente da existência de cobrança nos termos do art. 293-I, aplicando-se, no que couber, o disposto no parágrafo único do art. 286-F.</p>
+</div>
+<div class="artigo" id="art-293-h">
+<p class="art-caput"><span class="art-num">Art. 293-H.</span> A unidade que deixar de ser contemplada no sorteio anual desocupará a vaga até o segundo sábado do mês de abril imediatamente seguinte, aplicando-se o disposto no art. 286-H quanto ao Sábado de Aleluia.</p>
+</div>
+<div class="artigo" id="art-293-i">
+<p class="art-caput"><span class="art-num">Art. 293-I.</span> A Proposta Orçamentária Anual poderá instituir taxa mensal pela utilização de vaga de motocicleta, aplicável às unidades contempladas.</p>
+</div>
+</section>
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
 <section class="nivel-capitulo" id="cap-7">
-<h2 class="titulo-capitulo">CAPÍTULO VII — DA CONVIVÊNCIA CONDOMINIAL</h2>
+<h2 class="titulo-capitulo">Capítulo VII — DA CONVIVÊNCIA CONDOMINIAL</h2>
 <section class="nivel-secao" id="cap-7-sec-1">
 <h3 class="titulo-secao">Seção I — Das Disposições Gerais</h3>
 <div class="artigo" id="art-294">
@@ -2270,7 +2410,7 @@
 <ol class="incisos">
 <li><span class="inc-num">I.</span> expressamente autorizado pelo morador destinatário, observado o procedimento de controle de acesso estabelecido pela Administração;</li>
 <li><span class="inc-num">II.</span> houver impossibilidade de locomoção do destinatário em razão de deficiência, limitação física temporária, enfermidade, idade avançada ou outra condição que justifique a exceção; ou</li>
-<li><span class="inc-num">III.</span> ocorrer nas demais hipóteses previstas nos procedimentos operacionais regularmente estabelecidos pela Administração.</li>
+<li><span class="inc-num">III.</span> ocorrer   nas   demais   hipóteses   previstas   nos   procedimentos   operacionais   regularmente   estabelecidos   pela Administração.</li>
 </ol>
 </div>
 <div class="artigo" id="art-317">
@@ -2342,7 +2482,7 @@
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
 <section class="nivel-capitulo" id="cap-8">
-<h2 class="titulo-capitulo">CAPÍTULO VIII — DAS INFRAÇÕES, PENALIDADES E DO PROCESSO ADMINISTRATIVO</h2>
+<h2 class="titulo-capitulo">Capítulo VIII — DAS INFRAÇÕES, PENALIDADES E DO PROCESSO ADMINISTRATIVO</h2>
 <section class="nivel-secao" id="cap-8-sec-1">
 <h3 class="titulo-secao">Seção I — Das Disposições Gerais</h3>
 <div class="artigo" id="art-333">
@@ -2358,7 +2498,7 @@
 <p class="art-caput"><span class="art-num">Art. 336.</span> A responsabilidade pela infração será apurada mediante procedimento administrativo, observado o disposto neste Capítulo.</p>
 </div>
 <div class="artigo" id="art-336-a">
-<p class="art-caput"><span class="art-num">Art. 336-A.</span> <span class="origem-nota">[EM-024 (bloco de blindagem) — acatado]</span> Para os fins deste Regimento:</p>
+<p class="art-caput"><span class="art-num">Art. 336-A.</span> Para os fins deste Regimento:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> penalidade é a sanção aplicada em decorrência de infração, sujeita integralmente ao procedimento e às garantias previstos neste Capítulo;</li>
 <li><span class="inc-num">II.</span> ressarcimento é o valor correspondente ao prejuízo material efetivamente comprovado causado ao condomínio, não podendo superar o dano apurado;</li>
@@ -2461,11 +2601,11 @@
 </ol>
 </div>
 <div class="artigo" id="art-349">
-<p class="art-caput"><span class="art-num">Art. 349.</span> <span class="origem-nota">[EM-013b e EM-013f — acatadas (remissão passa a ser direta à lei; corrigido erro de remissão cruzada à Convenção)]</span> A multa será calculada sobre o valor da Taxa Condominial Ordinária vigente na data da decisão, observados os seguintes percentuais, conforme a classificação da infração:</p>
+<p class="art-caput"><span class="art-num">Art. 349.</span> A multa será calculada sobre o valor da Taxa Condominial Ordinária vigente na data da decisão, observados os seguintes percentuais, conforme a classificação da infração:</p>
 <ol class="incisos">
-<li><span class="inc-num">I.</span> infração leve: 25% (vinte e cinco por cento);</li>
-<li><span class="inc-num">II.</span> infração média: 50% (cinquenta por cento);</li>
-<li><span class="inc-num">III.</span> infração grave: 75% (setenta e cinco por cento); e</li>
+<li><span class="inc-num">I.</span> infração leve: 10% (dez por cento);</li>
+<li><span class="inc-num">II.</span> infração média: 25% (vinte e cinco por cento);</li>
+<li><span class="inc-num">III.</span> infração grave: 50% (cinquenta por cento); e</li>
 <li><span class="inc-num">IV.</span> infração gravíssima: 100% (cem por cento).</li>
 </ol>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> Os percentuais previstos neste artigo aplicam-se a todas as infrações reguladas por este Regimento, inclusive as relativas ao uso de garagens, vagas e áreas de circulação de veículos, classificadas na forma do art. 292, sem prejuízo da multa agravada por descumprimento reiterado dos deveres condominiais, de até o quíntuplo da contribuição condominial, ou por comportamento antissocial reiterado, de até o décuplo, cuja aplicação compete privativamente à Assembleia Geral, observado o quórum de 3/4 (três quartos) dos condôminos restantes previsto no art. 1.337 do Código Civil.</p>
@@ -2505,6 +2645,44 @@
 </section>
 <section class="nivel-secao" id="cap-8-sec-4">
 <h3 class="titulo-secao">Seção IV — Do Procedimento Administrativo</h3>
+<section class="nivel-subsecao" id="cap-8-sec-4-sub-1">
+<h4 class="titulo-subsecao">Subseção I — Disposições Comuns</h4>
+<div class="artigo" id="art-353-a">
+<p class="art-caput"><span class="art-num">Art. 353-A.</span> É assegurado a todo condômino, morador ou usuário do condomínio o direito de dirigir à Administração e, nas hipóteses em que a matéria for de sua competência, ao Conselho, petição de qualquer natureza, inclusive pedido de autorização, de esclarecimento, de providência ou outro pedido não expressamente previsto neste Regimento.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O exercício do direito de petição não poderá sujeitar o requerente a qualquer forma de retaliação, restrição indevida ou tratamento discriminatório.</p>
+</div>
+<div class="artigo" id="art-353-b">
+<p class="art-caput"><span class="art-num">Art. 353-B.</span> O órgão a quem for dirigida a petição tem o dever de apreciá-la e respondê-la de forma fundamentada, no prazo e na forma previstos nesta Seção, ainda que para indeferi-la ou para declarar sua incompetência para apreciá-la, hipótese em que a encaminhará ao órgão competente, dando ciência ao requerente.</p>
+</div>
+<div class="artigo" id="art-353-c">
+<p class="art-caput"><span class="art-num">Art. 353-C.</span> Salvo prazo diverso expressamente previsto neste Regimento, a petição será decidida no prazo de 15 (quinze) dias úteis, contado de seu recebimento.</p>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> O prazo poderá ser prorrogado uma única vez, por igual período, mediante decisão fundamentada, comunicada ao requerente antes do vencimento do prazo original.</p>
+</div>
+<div class="artigo" id="art-353-d">
+<p class="art-caput"><span class="art-num">Art. 353-D.</span> Vencido o prazo previsto no art. 353-C sem decisão fundamentada, a petição será automaticamente encaminhada à instância imediatamente superior, independentemente de requerimento do interessado, observada a seguinte ordem:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> tratando-se de petição dirigida à Administração, ao Conselho;</li>
+<li><span class="inc-num">II.</span> tratando-se de petição dirigida ao Conselho, ou de nova omissão verificada após o encaminhamento previsto no inciso I, à Assembleia Geral.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> O encaminhamento previsto no caput não prejudica a apreciação do mérito da petição pelo órgão para o qual for encaminhada, observados o mesmo prazo e procedimento previstos nesta Seção.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> A omissão do órgão originalmente competente não gera, em qualquer hipótese, decisão tácita favorável ou desfavorável ao requerente.</p>
+</div>
+<div class="artigo" id="art-353-e">
+<p class="art-caput"><span class="art-num">Art. 353-E.</span> A reiteração, por qualquer órgão da Governança Condominial, do descumprimento injustificado dos prazos previstos nesta Seção será registrada nos termos do art. 183 deste Regimento e comunicada à Assembleia Geral na primeira oportunidade, para fins de apuração da responsabilidade do agente e adoção das providências cabíveis, sem prejuízo das demais consequências previstas na legislação vigente, na Convenção Condominial e neste Regimento.</p>
+</div>
+<div class="artigo" id="art-353-f">
+<p class="art-caput"><span class="art-num">Art. 353-F.</span> Sem prejuízo do disposto no art. 353-E, o descumprimento de prazo previsto nesta Seção sujeitará o agente responsável às seguintes consequências:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> havendo remuneração prevista na Proposta Orçamentária Anual para o exercício do cargo, sua redução em 5% (cinco por cento) a cada prazo descumprido, incidente sobre a remuneração do mês em que se verificar o descumprimento, vedada a restituição do valor retido ainda que o prazo venha a ser cumprido posteriormente;</li>
+<li><span class="inc-num">II.</span> independentemente de remuneração, a cada 3 (três) prazos descumpridos registrados na forma do art. 353-E no período de 12 (doze) meses, a inclusão automática, na pauta da primeira Assembleia Geral seguinte, de deliberação sobre voto de desconfiança contra o agente responsável, nos termos do art. 53, § 2º deste Regimento.</li>
+</ol>
+<p class="paragrafo"><span class="par-num">§ 1º.</span> Ocorrendo mais de um descumprimento no mesmo mês, as reduções previstas no inciso I são cumulativas, limitadas ao valor integral da remuneração devida no mês.</p>
+<p class="paragrafo"><span class="par-num">§ 2º.</span> As consequências previstas neste artigo aplicam-se cumulativamente com as demais previstas na legislação vigente, na Convenção Condominial e neste Regimento.</p>
+<p class="paragrafo"><span class="par-num">§ 3º.</span> A retenção prevista no inciso I será destacada na prestação de contas correspondente, com indicação de sua causa.</p>
+</div>
+</section>
+<section class="nivel-subsecao" id="cap-8-sec-4-sub-2">
+<h4 class="titulo-subsecao">Subseção II — Do Procedimento de Apuração de Infrações</h4>
 <div class="artigo" id="art-354">
 <p class="art-caput"><span class="art-num">Art. 354.</span> A apuração das infrações administrativas observará, sem prejuízo dos princípios gerais previstos no art. 7º deste Regimento, procedimento administrativo destinado a assegurar a correta identificação dos fatos, a motivação das decisões, o contraditório, a ampla defesa, a imparcialidade do julgamento e o devido processo administrativo.</p>
 </div>
@@ -2541,6 +2719,13 @@
 <div class="artigo" id="art-358">
 <p class="art-caput"><span class="art-num">Art. 358.</span> Concluída a instrução, o Síndico notificará o interessado para, querendo, apresentar defesa escrita e produzir as provas admitidas neste Regimento, no prazo de 15 (quinze) dias, contado da notificação.</p>
 </div>
+<div class="artigo" id="art-358-a">
+<p class="art-caput"><span class="art-num">Art. 358-A.</span> Encerrado o prazo para apresentação de defesa, ou apresentada esta antes de seu termo, o Síndico decidirá no prazo previsto no art. 353-C, contado do encerramento da fase de defesa.</p>
+</div>
+<div class="artigo" id="art-358-b">
+<p class="art-caput"><span class="art-num">Art. 358-B.</span> Vencido o prazo previsto no art. 358-A sem decisão fundamentada, os autos serão encaminhados ao Conselho, que emitirá parecer opinativo no mesmo prazo, opinando pela procedência ou improcedência da infração.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> Emitido o parecer, ou vencido o prazo sem sua emissão, os autos serão encaminhados à Assembleia Geral, que decidirá a aplicação da penalidade como deliberação específica, na forma do art. 40, V, deste Regimento, servindo o parecer do Conselho, quando existente, de subsídio à decisão, sem caráter vinculante.</p>
+</div>
 <div class="artigo" id="art-359">
 <p class="art-caput"><span class="art-num">Art. 359.</span> Encerrada a fase de defesa, o Síndico decidirá, podendo:</p>
 <ol class="incisos">
@@ -2553,8 +2738,8 @@
 <p class="art-caput"><span class="art-num">Art. 360.</span> A decisão do Síndico deverá ser fundamentada e conter, no mínimo: I -- os fatos considerados comprovados; II -- a análise das alegações apresentadas pela defesa; III -- os fundamentos legais, convencionais e regimentais da decisão; IV -- a classificação da infração; V -- as circunstâncias agravantes ou atenuantes consideradas; e VI -- a penalidade aplicada.</p>
 </div>
 <div class="artigo" id="art-361">
-<p class="art-caput"><span class="art-num">Art. 361.</span> O Síndico comunicará ao Presidente do Conselho a multa aplicada no prazo de 5 (cinco) dias úteis, contado da decisão.</p>
-<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O descumprimento do prazo previsto no caput acarreta a nulidade da multa, assegurado ao condômino o ressarcimento dos valores eventualmente pagos, com a devida correção, sem prejuízo da revisão de ofício pelo Conselho, nos termos do inciso I do § 1º do art. 63, deste Regimento.</p>
+<p class="art-caput"><span class="art-num">Art. 361.</span> Independentemente da interposição de recurso pelo condômino, o Síndico comunicará ao Presidente do Conselho toda multa aplicada, no prazo de 5 (cinco) dias úteis, contado da decisão, para fins do controle de ofício previsto no art. 63, § 1º, I, deste Regimento.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> O descumprimento do prazo previsto no caput sujeita o Síndico às consequências previstas no art. 353-F, sem prejuízo da validade da multa aplicada.</p>
 </div>
 <div class="artigo" id="art-362">
 <p class="art-caput"><span class="art-num">Art. 362.</span> O membro do Conselho que possuir interesse direto ou indireto na matéria, vínculo de parentesco, relação profissional, conflito de interesses ou qualquer circunstância capaz de comprometer sua imparcialidade ficará impedido de participar da instrução, discussão e julgamento do procedimento, aplicando-se, no que couber, as regras de impedimento previstas neste Regimento.</p>
@@ -2566,6 +2751,7 @@
 <p class="art-caput"><span class="art-num">Art. 364.</span> Todos os procedimentos administrativos, decisões, recursos e documentos produzidos integrarão os registros administrativos do condomínio, observadas a legislação vigente, a proteção de dados pessoais, a confidencialidade legalmente exigida e o direito de acesso previsto neste Regimento.</p>
 </div>
 </section>
+</section>
 <section class="nivel-secao" id="cap-8-sec-5">
 <h3 class="titulo-secao">Seção V — Dos Recursos Administrativos</h3>
 <div class="artigo" id="art-365">
@@ -2573,7 +2759,7 @@
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> O recurso terá efeito suspensivo, salvo quando a decisão envolver medida urgente destinada à proteção da segurança das pessoas ou do patrimônio comum.</p>
 </div>
 <div class="artigo" id="art-366">
-<p class="art-caput"><span class="art-num">Art. 366.</span> <span class="origem-nota">[Ajuste de coerência com o caráter opinativo do Conselho (arts. 59 e 63) — identificado durante a consolidação, acatado]</span> O Conselho emitirá parecer sobre o recurso, sem caráter decisório, podendo recomendar:</p>
+<p class="art-caput"><span class="art-num">Art. 366.</span> O Conselho emitirá parecer sobre o recurso, sem caráter decisório, podendo recomendar:</p>
 <ol class="incisos">
 <li><span class="inc-num">I.</span> a manutenção da decisão recorrida;</li>
 <li><span class="inc-num">II.</span> sua reforma total ou parcial;</li>
@@ -2582,7 +2768,7 @@
 </ol>
 </div>
 <div class="artigo" id="art-367">
-<p class="art-caput"><span class="art-num">Art. 367.</span> <span class="origem-nota">[Ajuste de coerência com o caráter opinativo do Conselho (arts. 59 e 63) — identificado durante a consolidação, acatado]</span> Acolhida pelo Síndico a recomendação de reforma, de anulação ou de realização de nova instrução, a decisão será revista de ofício pela Administração, independentemente de novo recurso.</p>
+<p class="art-caput"><span class="art-num">Art. 367.</span> Acolhida pelo Síndico a recomendação de reforma, de anulação ou de realização de nova instrução, a decisão será revista de ofício pela Administração, independentemente de novo recurso.</p>
 <p class="paragrafo"><span class="par-num">Parágrafo único.</span> Não acolhida a recomendação, ou recomendada a manutenção da decisão recorrida, caberá recurso à Assembleia Geral, que decidirá em caráter definitivo, incluído na pauta da primeira Assembleia Geral que puder apreciá-lo, ordinária ou extraordinária, observado o disposto na Convenção Condominial.</p>
 </div>
 <div class="artigo" id="art-368">
@@ -2616,10 +2802,32 @@
 <p class="art-caput"><span class="art-num">Art. 376.</span> A Administração manterá registro atualizado das penalidades definitivamente aplicadas, exclusivamente para fins de controle administrativo, reincidência e cumprimento deste Regimento, observadas as normas relativas à proteção de dados pessoais e ao direito de acesso às informações.</p>
 </div>
 </section>
+<section class="nivel-secao" id="cap-8-sec-7">
+<h3 class="titulo-secao">Seção VII — Do Procedimento Administrativo Comum</h3>
+<div class="artigo" id="art-376-a">
+<p class="art-caput"><span class="art-num">Art. 376-A.</span> Esta Seção disciplina o procedimento aplicável às petições dirigidas à Administração ou ao Conselho que não tenham por objeto a apuração de infração administrativa, aplicando-se, no que couber, as disposições da Subseção I da Seção IV deste Capítulo.</p>
+</div>
+<div class="artigo" id="art-376-b">
+<p class="art-caput"><span class="art-num">Art. 376-B.</span> Constituem, entre outras, espécies de petição reguladas por esta Seção:</p>
+<ol class="incisos">
+<li><span class="inc-num">I.</span> pedido de autorização;</li>
+<li><span class="inc-num">II.</span> pedido de esclarecimento;</li>
+<li><span class="inc-num">III.</span> pedido de providência; e</li>
+<li><span class="inc-num">IV.</span> petição de objeto diverso não expressamente previsto neste Regimento.</li>
+</ol>
+</div>
+<div class="artigo" id="art-376-c">
+<p class="art-caput"><span class="art-num">Art. 376-C.</span> A petição indicará, sempre que possível, a identificação do requerente e da unidade, quando aplicável, a descrição objetiva do pedido, sua justificativa e os documentos disponíveis que o instruam.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A Administração ou o Conselho, conforme o caso, poderá solicitar ao requerente a complementação de informações indispensáveis à apreciação do pedido, hipótese em que o prazo previsto no art. 353-C ficará suspenso até o atendimento da solicitação ou o decurso de prazo razoável assinalado para tanto.</p>
+</div>
+<div class="artigo" id="art-376-d">
+<p class="art-caput"><span class="art-num">Art. 376-D.</span> O pedido de autorização para a realização de obra, reforma ou intervenção em unidade autônoma que envolva elemento estrutural, instalação técnica predial ou sistema de proteção contra incêndio, ou que possa afetar a segurança da edificação, as instalações comuns ou o funcionamento do condomínio, somente será considerado atendido mediante decisão expressa da Administração, vedada, em qualquer hipótese, decisão tácita.</p>
+</div>
+</section>
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
 <section class="nivel-capitulo" id="cap-9">
-<h2 class="titulo-capitulo">CAPÍTULO IX — DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS</h2>
+<h2 class="titulo-capitulo">Capítulo IX — DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS</h2>
 <div class="artigo" id="art-377">
 <p class="art-caput"><span class="art-num">Art. 377.</span> Este Regimento Interno complementa a Convenção Condominial, devendo suas disposições ser interpretadas de forma harmônica e sistemática, observadas a legislação vigente e os princípios da Governança Condominial.</p>
 </div>
@@ -2658,10 +2866,15 @@
 <div class="artigo" id="art-384">
 <p class="art-caput"><span class="art-num">Art. 384.</span> Este Regimento Interno entra em vigor na data de sua aprovação pela Assembleia Geral, revogadas as disposições em contrário.</p>
 </div>
+<div class="artigo" id="art-384-a">
+<p class="art-caput"><span class="art-num">Art. 384-A.</span> Os ocupantes atuais dos ganchos do bicicletário ficam automaticamente habilitados, dispensado o sorteio inicial de que trata o art. 286-C, desde que regularizem o cadastro exigido pelo art. 283 no prazo de 60 (sessenta) dias, contado da entrada em vigor deste artigo, sob pena de liberação do gancho para a lista de pedidos pendentes.</p>
+<p class="paragrafo"><span class="par-num">Parágrafo único.</span> A primeira deliberação de que trata o art. 286-G ocorrerá na Assembleia Geral Ordinária imediatamente subsequente à entrada em vigor deste artigo.</p>
+</div>
 <p class="voltar-indice"><a href="#indice">&#8593; Voltar ao índice</a></p>
 </section>
-
 </div>
+</div>
+
 
 <div class="flag-stripe"><div class="fg"></div><div class="fy"></div><div class="fb"></div></div>
 <script>
